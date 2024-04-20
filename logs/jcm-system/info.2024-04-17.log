@@ -1,0 +1,534 @@
+07:34:35.525 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+07:34:35.564 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+07:34:35.850 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+07:34:35.851 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+07:34:38.202 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+07:34:39.557 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+07:34:39.558 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+07:34:39.558 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+07:34:39.655 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+07:34:39.728 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+07:34:40.122 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+07:34:43.903 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+07:34:43.934 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+07:34:43.935 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+07:34:44.100 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+07:34:44.746 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 10.561 seconds (JVM running for 12.537)
+07:34:44.763 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+07:34:44.763 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+07:34:45.015 [RMI TCP Connection(5)-192.168.10.146] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:58:02.322 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+09:58:02.328 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+09:58:02.345 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+09:58:02.358 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+09:58:10.885 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+09:58:10.918 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+09:58:11.123 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+09:58:11.124 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+09:58:14.450 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+09:58:15.625 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+09:58:15.626 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+09:58:15.627 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+09:58:15.731 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+09:58:15.786 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+09:58:15.856 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+09:59:15.129 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+09:59:15.158 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+09:59:15.333 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+09:59:15.334 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+09:59:18.524 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+09:59:19.660 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+09:59:19.661 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+09:59:19.661 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+09:59:19.760 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+09:59:19.824 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+09:59:19.896 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+10:00:08.933 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+10:00:08.961 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+10:00:09.139 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:00:09.139 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:00:12.385 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+10:00:13.550 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+10:00:13.550 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+10:00:13.551 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+10:00:13.649 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+10:00:13.698 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+10:00:13.761 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+10:00:36.174 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+10:00:36.204 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+10:00:36.378 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:00:36.379 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:00:39.600 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+10:00:40.717 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+10:00:40.717 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+10:00:40.718 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+10:00:40.815 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+10:00:40.877 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+10:00:41.299 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+10:00:46.531 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+10:00:46.548 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:00:46.548 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:00:46.689 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+10:00:48.140 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 13.642 seconds (JVM running for 14.485)
+10:00:48.151 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+10:00:48.152 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+10:00:48.249 [RMI TCP Connection(3)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:01:42.462 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+10:01:42.468 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+10:01:42.487 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+10:01:42.493 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+10:01:51.414 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+10:01:51.443 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+10:01:51.620 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:01:51.620 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:01:54.841 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+10:01:55.980 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+10:01:55.981 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+10:01:55.981 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+10:01:56.080 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+10:01:56.139 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+10:01:56.516 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+10:02:01.788 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+10:02:01.803 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:02:01.804 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:02:01.940 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+10:02:03.395 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 13.735 seconds (JVM running for 14.88)
+10:02:03.406 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+10:02:03.406 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+10:02:04.392 [RMI TCP Connection(5)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:02:14.329 [http-nio-9201-exec-5] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 355 ms
+10:05:31.232 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+10:05:31.235 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+10:05:31.245 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+10:05:31.249 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+10:05:41.242 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+10:05:41.272 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+10:05:41.444 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:05:41.446 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:05:44.657 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+10:05:45.837 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+10:05:45.838 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+10:05:45.838 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+10:05:45.936 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+10:05:45.996 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+10:05:46.370 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+10:05:51.545 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+10:05:51.561 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:05:51.561 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:05:51.685 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+10:05:53.142 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 13.6 seconds (JVM running for 14.498)
+10:05:53.153 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+10:05:53.154 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+10:05:53.862 [RMI TCP Connection(5)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:06:50.961 [http-nio-9201-exec-9] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 254 ms
+10:09:46.068 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+10:09:46.071 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+10:09:46.082 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+10:09:46.087 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+10:09:56.115 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+10:09:56.144 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+10:09:56.328 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:09:56.329 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:09:59.474 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+10:10:00.630 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+10:10:00.631 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+10:10:00.631 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+10:10:00.731 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+10:10:00.792 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+10:10:01.161 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+10:10:06.602 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+10:10:06.619 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:10:06.619 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:10:06.700 [http-nio-9201-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:10:06.753 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+10:10:07.161 [http-nio-9201-exec-9] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 188 ms
+10:10:08.271 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 13.882 seconds (JVM running for 14.739)
+10:10:08.284 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+10:10:08.284 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+10:25:54.497 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+10:25:54.500 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+10:25:54.510 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+10:25:54.515 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+10:26:04.019 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+10:26:04.049 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+10:26:04.226 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:26:04.226 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:26:07.457 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+10:26:08.593 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+10:26:08.594 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+10:26:08.594 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+10:26:08.692 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+10:26:08.752 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+10:26:09.118 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+10:26:14.382 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+10:26:14.398 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:26:14.399 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:26:14.525 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+10:26:15.970 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 13.655 seconds (JVM running for 14.544)
+10:26:15.982 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+10:26:15.983 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+10:26:16.733 [RMI TCP Connection(4)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:26:43.135 [http-nio-9201-exec-9] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 196 ms
+10:29:52.722 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+10:29:52.744 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+10:29:52.765 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+10:29:52.783 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+10:30:00.991 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+10:30:01.024 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+10:30:01.214 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:30:01.215 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:30:04.436 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+10:30:05.551 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+10:30:05.552 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+10:30:05.553 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+10:30:05.652 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+10:30:05.709 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+10:30:06.071 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+10:30:11.300 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+10:30:11.318 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:30:11.318 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:30:11.455 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+10:30:12.925 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 13.597 seconds (JVM running for 14.495)
+10:30:12.936 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+10:30:12.937 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+10:30:14.124 [RMI TCP Connection(6)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:30:32.893 [http-nio-9201-exec-3] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 188 ms
+10:32:56.045 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+10:32:56.050 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+10:32:56.060 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+10:32:56.066 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+10:33:03.357 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+10:33:03.387 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+10:33:03.561 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:33:03.561 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:33:06.788 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+10:33:07.962 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+10:33:07.963 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+10:33:07.964 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+10:33:08.060 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+10:33:08.121 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+10:33:08.496 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+10:33:13.753 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+10:33:13.770 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+10:33:13.770 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+10:33:13.899 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+10:33:15.348 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 13.64 seconds (JVM running for 14.519)
+10:33:15.360 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+10:33:15.361 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+10:33:15.981 [RMI TCP Connection(7)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:34:23.383 [http-nio-9201-exec-9] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 197 ms
+11:07:53.473 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+11:07:53.477 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+11:07:53.495 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+11:07:53.507 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+11:08:05.876 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+11:08:05.910 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+11:08:06.131 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+11:08:06.131 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+11:08:10.199 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+11:08:12.254 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+11:08:12.256 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+11:08:12.256 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+11:08:12.401 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+11:08:12.538 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+11:08:13.275 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+11:08:18.833 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+11:08:18.851 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+11:08:18.851 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+11:08:18.988 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+11:08:20.449 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 16.298 seconds (JVM running for 17.31)
+11:08:20.462 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+11:08:20.462 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+11:08:21.408 [RMI TCP Connection(11)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+11:44:24.019 [http-nio-9201-exec-1] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 246 ms
+12:12:59.485 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+12:12:59.488 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+12:12:59.501 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+12:12:59.510 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+12:13:07.397 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+12:13:07.427 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+12:13:07.612 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+12:13:07.613 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+12:13:10.895 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+12:14:15.456 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+12:14:15.487 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+12:14:15.661 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+12:14:15.662 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+12:14:18.876 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+12:30:12.714 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+12:30:12.743 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+12:30:12.913 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+12:30:12.913 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+12:30:16.136 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+13:39:42.458 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+13:39:42.488 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+13:39:42.666 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+13:39:42.667 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+13:39:44.838 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+13:54:41.418 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+13:54:41.449 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+13:54:41.621 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+13:54:41.621 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+13:54:44.899 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+13:56:37.471 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+13:56:37.500 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+13:56:37.671 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+13:56:37.672 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+13:56:40.889 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+13:57:26.707 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+13:57:26.740 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+13:57:26.936 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+13:57:26.936 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+13:57:30.209 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+13:58:29.085 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+13:58:29.112 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+13:58:29.291 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+13:58:29.291 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+13:58:32.550 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+13:58:33.674 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+13:58:33.675 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+13:58:33.675 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+13:58:33.776 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+13:58:33.834 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+13:58:34.203 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+13:58:39.464 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+13:58:39.480 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+13:58:39.482 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+13:58:39.610 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+13:58:41.062 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 13.659 seconds (JVM running for 14.639)
+13:58:41.073 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+13:58:41.074 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+13:58:41.540 [RMI TCP Connection(3)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:58:58.443 [http-nio-9201-exec-1] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 212 ms
+14:02:38.599 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+14:02:38.603 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+14:02:38.613 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+14:02:38.619 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+14:02:46.635 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+14:02:46.664 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+14:02:46.837 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+14:02:46.837 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+14:02:50.077 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+14:02:51.285 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+14:02:51.286 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+14:02:51.286 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+14:02:51.386 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+14:02:51.447 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+14:02:51.815 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+14:02:57.098 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+14:02:57.115 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+14:02:57.115 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+14:02:57.256 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+14:02:58.720 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 13.753 seconds (JVM running for 14.714)
+14:02:58.731 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+14:02:58.732 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+14:02:59.251 [RMI TCP Connection(5)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:06:16.558 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+14:06:16.561 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+14:06:16.573 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+14:06:16.577 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+14:06:23.921 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+14:06:23.950 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+14:06:24.125 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+14:06:24.125 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+14:06:27.558 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+14:06:29.015 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+14:06:29.016 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+14:06:29.016 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+14:06:29.152 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+14:06:29.238 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+14:06:29.668 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+14:06:35.069 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+14:06:35.089 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+14:06:35.089 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+14:06:35.221 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+14:06:36.678 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 14.438 seconds (JVM running for 15.362)
+14:06:36.689 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+14:06:36.690 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+14:06:37.134 [RMI TCP Connection(6)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:07:16.537 [http-nio-9201-exec-1] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 206 ms
+14:32:11.397 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+14:32:11.400 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+14:32:11.410 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+14:32:11.415 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+14:32:19.187 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+14:32:19.218 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+14:32:19.397 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+14:32:19.397 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+14:32:22.682 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+14:32:23.870 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+14:32:23.871 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+14:32:23.871 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+14:32:23.975 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+14:32:24.041 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+14:32:24.408 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+14:32:29.685 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+14:32:29.702 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+14:32:29.702 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+14:32:29.839 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+14:32:31.295 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 13.889 seconds (JVM running for 14.867)
+14:32:31.314 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+14:32:31.314 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+14:32:32.288 [RMI TCP Connection(6)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:15:54.756 [http-nio-9201-exec-9] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 229 ms
+16:22:09.174 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+16:22:09.179 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+16:22:09.196 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+16:22:09.207 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+16:22:19.010 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+16:22:19.043 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+16:22:19.236 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+16:22:19.236 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+16:22:22.501 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+16:22:23.717 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+16:22:23.718 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+16:22:23.718 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+16:22:23.817 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+16:22:23.867 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+16:22:23.935 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+16:23:43.562 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+16:23:43.591 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+16:23:43.770 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+16:23:43.770 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+16:23:47.005 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+16:23:48.151 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+16:23:48.152 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+16:23:48.152 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+16:23:48.257 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+16:23:48.309 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+16:23:48.385 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+16:24:24.334 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+16:24:24.362 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+16:24:24.553 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+16:24:24.554 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+16:24:27.866 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+16:24:29.221 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+16:24:29.221 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+16:24:29.222 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+16:24:29.320 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+16:24:29.381 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+16:24:29.779 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+16:24:35.724 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+16:24:35.742 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+16:24:35.743 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+16:24:35.875 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+16:24:37.364 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 14.764 seconds (JVM running for 15.711)
+16:24:37.375 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+16:24:37.376 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+16:24:37.861 [RMI TCP Connection(8)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:26:07.343 [http-nio-9201-exec-3] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 203 ms
+16:48:11.492 [http-nio-9201-exec-1] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 113 ms
+18:50:03.324 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+18:50:03.329 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+18:50:03.349 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+18:50:03.362 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+18:50:12.702 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+18:50:12.734 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+18:50:12.927 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+18:50:12.927 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+18:50:16.220 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+18:50:17.726 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+18:50:17.727 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+18:50:17.727 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+18:50:17.845 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+18:50:17.918 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+18:50:18.340 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+18:50:22.210 [main] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+18:50:22.214 [main] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+18:50:22.216 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+18:53:15.877 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+18:53:15.912 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+18:53:16.123 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+18:53:16.123 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+18:53:19.514 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+18:53:21.034 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+18:53:21.035 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+18:53:21.035 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+18:53:21.145 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+18:53:21.203 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+18:53:21.596 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+18:53:25.242 [main] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+18:53:25.246 [main] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+18:53:25.248 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+19:03:31.738 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+19:03:31.767 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+19:03:31.944 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+19:03:31.944 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+19:03:35.224 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+19:03:36.557 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+19:03:36.557 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+19:03:36.558 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+19:03:36.656 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+19:03:36.716 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+19:03:37.096 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+19:03:40.568 [main] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+19:03:40.572 [main] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+19:03:40.574 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+19:05:33.401 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+19:05:33.430 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+19:05:33.604 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+19:05:33.604 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+19:05:36.837 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+19:05:38.155 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+19:05:38.156 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+19:05:38.156 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+19:05:38.260 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+19:05:38.321 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+19:05:38.686 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+19:05:42.100 [main] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+19:05:42.104 [main] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+19:05:42.105 [main] INFO  o.a.c.c.StandardService - [log,173] - Stopping service [Tomcat]
+20:03:08.824 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:03:08.854 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+20:03:09.030 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:03:09.031 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:03:12.254 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+20:03:52.395 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:03:52.423 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+20:03:52.602 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:03:52.603 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:03:55.819 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+20:03:57.021 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+20:03:57.022 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+20:03:57.022 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+20:03:57.121 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+20:03:57.178 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+20:03:57.550 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+20:04:02.838 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+20:04:02.854 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:04:02.854 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:04:02.990 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+20:04:04.436 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 13.936 seconds (JVM running for 15.031)
+20:04:04.447 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+20:04:04.447 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+20:04:04.909 [RMI TCP Connection(1)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:04:21.996 [http-nio-9201-exec-2] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 243 ms
+20:35:48.387 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+20:35:48.390 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+20:35:48.401 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2003] - {dataSource-1} closing ...
+20:35:48.410 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2075] - {dataSource-1} closed
+20:35:56.646 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:35:56.680 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+20:35:56.855 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:35:56.855 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:36:01.640 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+20:38:28.924 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+20:38:28.969 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+20:38:29.209 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:38:29.209 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:38:32.565 [main] INFO  c.j.s.JcmSystemApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+20:38:33.841 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Initializing ProtocolHandler ["http-nio-9201"]
+20:38:33.842 [main] INFO  o.a.c.c.StandardService - [log,173] - Starting service [Tomcat]
+20:38:33.843 [main] INFO  o.a.c.c.StandardEngine - [log,173] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+20:38:33.959 [main] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring embedded WebApplicationContext
+20:38:34.024 [main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - [dataSource,56] - Init DruidDataSource
+20:38:34.451 [main] INFO  c.a.d.p.DruidDataSource - [init,1010] - {dataSource-1} inited
+20:38:40.570 [main] INFO  o.a.c.h.Http11NioProtocol - [log,173] - Starting ProtocolHandler ["http-nio-9201"]
+20:38:40.591 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+20:38:40.591 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+20:38:40.725 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-system 192.168.74.1:9201 register finished
+20:38:42.240 [main] INFO  c.j.s.JcmSystemApplication - [logStarted,61] - Started JcmSystemApplication in 15.383 seconds (JVM running for 16.757)
+20:38:42.254 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system.yml, group=DEFAULT_GROUP
+20:38:42.254 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-system, group=DEFAULT_GROUP
+20:38:43.312 [RMI TCP Connection(6)-192.168.1.67] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+20:58:10.995 [http-nio-9201-exec-1] INFO  o.s.a.AbstractOpenApiResource - [getOpenApi,347] - Init duration for springdoc-openapi is: 258 ms

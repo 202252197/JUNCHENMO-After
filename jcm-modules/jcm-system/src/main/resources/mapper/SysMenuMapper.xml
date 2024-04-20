@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcm.system.mapper.SysPermissionMapper">
+
+
+<!--根据用户id查询权限列表-->
+    <select id="selectMenuPermsByUserId" parameterType="long" resultType="string">
+        SELECT
+            p.permission
+        FROM
+            sys_permission p
+                LEFT JOIN sys_role_permission rp ON p.id = rp.permission_id
+                LEFT JOIN sys_user_role ur ON rp.role_id = ur.role_id
+                LEFT JOIN sys_role r ON r.id = ur.role_id
+        WHERE
+            p.`status` = '0'
+          AND r.`status` = '0'
+          AND
+            ur.user_id = #{userid}
+    </select>
+
+<!--    查询全部路由列表-->
+    <select id="selectMenuTreeAll" resultType="sysPermission">
+        SELECT DISTINCT p.id,
+                        p.parent_id,
+                        p.name,
+                        p.path,
+                        p.component,
+                        p.component_name,
+                        p.visible,
+                        p.STATUS,
+                        ifnull(p.permission, '') AS permission,
+                        p.keep_alive,
+                        p.type,
+                        p.icon,
+                        p.sort,
+                        p.create_time
+        FROM sys_permission p
+        WHERE p.type IN (0, 1)
+          AND p.STATUS = 0
+        ORDER BY p.parent_id,
+                 p.sort
+    </select>
+
+
+    <select id="selectMenuTreeByUserId" parameterType="long" resultType="SysPermission">
+        SELECT DISTINCT p.id,
+                        p.parent_id,
+                        p.NAME,
+                        p.path,
+                        p.component,
+                        p.component_name,
+                        p.visible,
+                        p.STATUS,
+                        ifnull(p.permission, '') AS permission,
+                        p.keep_alive,
+                        p.type,
+                        p.icon,
+                        p.sort,
+                        p.create_time
+        FROM sys_permission p
+                 LEFT JOIN sys_role_permission rm ON p.id = rm.permission_id
+                 LEFT JOIN sys_user_role ur ON rm.role_id = ur.role_id
+                 LEFT JOIN sys_role r ON ur.role_id = r.id
+                 LEFT JOIN sys_user u ON ur.user_id = u.id
+        WHERE u.id = #{userId}
+          and p.type in (0, 1)
+          and p.status = 0
+          AND r.status = 0
+        ORDER BY p.parent_id,
+                 p.sort
+    </select>
+</mapper>

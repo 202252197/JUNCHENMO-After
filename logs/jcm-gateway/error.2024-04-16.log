@@ -1,0 +1,58 @@
+09:42:33.574 [reactor-http-nio-2] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/user/getInfo
+20:53:35.265 [reactor-http-nio-8] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+20:54:57.445 [reactor-http-nio-8] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+20:54:59.508 [reactor-http-nio-8] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+20:55:49.837 [reactor-http-nio-2] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+20:55:55.848 [reactor-http-nio-2] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+20:55:56.587 [reactor-http-nio-2] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+20:55:57.571 [reactor-http-nio-2] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+21:01:34.847 [reactor-http-nio-7] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+21:01:36.514 [reactor-http-nio-7] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+21:01:37.173 [reactor-http-nio-7] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+21:01:37.401 [reactor-http-nio-7] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+21:01:37.575 [reactor-http-nio-7] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+21:01:37.869 [reactor-http-nio-7] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/swagger-ui/index.html
+21:34:23.599 [main] ERROR o.s.b.SpringApplication - [reportFailure,818] - Application run failed
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.jcm.gateway.JcmGatewayApplication]; nested exception is java.lang.IllegalArgumentException: Unresolvable class definition for class [org.springdoc.core.conditions.MultipleOpenApiSupportCondition]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:612)
+	at org.springframework.context.annotation.ConfigurationClassParser.access$800(ConfigurationClassParser.java:110)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.lambda$processGroupImports$1(ConfigurationClassParser.java:815)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGroupingHandler.processGroupImports(ConfigurationClassParser.java:812)
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorHandler.process(ConfigurationClassParser.java:783)
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:192)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:756)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:572)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.jcm.gateway.JcmGatewayApplication.main(JcmGatewayApplication.java:17)
+Caused by: java.lang.IllegalArgumentException: Unresolvable class definition for class [org.springdoc.core.conditions.MultipleOpenApiSupportCondition]
+	at org.springframework.util.ClassUtils.resolveClassName(ClassUtils.java:338)
+	at org.springframework.context.annotation.ConditionEvaluator.getCondition(ConditionEvaluator.java:124)
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:96)
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:225)
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:602)
+	... 19 common frames omitted
+Caused by: java.lang.UnsupportedClassVersionError: org/springdoc/core/conditions/MultipleOpenApiSupportCondition has been compiled by a more recent version of the Java Runtime (class file version 61.0), this version of the Java Runtime only recognizes class file versions up to 55.0
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1016)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:174)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:800)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:698)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:621)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:579)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:398)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:291)
+	at org.springframework.util.ClassUtils.resolveClassName(ClassUtils.java:331)
+	... 23 common frames omitted
