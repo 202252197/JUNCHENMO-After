@@ -1,73 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.jcm.system.mapper.SysPermissionMapper">
+<mapper namespace="com.jcm.system.mapper.SysMenuMapper">
 
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jcm.system.domain.SysMenu">
+        <id column="menu_id" property="menuId" />
+        <result column="name" property="name" />
+        <result column="parent_id" property="parentId" />
+        <result column="sort" property="sort" />
+        <result column="path" property="path" />
+        <result column="component" property="component" />
+        <result column="component_name" property="componentName" />
+        <result column="is_frame" property="isFrame" />
+        <result column="permission" property="permission" />
+        <result column="type" property="type" />
+        <result column="icon" property="icon" />
+        <result column="status" property="status" />
+        <result column="visible" property="visible" />
+        <result column="keep_alive" property="keepAlive" />
+        <result column="remark" property="remark" />
+        <result column="creator" property="creator" />
+        <result column="create_time" property="createTime" />
+        <result column="updater" property="updater" />
+        <result column="update_time" property="updateTime" />
+        <result column="deleted" property="deleted" />
+    </resultMap>
 
-<!--根据用户id查询权限列表-->
-    <select id="selectMenuPermsByUserId" parameterType="long" resultType="string">
-        SELECT
-            p.permission
-        FROM
-            sys_permission p
-                LEFT JOIN sys_role_permission rp ON p.id = rp.permission_id
-                LEFT JOIN sys_user_role ur ON rp.role_id = ur.role_id
-                LEFT JOIN sys_role r ON r.id = ur.role_id
-        WHERE
-            p.`status` = '0'
-          AND r.`status` = '0'
-          AND
-            ur.user_id = #{userid}
-    </select>
-
-<!--    查询全部路由列表-->
-    <select id="selectMenuTreeAll" resultType="sysPermission">
-        SELECT DISTINCT p.id,
-                        p.parent_id,
-                        p.name,
-                        p.path,
-                        p.component,
-                        p.component_name,
-                        p.visible,
-                        p.STATUS,
-                        ifnull(p.permission, '') AS permission,
-                        p.keep_alive,
-                        p.type,
-                        p.icon,
-                        p.sort,
-                        p.create_time
-        FROM sys_permission p
-        WHERE p.type IN (0, 1)
-          AND p.STATUS = 0
-        ORDER BY p.parent_id,
-                 p.sort
-    </select>
-
-
-    <select id="selectMenuTreeByUserId" parameterType="long" resultType="SysPermission">
-        SELECT DISTINCT p.id,
-                        p.parent_id,
-                        p.NAME,
-                        p.path,
-                        p.component,
-                        p.component_name,
-                        p.visible,
-                        p.STATUS,
-                        ifnull(p.permission, '') AS permission,
-                        p.keep_alive,
-                        p.type,
-                        p.icon,
-                        p.sort,
-                        p.create_time
-        FROM sys_permission p
-                 LEFT JOIN sys_role_permission rm ON p.id = rm.permission_id
-                 LEFT JOIN sys_user_role ur ON rm.role_id = ur.role_id
-                 LEFT JOIN sys_role r ON ur.role_id = r.id
-                 LEFT JOIN sys_user u ON ur.user_id = u.id
-        WHERE u.id = #{userId}
-          and p.type in (0, 1)
-          and p.status = 0
-          AND r.status = 0
-        ORDER BY p.parent_id,
-                 p.sort
-    </select>
 </mapper>

@@ -1,4 +1,4 @@
-package com.jcm.system.api.domain;
+package com.jcm.system.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -18,7 +18,7 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class SysRole extends BaseEntity {
+public class SysRole extends BaseEntity{
 
     private static final long serialVersionUID = 1L;
 
@@ -48,7 +48,14 @@ public class SysRole extends BaseEntity {
      */
     private Integer status;
 
-    /** 菜单组 */
-    private Long[] menuIds;
+    public boolean isAdmin()
+    {
+        return isAdmin(this.roleId);
+    }
+
+    public static boolean isAdmin(Long roleId)
+    {
+        return roleId != null && 1L == roleId;
+    }
 
 }

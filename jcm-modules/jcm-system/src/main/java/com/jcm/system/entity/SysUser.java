@@ -1,4 +1,4 @@
-package com.jcm.system.api.domain;
+package com.jcm.system.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

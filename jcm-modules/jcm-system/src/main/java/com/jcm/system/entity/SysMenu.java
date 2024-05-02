@@ -1,4 +1,4 @@
-package com.jcm.system.api.domain;
+package com.jcm.system.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -20,7 +20,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class SysMenu extends BaseEntity {
+public class SysMenu extends BaseEntity  {
 
     private static final long serialVersionUID = 1L;
 
