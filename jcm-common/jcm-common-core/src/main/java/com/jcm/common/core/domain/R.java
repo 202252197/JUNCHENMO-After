@@ -1,6 +1,7 @@
 package com.jcm.common.core.domain;
 
 import com.jcm.common.core.constant.Constants;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
 
@@ -9,6 +10,9 @@ import java.io.Serializable;
  *
  * @author junchenmo
  */
+
+
+@Schema(description ="统一返回R对象")
 public class R<T> implements Serializable
 {
     private static final long serialVersionUID = 1L;
@@ -18,11 +22,12 @@ public class R<T> implements Serializable
 
     /** 失败 */
     public static final int FAIL = Constants.FAIL;
-
+    @Schema(description ="状态码")
     private int code;
-
+    @Schema(description ="信息")
     private String msg;
 
+    @Schema(description ="数据")
     private T data;
 
     public static <T> R<T> ok()

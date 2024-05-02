@@ -12,26 +12,11 @@ public class UserConstants
      */
     public static final String SYS_USER = "SYS_USER";
 
-    /** 正常状态 */
-    public static final String NORMAL = "0";
-
-    /** 异常状态 */
-    public static final String EXCEPTION = "1";
+    /** 用户正常状态 */
+    public static final String USER_NORMAL = "0";
 
     /** 用户封禁状态 */
     public static final String USER_DISABLE = "1";
-
-    /** 角色封禁状态 */
-    public static final String ROLE_DISABLE = "1";
-
-    /** 字典正常状态 */
-    public static final String DICT_NORMAL = "0";
-
-    /** 是否为系统默认（是） */
-    public static final String YES = "Y";
-
-    /** 是否菜单外链（否） */
-    public static final String NO_FRAME = "1";
 
     /** 菜单类型（目录） */
     public static final String TYPE_DIR = "0";

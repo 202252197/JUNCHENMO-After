@@ -1,7 +1,7 @@
-package com.junchenmo.system.mapper;
+package com.jcm.system.mapper;
 
-import com.junchenmo.system.domain.SysUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.jcm.system.entity.SysUser;
 
 /**
  * <p>
@@ -13,4 +13,11 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface SysUserMapper extends BaseMapper<SysUser> {
 
+    /**
+     * 通过用户ID删除用户和角色关联
+     *
+     * @param userId 用户ID
+     * @return 结果
+     */
+    void deleteUserRoleByUserId(Long userId);
 }

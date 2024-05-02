@@ -1,4 +1,4 @@
-package com.junchenmo.auth.form;
+package com.jcm.auth.form;
 
 /**
  * 用户登录对象

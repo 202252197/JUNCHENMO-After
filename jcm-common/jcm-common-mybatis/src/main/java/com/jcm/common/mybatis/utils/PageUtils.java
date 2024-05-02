@@ -1,4 +1,4 @@
-package com.jcm.common.core.utils;
+package com.jcm.common.mybatis.utils;
 
 import com.github.pagehelper.PageHelper;
 import com.jcm.common.core.utils.sql.SqlUtil;

@@ -1,8 +1,10 @@
-HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+hs_err_pid1732.log
+hs_err_pid22804.log
+logs
 
 ### STS ###
 .apt_generated

@@ -1,4 +1,4 @@
-package com.jcm.common.redis.sevice;
+package com.jcm.common.redis.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.data.redis.core.BoundSetOperations;
@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * spring redis 工具类
  * 
- * @author ruoyi
+ * @author lvshihao
  **/
 @Component
 @AllArgsConstructor

@@ -1,5 +1,7 @@
-package com.jcm.common.core.web.domain;
+package com.jcm.common.mybatis.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -18,19 +20,23 @@ public class BaseEntity implements Serializable
     private static final long serialVersionUID = 1L;
 
     /** 创建者 */
+    @TableField(value = "creator", fill = FieldFill.INSERT)
     private String creator;
 
     /** 创建时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
     /** 更新者 */
+    @TableField(value = "updater", fill = FieldFill.UPDATE)
     private String updater;
 
     /** 更新时间 */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
     /** 备注 */

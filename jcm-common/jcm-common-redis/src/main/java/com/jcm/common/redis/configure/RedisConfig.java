@@ -1,4 +1,4 @@
-package com.ruoyi.common.redis.configure;
+package com.jcm.common.redis.configure;
 
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;

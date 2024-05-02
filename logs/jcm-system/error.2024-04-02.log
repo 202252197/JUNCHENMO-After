@@ -523,7 +523,7 @@ Caused by: java.lang.ClassNotFoundException: Cannot find class: SysRole
 
 #mybatis-plusé…ç½®
 mybatis-plus:
-  typeAliasesPackage: com.jcm.system.domain
+  typeAliasesPackage: com.jcm.system.entity
   global-config:
     db-config:
       id-type: auto # Set ID type strategy according to your database
@@ -625,7 +625,7 @@ org.yaml.snakeyaml.parser.ParserException: expected '<document start>', but foun
 
 #mybatis-plusé…ç½®
 mybatis-plus:
-  typeAliasesPackage: com.jcm.system.domain
+  typeAliasesPackage: com.jcm.system.entity
   global-config:
     db-config:
       id-type: auto # Set ID type strategy according to your database
@@ -871,7 +871,7 @@ org.springframework.context.annotation.ConflictingBeanDefinitionException: Annot
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
 	at com.jcm.system.JcmSystemApplication.main(JcmSystemApplication.java:16)
 17:24:52.555 [main] ERROR c.a.c.n.c.NacosPropertySourceBuilder - [loadNacosData,104] - parse data from Nacos error,dataId:jcm-system-dev.yml,data:spring:
-# springÅäÖÃ
+# springï¿½ï¿½ï¿½ï¿½
   redis:
     host: localhost
     port: 6379
@@ -882,33 +882,33 @@ org.springframework.context.annotation.ConflictingBeanDefinitionException: Annot
       username: ${MYSQL_USERNAME:root}
       password: ${MYSQL_PASSWORD:lvshihao}
       driver-class-name: com.mysql.cj.jdbc.Driver
-      # ³õÊ¼»¯ÎïÀíÁ´½ÓµÄ¸öÊı
+      # ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ¸ï¿½ï¿½ï¿½
       initial-size: 5
-      # ×î´óÁ¬½Ó³ØÊıÁ¿
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½
       max-active: 30
-      # ×îĞ¡ Á¬½Ó³ØÊıÁ¿
+      # ï¿½ï¿½Ğ¡ ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½
       min-idle: 5
-      # »ñÈ¡Á¬½ÓÊ±×î´óµÈ´ıÊ±¼ä£¬µ¥Î»ºÁÃë timeoutÁ´½Ó³¬Ê±
+      # ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½È´ï¿½Ê±ï¿½ä£¬ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ timeoutï¿½ï¿½ï¿½Ó³ï¿½Ê±
       max-wait: 60000
-      # ÅäÖÃ¼ä¸ô¶à¾Ã²Å½øĞĞÒ»´Î¼ì²â£¬¼ì²âĞèÒª¹Ø±ÕµÄ¿ÕÏĞÁ¬½Ó£¬µ¥Î»ÊÇºÁÃë  ¼ì²â·ÇºËĞÄÁ´½ÓµÄÊ±¼ä
-      #¼È×÷Îª¼ì²âµÄ¼ä¸ôÊ±¼äÓÖ×÷ÎªtestWhileIdelÖ´ĞĞµÄÒÀ¾İ
+      # ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½Ã²Å½ï¿½ï¿½ï¿½Ò»ï¿½Î¼ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ø±ÕµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½Î»ï¿½Çºï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½Çºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ê±ï¿½ï¿½
+      #ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªtestWhileIdelÖ´ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½
       time-between-eviction-runs-millis: 60000
-      # Á¬½Ó±£³Ö¿ÕÏĞ¶ø²»±»ÇıÖğµÄ×îĞ¡Ê±¼ä
+      # ï¿½ï¿½ï¿½Ó±ï¿½ï¿½Ö¿ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¡Ê±ï¿½ï¿½
       min-evictable-idle-time-millis: 30000
-      # ÓÃÀ´¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§µÄsql£¬ÒªÇóÊÇÒ»¸ö²éÑ¯Óï¾ä  8Ğ¡Ê±ÎÊÌâ 8¸öĞ¡Ê±Ã»¸úmysqlÍ¨ĞÅmysql»áÖ÷¶¯¹Ø±Õ¸ÃÁ´½Ó
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½sqlï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½  8Ğ¡Ê±ï¿½ï¿½ï¿½ï¿½ 8ï¿½ï¿½Ğ¡Ê±Ã»ï¿½ï¿½mysqlÍ¨ï¿½ï¿½mysqlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±Õ¸ï¿½ï¿½ï¿½ï¿½ï¿½
       validation-query: SELECT 1 FROM DUAL
-      # ½¨ÒéÅäÖÃÎªtrue£¬²»Ó°ÏìĞÔÄÜ£¬²¢ÇÒ±£Ö¤°²È«ĞÔ¡£ÉêÇëÁ¬½ÓµÄÊ±ºò¼ì²â£¬
-      # Èç¹û¿ÕÏĞÊ±¼ä´óÓÚmin-evictable-idle-time-millis£¬Ö´ĞĞvalidationQuery¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§¡£
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªtrueï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½Ò±ï¿½Ö¤ï¿½ï¿½È«ï¿½Ô¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ê±ï¿½ï¿½ï¿½â£¬
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½min-evictable-idle-time-millisï¿½ï¿½Ö´ï¿½ï¿½validationQueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½
       test-while-idle: true
-      # ÉêÇëÁ¬½ÓÊ±Ö´ĞĞvalidationQuery¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§£¬×öÁËÕâ¸öÅäÖÃ»á½µµÍĞÔÄÜ¡£
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Ö´ï¿½ï¿½validationQueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»á½µï¿½ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½
       test-on-borrow: false
-      # ¹é»¹Á¬½ÓÊ±Ö´ĞĞvalidationQuery¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§£¬×öÁËÕâ¸öÅäÖÃ»á½µµÍĞÔÄÜ¡£
+      # ï¿½é»¹ï¿½ï¿½ï¿½ï¿½Ê±Ö´ï¿½ï¿½validationQueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»á½µï¿½ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½
       test-on-return: false
-      # ÊÇ·ñ»º´æpreparedStatement£¬Ò²¾ÍÊÇPSCache¡£PSCache¶ÔÖ§³ÖÓÎ±êµÄÊı¾İ¿âĞÔÄÜÌáÉı¾Ş´ó£¬
-      # ±ÈÈçËµoracle¡£ÔÚmysqlÏÂ½¨Òé¹Ø±Õ¡£²»ÊÇmysql¶Ë£¬Á´½Ó¶Ë£¬select * from student ²éÑ¯»º´æ
+      # ï¿½Ç·ñ»º´ï¿½preparedStatementï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½PSCacheï¿½ï¿½PSCacheï¿½ï¿½Ö§ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş´ï¿½
+      # ï¿½ï¿½ï¿½ï¿½Ëµoracleï¿½ï¿½ï¿½ï¿½mysqlï¿½Â½ï¿½ï¿½ï¿½Ø±Õ¡ï¿½ï¿½ï¿½ï¿½ï¿½mysqlï¿½Ë£ï¿½ï¿½ï¿½ï¿½Ó¶Ë£ï¿½select * from student ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
       pool-prepared-statements: true
-      #µ÷ÓÅÏà¹Ø£º»ù±¾ÉÏÈÎºÎÒ»¸öÏîÄ¿µÄĞÔÄÜÆ¿¾± 1.io 2.cpu¼ÆËãÁ¿
-      # ÅäÖÃ¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters£¬È¥µôºó¼à¿Ø½çÃæsqlÎŞ·¨Í³¼Æ
+      #ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ 1.io 2.cpuï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+      # ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½filtersï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½Ø½ï¿½ï¿½ï¿½sqlï¿½Ş·ï¿½Í³ï¿½ï¿½
       filter:
         slf4j:
           enabled: true
@@ -918,17 +918,17 @@ org.springframework.context.annotation.ConflictingBeanDefinitionException: Annot
           slow-sql-millis: 5000
         wall:
           enabled: true
-      #ÅäÖÃstat-view-servlet
+      #ï¿½ï¿½ï¿½ï¿½stat-view-servlet
       stat-view-servlet:
         enabled: true
         login-username: admin
         login-password: 123456
         reset-enable: false
-      #ÅäÖÃweb-stat-filter
+      #ï¿½ï¿½ï¿½ï¿½web-stat-filter
       web-stat-filter:
         enabled: true
 
-#mybatis-plusÅäÖÃ
+#mybatis-plusï¿½ï¿½ï¿½ï¿½
 mybatis-plus:
   typeAliasesPackage: com.jcm.system.**.domain
   global-config:
@@ -937,7 +937,7 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
       table-prefix: sys_ # Optional: Add prefix to generated tables (e.g., sys_)
-#mybatisÅäÖÃ
+#mybatisï¿½ï¿½ï¿½ï¿½
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 org.yaml.snakeyaml.error.YAMLException: java.nio.charset.MalformedInputException: Input length = 1
@@ -985,7 +985,7 @@ Caused by: java.nio.charset.MalformedInputException: Input length = 1
 	at org.yaml.snakeyaml.reader.StreamReader.update(StreamReader.java:183)
 	... 34 common frames omitted
 17:24:52.746 [main] ERROR c.a.c.n.c.NacosPropertySourceBuilder - [loadNacosData,104] - parse data from Nacos error,dataId:jcm-system-dev.yml,data:spring:
-# springÅäÖÃ
+# springï¿½ï¿½ï¿½ï¿½
   redis:
     host: localhost
     port: 6379
@@ -996,33 +996,33 @@ Caused by: java.nio.charset.MalformedInputException: Input length = 1
       username: ${MYSQL_USERNAME:root}
       password: ${MYSQL_PASSWORD:lvshihao}
       driver-class-name: com.mysql.cj.jdbc.Driver
-      # ³õÊ¼»¯ÎïÀíÁ´½ÓµÄ¸öÊı
+      # ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ¸ï¿½ï¿½ï¿½
       initial-size: 5
-      # ×î´óÁ¬½Ó³ØÊıÁ¿
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½
       max-active: 30
-      # ×îĞ¡ Á¬½Ó³ØÊıÁ¿
+      # ï¿½ï¿½Ğ¡ ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½
       min-idle: 5
-      # »ñÈ¡Á¬½ÓÊ±×î´óµÈ´ıÊ±¼ä£¬µ¥Î»ºÁÃë timeoutÁ´½Ó³¬Ê±
+      # ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½È´ï¿½Ê±ï¿½ä£¬ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ timeoutï¿½ï¿½ï¿½Ó³ï¿½Ê±
       max-wait: 60000
-      # ÅäÖÃ¼ä¸ô¶à¾Ã²Å½øĞĞÒ»´Î¼ì²â£¬¼ì²âĞèÒª¹Ø±ÕµÄ¿ÕÏĞÁ¬½Ó£¬µ¥Î»ÊÇºÁÃë  ¼ì²â·ÇºËĞÄÁ´½ÓµÄÊ±¼ä
-      #¼È×÷Îª¼ì²âµÄ¼ä¸ôÊ±¼äÓÖ×÷ÎªtestWhileIdelÖ´ĞĞµÄÒÀ¾İ
+      # ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½Ã²Å½ï¿½ï¿½ï¿½Ò»ï¿½Î¼ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ø±ÕµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½Î»ï¿½Çºï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½Çºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ê±ï¿½ï¿½
+      #ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªtestWhileIdelÖ´ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½
       time-between-eviction-runs-millis: 60000
-      # Á¬½Ó±£³Ö¿ÕÏĞ¶ø²»±»ÇıÖğµÄ×îĞ¡Ê±¼ä
+      # ï¿½ï¿½ï¿½Ó±ï¿½ï¿½Ö¿ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¡Ê±ï¿½ï¿½
       min-evictable-idle-time-millis: 30000
-      # ÓÃÀ´¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§µÄsql£¬ÒªÇóÊÇÒ»¸ö²éÑ¯Óï¾ä  8Ğ¡Ê±ÎÊÌâ 8¸öĞ¡Ê±Ã»¸úmysqlÍ¨ĞÅmysql»áÖ÷¶¯¹Ø±Õ¸ÃÁ´½Ó
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½sqlï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½  8Ğ¡Ê±ï¿½ï¿½ï¿½ï¿½ 8ï¿½ï¿½Ğ¡Ê±Ã»ï¿½ï¿½mysqlÍ¨ï¿½ï¿½mysqlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±Õ¸ï¿½ï¿½ï¿½ï¿½ï¿½
       validation-query: SELECT 1 FROM DUAL
-      # ½¨ÒéÅäÖÃÎªtrue£¬²»Ó°ÏìĞÔÄÜ£¬²¢ÇÒ±£Ö¤°²È«ĞÔ¡£ÉêÇëÁ¬½ÓµÄÊ±ºò¼ì²â£¬
-      # Èç¹û¿ÕÏĞÊ±¼ä´óÓÚmin-evictable-idle-time-millis£¬Ö´ĞĞvalidationQuery¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§¡£
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªtrueï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½Ò±ï¿½Ö¤ï¿½ï¿½È«ï¿½Ô¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ê±ï¿½ï¿½ï¿½â£¬
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½min-evictable-idle-time-millisï¿½ï¿½Ö´ï¿½ï¿½validationQueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½
       test-while-idle: true
-      # ÉêÇëÁ¬½ÓÊ±Ö´ĞĞvalidationQuery¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§£¬×öÁËÕâ¸öÅäÖÃ»á½µµÍĞÔÄÜ¡£
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Ö´ï¿½ï¿½validationQueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»á½µï¿½ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½
       test-on-borrow: false
-      # ¹é»¹Á¬½ÓÊ±Ö´ĞĞvalidationQuery¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§£¬×öÁËÕâ¸öÅäÖÃ»á½µµÍĞÔÄÜ¡£
+      # ï¿½é»¹ï¿½ï¿½ï¿½ï¿½Ê±Ö´ï¿½ï¿½validationQueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»á½µï¿½ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½
       test-on-return: false
-      # ÊÇ·ñ»º´æpreparedStatement£¬Ò²¾ÍÊÇPSCache¡£PSCache¶ÔÖ§³ÖÓÎ±êµÄÊı¾İ¿âĞÔÄÜÌáÉı¾Ş´ó£¬
-      # ±ÈÈçËµoracle¡£ÔÚmysqlÏÂ½¨Òé¹Ø±Õ¡£²»ÊÇmysql¶Ë£¬Á´½Ó¶Ë£¬select * from student ²éÑ¯»º´æ
+      # ï¿½Ç·ñ»º´ï¿½preparedStatementï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½PSCacheï¿½ï¿½PSCacheï¿½ï¿½Ö§ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş´ï¿½
+      # ï¿½ï¿½ï¿½ï¿½Ëµoracleï¿½ï¿½ï¿½ï¿½mysqlï¿½Â½ï¿½ï¿½ï¿½Ø±Õ¡ï¿½ï¿½ï¿½ï¿½ï¿½mysqlï¿½Ë£ï¿½ï¿½ï¿½ï¿½Ó¶Ë£ï¿½select * from student ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
       pool-prepared-statements: true
-      #µ÷ÓÅÏà¹Ø£º»ù±¾ÉÏÈÎºÎÒ»¸öÏîÄ¿µÄĞÔÄÜÆ¿¾± 1.io 2.cpu¼ÆËãÁ¿
-      # ÅäÖÃ¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters£¬È¥µôºó¼à¿Ø½çÃæsqlÎŞ·¨Í³¼Æ
+      #ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ 1.io 2.cpuï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+      # ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½filtersï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½Ø½ï¿½ï¿½ï¿½sqlï¿½Ş·ï¿½Í³ï¿½ï¿½
       filter:
         slf4j:
           enabled: true
@@ -1032,17 +1032,17 @@ Caused by: java.nio.charset.MalformedInputException: Input length = 1
           slow-sql-millis: 5000
         wall:
           enabled: true
-      #ÅäÖÃstat-view-servlet
+      #ï¿½ï¿½ï¿½ï¿½stat-view-servlet
       stat-view-servlet:
         enabled: true
         login-username: admin
         login-password: 123456
         reset-enable: false
-      #ÅäÖÃweb-stat-filter
+      #ï¿½ï¿½ï¿½ï¿½web-stat-filter
       web-stat-filter:
         enabled: true
 
-#mybatis-plusÅäÖÃ
+#mybatis-plusï¿½ï¿½ï¿½ï¿½
 mybatis-plus:
   typeAliasesPackage: com.jcm.system.**.domain
   global-config:
@@ -1051,7 +1051,7 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
       table-prefix: sys_ # Optional: Add prefix to generated tables (e.g., sys_)
-#mybatisÅäÖÃ
+#mybatisï¿½ï¿½ï¿½ï¿½
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 org.yaml.snakeyaml.error.YAMLException: java.nio.charset.MalformedInputException: Input length = 1
@@ -1419,7 +1419,7 @@ Caused by: java.lang.IllegalArgumentException: Pointcut is not well-formed: expe
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
 	... 57 common frames omitted
 17:28:52.274 [main] ERROR c.a.c.n.c.NacosPropertySourceBuilder - [loadNacosData,104] - parse data from Nacos error,dataId:jcm-system-dev.yml,data:spring:
-# springÅäÖÃ
+# springï¿½ï¿½ï¿½ï¿½
   redis:
     host: localhost
     port: 6379
@@ -1430,33 +1430,33 @@ Caused by: java.lang.IllegalArgumentException: Pointcut is not well-formed: expe
       username: ${MYSQL_USERNAME:root}
       password: ${MYSQL_PASSWORD:lvshihao}
       driver-class-name: com.mysql.cj.jdbc.Driver
-      # ³õÊ¼»¯ÎïÀíÁ´½ÓµÄ¸öÊı
+      # ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ¸ï¿½ï¿½ï¿½
       initial-size: 5
-      # ×î´óÁ¬½Ó³ØÊıÁ¿
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½
       max-active: 30
-      # ×îĞ¡ Á¬½Ó³ØÊıÁ¿
+      # ï¿½ï¿½Ğ¡ ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½
       min-idle: 5
-      # »ñÈ¡Á¬½ÓÊ±×î´óµÈ´ıÊ±¼ä£¬µ¥Î»ºÁÃë timeoutÁ´½Ó³¬Ê±
+      # ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½È´ï¿½Ê±ï¿½ä£¬ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ timeoutï¿½ï¿½ï¿½Ó³ï¿½Ê±
       max-wait: 60000
-      # ÅäÖÃ¼ä¸ô¶à¾Ã²Å½øĞĞÒ»´Î¼ì²â£¬¼ì²âĞèÒª¹Ø±ÕµÄ¿ÕÏĞÁ¬½Ó£¬µ¥Î»ÊÇºÁÃë  ¼ì²â·ÇºËĞÄÁ´½ÓµÄÊ±¼ä
-      #¼È×÷Îª¼ì²âµÄ¼ä¸ôÊ±¼äÓÖ×÷ÎªtestWhileIdelÖ´ĞĞµÄÒÀ¾İ
+      # ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½Ã²Å½ï¿½ï¿½ï¿½Ò»ï¿½Î¼ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ø±ÕµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½Î»ï¿½Çºï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½Çºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ê±ï¿½ï¿½
+      #ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªtestWhileIdelÖ´ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½
       time-between-eviction-runs-millis: 60000
-      # Á¬½Ó±£³Ö¿ÕÏĞ¶ø²»±»ÇıÖğµÄ×îĞ¡Ê±¼ä
+      # ï¿½ï¿½ï¿½Ó±ï¿½ï¿½Ö¿ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¡Ê±ï¿½ï¿½
       min-evictable-idle-time-millis: 30000
-      # ÓÃÀ´¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§µÄsql£¬ÒªÇóÊÇÒ»¸ö²éÑ¯Óï¾ä  8Ğ¡Ê±ÎÊÌâ 8¸öĞ¡Ê±Ã»¸úmysqlÍ¨ĞÅmysql»áÖ÷¶¯¹Ø±Õ¸ÃÁ´½Ó
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½sqlï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½  8Ğ¡Ê±ï¿½ï¿½ï¿½ï¿½ 8ï¿½ï¿½Ğ¡Ê±Ã»ï¿½ï¿½mysqlÍ¨ï¿½ï¿½mysqlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±Õ¸ï¿½ï¿½ï¿½ï¿½ï¿½
       validation-query: SELECT 1 FROM DUAL
-      # ½¨ÒéÅäÖÃÎªtrue£¬²»Ó°ÏìĞÔÄÜ£¬²¢ÇÒ±£Ö¤°²È«ĞÔ¡£ÉêÇëÁ¬½ÓµÄÊ±ºò¼ì²â£¬
-      # Èç¹û¿ÕÏĞÊ±¼ä´óÓÚmin-evictable-idle-time-millis£¬Ö´ĞĞvalidationQuery¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§¡£
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªtrueï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½Ò±ï¿½Ö¤ï¿½ï¿½È«ï¿½Ô¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ê±ï¿½ï¿½ï¿½â£¬
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½min-evictable-idle-time-millisï¿½ï¿½Ö´ï¿½ï¿½validationQueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½
       test-while-idle: true
-      # ÉêÇëÁ¬½ÓÊ±Ö´ĞĞvalidationQuery¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§£¬×öÁËÕâ¸öÅäÖÃ»á½µµÍĞÔÄÜ¡£
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Ö´ï¿½ï¿½validationQueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»á½µï¿½ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½
       test-on-borrow: false
-      # ¹é»¹Á¬½ÓÊ±Ö´ĞĞvalidationQuery¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§£¬×öÁËÕâ¸öÅäÖÃ»á½µµÍĞÔÄÜ¡£
+      # ï¿½é»¹ï¿½ï¿½ï¿½ï¿½Ê±Ö´ï¿½ï¿½validationQueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»á½µï¿½ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½
       test-on-return: false
-      # ÊÇ·ñ»º´æpreparedStatement£¬Ò²¾ÍÊÇPSCache¡£PSCache¶ÔÖ§³ÖÓÎ±êµÄÊı¾İ¿âĞÔÄÜÌáÉı¾Ş´ó£¬
-      # ±ÈÈçËµoracle¡£ÔÚmysqlÏÂ½¨Òé¹Ø±Õ¡£²»ÊÇmysql¶Ë£¬Á´½Ó¶Ë£¬select * from student ²éÑ¯»º´æ
+      # ï¿½Ç·ñ»º´ï¿½preparedStatementï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½PSCacheï¿½ï¿½PSCacheï¿½ï¿½Ö§ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş´ï¿½
+      # ï¿½ï¿½ï¿½ï¿½Ëµoracleï¿½ï¿½ï¿½ï¿½mysqlï¿½Â½ï¿½ï¿½ï¿½Ø±Õ¡ï¿½ï¿½ï¿½ï¿½ï¿½mysqlï¿½Ë£ï¿½ï¿½ï¿½ï¿½Ó¶Ë£ï¿½select * from student ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
       pool-prepared-statements: true
-      #µ÷ÓÅÏà¹Ø£º»ù±¾ÉÏÈÎºÎÒ»¸öÏîÄ¿µÄĞÔÄÜÆ¿¾± 1.io 2.cpu¼ÆËãÁ¿
-      # ÅäÖÃ¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters£¬È¥µôºó¼à¿Ø½çÃæsqlÎŞ·¨Í³¼Æ
+      #ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ 1.io 2.cpuï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+      # ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½filtersï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½Ø½ï¿½ï¿½ï¿½sqlï¿½Ş·ï¿½Í³ï¿½ï¿½
       filter:
         slf4j:
           enabled: true
@@ -1466,17 +1466,17 @@ Caused by: java.lang.IllegalArgumentException: Pointcut is not well-formed: expe
           slow-sql-millis: 5000
         wall:
           enabled: true
-      #ÅäÖÃstat-view-servlet
+      #ï¿½ï¿½ï¿½ï¿½stat-view-servlet
       stat-view-servlet:
         enabled: true
         login-username: admin
         login-password: 123456
         reset-enable: false
-      #ÅäÖÃweb-stat-filter
+      #ï¿½ï¿½ï¿½ï¿½web-stat-filter
       web-stat-filter:
         enabled: true
 
-#mybatis-plusÅäÖÃ
+#mybatis-plusï¿½ï¿½ï¿½ï¿½
 mybatis-plus:
   typeAliasesPackage: com.jcm.system.**.domain
   global-config:
@@ -1485,7 +1485,7 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
       table-prefix: sys_ # Optional: Add prefix to generated tables (e.g., sys_)
-#mybatisÅäÖÃ
+#mybatisï¿½ï¿½ï¿½ï¿½
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 org.yaml.snakeyaml.error.YAMLException: java.nio.charset.MalformedInputException: Input length = 1
@@ -1533,7 +1533,7 @@ Caused by: java.nio.charset.MalformedInputException: Input length = 1
 	at org.yaml.snakeyaml.reader.StreamReader.update(StreamReader.java:183)
 	... 34 common frames omitted
 17:28:52.467 [main] ERROR c.a.c.n.c.NacosPropertySourceBuilder - [loadNacosData,104] - parse data from Nacos error,dataId:jcm-system-dev.yml,data:spring:
-# springÅäÖÃ
+# springï¿½ï¿½ï¿½ï¿½
   redis:
     host: localhost
     port: 6379
@@ -1544,33 +1544,33 @@ Caused by: java.nio.charset.MalformedInputException: Input length = 1
       username: ${MYSQL_USERNAME:root}
       password: ${MYSQL_PASSWORD:lvshihao}
       driver-class-name: com.mysql.cj.jdbc.Driver
-      # ³õÊ¼»¯ÎïÀíÁ´½ÓµÄ¸öÊı
+      # ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ¸ï¿½ï¿½ï¿½
       initial-size: 5
-      # ×î´óÁ¬½Ó³ØÊıÁ¿
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½
       max-active: 30
-      # ×îĞ¡ Á¬½Ó³ØÊıÁ¿
+      # ï¿½ï¿½Ğ¡ ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½
       min-idle: 5
-      # »ñÈ¡Á¬½ÓÊ±×î´óµÈ´ıÊ±¼ä£¬µ¥Î»ºÁÃë timeoutÁ´½Ó³¬Ê±
+      # ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½È´ï¿½Ê±ï¿½ä£¬ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ timeoutï¿½ï¿½ï¿½Ó³ï¿½Ê±
       max-wait: 60000
-      # ÅäÖÃ¼ä¸ô¶à¾Ã²Å½øĞĞÒ»´Î¼ì²â£¬¼ì²âĞèÒª¹Ø±ÕµÄ¿ÕÏĞÁ¬½Ó£¬µ¥Î»ÊÇºÁÃë  ¼ì²â·ÇºËĞÄÁ´½ÓµÄÊ±¼ä
-      #¼È×÷Îª¼ì²âµÄ¼ä¸ôÊ±¼äÓÖ×÷ÎªtestWhileIdelÖ´ĞĞµÄÒÀ¾İ
+      # ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½Ã²Å½ï¿½ï¿½ï¿½Ò»ï¿½Î¼ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ø±ÕµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½Î»ï¿½Çºï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½Çºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ê±ï¿½ï¿½
+      #ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªtestWhileIdelÖ´ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½
       time-between-eviction-runs-millis: 60000
-      # Á¬½Ó±£³Ö¿ÕÏĞ¶ø²»±»ÇıÖğµÄ×îĞ¡Ê±¼ä
+      # ï¿½ï¿½ï¿½Ó±ï¿½ï¿½Ö¿ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¡Ê±ï¿½ï¿½
       min-evictable-idle-time-millis: 30000
-      # ÓÃÀ´¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§µÄsql£¬ÒªÇóÊÇÒ»¸ö²éÑ¯Óï¾ä  8Ğ¡Ê±ÎÊÌâ 8¸öĞ¡Ê±Ã»¸úmysqlÍ¨ĞÅmysql»áÖ÷¶¯¹Ø±Õ¸ÃÁ´½Ó
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½sqlï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½  8Ğ¡Ê±ï¿½ï¿½ï¿½ï¿½ 8ï¿½ï¿½Ğ¡Ê±Ã»ï¿½ï¿½mysqlÍ¨ï¿½ï¿½mysqlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±Õ¸ï¿½ï¿½ï¿½ï¿½ï¿½
       validation-query: SELECT 1 FROM DUAL
-      # ½¨ÒéÅäÖÃÎªtrue£¬²»Ó°ÏìĞÔÄÜ£¬²¢ÇÒ±£Ö¤°²È«ĞÔ¡£ÉêÇëÁ¬½ÓµÄÊ±ºò¼ì²â£¬
-      # Èç¹û¿ÕÏĞÊ±¼ä´óÓÚmin-evictable-idle-time-millis£¬Ö´ĞĞvalidationQuery¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§¡£
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªtrueï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½Ò±ï¿½Ö¤ï¿½ï¿½È«ï¿½Ô¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ê±ï¿½ï¿½ï¿½â£¬
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½min-evictable-idle-time-millisï¿½ï¿½Ö´ï¿½ï¿½validationQueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½
       test-while-idle: true
-      # ÉêÇëÁ¬½ÓÊ±Ö´ĞĞvalidationQuery¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§£¬×öÁËÕâ¸öÅäÖÃ»á½µµÍĞÔÄÜ¡£
+      # ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Ö´ï¿½ï¿½validationQueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»á½µï¿½ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½
       test-on-borrow: false
-      # ¹é»¹Á¬½ÓÊ±Ö´ĞĞvalidationQuery¼ì²âÁ¬½ÓÊÇ·ñÓĞĞ§£¬×öÁËÕâ¸öÅäÖÃ»á½µµÍĞÔÄÜ¡£
+      # ï¿½é»¹ï¿½ï¿½ï¿½ï¿½Ê±Ö´ï¿½ï¿½validationQueryï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»á½µï¿½ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½
       test-on-return: false
-      # ÊÇ·ñ»º´æpreparedStatement£¬Ò²¾ÍÊÇPSCache¡£PSCache¶ÔÖ§³ÖÓÎ±êµÄÊı¾İ¿âĞÔÄÜÌáÉı¾Ş´ó£¬
-      # ±ÈÈçËµoracle¡£ÔÚmysqlÏÂ½¨Òé¹Ø±Õ¡£²»ÊÇmysql¶Ë£¬Á´½Ó¶Ë£¬select * from student ²éÑ¯»º´æ
+      # ï¿½Ç·ñ»º´ï¿½preparedStatementï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½PSCacheï¿½ï¿½PSCacheï¿½ï¿½Ö§ï¿½ï¿½ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş´ï¿½
+      # ï¿½ï¿½ï¿½ï¿½Ëµoracleï¿½ï¿½ï¿½ï¿½mysqlï¿½Â½ï¿½ï¿½ï¿½Ø±Õ¡ï¿½ï¿½ï¿½ï¿½ï¿½mysqlï¿½Ë£ï¿½ï¿½ï¿½ï¿½Ó¶Ë£ï¿½select * from student ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
       pool-prepared-statements: true
-      #µ÷ÓÅÏà¹Ø£º»ù±¾ÉÏÈÎºÎÒ»¸öÏîÄ¿µÄĞÔÄÜÆ¿¾± 1.io 2.cpu¼ÆËãÁ¿
-      # ÅäÖÃ¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters£¬È¥µôºó¼à¿Ø½çÃæsqlÎŞ·¨Í³¼Æ
+      #ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ 1.io 2.cpuï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+      # ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½filtersï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½Ø½ï¿½ï¿½ï¿½sqlï¿½Ş·ï¿½Í³ï¿½ï¿½
       filter:
         slf4j:
           enabled: true
@@ -1580,17 +1580,17 @@ Caused by: java.nio.charset.MalformedInputException: Input length = 1
           slow-sql-millis: 5000
         wall:
           enabled: true
-      #ÅäÖÃstat-view-servlet
+      #ï¿½ï¿½ï¿½ï¿½stat-view-servlet
       stat-view-servlet:
         enabled: true
         login-username: admin
         login-password: 123456
         reset-enable: false
-      #ÅäÖÃweb-stat-filter
+      #ï¿½ï¿½ï¿½ï¿½web-stat-filter
       web-stat-filter:
         enabled: true
 
-#mybatis-plusÅäÖÃ
+#mybatis-plusï¿½ï¿½ï¿½ï¿½
 mybatis-plus:
   typeAliasesPackage: com.jcm.system.**.domain
   global-config:
@@ -1599,7 +1599,7 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
       table-prefix: sys_ # Optional: Add prefix to generated tables (e.g., sys_)
-#mybatisÅäÖÃ
+#mybatisï¿½ï¿½ï¿½ï¿½
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 org.yaml.snakeyaml.error.YAMLException: java.nio.charset.MalformedInputException: Input length = 1

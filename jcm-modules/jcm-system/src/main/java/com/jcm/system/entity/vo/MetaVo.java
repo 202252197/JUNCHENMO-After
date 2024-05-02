@@ -1,4 +1,4 @@
-package com.jcm.system.domain.vo;
+package com.jcm.system.entity.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

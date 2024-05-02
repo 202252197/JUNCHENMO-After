@@ -1,9 +1,12 @@
-package com.junchenmo.auth;
+package com.jcm.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@SpringBootApplication
+@EnableFeignClients("com.jcm.system.api")
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class JcmAuthApplication {
     public static void main(String[] args)
     {

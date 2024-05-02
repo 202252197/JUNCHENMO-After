@@ -2,10 +2,13 @@ package com.jcm.system.controller;
 
 
 import com.jcm.common.core.web.domain.AjaxResult;
+import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.utils.SecurityUtils;
-import com.jcm.system.api.domain.SysPermission;
-import com.jcm.system.service.ISysPermissionService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.jcm.system.entity.SysMenu;
+import com.jcm.system.service.ISysMenuService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,22 +25,25 @@ import static com.jcm.common.core.web.domain.AjaxResult.success;
  * @author 吕世昊
  * @since 2024-04-01
  */
+@Tag(name="菜单管理")
 @RestController
 @RequestMapping("/permission")
-public class SysPermissionController {
+@AllArgsConstructor
+public class SysMenuController {
 
-    @Autowired
-    private ISysPermissionService sysPermissionService;
+    private final ISysMenuService sysMenuService;
     /**
-     * 获取路由信息
+     * 获取前端菜单列表
      *
-     * @return 路由信息
+     * @return 菜单列表
      */
+    @Operation(summary = "获取菜单列表",description = "获取前端菜单列表")
     @GetMapping("getRouters")
+    @PrintParams
     public AjaxResult getRouters()
     {
         Long userId = SecurityUtils.getUserId();
-        List<SysPermission> menus = sysPermissionService.selectMenuTreeByUserId(userId);
-        return success(sysPermissionService.buildMenus(menus,null));
+        List<SysMenu> menus = sysMenuService.selectMenuTreeByUserId(userId);
+        return success(sysMenuService.buildMenus(menus,null));
     }
 }

@@ -40,8 +40,7 @@ public class PreAuthorizeAspect
      * 声明AOP签名
      */
     @Pointcut(POINTCUT_SIGN)
-    public void pointcut()
-    {
+    public void pointcut(){
     }
 
     /**

@@ -23,4 +23,6 @@ public interface SysUserRoleMapper extends BaseMapper<SysUserRole> {
      */
     public int batchUserRole(List<SysUserRole> userRoleList);
 
+
+
 }

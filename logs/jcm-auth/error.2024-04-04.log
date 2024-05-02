@@ -364,7 +364,7 @@ Caused by: java.lang.NoClassDefFoundError: com/jcm/common/security/auth/AuthUtil
 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
 	... 43 common frames omitted
-Caused by: java.lang.ClassNotFoundException: com.jcm.common.securitya.auth.AuthUtil
+Caused by: java.lang.ClassNotFoundException: com.jcm.common.security.auth.AuthUtil
 	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:581)
 	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
@@ -1504,9 +1504,9 @@ Caused by: java.lang.NoClassDefFoundError: com/jcm/common/security/auth/AuthUtil
 	... 43 common frames omitted
 20:24:18.892 [http-nio-9200-exec-1] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -1564,9 +1564,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:25:29.857 [http-nio-9200-exec-3] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -1624,9 +1624,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:29:28.132 [http-nio-9200-exec-7] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -1684,9 +1684,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:30:17.594 [http-nio-9200-exec-9] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -1744,9 +1744,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:30:23.712 [http-nio-9200-exec-10] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -1804,9 +1804,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:32:00.787 [http-nio-9200-exec-2] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -1864,9 +1864,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:37:27.450 [http-nio-9200-exec-1] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -1924,9 +1924,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:41:45.707 [http-nio-9200-exec-2] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -1984,9 +1984,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:42:29.179 [http-nio-9200-exec-1] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -2044,9 +2044,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:44:03.140 [http-nio-9200-exec-4] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -2104,9 +2104,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:47:54.450 [http-nio-9200-exec-6] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -2164,9 +2164,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:48:44.590 [http-nio-9200-exec-1] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -2224,9 +2224,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:48:54.459 [http-nio-9200-exec-3] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -2284,9 +2284,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:51:53.338 [http-nio-9200-exec-1] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -2344,9 +2344,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:59:51.907 [http-nio-9200-exec-1] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -2404,9 +2404,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:59:52.391 [http-nio-9200-exec-2] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -2464,9 +2464,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:59:53.961 [http-nio-9200-exec-3] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -2524,9 +2524,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:59:54.767 [http-nio-9200-exec-4] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -2584,9 +2584,9 @@ java.lang.NullPointerException: null
 	at java.base/java.lang.Thread.run(Thread.java:834)
 20:59:55.697 [http-nio-9200-exec-5] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/logout',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.common.securitya.service.TokenService.delLoginUser(TokenService.java:138)
-	at com.jcm.common.securitya.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
-	at com.jcm.common.securitya.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
+	at com.jcm.common.security.service.TokenService.delLoginUser(TokenService.java:138)
+	at com.jcm.common.security.auth.AuthLogic.logoutByToken(AuthLogic.java:54)
+	at com.jcm.common.security.auth.AuthUtil.logoutByToken(AuthUtil.java:35)
 	at com.jcm.auth.controller.TokenController.logout(TokenController.java:46)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -2704,6 +2704,6 @@ Caused by: java.lang.ExceptionInInitializerError: null
 	... 43 common frames omitted
 Caused by: java.lang.NullPointerException: null
 	at com.jcm.common.core.utils.SpringUtils.getBean(SpringUtils.java:51)
-	at com.jcm.common.securitya.auth.AuthLogic.<init>(AuthLogic.java:35)
-	at com.jcm.common.securitya.auth.AuthUtil.<clinit>(AuthUtil.java:18)
+	at com.jcm.common.security.auth.AuthLogic.<init>(AuthLogic.java:35)
+	at com.jcm.common.security.auth.AuthUtil.<clinit>(AuthUtil.java:18)
 	... 55 common frames omitted

@@ -743,7 +743,7 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:710)
 	... 34 common frames omitted
 14:33:53.366 [http-nio-9201-exec-1] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/info/admin',发生未知异常.
-java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.jcm.system.mapper.SysPermissionMapper.SysPermission
+java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.jcm.system.mapper.SysMenuMapper.SysPermission
 	at com.baomidou.mybatisplus.core.MybatisConfiguration$StrictMap.get(MybatisConfiguration.java:452)
 	at com.baomidou.mybatisplus.core.MybatisConfiguration.getResultMap(MybatisConfiguration.java:291)
 	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:321)
@@ -863,7 +863,7 @@ java.lang.IllegalArgumentException: Result Maps collection does not contain valu
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 14:34:24.334 [http-nio-9201-exec-2] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/info/admin',发生未知异常.
-java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.jcm.system.mapper.SysPermissionMapper.SysPermission
+java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.jcm.system.mapper.SysMenuMapper.SysPermission
 	at com.baomidou.mybatisplus.core.MybatisConfiguration$StrictMap.get(MybatisConfiguration.java:452)
 	at com.baomidou.mybatisplus.core.MybatisConfiguration.getResultMap(MybatisConfiguration.java:291)
 	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:321)
@@ -983,7 +983,7 @@ java.lang.IllegalArgumentException: Result Maps collection does not contain valu
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 14:35:01.539 [http-nio-9201-exec-3] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/info/admin',发生未知异常.
-java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.jcm.system.mapper.SysPermissionMapper.SysPermission
+java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.jcm.system.mapper.SysMenuMapper.SysPermission
 	at com.baomidou.mybatisplus.core.MybatisConfiguration$StrictMap.get(MybatisConfiguration.java:452)
 	at com.baomidou.mybatisplus.core.MybatisConfiguration.getResultMap(MybatisConfiguration.java:291)
 	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:321)
@@ -1103,7 +1103,7 @@ java.lang.IllegalArgumentException: Result Maps collection does not contain valu
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 14:46:34.764 [http-nio-9201-exec-1] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/info/admin',发生未知异常.
-java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.jcm.system.mapper.SysPermissionMapper.SysPermission
+java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.jcm.system.mapper.SysMenuMapper.SysPermission
 	at com.baomidou.mybatisplus.core.MybatisConfiguration$StrictMap.get(MybatisConfiguration.java:452)
 	at com.baomidou.mybatisplus.core.MybatisConfiguration.getResultMap(MybatisConfiguration.java:291)
 	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:321)
@@ -1223,7 +1223,7 @@ java.lang.IllegalArgumentException: Result Maps collection does not contain valu
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 14:48:36.686 [http-nio-9201-exec-1] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/info/admin',发生未知异常.
-java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.jcm.system.mapper.SysPermissionMapper.SysPermission
+java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.jcm.system.mapper.SysMenuMapper.SysPermission
 	at com.baomidou.mybatisplus.core.MybatisConfiguration$StrictMap.get(MybatisConfiguration.java:452)
 	at com.baomidou.mybatisplus.core.MybatisConfiguration.getResultMap(MybatisConfiguration.java:291)
 	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:321)
@@ -1343,7 +1343,7 @@ java.lang.IllegalArgumentException: Result Maps collection does not contain valu
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 14:51:20.095 [http-nio-9201-exec-2] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/info/admin',发生未知异常.
-java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.jcm.system.mapper.SysPermissionMapper.SysPermission
+java.lang.IllegalArgumentException: Result Maps collection does not contain value for com.jcm.system.mapper.SysMenuMapper.SysPermission
 	at com.baomidou.mybatisplus.core.MybatisConfiguration$StrictMap.get(MybatisConfiguration.java:452)
 	at com.baomidou.mybatisplus.core.MybatisConfiguration.getResultMap(MybatisConfiguration.java:291)
 	at org.apache.ibatis.builder.MapperBuilderAssistant.getStatementResultMaps(MapperBuilderAssistant.java:321)

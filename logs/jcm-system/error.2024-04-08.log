@@ -432,7 +432,7 @@ Caused by: java.lang.IllegalArgumentException: error Type referred to is not an 
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
 	... 57 common frames omitted
 17:28:27.791 [http-nio-9201-exec-2] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/list',发生未知异常.
-org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.jcm.common.core.web.page.TableDataInfo com.jcm.system.controller.SysUserController.list(com.jcm.system.api.domain.SysUser)
+org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.jcm.common.core.web.page.TableDataInfo com.jcm.system.controller.SysUserController.list(com.jcm.system.api.domain.User)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:163)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:133)
 	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
@@ -490,7 +490,7 @@ org.springframework.http.converter.HttpMessageNotReadableException: Required req
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 17:28:29.644 [http-nio-9201-exec-4] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/list',发生未知异常.
-org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.jcm.common.core.web.page.TableDataInfo com.jcm.system.controller.SysUserController.list(com.jcm.system.api.domain.SysUser)
+org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.jcm.common.core.web.page.TableDataInfo com.jcm.system.controller.SysUserController.list(com.jcm.system.api.domain.User)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:163)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:133)
 	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
@@ -548,7 +548,7 @@ org.springframework.http.converter.HttpMessageNotReadableException: Required req
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 17:28:32.557 [http-nio-9201-exec-6] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/list',发生未知异常.
-org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.jcm.common.core.web.page.TableDataInfo com.jcm.system.controller.SysUserController.list(com.jcm.system.api.domain.SysUser)
+org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.jcm.common.core.web.page.TableDataInfo com.jcm.system.controller.SysUserController.list(com.jcm.system.api.domain.User)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:163)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:133)
 	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
@@ -606,7 +606,7 @@ org.springframework.http.converter.HttpMessageNotReadableException: Required req
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 17:28:34.816 [http-nio-9201-exec-8] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/list',发生未知异常.
-org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.jcm.common.core.web.page.TableDataInfo com.jcm.system.controller.SysUserController.list(com.jcm.system.api.domain.SysUser)
+org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.jcm.common.core.web.page.TableDataInfo com.jcm.system.controller.SysUserController.list(com.jcm.system.api.domain.User)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:163)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:133)
 	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
@@ -664,7 +664,7 @@ org.springframework.http.converter.HttpMessageNotReadableException: Required req
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 17:28:36.363 [http-nio-9201-exec-1] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/list',发生未知异常.
-org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.jcm.common.core.web.page.TableDataInfo com.jcm.system.controller.SysUserController.list(com.jcm.system.api.domain.SysUser)
+org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.jcm.common.core.web.page.TableDataInfo com.jcm.system.controller.SysUserController.list(com.jcm.system.api.domain.User)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:163)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:133)
 	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
@@ -722,7 +722,7 @@ org.springframework.http.converter.HttpMessageNotReadableException: Required req
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 17:28:43.850 [http-nio-9201-exec-3] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/list',发生未知异常.
-org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.jcm.common.core.web.page.TableDataInfo com.jcm.system.controller.SysUserController.list(com.jcm.system.api.domain.SysUser)
+org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public com.jcm.common.core.web.page.TableDataInfo com.jcm.system.controller.SysUserController.list(com.jcm.system.api.domain.User)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.readWithMessageConverters(RequestResponseBodyMethodProcessor.java:163)
 	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:133)
 	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
@@ -1963,7 +1963,7 @@ org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'applic
 	at java.base/java.lang.Thread.run(Thread.java:834)
 18:57:18.761 [http-nio-9201-exec-4] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/list',发生未知异常.
 org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`)
- at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.SysUser["username"])
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.User["username"])
 	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:391)
 	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:343)
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:185)
@@ -2024,7 +2024,7 @@ org.springframework.http.converter.HttpMessageNotReadableException: JSON parse e
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`)
- at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.SysUser["username"])
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.User["username"])
 	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
 	at com.fasterxml.jackson.databind.DeserializationContext.reportInputMismatch(DeserializationContext.java:1741)
 	at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1515)
@@ -2042,7 +2042,7 @@ Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot d
 	... 58 common frames omitted
 18:57:19.649 [http-nio-9201-exec-6] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/list',发生未知异常.
 org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`)
- at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.SysUser["username"])
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.User["username"])
 	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:391)
 	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:343)
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:185)
@@ -2103,7 +2103,7 @@ org.springframework.http.converter.HttpMessageNotReadableException: JSON parse e
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`)
- at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.SysUser["username"])
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.User["username"])
 	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
 	at com.fasterxml.jackson.databind.DeserializationContext.reportInputMismatch(DeserializationContext.java:1741)
 	at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1515)
@@ -2121,7 +2121,7 @@ Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot d
 	... 58 common frames omitted
 18:57:28.107 [http-nio-9201-exec-10] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/list',发生未知异常.
 org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`)
- at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.SysUser["username"])
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.User["username"])
 	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:391)
 	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:343)
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:185)
@@ -2182,7 +2182,7 @@ org.springframework.http.converter.HttpMessageNotReadableException: JSON parse e
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`)
- at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.SysUser["username"])
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.User["username"])
 	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
 	at com.fasterxml.jackson.databind.DeserializationContext.reportInputMismatch(DeserializationContext.java:1741)
 	at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1515)
@@ -2200,7 +2200,7 @@ Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot d
 	... 58 common frames omitted
 18:57:29.464 [http-nio-9201-exec-3] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/list',发生未知异常.
 org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`)
- at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.SysUser["username"])
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.User["username"])
 	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.readJavaType(AbstractJackson2HttpMessageConverter.java:391)
 	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.read(AbstractJackson2HttpMessageConverter.java:343)
 	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodArgumentResolver.readWithMessageConverters(AbstractMessageConverterMethodArgumentResolver.java:185)
@@ -2261,7 +2261,7 @@ org.springframework.http.converter.HttpMessageNotReadableException: JSON parse e
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 Caused by: com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`)
- at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.SysUser["username"])
+ at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 13] (through reference chain: com.jcm.system.api.domain.User["username"])
 	at com.fasterxml.jackson.databind.exc.MismatchedInputException.from(MismatchedInputException.java:59)
 	at com.fasterxml.jackson.databind.DeserializationContext.reportInputMismatch(DeserializationContext.java:1741)
 	at com.fasterxml.jackson.databind.DeserializationContext.handleUnexpectedToken(DeserializationContext.java:1515)

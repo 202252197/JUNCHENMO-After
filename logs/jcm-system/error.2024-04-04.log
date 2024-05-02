@@ -1,12 +1,12 @@
 16:01:20.434 [http-nio-9201-exec-1] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/user/getInfo',发生未知异常.
 java.lang.NullPointerException: null
-	at com.jcm.system.service.impl.SysPermissionServiceImpl.getRolePermission(SysPermissionServiceImpl.java:42)
-	at com.jcm.system.service.impl.SysPermissionServiceImpl$$FastClassBySpringCGLIB$$a54cf4b6.invoke(<generated>)
+	at com.jcm.system.service.impl.SysMenuServiceImpl.getRolePermission(SysPermissionServiceImpl.java:42)
+	at com.jcm.system.service.impl.SysMenuServiceImpl$$FastClassBySpringCGLIB$$a54cf4b6.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
 	at org.springframework.aop.framework.CglibAopProxy.invokeMethod(CglibAopProxy.java:386)
 	at org.springframework.aop.framework.CglibAopProxy.access$000(CglibAopProxy.java:85)
 	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
-	at com.jcm.system.service.impl.SysPermissionServiceImpl$$EnhancerBySpringCGLIB$$259d001a.getRolePermission(<generated>)
+	at com.jcm.system.service.impl.SysMenuServiceImpl$$EnhancerBySpringCGLIB$$259d001a.getRolePermission(<generated>)
 	at com.jcm.system.controller.SysUserController.getInfo(SysUserController.java:69)
 	at com.jcm.system.controller.SysUserController$$FastClassBySpringCGLIB$$74f6555a.invoke(<generated>)
 	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
@@ -125,17 +125,17 @@ org.springframework.web.util.NestedServletException: Handler dispatch failed; ne
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 Caused by: java.lang.ExceptionInInitializerError: null
-	at com.jcm.common.securitya.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:39)
+	at com.jcm.common.security.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:39)
 	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
 	... 46 common frames omitted
 Caused by: java.lang.NullPointerException: null
 	at com.jcm.common.core.utils.SpringUtils.getBean(SpringUtils.java:51)
-	at com.jcm.common.securitya.auth.AuthLogic.<init>(AuthLogic.java:35)
-	at com.jcm.common.securitya.auth.AuthUtil.<clinit>(AuthUtil.java:18)
+	at com.jcm.common.security.auth.AuthLogic.<init>(AuthLogic.java:35)
+	at com.jcm.common.security.auth.AuthUtil.<clinit>(AuthUtil.java:18)
 	... 49 common frames omitted
 16:15:43.078 [http-nio-9201-exec-7] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleException,117] - 请求地址'/user/getInfo',发生系统异常.
-org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.securitya.auth.AuthUtil
+org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.security.auth.AuthUtil
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
@@ -183,8 +183,8 @@ org.springframework.web.util.NestedServletException: Handler dispatch failed; ne
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.securitya.auth.AuthUtil
-	at com.jcm.common.securitya.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:39)
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.security.auth.AuthUtil
+	at com.jcm.common.security.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:39)
 	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
 	... 46 common frames omitted
@@ -238,14 +238,14 @@ org.springframework.web.util.NestedServletException: Handler dispatch failed; ne
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 Caused by: java.lang.ExceptionInInitializerError: null
-	at com.jcm.common.securitya.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
+	at com.jcm.common.security.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
 	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
 	... 46 common frames omitted
 Caused by: java.lang.NullPointerException: null
 	at com.jcm.common.core.utils.SpringUtils.getBean(SpringUtils.java:51)
-	at com.jcm.common.securitya.auth.AuthLogic.<init>(AuthLogic.java:35)
-	at com.jcm.common.securitya.auth.AuthUtil.<clinit>(AuthUtil.java:18)
+	at com.jcm.common.security.auth.AuthLogic.<init>(AuthLogic.java:35)
+	at com.jcm.common.security.auth.AuthUtil.<clinit>(AuthUtil.java:18)
 	... 49 common frames omitted
 16:31:49.983 [http-nio-9201-exec-1] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleException,117] - 请求地址'/user/getInfo',发生系统异常.
 org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.ExceptionInInitializerError
@@ -297,17 +297,17 @@ org.springframework.web.util.NestedServletException: Handler dispatch failed; ne
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 Caused by: java.lang.ExceptionInInitializerError: null
-	at com.jcm.common.securitya.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
+	at com.jcm.common.security.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
 	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
 	... 46 common frames omitted
 Caused by: java.lang.NullPointerException: null
 	at com.jcm.common.core.utils.SpringUtils.getBean(SpringUtils.java:51)
-	at com.jcm.common.securitya.auth.AuthLogic.<init>(AuthLogic.java:35)
-	at com.jcm.common.securitya.auth.AuthUtil.<clinit>(AuthUtil.java:18)
+	at com.jcm.common.security.auth.AuthLogic.<init>(AuthLogic.java:35)
+	at com.jcm.common.security.auth.AuthUtil.<clinit>(AuthUtil.java:18)
 	... 49 common frames omitted
 16:41:12.987 [http-nio-9201-exec-3] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleException,117] - 请求地址'/user/getInfo',发生系统异常.
-org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.securitya.auth.AuthUtil
+org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.security.auth.AuthUtil
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
@@ -355,13 +355,13 @@ org.springframework.web.util.NestedServletException: Handler dispatch failed; ne
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.securitya.auth.AuthUtil
-	at com.jcm.common.securitya.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.security.auth.AuthUtil
+	at com.jcm.common.security.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
 	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
 	... 46 common frames omitted
 16:50:56.239 [http-nio-9201-exec-5] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleException,117] - 请求地址'/error',发生系统异常.
-org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.securitya.auth.AuthUtil
+org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.security.auth.AuthUtil
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
@@ -400,8 +400,8 @@ org.springframework.web.util.NestedServletException: Handler dispatch failed; ne
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.securitya.auth.AuthUtil
-	at com.jcm.common.securitya.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.security.auth.AuthUtil
+	at com.jcm.common.security.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
 	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
 	... 37 common frames omitted
@@ -446,17 +446,17 @@ org.springframework.web.util.NestedServletException: Handler dispatch failed; ne
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 Caused by: java.lang.ExceptionInInitializerError: null
-	at com.jcm.common.securitya.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
+	at com.jcm.common.security.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
 	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
 	... 37 common frames omitted
 Caused by: java.lang.NullPointerException: null
 	at com.jcm.common.core.utils.SpringUtils.getBean(SpringUtils.java:51)
-	at com.jcm.common.securitya.auth.AuthLogic.<init>(AuthLogic.java:35)
-	at com.jcm.common.securitya.auth.AuthUtil.<clinit>(AuthUtil.java:18)
+	at com.jcm.common.security.auth.AuthLogic.<init>(AuthLogic.java:35)
+	at com.jcm.common.security.auth.AuthUtil.<clinit>(AuthUtil.java:18)
 	... 40 common frames omitted
 17:00:55.212 [http-nio-9201-exec-3] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleException,117] - 请求地址'/error',发生系统异常.
-org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.securitya.auth.AuthUtil
+org.springframework.web.util.NestedServletException: Handler dispatch failed; nested exception is java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.security.auth.AuthUtil
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1087)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
@@ -495,8 +495,8 @@ org.springframework.web.util.NestedServletException: Handler dispatch failed; ne
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.securitya.auth.AuthUtil
-	at com.jcm.common.securitya.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
+Caused by: java.lang.NoClassDefFoundError: Could not initialize class com.jcm.common.security.auth.AuthUtil
+	at com.jcm.common.security.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
 	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
 	... 37 common frames omitted
@@ -541,14 +541,14 @@ org.springframework.web.util.NestedServletException: Handler dispatch failed; ne
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 Caused by: java.lang.ExceptionInInitializerError: null
-	at com.jcm.common.securitya.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
+	at com.jcm.common.security.interceptor.HeaderInterceptor.preHandle(HeaderInterceptor.java:36)
 	at org.springframework.web.servlet.HandlerExecutionChain.applyPreHandle(HandlerExecutionChain.java:148)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
 	... 37 common frames omitted
 Caused by: java.lang.NullPointerException: null
 	at com.jcm.common.core.utils.SpringUtils.getBean(SpringUtils.java:51)
-	at com.jcm.common.securitya.auth.AuthLogic.<init>(AuthLogic.java:35)
-	at com.jcm.common.securitya.auth.AuthUtil.<clinit>(AuthUtil.java:18)
+	at com.jcm.common.security.auth.AuthLogic.<init>(AuthLogic.java:35)
+	at com.jcm.common.security.auth.AuthUtil.<clinit>(AuthUtil.java:18)
 	... 40 common frames omitted
 17:07:33.121 [http-nio-9201-exec-1] ERROR c.j.c.s.s.TokenService - [getLoginUser,114] - 获取用户信息异常'null'
 18:05:50.334 [http-nio-9201-exec-1] ERROR c.j.c.s.s.TokenService - [getLoginUser,114] - 获取用户信息异常'null'

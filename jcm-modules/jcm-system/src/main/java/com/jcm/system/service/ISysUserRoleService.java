@@ -1,7 +1,11 @@
 package com.jcm.system.service;
 
-import com.jcm.system.entity.SysUserRole;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.jcm.system.entity.SysRole;
+import com.jcm.system.entity.SysUser;
+import com.jcm.system.entity.SysUserRole;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ISysUserRoleService extends IService<SysUserRole> {
 
+    /**
+     *  查找用户下所有的角色信息
+     * @param user
+     * @return
+     */
+    List<SysRole> queryUserRoles(SysUser user);
 }

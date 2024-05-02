@@ -3,7 +3,7 @@
 <mapper namespace="com.jcm.system.mapper.SysMenuMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.jcm.system.domain.SysMenu">
+    <resultMap id="SysMenuResult" type="SysMenu">
         <id column="menu_id" property="menuId" />
         <result column="name" property="name" />
         <result column="parent_id" property="parentId" />
@@ -26,4 +26,76 @@
         <result column="deleted" property="deleted" />
     </resultMap>
 
+
+
+    <!--根据用户id查询权限列表-->
+    <select id="selectMenuPermsByUserId" parameterType="long" resultType="string">
+        SELECT
+            m.permission
+        FROM
+            sys_menu m
+                LEFT JOIN sys_role_menu rm ON m.menu_id = rm.menu_id
+                LEFT JOIN sys_user_role ur ON rm.role_id = ur.role_id
+                LEFT JOIN sys_role r ON r.role_id = ur.role_id
+        WHERE
+            m.`status` = '0'
+          AND r.`status` = '0'
+          AND
+            ur.user_id = #{userid}
+    </select>
+
+    <!--    查询全部路由列表-->
+    <select id="selectMenuTreeAll" resultMap="SysMenuResult">
+        SELECT DISTINCT m.menu_id,
+                        m.parent_id,
+                        m.name,
+                        m.path,
+                        m.component,
+                        m.component_name,
+                        m.is_frame,
+                        m.visible,
+                        m.STATUS,
+                        ifnull(m.permission, '') AS permission,
+                        m.keep_alive,
+                        m.type,
+                        m.icon,
+                        m.sort,
+                        m.create_time
+        FROM sys_menu m
+        WHERE m.type IN (0, 1)
+          AND m.STATUS = 0
+        ORDER BY m.parent_id,
+                 m.sort
+    </select>
+
+
+
+    <select id="selectMenuTreeByUserId" parameterType="long" resultMap="SysMenuResult">
+        SELECT DISTINCT m.menu_id,
+                        m.parent_id,
+                        m.NAME,
+                        m.path,
+                        m.component,
+                        m.component_name,
+                        m.is_frame,
+                        m.visible,
+                        m.STATUS,
+                        ifnull(m.permission, '') AS permission,
+                        m.keep_alive,
+                        m.type,
+                        m.icon,
+                        m.sort,
+                        m.create_time
+        FROM sys_menu m
+                 LEFT JOIN sys_role_menu rm ON m.menu_id = rm.menu_id
+                 LEFT JOIN sys_user_role ur ON rm.role_id = ur.role_id
+                 LEFT JOIN sys_role r ON ur.role_id = r.role_id
+                 LEFT JOIN sys_user u ON ur.user_id = u.user_id
+        WHERE u.user_id = #{userId}
+          and m.type in (0, 1)
+          and m.status = 0
+          AND r.status = 0
+        ORDER BY m.parent_id,
+                 m.sort
+    </select>
 </mapper>

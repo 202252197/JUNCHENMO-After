@@ -8,13 +8,20 @@
         <artifactId>Jcm</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
-    <artifactId>jcm-common</artifactId>
-
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <artifactId>jcm-common</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>jcm-common-core</module>
+        <module>jcm-common-redis</module>
+        <module>jcm-common-security</module>
+        <module>jcm-common-swagger</module>
+        <module>jcm-common-mybatis</module>
+    </modules>
 
 </project>

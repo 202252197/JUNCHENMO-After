@@ -1,7 +1,9 @@
 package com.jcm.system.mapper;
 
-import com.jcm.system.domain.SysMenu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.jcm.system.entity.SysMenu;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +14,24 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2024-04-21
  */
 public interface SysMenuMapper extends BaseMapper<SysMenu> {
+    /**
+     * 根据用户ID查询所拥有的权限列表
+     * @param id 用户ID
+     * @return 用户所拥有的权限列表
+     */
+    List<String> selectMenuPermsByUserId(Long id);
+
+    /**
+     * 查询全部的菜单树
+     * @return 全部的菜单树
+     */
+    List<SysMenu> selectMenuTreeAll();
+
+    /**
+     * 根据用户ID查询所拥有的菜单树
+     * @param userId 用户ID
+     * @return 用户拥有的菜单树
+     */
+    List<SysMenu> selectMenuTreeByUserId(Long userId);
 
 }

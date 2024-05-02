@@ -1,2 +1,1 @@
-com.jcm.common.redis.service.RedisService
-com.jcm.common.redis.configure.RedisConfig
+com.jcm.common.mybatis.configure.MybatisPlusMetaObjectHeadlerConfig

@@ -1,6 +1,8 @@
-package com.ruoyi.gateway.handler;
+package com.jcm.gateway.handler;
 
-import java.io.IOException;
+import com.jcm.common.core.exception.CaptchaException;
+import com.jcm.common.core.web.domain.AjaxResult;
+import com.jcm.gateway.service.ValidateCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
@@ -8,10 +10,9 @@ import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.HandlerFunction;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import com.ruoyi.common.core.exception.CaptchaException;
-import com.ruoyi.common.core.web.domain.AjaxResult;
-import com.ruoyi.gateway.service.ValidateCodeService;
 import reactor.core.publisher.Mono;
+
+import java.io.IOException;
 
 /**
  * 验证码获取处理类

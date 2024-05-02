@@ -1,4 +1,4 @@
-package com.jcm.system.domain.vo;
+package com.jcm.system.entity.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.v3.oas.annotations.media.Schema;

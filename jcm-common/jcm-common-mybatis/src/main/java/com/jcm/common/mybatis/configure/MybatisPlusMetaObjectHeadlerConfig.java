@@ -1,4 +1,4 @@
-package com.jcm.common.mybatis.config;
+package com.jcm.common.mybatis.configure;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.jcm.common.core.context.SecurityContextHolder;

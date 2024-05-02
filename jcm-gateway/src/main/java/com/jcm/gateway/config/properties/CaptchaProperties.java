@@ -1,4 +1,4 @@
-package com.jcm.gateway.properties;
+package com.jcm.gateway.config.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

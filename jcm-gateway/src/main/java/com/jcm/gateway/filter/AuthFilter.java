@@ -1,5 +1,15 @@
-package com.ruoyi.gateway.filter;
+package com.jcm.gateway.filter;
 
+import com.jcm.common.core.constant.CacheConstants;
+import com.jcm.common.core.constant.HttpStatus;
+import com.jcm.common.core.constant.SecurityConstants;
+import com.jcm.common.core.constant.TokenConstants;
+import com.jcm.common.core.utils.JwtUtils;
+import com.jcm.common.core.utils.ServletUtils;
+import com.jcm.common.core.utils.StringUtils;
+import com.jcm.common.redis.service.RedisService;
+import com.jcm.gateway.config.properties.IgnoreWhiteProperties;
+import io.jsonwebtoken.Claims;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,16 +19,6 @@ import org.springframework.core.Ordered;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
-import com.ruoyi.common.core.constant.CacheConstants;
-import com.ruoyi.common.core.constant.HttpStatus;
-import com.ruoyi.common.core.constant.SecurityConstants;
-import com.ruoyi.common.core.constant.TokenConstants;
-import com.ruoyi.common.core.utils.JwtUtils;
-import com.ruoyi.common.core.utils.ServletUtils;
-import com.ruoyi.common.core.utils.StringUtils;
-import com.ruoyi.common.redis.service.RedisService;
-import com.ruoyi.gateway.config.properties.IgnoreWhiteProperties;
-import io.jsonwebtoken.Claims;
 import reactor.core.publisher.Mono;
 
 /**

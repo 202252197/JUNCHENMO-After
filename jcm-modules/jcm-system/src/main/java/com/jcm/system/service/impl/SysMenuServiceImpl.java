@@ -4,14 +4,13 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.constant.UserConstants;
 import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.security.utils.SecurityUtils;
-import com.jcm.system.api.domain.SysPermission;
-import com.jcm.system.api.domain.SysRole;
-import com.jcm.system.api.domain.SysUser;
-import com.jcm.system.domain.vo.MetaVo;
-import com.jcm.system.domain.vo.RouterVo;
-import com.jcm.system.mapper.SysPermissionMapper;
-import com.jcm.system.service.ISysPermissionService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.jcm.system.entity.SysMenu;
+import com.jcm.system.entity.SysUser;
+import com.jcm.system.entity.vo.MetaVo;
+import com.jcm.system.entity.vo.RouterVo;
+import com.jcm.system.mapper.SysMenuMapper;
+import com.jcm.system.service.ISysMenuService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -26,31 +25,9 @@ import java.util.stream.Collectors;
  * @since 2024-04-01
  */
 @Service
-public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, SysPermission> implements ISysPermissionService {
-    @Autowired
-    private SysRoleServiceImpl sysRoleService;
-    @Autowired
-    private SysPermissionMapper sysPermissionMapper;
-
-    /**
-     * 获取角色数据权限
-     *
-     * @param user 用户
-     * @return 角色权限信息
-     */
-    @Override
-    public Set<String> getRolePermission(SysUser user) {
-        Set<String> roles = new HashSet<String>();
-        // 管理员拥有所有权限
-        if (user.isAdmin()) {
-            roles.add("admin");
-        } else {
-            sysRoleService.selectRolePermissionByUserId(user.getId()).stream()
-                    .map(SysRole::getCode).filter(StringUtils::isNotNull)
-                    .map(String::trim).forEach(roles::add);
-        }
-        return roles;
-    }
+@AllArgsConstructor
+public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> implements ISysMenuService {
+    private final SysMenuMapper sysMenuMapper;
 
     /**
      * 获取菜单数据权限
@@ -66,7 +43,7 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
         if (sysUser.isAdmin()) {
             perms.add("*:*:*");
         } else {
-            perms.addAll(selectMenuPermsByUserId(sysUser.getId()));
+            perms.addAll(selectMenuPermsByUserId(sysUser.getUserId()));
         }
         return perms;
     }
@@ -79,7 +56,7 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
      * @return 权限列表
      */
     public Set<String> selectMenuPermsByUserId(Long userId){
-        return  sysPermissionMapper.selectMenuPermsByUserId(userId).stream()
+        return  sysMenuMapper.selectMenuPermsByUserId(userId).stream()
                 .filter(StringUtils::isNotEmpty).map(String::trim).collect(Collectors.toSet());
     }
 
@@ -90,23 +67,28 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
      * @return 路由列表
      */
     @Override
-    public List<RouterVo> buildMenus(List<SysPermission> menus,String parentPath) {
+    public List<RouterVo> buildMenus(List<SysMenu> menus, String parentPath) {
         List<RouterVo> routers = new LinkedList<RouterVo>();
-        for (SysPermission menu : menus) {
+        for (SysMenu menu : menus) {
             RouterVo router = new RouterVo();
             router.setName(menu.getComponentName());
             router.setComponent(menu.getComponent());
-            router.setMeta(new MetaVo(menu.getName(),menu.getVisible(),menu.getIcon(), menu.getKeepAlive()));
-            List<SysPermission> cMenus = menu.getChildren();
+            router.setMeta(new MetaVo(menu.getName(),menu.getVisible(),menu.getIsFrame(),menu.getIcon(), menu.getKeepAlive()));
+            List<SysMenu> cMenus = menu.getChildren();
 
-            //如果是目录
-            if (UserConstants.TYPE_DIR.equals(String.valueOf(menu.getType()))){
-                router.setPath(getPath(menu.getPath()));
-            }
 
-            //如果是菜单
-            if(UserConstants.TYPE_MENU.equals(String.valueOf(menu.getType()))) {
-                router.setPath(getPath(parentPath)+getPath(menu.getPath()));
+            if(isHttp(menu)){
+                router.setPath(menu.getPath());
+            }else{
+                //如果是目录
+                if (UserConstants.TYPE_DIR.equals(String.valueOf(menu.getType()))){
+                    router.setPath(getPath(menu.getPath()));
+                }
+
+                //如果是菜单
+                if(UserConstants.TYPE_MENU.equals(String.valueOf(menu.getType()))) {
+                    router.setPath(getPath(parentPath)+getPath(menu.getPath()));
+                }
             }
 
             //如果还有子菜单，递归
@@ -121,6 +103,10 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
             routers.add(router);
         }
         return routers;
+    }
+
+    private static boolean isHttp(SysMenu menu) {
+        return menu.getPath().startsWith("http://") || menu.getPath().startsWith("https://");
     }
 
     /**
@@ -139,12 +125,12 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
      * @return 菜单树信息
      */
     @Override
-    public List<SysPermission> selectMenuTreeByUserId(Long userId) {
-        List<SysPermission> menus = null;
+    public List<SysMenu> selectMenuTreeByUserId(Long userId) {
+        List<SysMenu> menus = null;
         if (SecurityUtils.isAdmin(userId)) {
-            menus = sysPermissionMapper.selectMenuTreeAll();
+            menus = sysMenuMapper.selectMenuTreeAll();
         } else {
-            menus = sysPermissionMapper.selectMenuTreeByUserId(userId);
+            menus = sysMenuMapper.selectMenuTreeByUserId(userId);
         }
         return getChildPerms(menus, 0);
     }
@@ -157,10 +143,10 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
      * @param parentId 传入的父节点ID
      * @return String
      */
-    public List<SysPermission> getChildPerms(List<SysPermission> list, int parentId) {
-        List<SysPermission> returnList = new ArrayList<SysPermission>();
-        for (Iterator<SysPermission> iterator = list.iterator(); iterator.hasNext(); ) {
-            SysPermission t = (SysPermission) iterator.next();
+    public List<SysMenu> getChildPerms(List<SysMenu> list, int parentId) {
+        List<SysMenu> returnList = new ArrayList<SysMenu>();
+        for (Iterator<SysMenu> iterator = list.iterator(); iterator.hasNext(); ) {
+            SysMenu t = (SysMenu) iterator.next();
             // 一、根据传入的某个父节点ID,遍历该父节点的所有子节点
             if (t.getParentId() == parentId) {
                 recursionFn(list, t);
@@ -176,11 +162,11 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
      * @param list 分类表
      * @param t    子节点
      */
-    private void recursionFn(List<SysPermission> list, SysPermission t) {
+    private void recursionFn(List<SysMenu> list, SysMenu t) {
         // 得到子节点列表
-        List<SysPermission> childList = getChildList(list, t);
+        List<SysMenu> childList = getChildList(list, t);
         t.setChildren(childList);
-        for (SysPermission tChild : childList) {
+        for (SysMenu tChild : childList) {
             if (hasChild(list, tChild)) {
                 recursionFn(list, tChild);
             }
@@ -190,7 +176,7 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
     /**
      * 判断是否有子节点
      */
-    private boolean hasChild(List<SysPermission> list, SysPermission t) {
+    private boolean hasChild(List<SysMenu> list, SysMenu t) {
         return getChildList(list, t).size() > 0;
     }
 
@@ -198,12 +184,12 @@ public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, S
     /**
      * 得到子节点列表
      */
-    private List<SysPermission> getChildList(List<SysPermission> list, SysPermission t) {
-        List<SysPermission> tlist = new ArrayList<SysPermission>();
-        Iterator<SysPermission> it = list.iterator();
+    private List<SysMenu> getChildList(List<SysMenu> list, SysMenu t) {
+        List<SysMenu> tlist = new ArrayList<SysMenu>();
+        Iterator<SysMenu> it = list.iterator();
         while (it.hasNext()) {
-            SysPermission n = (SysPermission) it.next();
-            if (n.getParentId().longValue() == t.getId().longValue()) {
+            SysMenu n = (SysMenu) it.next();
+            if (n.getParentId().longValue() == t.getMenuId().longValue()) {
                 tlist.add(n);
             }
         }

@@ -1,0 +1,6 @@
+com.jcm.common.security.config.WebMvcConfig
+com.jcm.common.security.service.TokenService
+com.jcm.common.security.aspect.PreAuthorizeAspect
+com.jcm.common.security.aspect.InnerAuthAspect
+com.jcm.common.security.aspect.PrintParamsAspect
+com.jcm.common.security.handler.GlobalExceptionHandler

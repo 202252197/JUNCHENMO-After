@@ -1,4 +1,4 @@
-package com.jcm.system.aspect;
+package com.jcm.common.security.aspect;
 
 
 import com.alibaba.fastjson2.JSONObject;
@@ -9,7 +9,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import com.jcm.system.annotation.PrintParams;
+import com.jcm.common.security.annotation.PrintParams;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
@@ -28,7 +28,7 @@ public class PrintParamsAspect {
 
     private static final Logger logger = LoggerFactory.getLogger(PrintParamsAspect.class);
 
-    @Around("@annotation(com.jcm.system.annotation.PrintParams)")
+    @Around("@annotation(com.jcm.common.security.annotation.PrintParams)")
     public Object printParams(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
@@ -45,7 +45,14 @@ public class PrintParamsAspect {
         }catch (Exception e){
             logger.error("打印请求参数失败");
         }
+        // 在调用方法之前记录开始时间
+        long startTime = System.currentTimeMillis();
         Object result = joinPoint.proceed();
+        // 在目标方法返回后记录结束时间
+        long endTime = System.currentTimeMillis();
+        // 计算已过去的时间（单位：毫秒）
+        long duration = endTime - startTime;
+        logger.info("调用接口{}，耗时：{} 毫秒", methodFullPath,duration);
         try {
             if(printParams.responseParam()){
                 logger.info("调用接口{}，返回结果：{}", methodFullPath, JSONObject.toJSONString(result));
