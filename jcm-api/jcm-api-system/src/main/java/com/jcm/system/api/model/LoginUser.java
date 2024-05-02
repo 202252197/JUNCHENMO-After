@@ -1,0 +1,162 @@
+package com.jcm.system.api.model;
+
+import com.jcm.system.api.domain.User;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+import java.io.Serializable;
+import java.util.Set;
+
+/**
+ * 用户信息
+ *
+ * @author ruoyi
+ */
+@Schema(description ="登录对象信息")
+public class LoginUser implements Serializable
+{
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 用户唯一标识
+     */
+    @Schema(description ="用户唯一标识")
+    private String token;
+
+    /**
+     * 用户名id
+     */
+    @Schema(description ="用户名id")
+    private Long userid;
+
+    /**
+     * 用户名
+     */
+    @Schema(description ="用户名")
+    private String username;
+
+    /**
+     * 登录时间
+     */
+    @Schema(description ="登录时间")
+    private Long loginTime;
+
+    /**
+     * 过期时间
+     */
+    @Schema(description ="过期时间")
+    private Long expireTime;
+
+    /**
+     * 登录IP地址
+     */
+    @Schema(description ="登录IP地址")
+    private String ipaddr;
+
+    /**
+     * 权限列表
+     */
+    @Schema(description ="权限列表")
+    private Set<String> permissions;
+
+    /**
+     * 角色列表
+     */
+    @Schema(description ="角色列表")
+    private Set<String> roles;
+
+    /**
+     * 用户信息
+     */
+    @Schema(description ="用户信息")
+    private User sysUser;
+
+    public String getToken()
+    {
+        return token;
+    }
+
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
+    public Long getUserid()
+    {
+        return userid;
+    }
+
+    public void setUserid(Long userid)
+    {
+        this.userid = userid;
+    }
+
+    public String getUsername()
+    {
+        return username;
+    }
+
+    public void setUsername(String username)
+    {
+        this.username = username;
+    }
+
+    public Long getLoginTime()
+    {
+        return loginTime;
+    }
+
+    public void setLoginTime(Long loginTime)
+    {
+        this.loginTime = loginTime;
+    }
+
+    public Long getExpireTime()
+    {
+        return expireTime;
+    }
+
+    public void setExpireTime(Long expireTime)
+    {
+        this.expireTime = expireTime;
+    }
+
+    public String getIpaddr()
+    {
+        return ipaddr;
+    }
+
+    public void setIpaddr(String ipaddr)
+    {
+        this.ipaddr = ipaddr;
+    }
+
+    public Set<String> getPermissions()
+    {
+        return permissions;
+    }
+
+    public void setPermissions(Set<String> permissions)
+    {
+        this.permissions = permissions;
+    }
+
+    public Set<String> getRoles()
+    {
+        return roles;
+    }
+
+    public void setRoles(Set<String> roles)
+    {
+        this.roles = roles;
+    }
+
+    public User getSysUser()
+    {
+        return sysUser;
+    }
+
+    public void setSysUser(User sysUser)
+    {
+        this.sysUser = sysUser;
+    }
+}
