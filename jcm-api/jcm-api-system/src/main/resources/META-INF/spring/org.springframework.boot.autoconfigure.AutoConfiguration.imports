@@ -1,1 +1,2 @@
+com.jcm.system.api.factory.RemoteLogFallbackFactory
 com.jcm.system.api.factory.RemoteUserFallbackFactory

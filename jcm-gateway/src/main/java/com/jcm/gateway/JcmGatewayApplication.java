@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 /**
  * 网关启动程序
  * 
- * @author ruoyi
+ * @author junchenmo
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class JcmGatewayApplication

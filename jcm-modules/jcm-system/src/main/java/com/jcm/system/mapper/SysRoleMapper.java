@@ -1,7 +1,7 @@
 package com.jcm.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.jcm.system.entity.SysRole;
+import com.jcm.system.domain.SysRole;
 
 import java.util.List;
 

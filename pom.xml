@@ -45,8 +45,9 @@
 		<minio.version>8.2.2</minio.version>
 		<poi.version>4.1.2</poi.version>
 		<transmittable-thread-local.version>2.14.4</transmittable-thread-local.version>
-		<springdoc.version>1.6.10</springdoc.version>
+		<springdoc.version>1.7.0</springdoc.version>
 		<knife4j.version>4.3.0</knife4j.version>
+		<hutool.version>5.8.27</hutool.version>
 	</properties>
 	<!-- 依赖声明 -->
 	<dependencyManagement>
@@ -155,33 +156,24 @@
 				<version>${transmittable-thread-local.version}</version>
 			</dependency>
 
-			<!-- springDoc -->
 			<dependency>
-				<groupId>org.springdoc</groupId>
-				<artifactId>springdoc-openapi-ui</artifactId>
-				<version>${springdoc.version}</version>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>org.springdoc</groupId>
-				<artifactId>springdoc-openapi-webflux-ui</artifactId>
-				<version>${springdoc.version}</version>
-			</dependency>
+
 			<dependency>
 				<groupId>org.springdoc</groupId>
 				<artifactId>springdoc-openapi-common</artifactId>
 				<version>${springdoc.version}</version>
 			</dependency>
-			<!-- knife4j -->
-			<dependency>
-				<groupId>com.github.xiaoymin</groupId>
-				<artifactId>knife4j-gateway-spring-boot-starter</artifactId>
-				<version>${knife4j.version}</version>
-			</dependency>
+
 			<dependency>
 				<groupId>com.github.xiaoymin</groupId>
 				<artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
 				<version>${knife4j.version}</version>
 			</dependency>
+
 
 			<!-- Jcm api system-->
 			<dependency>
@@ -223,6 +215,13 @@
 			<dependency>
 				<groupId>com.junchenmo</groupId>
 				<artifactId>jcm-common-mybatis</artifactId>
+				<version>${jcm.version}</version>
+			</dependency>
+
+			<!--Jcm Common log-->
+			<dependency>
+				<groupId>com.junchenmo</groupId>
+				<artifactId>jcm-common-log</artifactId>
 				<version>${jcm.version}</version>
 			</dependency>
 

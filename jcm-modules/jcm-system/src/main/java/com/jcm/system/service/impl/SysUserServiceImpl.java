@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.constant.UserConstants;
 import com.jcm.common.core.exception.ServiceException;
 import com.jcm.common.core.utils.StringUtils;
-import com.jcm.system.entity.SysUser;
-import com.jcm.system.entity.SysUserRole;
+import com.jcm.system.api.domain.SysUser;
+import com.jcm.system.domain.SysUserRole;
 import com.jcm.system.mapper.SysUserMapper;
 import com.jcm.system.mapper.SysUserRoleMapper;
 import com.jcm.system.service.ISysUserService;
@@ -140,7 +140,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Override
     @Transactional(rollbackFor = Exception.class)
     public int deleteUser(Long userId) {
-        sysUserMapper.deleteUserRoleByUserId(userId);
+        sysUserRoleMapper.deleteUserRoleByUserId(userId);
         return sysUserMapper.deleteById(userId);
     }
 
@@ -211,7 +211,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Transactional(rollbackFor = Exception.class)
     public void insertUserAuth(Long userId, Long[] roleIds)
     {
-        sysUserMapper.deleteUserRoleByUserId(userId);
+        sysUserRoleMapper.deleteUserRoleByUserId(userId);
         insertUserRole(userId, roleIds);
     }
 

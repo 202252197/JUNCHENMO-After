@@ -3,7 +3,7 @@ package com.jcm.auth.form;
 /**
  * 用户登录对象
  * 
- * @author ruoyi
+ * @author junchenmo
  */
 public class LoginBody
 {

@@ -3,14 +3,13 @@
 <mapper namespace="com.jcm.system.mapper.SysMenuMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="SysMenuResult" type="SysMenu">
+    <resultMap id="SysMenuResult" type="com.jcm.system.domain.SysMenu">
         <id column="menu_id" property="menuId" />
         <result column="name" property="name" />
         <result column="parent_id" property="parentId" />
         <result column="sort" property="sort" />
         <result column="path" property="path" />
         <result column="component" property="component" />
-        <result column="component_name" property="componentName" />
         <result column="is_frame" property="isFrame" />
         <result column="permission" property="permission" />
         <result column="type" property="type" />
@@ -51,7 +50,6 @@
                         m.name,
                         m.path,
                         m.component,
-                        m.component_name,
                         m.is_frame,
                         m.visible,
                         m.STATUS,
@@ -76,7 +74,6 @@
                         m.NAME,
                         m.path,
                         m.component,
-                        m.component_name,
                         m.is_frame,
                         m.visible,
                         m.STATUS,

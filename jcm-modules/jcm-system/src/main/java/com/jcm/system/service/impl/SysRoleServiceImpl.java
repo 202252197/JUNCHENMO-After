@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.exception.ServiceException;
 import com.jcm.common.core.utils.StringUtils;
-import com.jcm.system.entity.SysRole;
-import com.jcm.system.entity.SysUser;
+import com.jcm.system.api.domain.SysUser;
+import com.jcm.system.domain.SysRole;
 import com.jcm.system.mapper.SysRoleMapper;
 import com.jcm.system.service.ISysRoleService;
 import lombok.AllArgsConstructor;
@@ -30,6 +30,8 @@ import java.util.Set;
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements ISysRoleService {
 
     private final SysRoleMapper sysRoleMapper;
+
+
 
     /**
      * 根据用户ID查询角色权限

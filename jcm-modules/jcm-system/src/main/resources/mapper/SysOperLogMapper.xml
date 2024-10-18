@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcm.system.mapper.SysOperLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.jcm.system.api.domain.SysOperLog">
+        <id column="oper_id" property="operId" />
+        <result column="title" property="title" />
+        <result column="business_type" property="businessType" />
+        <result column="method" property="method" />
+        <result column="request_method" property="requestMethod" />
+        <result column="operator_type" property="operatorType" />
+        <result column="oper_name" property="operName" />
+        <result column="oper_url" property="operUrl" />
+        <result column="oper_ip" property="operIp" />
+        <result column="oper_location" property="operLocation" />
+        <result column="oper_param" property="operParam" />
+        <result column="json_result" property="jsonResult" />
+        <result column="status" property="status" />
+        <result column="error_msg" property="errorMsg" />
+        <result column="cost_time" property="costTime" />
+        <result column="creator" property="creator" />
+        <result column="create_time" property="createTime" />
+        <result column="updater" property="updater" />
+        <result column="update_time" property="updateTime" />
+        <result column="deleted" property="deleted" />
+    </resultMap>
+
+</mapper>

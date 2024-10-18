@@ -2,7 +2,7 @@ package com.jcm.system.api.factory;
 
 import com.jcm.common.core.domain.R;
 import com.jcm.system.api.RemoteUserService;
-import com.jcm.system.api.domain.User;
+import com.jcm.system.api.domain.SysUser;
 import com.jcm.system.api.model.LoginUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 /**
  * 用户服务降级处理
  * 
- * @author ruoyi
+ * @author junchenmo
  */
 @Component
 public class RemoteUserFallbackFactory implements FallbackFactory<RemoteUserService>
@@ -32,13 +32,13 @@ public class RemoteUserFallbackFactory implements FallbackFactory<RemoteUserServ
             }
 
             @Override
-            public R<Boolean> registerUserInfo(User sysUser, String source)
+            public R<Boolean> registerUserInfo(SysUser sysUser, String source)
             {
                 return R.fail("注册用户失败:" + throwable.getMessage());
             }
 
             @Override
-            public R<Integer> changeLoginInfo(User sysUser, String source) {
+            public R<Integer> changeLoginInfo(SysUser sysUser, String source) {
                 return R.fail("修改用户最后登录IP、时间失败:" + throwable.getMessage());
             }
         };

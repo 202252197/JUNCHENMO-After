@@ -1,8 +1,8 @@
 package com.jcm.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.jcm.system.entity.SysRole;
-import com.jcm.system.entity.SysUser;
+import com.jcm.system.api.domain.SysUser;
+import com.jcm.system.domain.SysRole;
 
 import java.util.List;
 import java.util.Set;
@@ -88,6 +88,8 @@ public interface ISysRoleService extends IService<SysRole> {
      */
     public int updateRoleStatus(SysRole role);
 
+
+
     /**
      * 批量删除角色信息
      *
@@ -95,5 +97,7 @@ public interface ISysRoleService extends IService<SysRole> {
      * @return 结果
      */
 //    public int deleteRoleByIds(Long[] roleIds);
+
+
 
 }

@@ -4,10 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.constant.UserConstants;
 import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.security.utils.SecurityUtils;
-import com.jcm.system.entity.SysMenu;
-import com.jcm.system.entity.SysUser;
-import com.jcm.system.entity.vo.MetaVo;
-import com.jcm.system.entity.vo.RouterVo;
+import com.jcm.system.api.domain.SysUser;
+import com.jcm.system.domain.SysMenu;
+import com.jcm.system.domain.vo.MetaVo;
+import com.jcm.system.domain.vo.RouterVo;
 import com.jcm.system.mapper.SysMenuMapper;
 import com.jcm.system.service.ISysMenuService;
 import lombok.AllArgsConstructor;
@@ -71,7 +71,6 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         List<RouterVo> routers = new LinkedList<RouterVo>();
         for (SysMenu menu : menus) {
             RouterVo router = new RouterVo();
-            router.setName(menu.getComponentName());
             router.setComponent(menu.getComponent());
             router.setMeta(new MetaVo(menu.getName(),menu.getVisible(),menu.getIsFrame(),menu.getIcon(), menu.getKeepAlive()));
             List<SysMenu> cMenus = menu.getChildren();
@@ -104,6 +103,8 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         }
         return routers;
     }
+
+
 
     private static boolean isHttp(SysMenu menu) {
         return menu.getPath().startsWith("http://") || menu.getPath().startsWith("https://");
@@ -194,5 +195,43 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
             }
         }
         return tlist;
+    }
+
+
+    @Override
+    public List<SysMenu> selectMenuAllTree(SysMenu sysMenu) {
+        List<SysMenu> allMenus = this.lambdaQuery()
+                .like(StringUtils.isNotEmpty(sysMenu.getName()), SysMenu::getName, sysMenu.getName())
+                .eq(Objects.nonNull(sysMenu.getStatus()), SysMenu::getStatus, sysMenu.getStatus())
+                .list();
+
+        if (allMenus.isEmpty()) {
+            return new ArrayList<>();
+        }
+
+        List<SysMenu> rootMenus = findRootMenus(allMenus);
+
+        for (SysMenu rootMenu : rootMenus) {
+            addChildren(rootMenu, allMenus);
+        }
+
+        return rootMenus;
+    }
+
+    private List<SysMenu> findRootMenus(List<SysMenu> menus) {
+        return menus.stream()
+                .filter(menu -> menus.stream().noneMatch(m -> m.getMenuId().equals(menu.getParentId())))
+                .collect(Collectors.toList());
+    }
+
+    private void addChildren(SysMenu parentMenu, List<SysMenu> allMenus) {
+        List<SysMenu> children = new ArrayList<>();
+        for (SysMenu menu : allMenus) {
+            if (menu.getParentId()!= null && menu.getParentId().equals(parentMenu.getMenuId())) {
+                children.add(menu);
+                addChildren(menu, allMenus);
+            }
+        }
+        parentMenu.setChildren(children);
     }
 }

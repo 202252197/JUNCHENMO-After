@@ -10,14 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.core.io.buffer.DataBuffer;
-import org.springframework.core.io.buffer.DataBufferUtils;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 
-import java.nio.CharBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * 验证码过滤器
@@ -67,14 +64,20 @@ public class ValidateCodeFilter extends AbstractGatewayFilterFactory<Object>
 
     private String resolveBodyFromRequest(ServerHttpRequest serverHttpRequest)
     {
-        // 获取请求体
+        //获取请求体
         Flux<DataBuffer> body = serverHttpRequest.getBody();
-        AtomicReference<String> bodyRef = new AtomicReference<>();
+        StringBuilder sb = new StringBuilder();
+
         body.subscribe(buffer -> {
-            CharBuffer charBuffer = StandardCharsets.UTF_8.decode(buffer.asByteBuffer());
-            DataBufferUtils.release(buffer);
-            bodyRef.set(charBuffer.toString());
+            byte[] bytes = new byte[buffer.readableByteCount()];
+            buffer.read(bytes);
+            String bodyString = new String(bytes, StandardCharsets.UTF_8);
+            sb.append(bodyString);
         });
-        return bodyRef.get();
+        return formatStr(sb.toString());
     }
+    private String formatStr(String str) {
+        return str.trim().replaceAll("\\s+", "");
+    }
+
 }

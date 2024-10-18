@@ -1,19 +1,20 @@
 package com.jcm.system.controller;
 
+import com.jcm.common.core.constant.ServiceNameConstants;
 import com.jcm.common.core.constant.UserConstants;
 import com.jcm.common.core.domain.R;
 import com.jcm.common.core.utils.StringUtils;
-import com.jcm.common.core.utils.bean.BeanUtils;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
+import com.jcm.common.log.annotation.Log;
+import com.jcm.common.log.enums.BusinessType;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.InnerAuth;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
 import com.jcm.common.security.utils.SecurityUtils;
-import com.jcm.system.api.domain.User;
+import com.jcm.system.api.domain.SysUser;
 import com.jcm.system.api.model.LoginUser;
-import com.jcm.system.entity.SysUser;
 import com.jcm.system.service.ISysMenuService;
 import com.jcm.system.service.ISysRoleService;
 import com.jcm.system.service.ISysUserService;
@@ -42,6 +43,7 @@ public class SysUserController extends PageBaseController {
     private final ISysUserService sysUserService;
     private final ISysMenuService sysPermissionService;
     private final ISysRoleService sysRoleService;
+
     /**
      * 内部服务调用接口，获取当前用户信息
      */
@@ -58,10 +60,7 @@ public class SysUserController extends PageBaseController {
         // 权限集合
         Set<String> permissions = sysPermissionService.getMenuPermission(sysUser);
         LoginUser sysUserVo = new LoginUser();
-
-        User sysUserEntity=new User();
-        BeanUtils.copyBeanProp(sysUserEntity,sysUser);
-        sysUserVo.setSysUser(sysUserEntity);
+        sysUserVo.setSysUser(sysUser);
         sysUserVo.setRoles(roles);
         sysUserVo.setPermissions(permissions);
         return R.ok(sysUserVo);
@@ -96,7 +95,6 @@ public class SysUserController extends PageBaseController {
      *
      * @return 用户信息
      */
-
     @Operation(summary = "获取用户的详细信息", description = "包括用户信息、用户角色列表、用户权限列表")
     @GetMapping("/getInfo")
     @PrintParams
@@ -118,6 +116,7 @@ public class SysUserController extends PageBaseController {
      */
     @Operation(summary = "新增用户", description = "新增用户的时候判断账号账号是否存在、手机号码是否绑定过、邮箱是否绑定过")
     @RequiresPermissions("system:user:add")
+    @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.INSERT)
     @PostMapping
     @PrintParams
     public AjaxResult add(@RequestBody SysUser user) {
@@ -139,6 +138,7 @@ public class SysUserController extends PageBaseController {
      */
     @Operation(summary = "删除用户账号", description = "将用户账号删除")
     @RequiresPermissions("system:user:remove")
+    @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.DELETE)
     @DeleteMapping("/{userId}")
     @PrintParams
     public AjaxResult delete(@PathVariable("userId") Long userId) {
@@ -151,6 +151,7 @@ public class SysUserController extends PageBaseController {
      */
     @Operation(summary = "修改用户的信息", description = "修改用户的信息")
     @RequiresPermissions("system:user:edit")
+    @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.UPDATE)
     @PutMapping
     @PrintParams
     public AjaxResult edit(@RequestBody SysUser user)
@@ -177,6 +178,7 @@ public class SysUserController extends PageBaseController {
      */
     @Operation(summary = "重置用户的密码", description = "修改用户的密码")
     @RequiresPermissions("system:user:edit")
+    @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.UPDATE)
     @PutMapping("/changePassword")
     @PrintParams
     public AjaxResult resetPassword(@RequestBody SysUser user) {
@@ -190,6 +192,7 @@ public class SysUserController extends PageBaseController {
      * 禁用用户账号
      */
     @Operation(summary = "禁用用户账号", description = "将用户账号禁用，不可用")
+    @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.UPDATE)
     @PutMapping("/changeStatus")
     @RequiresPermissions("system:user:edit")
     @PrintParams
@@ -202,6 +205,7 @@ public class SysUserController extends PageBaseController {
      * 用户授权角色
      */
     @RequiresPermissions("system:user:edit")
+    @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.UPDATE)
     @PutMapping("/authRole")
     public AjaxResult insertAuthRole(Long userId, Long[] roleIds)
     {

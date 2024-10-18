@@ -4,7 +4,7 @@ import com.jcm.common.core.constant.CacheConstants;
 import com.jcm.common.core.exception.ServiceException;
 import com.jcm.common.redis.service.RedisService;
 import com.jcm.common.security.utils.SecurityUtils;
-import com.jcm.system.api.domain.User;
+import com.jcm.system.api.domain.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 登录密码方法
  * 
- * @author ruoyi
+ * @author junchenmo
  */
 @Component
 public class SysPasswordService
@@ -37,9 +37,9 @@ public class SysPasswordService
         return CacheConstants.PWD_ERR_CNT_KEY + username;
     }
 
-    public void validate(User user, String password)
+    public void validate(SysUser sysUser, String password)
     {
-        String username = user.getUsername();
+        String username = sysUser.getUsername();
 
         Integer retryCount = redisService.getCacheObject(getCacheKey(username));
 
@@ -55,7 +55,7 @@ public class SysPasswordService
             throw new ServiceException(errMsg);
         }
 
-        if (!matches(user, password))
+        if (!matches(sysUser, password))
         {
             retryCount = retryCount + 1;
 //            recordLogService.recordLogininfor(username, Constants.LOGIN_FAIL, String.format("密码输入错误%s次", retryCount));
@@ -68,9 +68,9 @@ public class SysPasswordService
         }
     }
 
-    public boolean matches(User user, String rawPassword)
+    public boolean matches(SysUser sysUser, String rawPassword)
     {
-        return SecurityUtils.matchesPassword(rawPassword, user.getPassword());
+        return SecurityUtils.matchesPassword(rawPassword, sysUser.getPassword());
     }
 
     public void clearLoginRecordCache(String loginName)

@@ -1,6 +1,6 @@
 package com.jcm.system.api.model;
 
-import com.jcm.system.api.domain.User;
+import com.jcm.system.api.domain.SysUser;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.io.Serializable;
@@ -9,7 +9,7 @@ import java.util.Set;
 /**
  * 用户信息
  *
- * @author ruoyi
+ * @author junchenmo
  */
 @Schema(description ="登录对象信息")
 public class LoginUser implements Serializable
@@ -68,7 +68,7 @@ public class LoginUser implements Serializable
      * 用户信息
      */
     @Schema(description ="用户信息")
-    private User sysUser;
+    private SysUser sysUser;
 
     public String getToken()
     {
@@ -150,12 +150,12 @@ public class LoginUser implements Serializable
         this.roles = roles;
     }
 
-    public User getSysUser()
+    public SysUser getSysUser()
     {
         return sysUser;
     }
 
-    public void setSysUser(User sysUser)
+    public void setSysUser(SysUser sysUser)
     {
         this.sysUser = sysUser;
     }

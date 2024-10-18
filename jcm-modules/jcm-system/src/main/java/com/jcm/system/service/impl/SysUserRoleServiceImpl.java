@@ -1,15 +1,20 @@
 package com.jcm.system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.jcm.system.entity.SysRole;
-import com.jcm.system.entity.SysUser;
-import com.jcm.system.entity.SysUserRole;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.jcm.system.domain.DTO.RoleDTO;
+import com.jcm.system.domain.SysUserRole;
 import com.jcm.system.mapper.SysUserRoleMapper;
 import com.jcm.system.service.ISysUserRoleService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.AllArgsConstructor;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -19,16 +24,43 @@ import java.util.List;
  * @author 吕世昊
  * @since 2024-04-20
  */
+@SuppressWarnings(value = "all")
 @Service
+@AllArgsConstructor
 public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRole> implements ISysUserRoleService {
 
+    private final SysUserRoleMapper sysUserRoleMapper;
     /**
-     * 查找用户下所有的角色信息
-     * @param user
+     *  批量选择角色对用户授权
      * @return
      */
+    @Transactional
     @Override
-    public List<SysRole> queryUserRoles(SysUser user) {
-        return null;
+    public int insertAuthUserRoles(RoleDTO roleDTO) {
+        //删除用户已经授权的所有角色
+        LambdaQueryWrapper<SysUserRole> lambdaQueryWrapper=new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(ObjectUtils.isNotEmpty(roleDTO.getUserId()),SysUserRole::getUserId,roleDTO.getUserId());
+        sysUserRoleMapper.delete(lambdaQueryWrapper);
+        if(roleDTO.getRolesId().length<=0){
+            return 1;
+        }
+        //重新新增用户所有的角色
+        List<SysUserRole> SysUserRoles = new ArrayList<>();
+        Arrays.asList(roleDTO.getRolesId()).forEach(roleId->{
+            SysUserRole sysUserRole=new SysUserRole();
+            sysUserRole.setUserId(roleDTO.getUserId());
+            sysUserRole.setRoleId(roleId);
+            SysUserRoles.add(sysUserRole);
+        });
+        return sysUserRoleMapper.batchUserRole(SysUserRoles);
+    }
+
+
+    @Override
+    public List<Long> queryUserRoles(Long userId) {
+        //查询用户已经授权的所有角色
+        LambdaQueryWrapper<SysUserRole> lambdaQueryWrapper=new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(SysUserRole::getUserId,userId);
+        return sysUserRoleMapper.selectList(lambdaQueryWrapper).stream().map(item->item.getRoleId()).collect(Collectors.toList());
     }
 }

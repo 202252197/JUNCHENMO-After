@@ -23,15 +23,20 @@
             <artifactId>spring-webmvc</artifactId>
         </dependency>
 
-        <!--         JCM Api System-->
+        <!--JCM Api System-->
         <dependency>
             <groupId>com.junchenmo</groupId>
             <artifactId>jcm-api-system</artifactId>
         </dependency>
-        <!--         JCM Common Redis-->
+        <!--JCM Common Redis-->
         <dependency>
             <groupId>com.junchenmo</groupId>
             <artifactId>jcm-common-redis</artifactId>
+        </dependency>
+        <!--JCM Common mybatis-->
+        <dependency>
+            <groupId>com.junchenmo</groupId>
+            <artifactId>jcm-common-mybatis</artifactId>
         </dependency>
     </dependencies>
 

@@ -1,1 +1,0 @@
-10:55:48.135 [http-nio-9201-exec-3] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleHttpRequestMethodNotSupported,62] - 请求地址'/permission/getRouters',不支持'POST'请求

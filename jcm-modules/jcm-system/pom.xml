@@ -51,12 +51,6 @@
         </dependency>
 
         <dependency>
-            <groupId>com.junchenmo</groupId>
-            <artifactId>jcm-common-mybatis</artifactId>
-        </dependency>
-
-
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
@@ -67,11 +61,20 @@
             <artifactId>jcm-common-security</artifactId>
         </dependency>
 
-<!--         Jcm Common security-->
+        <!--Jcm Common log-->
+        <dependency>
+            <groupId>com.junchenmo</groupId>
+            <artifactId>jcm-common-log</artifactId>
+        </dependency>
+
+        <!--Jcm Common swagger-->
         <dependency>
             <groupId>com.junchenmo</groupId>
             <artifactId>jcm-common-swagger</artifactId>
+            <scope>provided</scope>
         </dependency>
+
+
     </dependencies>
 
 

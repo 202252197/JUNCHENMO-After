@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * 权限获取工具类
  * 
- * @author ruoyi
+ * @author junchenmo
  */
 public class SecurityUtils
 {

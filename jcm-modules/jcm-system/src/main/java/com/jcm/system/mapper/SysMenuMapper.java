@@ -1,7 +1,7 @@
 package com.jcm.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.jcm.system.entity.SysMenu;
+import com.jcm.system.domain.SysMenu;
 
 import java.util.List;
 

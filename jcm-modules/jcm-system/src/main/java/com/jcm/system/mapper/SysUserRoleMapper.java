@@ -1,6 +1,6 @@
 package com.jcm.system.mapper;
 
-import com.jcm.system.entity.SysUserRole;
+import com.jcm.system.domain.SysUserRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 import java.util.List;
@@ -23,6 +23,12 @@ public interface SysUserRoleMapper extends BaseMapper<SysUserRole> {
      */
     public int batchUserRole(List<SysUserRole> userRoleList);
 
-
+    /**
+     * 通过用户ID删除用户和角色关联
+     *
+     * @param userId 用户ID
+     * @return 结果
+     */
+    public int deleteUserRoleByUserId(Long userId);
 
 }

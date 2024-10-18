@@ -8,8 +8,8 @@ import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
-import com.jcm.system.entity.SysRole;
-import com.jcm.system.entity.SysUser;
+import com.jcm.system.domain.DTO.RoleDTO;
+import com.jcm.system.domain.SysRole;
 import com.jcm.system.service.ISysRoleService;
 import com.jcm.system.service.ISysUserRoleService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -84,7 +84,7 @@ public class SysRoleController extends PageBaseController {
 
 
     /**
-     * 禁用角色
+     * 状态修改
      */
     @RequiresPermissions("system:role:edit")
     @PutMapping("/changeStatus")
@@ -95,43 +95,27 @@ public class SysRoleController extends PageBaseController {
     }
 
     /**
-     * 查询用户所拥有的角色
+     * 查询已分配用户角色列表
      */
+    @PrintParams
     @RequiresPermissions("system:role:query")
-    @PutMapping("/queryUserRoles")
-    public R queryUserRoles(@RequestBody SysUser user)
+    @GetMapping("/queryUserRoles/{userId}")
+    public R queryUserRoles(@PathVariable Long userId)
     {
-        return R.ok(sysUserRoleService.queryUserRoles(user));
+        return R.ok(sysUserRoleService.queryUserRoles(userId));
     }
 
 
-    /**
-     * 删除角色
-     */
-//    @RequiresPermissions("system:role:remove")
-//    @DeleteMapping("/{roleIds}")
-//    public AjaxResult remove(@PathVariable Long[] roleIds)
-//    {
-//        return toAjax(sysRoleService.deleteRoleByIds(roleIds));
-//    }
 
-//    /**
-//     * 修改保存角色
-//     */
-//    @RequiresPermissions("system:role:edit")
-//    @PutMapping
-//    public AjaxResult edit(@Validated @RequestBody SysRole role)
-//    {
-//        sysRoleService.checkRoleAllowed(role);
-//        if (!sysRoleService.checkRoleNameUnique(role))
-//        {
-//            return error("修改角色'" + role.getRoleName() + "'失败，角色名称已存在");
-//        }
-//        else if (!sysRoleService.checkRoleKeyUnique(role))
-//        {
-//            return error("修改角色'" + role.getRoleName() + "'失败，角色权限已存在");
-//        }
-//        return toAjax(sysRoleService.updateRole(role));
-//    }
+    /**
+     * 批量选择角色对用户授权
+     */
+    @PrintParams
+    @RequiresPermissions("system:role:edit")
+    @PutMapping("/authUserRole/selectAll")
+    public AjaxResult selectAuthUserRoleAll(@RequestBody RoleDTO roleDTO)
+    {
+        return toAjax(sysUserRoleService.insertAuthUserRoles(roleDTO));
+    }
 
 }

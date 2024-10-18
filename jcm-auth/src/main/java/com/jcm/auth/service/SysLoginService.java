@@ -12,7 +12,7 @@ import com.jcm.common.core.utils.ip.IpUtils;
 import com.jcm.common.redis.service.RedisService;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.system.api.RemoteUserService;
-import com.jcm.system.api.domain.User;
+import com.jcm.system.api.domain.SysUser;
 import com.jcm.system.api.model.LoginUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 /**
  * 登录校验方法
  *
- * @author ruoyi
+ * @author junchenmo
  */
 @Component
 public class SysLoginService
@@ -84,17 +84,17 @@ public class SysLoginService
         }
 
         LoginUser userInfo = userResult.getData();
-        User user = userResult.getData().getSysUser();
-        if (UserStatus.DISABLE.getCode().equals(user.getStatus().toString()))
+        SysUser sysUser = userResult.getData().getSysUser();
+        if (UserStatus.DISABLE.getCode().equals(sysUser.getStatus().toString()))
         {
 //            recordLogService.recordLogininfor(username, Constants.LOGIN_FAIL, "用户已停用，请联系管理员");
             throw new ServiceException("对不起，您的账号：" + username + " 已停用");
         }
-        passwordService.validate(user, password);
+        passwordService.validate(sysUser, password);
         // 设置用户最后登录的时间和IP
-        user.setLoginDate(LocalDateTime.now());
-        user.setLoginIp(IpUtils.getHostIp());
-        remoteUserService.changeLoginInfo(user, SecurityConstants.INNER);
+        sysUser.setLoginDate(LocalDateTime.now());
+        sysUser.setLoginIp(IpUtils.getHostIp());
+        remoteUserService.changeLoginInfo(sysUser, SecurityConstants.INNER);
 //        recordLogService.recordLogininfor(username, Constants.LOGIN_SUCCESS, "登录成功");
         return userInfo;
     }
@@ -126,7 +126,7 @@ public class SysLoginService
         }
 
         // 注册用户信息
-        User sysUser = new User();
+        SysUser sysUser = new SysUser();
         sysUser.setUsername(username);
         sysUser.setNickname(username);
         sysUser.setPassword(SecurityUtils.encryptPassword(password));

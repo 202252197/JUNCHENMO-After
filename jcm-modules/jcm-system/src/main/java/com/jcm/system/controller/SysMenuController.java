@@ -1,17 +1,18 @@
 package com.jcm.system.controller;
 
 
+import com.jcm.common.core.constant.UserConstants;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.security.annotation.PrintParams;
+import com.jcm.common.security.annotation.RequiresPermissions;
 import com.jcm.common.security.utils.SecurityUtils;
-import com.jcm.system.entity.SysMenu;
+import com.jcm.system.domain.SysMenu;
+import com.jcm.system.domain.SysRole;
 import com.jcm.system.service.ISysMenuService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class SysMenuController {
      * @return 菜单列表
      */
     @Operation(summary = "获取菜单列表",description = "获取前端菜单列表")
-    @GetMapping("getRouters")
+    @GetMapping("/getRouters")
     @PrintParams
     public AjaxResult getRouters()
     {
@@ -46,4 +47,21 @@ public class SysMenuController {
         List<SysMenu> menus = sysMenuService.selectMenuTreeByUserId(userId);
         return success(sysMenuService.buildMenus(menus,null));
     }
+
+    /**
+     * 获取全部菜单列表
+     *
+     * @return 菜单列表
+     */
+    @Operation(summary = "获取全部菜单列表",description = "获取全部菜单列表，管理员才有次权限")
+    @PostMapping("/list")
+    @PrintParams
+    public AjaxResult list(@RequestBody SysMenu menu)
+    {
+        List<SysMenu> menus = sysMenuService.selectMenuAllTree(menu);
+        return success(menus);
+    }
+
+
+
 }
