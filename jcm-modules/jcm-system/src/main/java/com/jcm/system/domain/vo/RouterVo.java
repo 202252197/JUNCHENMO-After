@@ -23,9 +23,19 @@ public class RouterVo
     private String path;
 
     /**
+     * 路由名称
+     */
+    private String name;
+
+    /**
      * 组件地址
      */
     private String component;
+
+    /**
+     * 转发请求地址
+     */
+    private String redirect;
 
     /**
      * 其他元素

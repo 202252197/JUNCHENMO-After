@@ -19,13 +19,13 @@ public class UserConstants
     public static final String USER_DISABLE = "1";
 
     /** 菜单类型（目录） */
-    public static final String TYPE_DIR = "0";
+    public static final int TYPE_DIR = 0;
 
     /** 菜单类型（菜单） */
-    public static final String TYPE_MENU = "1";
+    public static final int TYPE_MENU = 1;
 
     /** 菜单类型（按钮） */
-    public static final String TYPE_BUTTON = "2";
+    public static final int TYPE_BUTTON = 2;
 
     /** Layout组件标识 */
     public final static String LAYOUT = "Layout";

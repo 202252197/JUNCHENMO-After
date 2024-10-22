@@ -8,7 +8,7 @@
         <result column="name" property="name" />
         <result column="parent_id" property="parentId" />
         <result column="sort" property="sort" />
-        <result column="path" property="path" />
+        <result column="link" property="link" />
         <result column="component" property="component" />
         <result column="is_frame" property="isFrame" />
         <result column="permission" property="permission" />
@@ -48,7 +48,7 @@
         SELECT DISTINCT m.menu_id,
                         m.parent_id,
                         m.name,
-                        m.path,
+                        m.link,
                         m.component,
                         m.is_frame,
                         m.visible,
@@ -72,7 +72,7 @@
         SELECT DISTINCT m.menu_id,
                         m.parent_id,
                         m.NAME,
-                        m.path,
+                        m.link,
                         m.component,
                         m.is_frame,
                         m.visible,

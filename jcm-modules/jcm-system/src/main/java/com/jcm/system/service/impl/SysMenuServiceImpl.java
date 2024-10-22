@@ -27,6 +27,7 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> implements ISysMenuService {
+    public static final RouterVo ROUTER = new RouterVo();
     private final SysMenuMapper sysMenuMapper;
 
     /**
@@ -71,53 +72,61 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         List<RouterVo> routers = new LinkedList<RouterVo>();
         for (SysMenu menu : menus) {
             RouterVo router = new RouterVo();
-            router.setComponent(menu.getComponent());
             router.setMeta(new MetaVo(menu.getName(),menu.getVisible(),menu.getIsFrame(),menu.getIcon(), menu.getKeepAlive()));
             List<SysMenu> cMenus = menu.getChildren();
 
+            //如果是外链
+            if(menu.getIsFrame()){
+                router.setPath(menu.getLink());
+                router.setComponent(UserConstants.LAYOUT);
+            }else {
+                //如果是
+                if(UserConstants.TYPE_DIR == menu.getType()){
+                    router.setPath("/"+menu.getComponent());
+                    router.setComponent(UserConstants.LAYOUT);
+                }else if(UserConstants.TYPE_MENU == menu.getType() && menu.getParentId() != 0){
+                    router.setName(menu.getComponent());
+                    router.setPath("/"+parentPath+"/"+menu.getComponent());
+                    router.setComponent("/"+parentPath+"/"+menu.getComponent()+"/index");
+                }else if(UserConstants.TYPE_MENU == menu.getType() && menu.getParentId() == 0){
+                    List<RouterVo> routerVos = new ArrayList<>();
+                    RouterVo routerVo=new RouterVo();
+                    routerVo.setPath("/index");
+                    routerVo.setComponent("/"+menu.getComponent()+"/index");
+                    routerVo.setMeta(router.getMeta());
 
-            if(isHttp(menu)){
-                router.setPath(menu.getPath());
-            }else{
-                //如果是目录
-                if (UserConstants.TYPE_DIR.equals(String.valueOf(menu.getType()))){
-                    router.setPath(getPath(menu.getPath()));
-                }
 
-                //如果是菜单
-                if(UserConstants.TYPE_MENU.equals(String.valueOf(menu.getType()))) {
-                    router.setPath(getPath(parentPath)+getPath(menu.getPath()));
+                    if(menu.getComponent().equals("home")){
+                        router.setPath("/");
+                        router.setRedirect("/home");
+                        routerVo.setName("home");
+                        routerVo.setPath("/home");
+                    }else{
+                        routerVo.setName(menu.getComponent());
+                        routerVo.setPath("/index");
+                        router.setPath("/"+menu.getComponent());
+                    }
+                    routerVos.add(routerVo);
+
+                    router.setComponent(UserConstants.LAYOUT);
+                    router.setMeta(null);
+                    router.setChildren(routerVos);
                 }
             }
 
             //如果还有子菜单，递归
             if(StringUtils.isNotEmpty(cMenus)) {
-                router.setChildren(buildMenus(cMenus,menu.getPath()));
+                router.setChildren(buildMenus(cMenus,menu.getComponent()));
             }
-            //如果父id是根路径
-            if(menu.getParentId()==0){
+            //如果组件是空的
+            if(StringUtils.isEmpty(menu.getComponent())){
                 router.setComponent(UserConstants.LAYOUT);
             }
-
             routers.add(router);
         }
         return routers;
     }
 
-
-
-    private static boolean isHttp(SysMenu menu) {
-        return menu.getPath().startsWith("http://") || menu.getPath().startsWith("https://");
-    }
-
-    /**
-     * 构建路由的Path
-     * @param menu 路由对象
-     * @return 路由Path
-     */
-    private static String getPath(String menu) {
-        return "/"+menu.replaceAll("/","");
-    }
 
     /**
      * 根据用户ID获取菜单树

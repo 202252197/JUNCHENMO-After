@@ -57,22 +57,20 @@ public class SysMenu extends BaseEntity  implements Serializable {
      */
     private Long parentId;
 
-
-
     /**
      * 菜单图标
      */
     private String icon;
 
     /**
-     * 组件路径
+     * 组件名称
      */
     private String component;
 
     /**
-     * 组件地址/外联地址
+     * 外联地址
      */
-    private String path;
+    private String link;
 
     /**
      * 是否外联
