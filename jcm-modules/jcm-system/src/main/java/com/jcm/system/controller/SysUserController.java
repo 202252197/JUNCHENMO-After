@@ -137,7 +137,7 @@ public class SysUserController extends PageBaseController {
      * 删除用户账号
      */
     @Operation(summary = "删除用户账号", description = "将用户账号删除")
-    @RequiresPermissions("system:user:remove")
+    @RequiresPermissions("system:user:delete")
     @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.DELETE)
     @DeleteMapping("/{userId}")
     @PrintParams

@@ -70,6 +70,7 @@ public interface ISysUserService extends IService<SysUser> {
     /**
      * 禁用用户账号
      * @param userId
+     * @return
      */
     int disableUser(Long userId);
 

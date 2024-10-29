@@ -2,7 +2,7 @@ package com.jcm.system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.jcm.system.domain.DTO.RoleDTO;
+import com.jcm.system.domain.dto.RoleDTO;
 import com.jcm.system.domain.SysUserRole;
 import com.jcm.system.mapper.SysUserRoleMapper;
 import com.jcm.system.service.ISysUserRoleService;
@@ -36,7 +36,7 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
      */
     @Transactional
     @Override
-    public int insertAuthUserRoles(RoleDTO roleDTO) {
+    public Integer insertAuthUserRoles(RoleDTO roleDTO) {
         //删除用户已经授权的所有角色
         LambdaQueryWrapper<SysUserRole> lambdaQueryWrapper=new LambdaQueryWrapper<>();
         lambdaQueryWrapper.eq(ObjectUtils.isNotEmpty(roleDTO.getUserId()),SysUserRole::getUserId,roleDTO.getUserId());

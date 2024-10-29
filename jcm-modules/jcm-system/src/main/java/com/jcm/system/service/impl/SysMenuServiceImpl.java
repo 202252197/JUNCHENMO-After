@@ -1,6 +1,9 @@
 package com.jcm.system.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.jcm.common.core.constant.MenuConstant;
 import com.jcm.common.core.constant.UserConstants;
 import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.security.utils.SecurityUtils;
@@ -81,14 +84,14 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
                 router.setComponent(UserConstants.LAYOUT);
             }else {
                 //如果是
-                if(UserConstants.TYPE_DIR == menu.getType()){
+                if(MenuConstant.TYPE_DIR == menu.getType()){
                     router.setPath("/"+menu.getComponent());
                     router.setComponent(UserConstants.LAYOUT);
-                }else if(UserConstants.TYPE_MENU == menu.getType() && menu.getParentId() != 0){
+                }else if(MenuConstant.TYPE_MENU == menu.getType() && menu.getParentId() != 0){
                     router.setName(menu.getComponent());
                     router.setPath("/"+parentPath+"/"+menu.getComponent());
                     router.setComponent("/"+parentPath+"/"+menu.getComponent()+"/index");
-                }else if(UserConstants.TYPE_MENU == menu.getType() && menu.getParentId() == 0){
+                }else if(MenuConstant.TYPE_MENU == menu.getType() && menu.getParentId() == 0){
                     List<RouterVo> routerVos = new ArrayList<>();
                     RouterVo routerVo=new RouterVo();
                     routerVo.setPath("/index");
@@ -96,7 +99,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
                     routerVo.setMeta(router.getMeta());
 
 
-                    if(menu.getComponent().equals("home")){
+                    if("home".equals(menu.getComponent())){
                         router.setPath("/");
                         router.setRedirect("/home");
                         routerVo.setName("home");
@@ -227,12 +230,87 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         return rootMenus;
     }
 
+    /**
+     * 新增菜单
+     * @param sysMenu 菜单
+     * @return
+     */
+    @Override
+    public Integer insertMenu(SysMenu sysMenu) {
+        if(StringUtils.isNotEmpty(sysMenu.getComponent())){
+            sysMenu.setIsFrame(false);
+        }else{
+            sysMenu.setIsFrame(true);
+        }
+        sysMenu.setStatus(0);
+        return sysMenuMapper.insert(sysMenu);
+    }
+
+    /**
+     * 删除菜单通过id
+     * @param menuId
+     * @return
+     */
+    @Override
+    public Integer deleteMenu(Long menuId) {
+        return sysMenuMapper.deleteById(menuId);
+    }
+    /**
+     * 修改菜单信息
+     * @param menu 菜单信息
+     * @return 结果
+     */
+    @Override
+    public Integer updateMenu(SysMenu menu) {
+        UpdateWrapper<SysMenu> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("menu_id", menu.getMenuId());
+        return sysMenuMapper.update(menu,updateWrapper);
+    }
+
+    /**
+     * 获取新增菜单最后的sort值
+     * @param parentId 父菜单id
+     * @return 结果
+     */
+    @Override
+    public Integer getMenuChildLastSort(Long parentId) {
+        return sysMenuMapper.selectMenuChildLastSort(parentId);
+    }
+
+    /**
+     * 获取首页动态图标名称
+     * @return 结果
+     */
+    @Override
+    public String getHomeMenuIcon() {
+        LambdaQueryWrapper<SysMenu> lambdaQueryWrapper=new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(SysMenu::getName,"首页");
+        SysMenu sysMenu = sysMenuMapper.selectOne(lambdaQueryWrapper);
+        return sysMenu.getIcon();
+    }
+
+    /**
+     * 过滤菜单：遍历每个菜单项 menu，检查是否存在其他菜单项的 menuId 等于当前菜单项的 parentId。
+     * 收集结果：如果不存在这样的菜单项，则认为当前菜单项是根菜单，将其加入结果列表。
+     * @param menus 菜单项 menu对象集合
+     * @return
+     */
     private List<SysMenu> findRootMenus(List<SysMenu> menus) {
         return menus.stream()
                 .filter(menu -> menus.stream().noneMatch(m -> m.getMenuId().equals(menu.getParentId())))
                 .collect(Collectors.toList());
     }
 
+    /**
+     * 1：创建一个空的子菜单列表 children。
+     * 2：遍历所有菜单 allMenus。
+     * 3：检查当前菜单 menu 的 parentId 是否等于 parentMenu 的 menuId。
+     * 4：如果条件成立，将 menu 添加到 children 列表中。
+     * 5：递归调用 addChildren 方法为 menu 添加子菜单。
+     * 6：设置 parentMenu 的 children 属性为 children 列表。
+     * @param parentMenu 父菜单
+     * @param allMenus 需要遍历的菜单对象集合
+     */
     private void addChildren(SysMenu parentMenu, List<SysMenu> allMenus) {
         List<SysMenu> children = new ArrayList<>();
         for (SysMenu menu : allMenus) {

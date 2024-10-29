@@ -31,11 +31,8 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     private final SysRoleMapper sysRoleMapper;
 
-
-
     /**
      * 根据用户ID查询角色权限
-     *
      * @param userId 用户ID
      * @return 权限列表
      */
@@ -45,7 +42,6 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     /**
      * 校验角色名称是否唯一
-     *
      * @param role 角色信息
      * @return 结果
      */
@@ -58,7 +54,6 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     /**
      * 校验角色权限是否唯一
-     *
      * @param role 角色信息
      * @return 结果
      */
@@ -71,7 +66,6 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     /**
      * 根据条件分页查询角色数据
-     *
      * @param role 角色信息
      * @return 角色数据集合信息
      */
@@ -86,7 +80,6 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     /**
      * 通过角色ID查询角色
-     *
      * @param roleId 角色ID
      * @return 角色对象信息
      */
@@ -97,20 +90,18 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     /**
      * 新增保存角色信息
-     *
      * @param role 角色信息
      * @return 结果
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int insertRole(SysRole role)
+    public Integer insertRole(SysRole role)
     {
         return  sysRoleMapper.insert(role);
     }
 
     /**
      * 校验角色是否允许操作
-     *
      * @param role 角色信息
      */
     @Override
@@ -124,22 +115,42 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     /**
      * 修改角色状态
-     *
      * @param role 角色信息
      * @return 结果
      */
     @Override
-    public int updateRoleStatus(SysRole role)
+    public Integer updateRoleStatus(SysRole role)
     {
         UpdateWrapper<SysRole> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("role_id", role.getRoleId()).set("status",1);
         return sysRoleMapper.update(null, updateWrapper);
     }
 
+    /**
+     * 修改角色信息
+     * @param role 角色信息
+     * @return 结果
+     */
+    @Override
+    public Integer updateRole(SysRole role) {
+        UpdateWrapper<SysRole> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("role_id", role.getRoleId());
+        return sysRoleMapper.update(role, updateWrapper);
+    }
+
+    /**
+     * 删除角色信息
+     * @param roleId 角色Id
+     * @return 结果
+     */
+    @Override
+    public Integer deleteRole(Long roleId) {
+        return sysRoleMapper.deleteById(roleId);
+    }
+
 
     /**
      * 获取角色数据权限
-     *
      * @param user 用户
      * @return 角色权限信息
      */
@@ -159,7 +170,6 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     /**
      * 批量删除角色信息
-     *
      * @param roleIds 需要删除的角色ID
      * @return 结果
      */

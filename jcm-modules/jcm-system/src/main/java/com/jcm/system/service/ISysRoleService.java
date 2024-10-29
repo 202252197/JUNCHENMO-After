@@ -19,7 +19,6 @@ public interface ISysRoleService extends IService<SysRole> {
 
     /**
      * 根据用户ID查询角色权限
-     *
      * @param userId 用户ID
      * @return 权限列表
      */
@@ -27,7 +26,6 @@ public interface ISysRoleService extends IService<SysRole> {
 
     /**
      * 获取角色数据权限
-     *
      * @param sysUser 用户
      * @return 角色权限信息
      */
@@ -35,7 +33,6 @@ public interface ISysRoleService extends IService<SysRole> {
 
     /**
      * 校验角色名称是否唯一
-     *
      * @param role 角色信息
      * @return 结果
      */
@@ -43,7 +40,6 @@ public interface ISysRoleService extends IService<SysRole> {
 
     /**
      * 校验角色名称是否唯一
-     *
      * @param role 角色信息
      * @return 结果
      */
@@ -51,7 +47,6 @@ public interface ISysRoleService extends IService<SysRole> {
 
     /**
      * 根据条件分页查询角色数据
-     *
      * @param role 角色信息
      * @return 角色数据集合信息
      */
@@ -59,7 +54,6 @@ public interface ISysRoleService extends IService<SysRole> {
 
     /**
      * 通过角色ID查询角色
-     *
      * @param roleId 角色ID
      * @return 角色对象信息
      */
@@ -67,27 +61,37 @@ public interface ISysRoleService extends IService<SysRole> {
 
     /**
      * 新增保存角色信息
-     *
      * @param role 角色信息
      * @return 结果
      */
-    public int insertRole(SysRole role);
+    public Integer insertRole(SysRole role);
 
     /**
      * 校验角色是否允许操作
-     *
      * @param role 角色信息
      */
     public void checkRoleAllowed(SysRole role);
 
     /**
      * 修改角色状态
-     *
      * @param role 角色信息
      * @return 结果
      */
-    public int updateRoleStatus(SysRole role);
+    public Integer updateRoleStatus(SysRole role);
 
+    /**
+     * 修改角色信息
+     * @param role 角色信息
+     * @return 结果
+     */
+    public Integer updateRole(SysRole role);
+
+    /**
+     * 删除角色信息
+     * @param roleId 角色Id
+     * @return 结果
+     */
+    public Integer deleteRole(Long roleId);
 
 
     /**

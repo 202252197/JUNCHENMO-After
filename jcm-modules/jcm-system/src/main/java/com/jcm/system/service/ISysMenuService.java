@@ -47,8 +47,42 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 获取全部菜单列表
-     *
+     * @param sysMenu
      * @return 菜单权限信息
      */
     List<SysMenu> selectMenuAllTree(SysMenu sysMenu);
+
+    /**
+     * 新增菜单
+     * @param sysMenu
+     * @return
+     */
+    Integer insertMenu(SysMenu sysMenu);
+
+    /**
+     * 根据ID删除菜单
+     * @param menuId
+     * @return
+     */
+    Integer deleteMenu(Long menuId);
+
+    /**
+     * 根据菜单信息
+     * @param menu
+     * @return
+     */
+    Integer updateMenu(SysMenu menu);
+
+    /**
+     * 获取新增菜单最后的sort值
+     * @param parentId 父菜单id
+     * @return
+     */
+    Integer getMenuChildLastSort(Long parentId);
+
+    /**
+     * 获取首页动态图标名称
+     * @return
+     */
+    String getHomeMenuIcon();
 }

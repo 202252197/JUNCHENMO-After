@@ -34,4 +34,10 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
      */
     List<SysMenu> selectMenuTreeByUserId(Long userId);
 
+    /**
+     * 获取新增菜单最后的sort值
+     * @param parentId 父菜单id
+     * @return 用户拥有的菜单树
+     */
+    Integer selectMenuChildLastSort(Long parentId);
 }

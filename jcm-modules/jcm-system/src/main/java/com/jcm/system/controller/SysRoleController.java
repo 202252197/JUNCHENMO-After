@@ -8,10 +8,11 @@ import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
-import com.jcm.system.domain.DTO.RoleDTO;
 import com.jcm.system.domain.SysRole;
+import com.jcm.system.domain.dto.RoleDTO;
 import com.jcm.system.service.ISysRoleService;
 import com.jcm.system.service.ISysUserRoleService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -82,6 +83,28 @@ public class SysRoleController extends PageBaseController {
 
     }
 
+    /**
+     * 删除用户账号
+     */
+    @Operation(summary = "删除角色", description = "将角色删除")
+    @RequiresPermissions("system:user:delete")
+    @DeleteMapping("/{roleId}")
+    @PrintParams
+    public AjaxResult delete(@PathVariable("roleId") Long roleId) {
+        return toAjax(sysRoleService.deleteRole(roleId));
+    }
+
+    /**
+     * 修改角色信息
+     */
+    @Operation(summary = "修改角色信息", description = "修改角色信息")
+    @RequiresPermissions("system:role:edit")
+    @PutMapping
+    @PrintParams
+    public AjaxResult edit(@RequestBody SysRole role)
+    {
+        return toAjax(sysRoleService.updateRole(role));
+    }
 
     /**
      * 状态修改
