@@ -49,6 +49,19 @@ public class SysRoleController extends PageBaseController {
     }
 
     /**
+     * 获取没有被禁用的全部角色列表
+     */
+    @RequiresPermissions("system:role:list")
+    @GetMapping("/listNotDisabledAll")
+    @PrintParams
+    public R listNotDisabledAll()
+    {
+        SysRole sysRole = new SysRole();
+        sysRole.setStatus(0);
+        return R.ok(sysRoleService.selectRoleList(sysRole));
+    }
+
+    /**
      * 获取角色列表分页条件查询
      */
     @RequiresPermissions("system:role:list")
@@ -123,9 +136,9 @@ public class SysRoleController extends PageBaseController {
     @PrintParams
     @RequiresPermissions("system:role:query")
     @GetMapping("/queryUserRoles/{userId}")
-    public R queryUserRoles(@PathVariable Long userId)
+    public R queryUserRoles(@PathVariable Integer userId)
     {
-        return R.ok(sysUserRoleService.queryUserRoles(userId));
+        return R.ok(sysUserRoleService.queryRoleIdsByUserId(userId));
     }
 
 

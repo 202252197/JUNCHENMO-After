@@ -21,7 +21,14 @@ public interface SysUserRoleMapper extends BaseMapper<SysUserRole> {
      * @param userRoleList 用户角色列表
      * @return 结果
      */
-    public int batchUserRole(List<SysUserRole> userRoleList);
+    public Integer batchUserRole(List<SysUserRole> userRoleList);
+
+    /**
+     * 根据用户ID获取角色ID列表
+     * @param userId 用户ID
+     * @return
+     */
+    public List<Integer> queryRoleIdsByUserId(Integer userId);
 
     /**
      * 通过用户ID删除用户和角色关联
@@ -29,6 +36,6 @@ public interface SysUserRoleMapper extends BaseMapper<SysUserRole> {
      * @param userId 用户ID
      * @return 结果
      */
-    public int deleteUserRoleByUserId(Long userId);
+    public Long deleteUserRoleByUserId(Long userId);
 
 }

@@ -1,36 +1,148 @@
-09:26:15.610 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:26:15.657 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-09:26:16.068 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:26:16.070 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:26:20.173 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-09:26:33.380 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:26:33.380 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:26:33.511 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
-09:26:33.668 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
-09:26:33.705 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 20.267 seconds (JVM running for 22.922)
-09:26:33.720 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
-09:26:33.724 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
-09:26:33.724 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
-09:44:31.500 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/auth/login
-09:44:50.641 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/auth/login
-09:44:55.911 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-09:44:57.394 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-09:45:11.921 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-09:45:14.709 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-09:45:16.111 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-10:39:34.974 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-10:39:37.922 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-11:10:36.526 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-11:11:08.939 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-11:11:17.961 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-11:20:28.550 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-11:20:32.994 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-11:20:35.094 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-11:23:25.110 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-11:23:27.740 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-11:24:05.720 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-11:25:26.483 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-11:26:55.520 [lettuce-nioEventLoop-5-1] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+07:55:31.932 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+07:55:32.002 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+07:55:32.467 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+07:55:32.467 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+07:55:37.504 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+07:55:50.315 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+07:55:50.315 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+07:55:50.456 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
+07:55:50.592 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
+07:55:50.614 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 21.622 seconds (JVM running for 23.986)
+07:55:50.625 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
+07:55:50.628 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
+07:55:50.629 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
+08:51:52.536 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/auth/login
+08:51:58.037 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/auth/login
+08:52:41.821 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+08:52:43.998 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+08:52:47.391 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+08:52:49.062 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+08:52:50.808 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+08:52:52.290 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+08:52:54.056 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+08:52:57.231 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+08:52:59.583 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+08:53:19.824 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role
+08:53:19.878 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+08:53:21.792 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+08:53:24.790 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+08:53:27.774 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+08:53:43.707 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+08:53:55.174 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role
+08:53:55.210 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+08:54:43.597 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+08:57:50.509 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+08:58:04.015 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+08:58:45.879 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:00:17.535 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:00:23.130 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:00:31.063 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:00:57.554 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:01:01.209 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:01:03.377 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:01:25.050 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:01:33.939 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:01:43.040 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:02:06.894 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:02:12.184 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:02:37.096 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:07:23.929 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:09:06.436 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:10:02.237 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:10:11.408 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:13:30.241 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+09:13:35.357 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+09:13:40.834 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+09:13:54.021 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:13:57.894 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+09:14:01.426 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:15:04.671 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+09:15:15.582 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:15:24.833 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+09:15:26.797 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:25:57.193 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+09:25:57.196 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+09:26:41.778 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+09:26:41.822 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+09:26:42.092 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+09:26:42.092 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+09:26:45.790 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+09:26:56.247 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+09:26:56.247 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+09:26:56.388 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
+09:26:56.497 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
+09:26:56.524 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 17.277 seconds (JVM running for 20.371)
+09:26:56.524 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
+09:26:56.524 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
+09:26:56.524 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
+09:26:59.242 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:27:19.929 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:28:17.662 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:28:26.289 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:28:35.837 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:29:57.679 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:30:12.637 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:30:19.221 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:33:47.687 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:58:01.205 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+09:58:01.209 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+09:58:18.004 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+09:58:18.054 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+09:58:18.446 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+09:58:18.446 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+09:58:22.562 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+09:58:33.374 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+09:58:33.374 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+09:58:33.500 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
+09:58:33.608 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
+09:58:33.634 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 17.565 seconds (JVM running for 18.754)
+09:58:33.637 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
+09:58:33.649 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
+09:58:33.649 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
+09:59:44.476 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+09:59:47.827 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+10:00:42.708 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+10:00:45.503 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+10:00:47.574 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+10:00:52.038 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+10:23:39.095 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:23:42.303 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+10:23:45.271 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:28:58.964 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:29:35.607 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:31:12.271 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:41:58.657 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/auth/login
+10:42:02.801 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:42:19.424 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:42:40.375 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:43:20.979 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:43:28.749 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:43:32.771 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+10:43:34.542 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+10:43:37.025 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:43:51.063 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:43:59.359 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:59:35.689 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:59:37.423 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+10:59:43.256 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:19:52.009 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:19:54.477 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:20:01.027 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:21:18.987 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:21:22.299 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+11:21:23.810 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:21:32.821 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:22:06.397 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:24:09.109 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:24:19.508 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:24:28.221 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:25:42.198 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:25:46.752 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+11:25:49.902 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:26:02.144 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:26:56.783 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:27:38.712 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+11:58:56.183 [lettuce-nioEventLoop-5-1] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
 	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
@@ -50,77 +162,38 @@ java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-11:26:55.576 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
-11:26:55.632 [lettuce-eventExecutorLoop-3-4] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
-11:26:55.660 [lettuce-nioEventLoop-5-3] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
-11:26:55.660 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
-11:27:49.551 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-11:29:36.818 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-11:31:02.598 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-11:31:04.177 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-11:31:06.774 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-11:32:37.110 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-11:33:09.211 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-11:33:10.554 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-11:52:47.889 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-11:53:00.499 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-11:53:08.453 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-11:53:10.849 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:02:01.851 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-12:02:03.145 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:03:27.172 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:04:08.144 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:09:09.577 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:09:11.176 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:09:14.232 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:09:41.140 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:09:48.366 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:16:26.251 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:16:34.140 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:17:44.905 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-12:17:47.057 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:18:29.966 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:23:52.457 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:23:55.431 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:27:52.299 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:27:53.534 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:28:05.944 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:28:07.575 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-12:28:50.626 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:29:39.605 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:29:40.929 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:29:43.494 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:29:52.321 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:29:54.319 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:29:57.214 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:30:01.289 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:30:02.721 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:30:14.561 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:30:42.721 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:34:42.547 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:36:46.005 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:37:57.566 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-12:38:00.372 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:38:32.914 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:38:53.263 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:38:53.950 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-12:39:05.120 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-13:20:01.558 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-13:20:02.710 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:20:03.775 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-13:20:16.299 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:20:22.089 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-13:22:05.073 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:22:13.354 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:26:07.638 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-13:26:15.960 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:26:19.632 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:26:20.960 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-13:26:30.303 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-13:27:12.178 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:27:13.426 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-13:27:15.124 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
-13:27:15.127 [lettuce-nioEventLoop-5-3] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+11:58:56.192 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+11:58:56.218 [lettuce-eventExecutorLoop-3-5] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+11:58:56.227 [lettuce-nioEventLoop-5-3] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+11:58:56.232 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+12:08:26.913 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:09:18.226 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/
+12:09:18.268 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:19:39.643 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+12:19:41.503 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+12:19:43.410 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:34:24.226 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:34:25.793 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:35:25.848 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:35:39.303 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+12:35:54.255 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:36:45.926 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/
+12:36:45.957 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:36:50.129 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:37:16.291 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/
+12:37:16.324 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:37:42.866 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/
+12:37:42.896 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:41:56.783 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:45:52.694 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:45:59.069 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+12:46:04.743 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+13:57:19.099 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+13:57:22.251 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+13:58:19.141 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+13:58:20.670 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+13:58:27.000 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+13:59:19.963 [lettuce-nioEventLoop-5-3] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
 	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
@@ -140,62 +213,40 @@ java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-13:27:15.141 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
-13:27:15.225 [lettuce-eventExecutorLoop-3-12] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
-13:27:15.257 [lettuce-nioEventLoop-5-4] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
-13:27:15.261 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
-13:27:15.850 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:27:19.920 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-13:27:25.328 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:27:26.584 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-13:27:28.540 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:27:31.651 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:27:57.117 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-13:31:31.071 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-13:31:32.818 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:31:35.538 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-13:42:28.189 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:42:31.397 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-13:43:35.835 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-13:43:38.574 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:11:54.637 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-14:12:00.955 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:13:36.011 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:20:48.640 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:22:20.506 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:22:49.812 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:22:51.929 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:37:44.480 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:45:56.989 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:48:58.561 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:52:03.765 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:52:04.966 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:52:31.197 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:55:00.062 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:55:18.832 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:55:31.703 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:55:35.437 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:55:41.099 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:56:17.446 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:56:24.611 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:56:35.651 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:56:43.708 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:58:44.537 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:58:52.313 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:59:50.063 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-14:59:56.624 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:02:16.999 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:02:23.536 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:02:26.211 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:04:26.524 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:10:15.965 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:10:35.805 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:13:13.925 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:13:15.379 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:14:14.099 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:27:34.898 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
-15:27:34.898 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
-15:27:34.904 [lettuce-nioEventLoop-5-4] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+13:59:19.975 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+13:59:19.975 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+13:59:20.023 [lettuce-eventExecutorLoop-3-16] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+13:59:20.023 [lettuce-nioEventLoop-5-4] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+13:59:20.023 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+13:59:44.083 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+14:45:14.681 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+14:45:16.060 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+14:45:17.938 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+14:45:19.663 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+14:45:22.340 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+14:45:26.173 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+14:45:28.893 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+15:03:42.607 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+15:03:47.569 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+15:04:18.799 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/
+15:04:18.830 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+15:04:31.020 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/
+15:04:31.048 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+15:04:43.836 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/
+15:04:43.863 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+15:04:54.941 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/
+15:04:54.971 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+15:05:13.126 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/
+15:05:13.156 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+15:05:21.809 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+15:05:30.629 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/
+15:05:30.655 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+15:09:52.432 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+15:22:16.301 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+15:22:17.401 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+15:22:30.763 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+15:53:16.772 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+15:59:42.845 [lettuce-nioEventLoop-5-4] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
 	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
@@ -215,171 +266,20 @@ java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-15:27:34.912 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
-15:27:34.921 [lettuce-eventExecutorLoop-3-4] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
-15:27:34.941 [lettuce-nioEventLoop-5-5] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
-15:27:34.954 [lettuce-nioEventLoop-5-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
-15:36:55.107 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-15:36:56.688 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:37:01.370 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-15:37:04.713 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:40:33.378 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:44:38.405 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:45:46.688 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:46:42.594 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-15:51:33.195 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-15:51:34.996 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:53:36.888 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:54:41.670 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:55:18.236 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:55:22.214 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-15:57:21.108 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:07:25.455 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-16:07:26.813 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:08:24.911 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:08:26.421 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-16:08:31.580 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:08:32.788 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:08:34.512 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-16:09:07.102 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:16:54.158 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-16:16:56.656 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:17:43.293 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
-16:17:43.438 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
-16:18:07.945 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-16:18:07.990 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-16:18:08.291 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-16:18:08.291 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-16:18:11.462 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-16:18:21.471 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-16:18:21.471 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-16:18:21.597 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
-16:18:21.718 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
-16:18:21.737 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 15.808 seconds (JVM running for 17.566)
-16:18:21.744 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
-16:18:21.753 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
-16:18:21.753 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
-16:19:09.459 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:19:40.727 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:20:51.818 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:47:16.569 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-16:47:17.685 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:47:31.093 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
-16:47:31.140 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
-16:47:57.821 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-16:47:57.859 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-16:47:58.148 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-16:47:58.148 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-16:48:02.131 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-16:49:00.569 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-16:49:00.600 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-16:49:00.804 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-16:49:00.804 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-16:49:03.821 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-16:49:31.205 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-16:49:31.265 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-16:49:31.706 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-16:49:31.707 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-16:49:36.225 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-16:50:53.850 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-16:50:53.898 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-16:50:54.280 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-16:50:54.281 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-16:50:58.513 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-16:51:10.551 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-16:51:10.551 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-16:51:10.744 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
-16:51:10.933 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
-16:51:10.971 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 18.929 seconds (JVM running for 20.082)
-16:51:10.984 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
-16:51:10.989 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
-16:51:10.991 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
-16:51:36.724 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:51:39.196 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-16:51:40.417 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:54:40.948 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:55:06.845 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-16:56:25.874 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:05:30.750 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:05:35.446 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:06:52.688 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:06:55.585 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:10:03.934 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:10:05.206 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:17:15.468 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-17:17:17.836 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:17:27.766 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-17:17:29.742 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-17:17:31.342 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:22:18.120 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:26:59.208 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
-17:26:59.212 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
-17:27:16.806 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-17:27:16.857 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-17:27:17.192 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-17:27:17.192 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-17:27:21.282 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-17:27:31.721 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-17:27:31.721 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-17:27:31.848 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
-17:27:31.956 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
-17:27:31.974 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 17.505 seconds (JVM running for 18.778)
-17:27:31.981 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
-17:27:31.989 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
-17:27:31.990 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
-17:33:58.111 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
-17:33:58.114 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
-17:34:13.237 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-17:34:13.310 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-17:34:13.771 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-17:34:13.773 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-17:34:18.142 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-17:34:25.674 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-17:34:25.675 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-17:34:25.802 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
-17:34:25.896 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
-17:34:25.915 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 14.758 seconds (JVM running for 16.037)
-17:34:25.923 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
-17:34:25.926 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
-17:34:25.926 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
-17:39:12.710 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
-17:39:12.716 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
-17:39:36.698 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-17:39:36.737 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-17:39:37.016 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-17:39:37.017 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-17:39:40.151 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-17:39:45.066 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-17:39:45.066 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-17:39:45.188 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
-17:39:45.312 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
-17:39:45.332 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 10.452 seconds (JVM running for 11.986)
-17:39:45.338 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
-17:39:45.341 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
-17:39:45.342 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
-17:41:05.072 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-17:41:08.966 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-17:41:10.659 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-17:41:14.891 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-17:41:16.898 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:41:19.387 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-17:41:22.319 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:41:24.019 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-17:41:27.420 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-17:42:33.964 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-17:42:37.056 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:42:50.807 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:48:58.540 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-17:48:59.320 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-17:50:42.074 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:51:19.634 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:51:24.130 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-17:51:25.364 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:53:11.621 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:53:13.661 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:53:58.266 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-17:54:02.265 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-19:40:04.243 [lettuce-nioEventLoop-5-1] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+15:59:42.873 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:59:42.873 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:59:42.873 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:59:42.916 [lettuce-eventExecutorLoop-3-16] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+15:59:42.929 [lettuce-nioEventLoop-5-5] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+15:59:42.935 [lettuce-nioEventLoop-5-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+16:38:15.989 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+17:58:24.925 [reactor-http-nio-6] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+17:58:24.925 [reactor-http-nio-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+17:58:24.925 [reactor-http-nio-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+18:00:05.142 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+18:00:05.142 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+18:00:05.142 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+18:00:05.142 [lettuce-nioEventLoop-5-5] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
 	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
@@ -399,161 +299,192 @@ java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-19:40:04.291 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
-19:40:04.341 [lettuce-eventExecutorLoop-3-4] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
-19:40:04.365 [lettuce-nioEventLoop-5-3] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
-19:40:04.372 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
-19:43:54.118 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-19:43:59.399 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-19:44:04.831 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-19:44:12.454 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-19:44:14.477 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-19:44:16.686 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-19:44:18.543 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-19:44:21.389 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-19:44:22.996 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-19:44:26.822 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-19:44:28.216 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-19:44:30.095 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-19:44:31.872 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-19:44:33.294 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-19:48:55.455 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-19:48:57.558 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-19:48:59.226 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-19:49:03.865 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-19:49:09.610 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-19:49:11.052 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-19:49:13.986 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-19:49:28.892 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:01:36.105 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:01:39.278 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:01:48.525 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:02:11.561 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:02:15.819 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:05:41.115 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:07:04.188 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:07:06.757 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:08:27.210 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:08:28.428 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:09:47.252 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:09:48.942 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:09:55.866 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:11:39.982 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:12:22.710 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:12:23.979 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:12:25.390 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:12:27.802 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:12:50.732 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:12:56.022 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:13:07.998 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:13:12.164 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:15:09.036 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:15:12.898 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:16:06.982 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:16:12.560 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:16:14.525 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:16:15.997 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:16:19.598 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:16:21.100 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:18:04.214 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:18:10.708 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:30:24.900 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:30:28.411 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:30:29.569 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:30:34.121 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:30:42.870 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:30:45.170 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:30:47.861 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:30:49.535 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:30:54.335 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:30:55.480 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:31:02.735 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:31:06.403 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:31:08.824 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:31:24.800 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:31:31.516 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:31:33.753 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:31:36.846 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:31:39.106 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:31:40.462 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:31:43.767 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:31:45.108 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:31:46.294 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:31:47.552 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:31:49.374 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:31:51.029 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:34:33.950 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:35:39.180 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:35:42.478 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:36:00.619 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:36:36.584 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:37:42.063 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:38:09.528 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:38:12.680 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:38:24.929 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:38:27.042 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:40:22.358 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:40:57.895 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:42:42.273 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:42:48.070 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:43:34.407 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:43:57.050 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-20:58:29.302 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:58:34.257 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-20:58:36.735 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:58:39.603 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:58:46.320 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-20:58:48.676 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-21:06:55.339 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-21:06:57.118 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-21:07:02.315 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:07:41.139 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:07:48.085 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:08:18.986 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:08:30.390 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-21:09:03.672 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/
-21:09:04.131 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:09:12.226 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
-21:09:12.328 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
-21:09:39.589 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-21:09:39.626 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-21:09:39.901 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-21:09:39.901 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-21:09:43.288 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-21:09:53.103 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-21:09:53.103 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-21:09:53.228 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
-21:09:53.351 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
-21:09:53.380 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 15.679 seconds (JVM running for 17.185)
-21:09:53.387 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
-21:09:53.396 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
-21:09:53.396 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
-21:11:44.971 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:11:48.000 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-21:12:56.516 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:13:24.730 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:18:43.093 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
-21:18:43.097 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
-21:19:08.426 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-21:19:08.473 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-21:19:08.717 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-21:19:08.717 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-21:19:12.366 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-21:19:21.848 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-21:19:21.848 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-21:19:21.987 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
-21:19:22.095 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
-21:19:22.116 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 15.419 seconds (JVM running for 16.897)
-21:19:22.124 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
-21:19:22.133 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
-21:19:22.134 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
-21:19:31.856 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-21:19:32.941 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:19:34.490 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
-21:19:39.593 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:19:44.904 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role
-21:19:44.969 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:22:10.725 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:22:23.843 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:22:34.964 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-21:22:38.568 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+18:00:05.163 [lettuce-nioEventLoop-5-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+18:00:05.222 [lettuce-eventExecutorLoop-3-10] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+18:00:05.250 [lettuce-nioEventLoop-5-6] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+18:00:05.260 [lettuce-nioEventLoop-5-6] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+18:02:45.310 [reactor-http-nio-9] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+18:16:29.767 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:17:21.220 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:17:27.337 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:17:28.414 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:21:29.388 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:22:03.672 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:22:05.252 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:24:10.509 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:35:00.103 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:35:23.791 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+18:35:24.911 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+18:35:41.779 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+18:35:43.492 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+18:35:58.279 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:36:00.211 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:36:03.428 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+18:37:09.325 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+18:37:10.784 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+18:37:13.562 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:37:15.529 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+18:37:17.005 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+18:37:21.342 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:00:25.085 [lettuce-nioEventLoop-5-6] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+20:00:25.113 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+20:00:25.113 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+20:00:25.113 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+20:00:25.113 [lettuce-nioEventLoop-5-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+20:00:25.124 [lettuce-eventExecutorLoop-3-12] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+20:00:25.124 [lettuce-nioEventLoop-5-6] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+20:00:25.155 [lettuce-nioEventLoop-5-7] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+20:00:25.168 [lettuce-nioEventLoop-5-7] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+20:15:03.076 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+20:25:29.717 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:25:32.587 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:25:34.558 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:25:35.882 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:25:37.456 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:25:40.685 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:25:41.921 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:25:43.067 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:25:44.796 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:25:53.432 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:27:02.082 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:27:43.775 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:27:51.709 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+20:28:14.684 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:28:17.745 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+20:42:59.926 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+20:43:22.052 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+20:44:57.594 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+20:44:58.691 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+20:45:00.032 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+20:45:19.655 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+20:45:20.748 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+20:46:30.125 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+20:46:31.509 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
+20:46:34.216 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+21:08:46.552 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:11:09.356 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:11:25.815 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:15:19.771 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:15:54.279 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:17:16.738 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:17:32.206 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:21:37.392 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:22:13.131 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:23:18.043 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:23:41.992 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:23:53.686 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:24:02.534 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:24:21.451 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:24:28.321 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:25:06.534 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:25:27.829 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:25:33.538 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:27:10.385 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:27:42.548 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:27:48.067 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:28:08.442 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:28:17.258 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:28:18.333 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:31:02.303 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:31:54.311 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:32:43.127 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:33:10.454 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:33:47.538 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:34:11.747 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:34:54.722 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:35:03.876 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:35:05.033 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:35:32.315 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:37:21.935 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:39:08.594 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:39:24.523 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:39:26.933 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:39:54.086 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:41:01.370 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:42:03.692 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:42:10.163 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:42:11.243 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:43:43.629 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:44:04.611 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:45:07.283 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:48:42.849 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:50:17.801 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:51:04.454 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:51:31.370 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:52:01.839 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:52:53.809 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:53:19.413 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:53:32.058 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:53:33.908 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:53:45.685 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:53:47.411 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:55:48.567 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:55:53.971 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:56:05.769 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:56:07.678 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:56:51.985 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:56:58.541 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:57:00.014 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:57:08.269 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:57:54.006 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:57:59.337 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:58:00.399 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+21:59:13.727 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+22:00:48.796 [lettuce-nioEventLoop-5-7] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+22:00:48.804 [lettuce-nioEventLoop-5-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+22:00:48.804 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+22:00:48.817 [lettuce-eventExecutorLoop-3-13] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+22:00:48.820 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+22:00:48.820 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+22:00:48.875 [lettuce-nioEventLoop-5-6] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+22:00:48.875 [lettuce-nioEventLoop-5-7] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+22:00:48.877 [lettuce-nioEventLoop-5-8] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+22:00:48.893 [lettuce-nioEventLoop-5-8] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+22:02:09.318 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+22:03:54.293 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+22:04:43.838 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+22:04:50.351 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+22:04:51.472 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+22:06:04.428 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+22:06:41.349 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+22:07:22.248 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/list
+22:10:26.249 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+22:10:26.468 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.

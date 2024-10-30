@@ -1,50 +1,6 @@
-09:44:08.303 [reactor-http-nio-3] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/user/getInfo
-16:48:03.968 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - [report,40] - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Field redisService in com.jcm.gateway.service.impl.ValidateCodeServiceImpl required a bean of type 'com.jcm.common.redis.service.RedisService' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'com.jcm.common.redis.service.RedisService' in your configuration.
-
-16:49:05.291 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - [report,40] - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Field redisService in com.jcm.gateway.service.impl.ValidateCodeServiceImpl required a bean of type 'com.jcm.common.redis.service.RedisService' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'com.jcm.common.redis.service.RedisService' in your configuration.
-
-16:49:37.261 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - [report,40] - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Field redisService in com.jcm.gateway.service.impl.ValidateCodeServiceImpl required a bean of type 'com.jcm.common.redis.service.RedisService' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'com.jcm.common.redis.service.RedisService' in your configuration.
-
-20:01:36.100 [reactor-http-nio-10] ERROR i.n.u.ResourceLeakDetector - [reportTracedLeak,337] - LEAK: ByteBuf.release() was not called before it's garbage-collected. See https://netty.io/wiki/reference-counted-objects.html for more information.
+07:56:26.980 [reactor-http-nio-2] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/user/getInfo
+07:57:30.462 [reactor-http-nio-7] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/user/getInfo
+12:37:16.307 [reactor-http-nio-4] ERROR i.n.u.ResourceLeakDetector - [reportTracedLeak,337] - LEAK: ByteBuf.release() was not called before it's garbage-collected. See https://netty.io/wiki/reference-counted-objects.html for more information.
 Recent access records: 
 Created at:
 	io.netty.buffer.SimpleLeakAwareByteBuf.unwrappedDerived(SimpleLeakAwareByteBuf.java:144)
@@ -71,7 +27,7 @@ Created at:
 	io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	java.base/java.lang.Thread.run(Thread.java:834)
-20:42:48.089 [reactor-http-nio-12] ERROR i.n.u.ResourceLeakDetector - [reportTracedLeak,337] - LEAK: ByteBuf.release() was not called before it's garbage-collected. See https://netty.io/wiki/reference-counted-objects.html for more information.
+12:37:16.309 [reactor-http-nio-4] ERROR i.n.u.ResourceLeakDetector - [reportTracedLeak,337] - LEAK: ByteBuf.release() was not called before it's garbage-collected. See https://netty.io/wiki/reference-counted-objects.html for more information.
 Recent access records: 
 Created at:
 	io.netty.buffer.PooledByteBufAllocator.newDirectBuffer(PooledByteBufAllocator.java:402)

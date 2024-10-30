@@ -1,8 +1,10 @@
 package com.jcm.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.jcm.system.domain.dto.RoleDTO;
 import com.jcm.system.domain.SysUserRole;
+import com.jcm.system.domain.dto.RoleDTO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -23,8 +25,10 @@ public interface ISysUserRoleService extends IService<SysUserRole> {
 
     /**
      * 查询已分配用户角色列表
+     * 根据用户ID获取角色ID列表
      * @param userId 用户ID
      * @return
      */
-    Object queryUserRoles(Long userId);
+    public List<Integer> queryRoleIdsByUserId(Integer userId);
+
 }

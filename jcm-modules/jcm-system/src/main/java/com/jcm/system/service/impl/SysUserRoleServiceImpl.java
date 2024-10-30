@@ -2,8 +2,8 @@ package com.jcm.system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.jcm.system.domain.dto.RoleDTO;
 import com.jcm.system.domain.SysUserRole;
+import com.jcm.system.domain.dto.RoleDTO;
 import com.jcm.system.mapper.SysUserRoleMapper;
 import com.jcm.system.service.ISysUserRoleService;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -55,12 +54,15 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
         return sysUserRoleMapper.batchUserRole(SysUserRoles);
     }
 
-
+    /**
+     * 根据用户ID获取角色ID列表
+     * @param userId 用户ID
+     * @return
+     */
     @Override
-    public List<Long> queryUserRoles(Long userId) {
-        //查询用户已经授权的所有角色
-        LambdaQueryWrapper<SysUserRole> lambdaQueryWrapper=new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(SysUserRole::getUserId,userId);
-        return sysUserRoleMapper.selectList(lambdaQueryWrapper).stream().map(item->item.getRoleId()).collect(Collectors.toList());
+    public List<Integer> queryRoleIdsByUserId(Integer userId) {
+        return sysUserRoleMapper.queryRoleIdsByUserId(userId);
     }
+
+
 }
