@@ -122,7 +122,7 @@ public class SysRoleController extends PageBaseController {
     /**
      * 状态修改
      */
-    @RequiresPermissions("system:role:edit")
+    @RequiresPermissions("system:role:editStatus")
     @PutMapping("/changeStatus")
     public AjaxResult changeStatus(@RequestBody SysRole role)
     {
@@ -134,7 +134,7 @@ public class SysRoleController extends PageBaseController {
      * 查询已分配用户角色列表
      */
     @PrintParams
-    @RequiresPermissions("system:role:query")
+    @RequiresPermissions("system:role:list")
     @GetMapping("/queryUserRoles/{userId}")
     public R queryUserRoles(@PathVariable Integer userId)
     {
@@ -147,7 +147,7 @@ public class SysRoleController extends PageBaseController {
      * 批量选择角色对用户授权
      */
     @PrintParams
-    @RequiresPermissions("system:role:edit")
+    @RequiresPermissions("system:user:authRole")
     @PutMapping("/authUserRole/selectAll")
     public AjaxResult selectAuthUserRoleAll(@RequestBody RoleDTO roleDTO)
     {

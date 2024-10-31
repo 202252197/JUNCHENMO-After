@@ -92,7 +92,6 @@ public class SysUserController extends PageBaseController {
 
     /**
      * 获取用户信息
-     *
      * @return 用户信息
      */
     @Operation(summary = "获取用户的详细信息", description = "包括用户信息、用户角色列表、用户权限列表")
@@ -177,7 +176,7 @@ public class SysUserController extends PageBaseController {
      * 重置用户的密码
      */
     @Operation(summary = "重置用户的密码", description = "修改用户的密码")
-    @RequiresPermissions("system:user:edit")
+    @RequiresPermissions("system:user:resetPassword")
     @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.UPDATE)
     @PutMapping("/changePassword")
     @PrintParams
@@ -194,7 +193,7 @@ public class SysUserController extends PageBaseController {
     @Operation(summary = "禁用用户账号", description = "将用户账号禁用，不可用")
     @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.UPDATE)
     @PutMapping("/changeStatus")
-    @RequiresPermissions("system:user:edit")
+    @RequiresPermissions("system:user:disableAccount")
     @PrintParams
     public AjaxResult disable(@RequestBody SysUser user) {
         sysUserService.checkUserAllowed(user.getUserId());
@@ -204,7 +203,7 @@ public class SysUserController extends PageBaseController {
     /**
      * 用户授权角色
      */
-    @RequiresPermissions("system:user:edit")
+    @RequiresPermissions("system:user:authRole")
     @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.UPDATE)
     @PutMapping("/authRole")
     public AjaxResult insertAuthRole(Long userId, Long[] roleIds)

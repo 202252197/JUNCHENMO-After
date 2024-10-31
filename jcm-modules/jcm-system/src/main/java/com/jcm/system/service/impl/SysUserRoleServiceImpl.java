@@ -29,8 +29,10 @@ import java.util.List;
 public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRole> implements ISysUserRoleService {
 
     private final SysUserRoleMapper sysUserRoleMapper;
+
     /**
-     *  批量选择角色对用户授权
+     * 批量选择角色对用户授权
+     * @param roleDTO 用户ID和角色id集合
      * @return
      */
     @Transactional

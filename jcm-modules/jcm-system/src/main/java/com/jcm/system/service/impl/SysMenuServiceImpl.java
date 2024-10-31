@@ -215,6 +215,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         List<SysMenu> allMenus = this.lambdaQuery()
                 .like(StringUtils.isNotEmpty(sysMenu.getName()), SysMenu::getName, sysMenu.getName())
                 .eq(Objects.nonNull(sysMenu.getStatus()), SysMenu::getStatus, sysMenu.getStatus())
+                .orderByAsc(SysMenu::getSort)
                 .list();
 
         if (allMenus.isEmpty()) {

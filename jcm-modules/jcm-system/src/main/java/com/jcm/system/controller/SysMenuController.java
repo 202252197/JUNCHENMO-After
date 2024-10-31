@@ -1,14 +1,17 @@
 package com.jcm.system.controller;
 
 
+import com.jcm.common.core.domain.R;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.system.domain.SysMenu;
+import com.jcm.system.domain.dto.MenuDTO;
 import com.jcm.system.domain.vo.RouterVo;
 import com.jcm.system.service.ISysMenuService;
+import com.jcm.system.service.ISysRoleMenuService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -31,6 +34,9 @@ import java.util.List;
 public class SysMenuController extends PageBaseController {
 
     private final ISysMenuService sysMenuService;
+
+    private final ISysRoleMenuService sysRoleMenuService;
+
     /**
      * 获取前端菜单列表
      *
@@ -107,11 +113,10 @@ public class SysMenuController extends PageBaseController {
 
     /**
      * 获取新增菜单最后的sort值
-     *
      * @return 菜单最后的sort值
      */
-    @RequiresPermissions("system:menu:list")
     @Operation(summary = "获取新增菜单最后的sort值",description = "通过id查询所有子菜单，对子菜单的最大sort加100返回")
+    @RequiresPermissions("system:menu:list")
     @GetMapping("/getChildLastSort/{parentId}")
     @PrintParams
     public AjaxResult getMenuChildLastSort(@PathVariable("parentId") Long parentId)
@@ -122,7 +127,6 @@ public class SysMenuController extends PageBaseController {
 
     /**
      * 获取首页动态设置的icon图标
-     *
      * @return 获取首页图标名称
      */
     @RequiresPermissions("system:menu:list")
@@ -133,5 +137,29 @@ public class SysMenuController extends PageBaseController {
     {
         String homeIcon = sysMenuService.getHomeMenuIcon();
         return success(homeIcon);
+    }
+
+
+    /**
+     * 查询已分配角色的菜单列表
+     */
+    @PrintParams
+    @RequiresPermissions("system:menu:list")
+    @GetMapping("/queryRoleMenus/{roleId}")
+    public R queryRoleMenus(@PathVariable Integer roleId)
+    {
+        return R.ok(sysRoleMenuService.queryMenuIdsByRoleId(roleId));
+    }
+
+
+    /**
+     * 批量选择菜单对角色授权
+     */
+    @PrintParams
+    @RequiresPermissions("system:role:authMenu")
+    @PutMapping("/authRoleMenu/selectAll")
+    public AjaxResult selectAuthRoleMenuAll(@RequestBody MenuDTO menuDTO)
+    {
+        return toAjax(sysRoleMenuService.insertAuthRoleMenus(menuDTO));
     }
 }

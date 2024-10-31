@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jcm.system.mapper.SysRoleMenuMapper">
+
+
+    <insert id="batchRoleMenu">
+        insert into sys_role_menu(role_id, menu_id) values
+        <foreach item="item" index="index" collection="list" separator=",">
+            (#{item.roleId},#{item.menuId})
+        </foreach>
+    </insert>
+
+    <!-- 根据角色ID获取菜单ID列表 -->
+    <select id="queryMenuIdsByRoleId" resultType="java.lang.Integer">
+        select menu_id
+        from sys_menu
+        where menu_id in
+              (select menu_id from sys_role_menu as rm where rm.role_id = #{roleId})
+          and deleted = 0
+          and status = 0
+    </select>
+
+    <delete id="deleteRoleMenuByRoleId" parameterType="java.lang.Long">
+        delete from sys_role_menu where role_id=#{roleId}
+    </delete>
+</mapper>
