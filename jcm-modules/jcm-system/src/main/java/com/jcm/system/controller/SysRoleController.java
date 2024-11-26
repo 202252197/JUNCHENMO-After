@@ -1,7 +1,6 @@
 package com.jcm.system.controller;
 
 
-import com.jcm.common.core.constant.UserConstants;
 import com.jcm.common.core.domain.R;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
@@ -29,8 +28,8 @@ import java.util.List;
  */
 @Tag(name="角色管理")
 @RestController
-@RequestMapping("/role")
 @AllArgsConstructor
+@RequestMapping("/role")
 public class SysRoleController extends PageBaseController {
 
     private final ISysRoleService sysRoleService;
@@ -91,7 +90,6 @@ public class SysRoleController extends PageBaseController {
         {
             return error("新增角色'" + role.getCode() + "'失败，角色权限已存在");
         }
-        role.setStatus(Integer.valueOf(UserConstants.USER_NORMAL));
         return toAjax(sysRoleService.insertRole(role));
 
     }

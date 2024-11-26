@@ -243,7 +243,6 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         }else{
             sysMenu.setIsFrame(true);
         }
-        sysMenu.setStatus(0);
         return sysMenuMapper.insert(sysMenu);
     }
 

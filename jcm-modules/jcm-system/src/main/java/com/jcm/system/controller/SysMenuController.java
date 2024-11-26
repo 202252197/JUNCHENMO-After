@@ -61,7 +61,6 @@ public class SysMenuController extends PageBaseController {
 
     /**
      * 获取全部菜单列表
-     *
      * @return 菜单列表
      */
     @RequiresPermissions("system:menu:list")
@@ -83,7 +82,6 @@ public class SysMenuController extends PageBaseController {
     @PrintParams
     public AjaxResult add(@RequestBody SysMenu menu)
     {
-        System.out.println(menu);
         return toAjax(sysMenuService.insertMenu(menu));
 
     }
