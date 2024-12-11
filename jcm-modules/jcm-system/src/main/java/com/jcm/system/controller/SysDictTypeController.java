@@ -44,6 +44,18 @@ public class SysDictTypeController extends PageBaseController {
     }
 
     /**
+     * 获取所有启用的字典以及额外参数
+     */
+    @RequiresPermissions("system:dictType:list")
+    @GetMapping("/listAll")
+    @PrintParams
+    public R listAll()
+    {
+        return R.ok(sysDictTypeService.selectDictTypeAndExtraAllList());
+    }
+
+
+    /**
      * 新增字典项
      */
     @RequiresPermissions("system:role:add")
@@ -55,16 +67,16 @@ public class SysDictTypeController extends PageBaseController {
     }
 
 
+
+
     /**
-     * 获取全部字典配置项列表以及扩展参数
+     * 删除字典项
      */
-    @RequiresPermissions("system:dictType:list")
-    @GetMapping("/listAll")
+    @RequiresPermissions("system:menu:delete")
+    @DeleteMapping("/{dictTypeId}")
     @PrintParams
-    public R listAll()
-    {
-        List<SysDictType> list = sysDictTypeService.selectDictTypeAndExtraAllList();
-        return R.ok(list);
+    public AjaxResult delete(@PathVariable("dictTypeId") Long dictTypeId) {
+        return toAjax(sysDictTypeService.deleteDictType(dictTypeId));
     }
 
 }

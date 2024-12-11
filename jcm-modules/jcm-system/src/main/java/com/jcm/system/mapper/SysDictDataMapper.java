@@ -1,7 +1,9 @@
 package com.jcm.system.mapper;
 
-import com.jcm.system.domain.SysDictData;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.jcm.system.domain.SysDictData;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +15,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface SysDictDataMapper extends BaseMapper<SysDictData> {
 
+
+    List<SysDictData> selectListByCondition(SysDictData dictType);
+
+    List<SysDictData> getInfoList(List<String> names);
 }

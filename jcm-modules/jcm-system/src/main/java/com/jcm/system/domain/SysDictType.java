@@ -1,7 +1,6 @@
 package com.jcm.system.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.jcm.common.mybatis.entity.BaseEntity;
@@ -9,9 +8,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
 
 /**
  * <p>
@@ -42,9 +38,6 @@ public class SysDictType extends BaseEntity implements Serializable {
     /**
      * 字典项额外参数
      */
-    @TableField(exist = false)
-    private List<SysDictTypeExtra> typeExtraSchemas;
+    private String extraSchema;
 
-    @TableField(exist = false)
-    private ArrayList<Properties> ceshi;
 }

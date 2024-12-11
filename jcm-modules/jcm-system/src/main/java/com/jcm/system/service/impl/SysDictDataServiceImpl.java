@@ -1,5 +1,6 @@
 package com.jcm.system.service.impl;
 
+import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.system.domain.SysDictData;
 import com.jcm.system.mapper.SysDictDataMapper;
@@ -8,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -23,14 +25,37 @@ public class SysDictDataServiceImpl extends ServiceImpl<SysDictDataMapper, SysDi
 
     private final SysDictDataMapper sysDictDataMapper;
 
-    /**
-     * 根据条件分页查询字典配置值数据
-     * @param dictData 字典值信息
-     * @return 字典项数据集合信息
-     */
+
+
     @Override
-    public List<SysDictData> selectDictDataList(SysDictData dictData) {
-        return this.lambdaQuery().list();
+    public Integer insertDictData(SysDictData dictData) {
+        //插入数据
+        return sysDictDataMapper.insert(dictData);
+    }
+
+    @Override
+    public List<SysDictData> selectDictDataList(SysDictData dictType) {
+        return sysDictDataMapper.selectListByCondition(dictType);
+    }
+
+    @Override
+    public Integer deleteDictData(Long dictDataId) {
+        //插入数据
+        return sysDictDataMapper.deleteById(dictDataId);
+    }
+
+    @Override
+    public List<JSONObject> getInfoList(List<String> names) {
+        List<SysDictData> infoList = sysDictDataMapper.getInfoList(names);
+
+        List<JSONObject> infoObjList = infoList.stream().map(dictData -> {
+            JSONObject jsonObject = JSONObject.parseObject(dictData.getExtra());
+            jsonObject.put("name", dictData.getName());
+            jsonObject.put("value", dictData.getValue());
+            jsonObject.put("description", dictData.getDescription());
+            return jsonObject;
+        }).collect(Collectors.toList());
+        return infoObjList;
     }
 
 }

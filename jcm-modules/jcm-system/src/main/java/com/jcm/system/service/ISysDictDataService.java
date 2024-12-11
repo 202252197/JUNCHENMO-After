@@ -1,5 +1,6 @@
 package com.jcm.system.service;
 
+import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jcm.system.domain.SysDictData;
 
@@ -15,5 +16,13 @@ import java.util.List;
  */
 public interface ISysDictDataService extends IService<SysDictData> {
 
-    List<SysDictData> selectDictDataList(SysDictData dictData);
+
+    Integer insertDictData(SysDictData sysDictData);
+
+    List<SysDictData> selectDictDataList(SysDictData dictType);
+
+    Integer deleteDictData(Long dictDataId);
+
+    List<JSONObject> getInfoList(List<String> names);
+
 }

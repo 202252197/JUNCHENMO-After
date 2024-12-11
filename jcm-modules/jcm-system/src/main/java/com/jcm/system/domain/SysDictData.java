@@ -1,6 +1,7 @@
 package com.jcm.system.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.jcm.common.mybatis.entity.BaseEntity;
@@ -29,6 +30,9 @@ public class SysDictData extends BaseEntity implements Serializable {
 
     private String dictTypeId;
 
+    @TableField(exist = false)
+    private String name;
+
     private String value;
 
     private Integer sort;
@@ -36,5 +40,7 @@ public class SysDictData extends BaseEntity implements Serializable {
     private Integer status;
 
     private String description;
+
+    private String extra;
 
 }

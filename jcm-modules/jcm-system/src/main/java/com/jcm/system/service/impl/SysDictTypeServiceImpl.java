@@ -3,16 +3,15 @@ package com.jcm.system.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.utils.StringUtils;
+import com.jcm.system.domain.SysDictData;
 import com.jcm.system.domain.SysDictType;
-import com.jcm.system.domain.SysDictTypeExtra;
-import com.jcm.system.mapper.SysDictTypeExtraMapper;
+import com.jcm.system.mapper.SysDictDataMapper;
 import com.jcm.system.mapper.SysDictTypeMapper;
 import com.jcm.system.service.ISysDictTypeService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,7 +29,8 @@ public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDi
 
 
     private final SysDictTypeMapper sysDictTypeMapper;
-    private final SysDictTypeExtraMapper sysDictTypeExtraMapper;
+
+    private final SysDictDataMapper sysDictDataMapper;
 
     /**
      * 根据条件分页查询字典配置项数据
@@ -53,27 +53,23 @@ public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDi
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public int insertDictType(SysDictType dictType) {
+    public Integer insertDictType(SysDictType dictType) {
         //插入数据
-        int insert = sysDictTypeMapper.insert(dictType);
-        //查询插入的数据
-        LambdaQueryWrapper<SysDictType> lambdaQueryWrapper=new LambdaQueryWrapper();
-        lambdaQueryWrapper.eq(StringUtils.isNotEmpty(dictType.getName()),SysDictType::getName,dictType.getName());
-        SysDictType sysDictType = sysDictTypeMapper.selectOne(lambdaQueryWrapper);
-        //插入字典项额外配置项
-        List<SysDictTypeExtra> extraSchemas = dictType.getTypeExtraSchemas();
-        if(!Objects.isNull(extraSchemas)){
-            for (SysDictTypeExtra extraSchema : extraSchemas) {
-                extraSchema.setDictTypeId(sysDictType.getDictTypeId());
-            }
-            sysDictTypeExtraMapper.batchDictTypeExtra(extraSchemas);
-        }
-        return insert;
+        return sysDictTypeMapper.insert(dictType);
     }
 
     @Override
     public List<SysDictType> selectDictTypeAndExtraAllList() {
-        ArrayList<SysDictType> sysDictTypes = sysDictTypeMapper.selectDictTypeAndExtraAllList();
-        return sysDictTypes;
+        return sysDictTypeMapper.selectDictTypeAndExtraAllList();
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public Integer deleteDictType(Long dictTypeId) {
+        int deleteById = sysDictTypeMapper.deleteById(dictTypeId);
+        LambdaQueryWrapper<SysDictData> sysDictDataLQW=new LambdaQueryWrapper<>();
+        sysDictDataLQW.eq(Objects.nonNull(dictTypeId),SysDictData::getDictTypeId,dictTypeId);
+        sysDictDataMapper.delete(sysDictDataLQW);
+        return deleteById;
     }
 }

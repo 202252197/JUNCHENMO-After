@@ -8,6 +8,7 @@
         <result column="name" property="name" />
         <result column="description" property="description" />
         <result column="type" property="type" />
+        <result column="extra_schema" property="extraSchema" />
         <result column="status" property="status" />
         <result column="creator" property="creator" />
         <result column="create_time" property="createTime" />
@@ -16,32 +17,11 @@
         <result column="deleted" property="deleted" />
     </resultMap>
 
-
-    <!-- 定义结果映射，处理一对多关系 -->
-    <resultMap id="DictTypeWithExtra" type="com.jcm.system.domain.SysDictType">
-        <id column="dict_type_id" property="dictTypeId" />
-        <result column="name" property="name" />
-        <result column="type_type" property="type" />
-        <result column="type_description" property="description" />
-        <!-- 一对多关联，使用collection标签 -->
-        <collection property="typeExtraSchemas" ofType="com.jcm.system.domain.SysDictTypeExtra">
-            <id column="dict_type_extra_id" property="dictTypeExtraId" />
-            <result column="parameter" property="parameter" />
-            <result column="type_extra_type" property="type" />
-        </collection>
-    </resultMap>
-    <select id="selectDictTypeAndExtraAllList" resultMap="DictTypeWithExtra">
+    <select id="selectDictTypeAndExtraAllList" resultMap="BaseResultMap">
         SELECT
-            dt.dict_type_id,
-            dt.NAME,
-            dt.type AS type_type,
-            dt.description as type_description,
-            dte.dict_type_extra_id,
-            dte.parameter,
-            dte.type AS type_extra_type
+           *
         FROM
             sys_dict_type dt
-                LEFT JOIN sys_dict_type_extra dte ON dt.dict_type_id = dte.dict_type_id
         WHERE
             dt.deleted = 0
           AND dt.`status` =0

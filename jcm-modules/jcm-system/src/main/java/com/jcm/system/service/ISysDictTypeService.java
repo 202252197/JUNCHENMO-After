@@ -29,8 +29,12 @@ public interface ISysDictTypeService extends IService<SysDictType> {
      * @param dictType 字典项信息
      * @return 结果
      */
-    int insertDictType(SysDictType dictType);
+    Integer insertDictType(SysDictType dictType);
 
 
     List<SysDictType> selectDictTypeAndExtraAllList();
+
+    Integer deleteDictType(Long dictTypeId);
+
+
 }

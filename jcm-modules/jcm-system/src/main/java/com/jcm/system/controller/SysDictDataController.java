@@ -1,6 +1,8 @@
 package com.jcm.system.controller;
 
 
+import com.jcm.common.core.domain.R;
+import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
@@ -9,10 +11,7 @@ import com.jcm.system.domain.SysDictData;
 import com.jcm.system.service.ISysDictDataService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -44,5 +43,40 @@ public class SysDictDataController  extends PageBaseController {
         List<SysDictData> list = sysDictDataService.selectDictDataList(dictType);
         return getDataTable(list);
     }
+
+
+
+    /**
+     * 新增字典项
+     */
+    @RequiresPermissions("system:role:add")
+    @PostMapping
+    @PrintParams
+    public AjaxResult add(@RequestBody SysDictData sysDictData)
+    {
+        return toAjax(sysDictDataService.insertDictData(sysDictData));
+    }
+
+    /**
+     * 删除菜单
+     */
+    @RequiresPermissions("system:menu:delete")
+    @DeleteMapping("/{dictDataId}")
+    @PrintParams
+    public AjaxResult delete(@PathVariable("dictDataId") Long dictDataId) {
+        return toAjax(sysDictDataService.deleteDictData(dictDataId));
+    }
+
+    /**
+     * 根据字典项名称，获取字典项的所有配置值、描述、以及额外参数的配置
+     */
+    @RequiresPermissions("system:dictType:list")
+    @PostMapping("/getInfoByNames")
+    @PrintParams
+    public R getInfoList(@RequestBody List<String> names)
+    {
+        return R.ok(sysDictDataService.getInfoList(names));
+    }
+
 
 }

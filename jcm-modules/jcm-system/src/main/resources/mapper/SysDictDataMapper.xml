@@ -6,7 +6,9 @@
     <resultMap id="BaseResultMap" type="com.jcm.system.domain.SysDictData">
         <id column="dict_data_id" property="dictDataId" />
         <result column="dict_type_id" property="dictTypeId" />
+        <result column="name" property="name" />
         <result column="value" property="value" />
+        <result column="extra" property="extra" />
         <result column="sort" property="sort" />
         <result column="status" property="status" />
         <result column="description" property="description" />
@@ -18,4 +20,36 @@
         <result column="deleted" property="deleted" />
     </resultMap>
 
+
+    <select id="selectListByCondition" resultMap="BaseResultMap">
+        SELECT CONCAT(t.NAME, ' - ', t.description) AS NAME, d.*
+        FROM sys_dict_data d
+                 LEFT JOIN sys_dict_type t ON d.dict_type_id = t.dict_type_id
+        <trim prefix="WHERE" prefixOverrides="AND">
+            <if test="name != null">
+                AND  NAME LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="value != null">
+                AND d.`value` LIKE CONCAT('%', #{value}, '%')
+            </if>
+            <if test="description != null">
+                AND d.description LIKE CONCAT('%', #{description}, '%')
+            </if>
+            <if test="extra != null">
+                AND d.extra LIKE CONCAT('%', #{extra}, '%')
+            </if>
+            AND t.deleted =0 AND d.deleted = 0
+        </trim>
+    </select>
+
+    <select id="getInfoList" resultMap="BaseResultMap">
+        SELECT t.name,d.extra,d.`value`,d.description from sys_dict_type t LEFT JOIN sys_dict_data d on t.dict_type_id=d.dict_type_id
+        <where>
+            t.name in
+            <foreach item="item" index="index" collection="list" separator="," open="(" close=")">
+                #{item}
+            </foreach>
+            AND t.deleted=0 AND d.deleted = 0
+        </where>
+    </select>
 </mapper>
