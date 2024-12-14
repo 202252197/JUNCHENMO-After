@@ -12,7 +12,6 @@ import java.util.List;
  * </p>
  *
  * @author 吕世昊
- * @since 2024-11-24
  */
 public interface ISysDictDataService extends IService<SysDictData> {
 
@@ -21,7 +20,7 @@ public interface ISysDictDataService extends IService<SysDictData> {
 
     List<SysDictData> selectDictDataList(SysDictData dictType);
 
-    Integer deleteDictData(Long dictDataId);
+    void deleteDictData(List<Long> dictDataIds);
 
     List<JSONObject> getInfoList(List<String> names);
 

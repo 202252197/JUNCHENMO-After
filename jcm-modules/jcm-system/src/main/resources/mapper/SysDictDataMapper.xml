@@ -52,4 +52,20 @@
             AND t.deleted=0 AND d.deleted = 0
         </where>
     </select>
+
+    <delete id="deleteByDictTypeIds">
+        DELETE FROM sys_dict_data WHERE
+        dict_type_id IN
+        <foreach collection="dictTypeIds" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
+
+    <delete id="deleteByIds">
+        DELETE FROM sys_dict_data WHERE
+        dict_data_id IN
+        <foreach collection="dictDataIds" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>

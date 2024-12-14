@@ -26,4 +26,12 @@
             dt.deleted = 0
           AND dt.`status` =0
     </select>
+
+    <delete id="deleteByIds">
+        DELETE FROM sys_dict_type WHERE
+        dict_type_id IN
+        <foreach collection="dictTypeIds" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>

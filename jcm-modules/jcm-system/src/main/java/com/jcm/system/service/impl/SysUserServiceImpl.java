@@ -18,12 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <p>
- * 用户表 服务实现类
- * </p>
- *
  * @author 吕世昊
- * @since 2024-04-01
  */
 @Service
 @AllArgsConstructor

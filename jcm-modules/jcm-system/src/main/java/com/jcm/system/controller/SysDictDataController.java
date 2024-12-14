@@ -58,14 +58,16 @@ public class SysDictDataController  extends PageBaseController {
     }
 
     /**
-     * 删除菜单
+     * 删除字典值
      */
     @RequiresPermissions("system:menu:delete")
-    @DeleteMapping("/{dictDataId}")
+    @DeleteMapping
     @PrintParams
-    public AjaxResult delete(@PathVariable("dictDataId") Long dictDataId) {
-        return toAjax(sysDictDataService.deleteDictData(dictDataId));
+    public AjaxResult delete(@RequestBody List<Long> dictDataIds) {
+        sysDictDataService.deleteDictData(dictDataIds);
+        return toAjax(true);
     }
+
 
     /**
      * 根据字典项名称，获取字典项的所有配置值、描述、以及额外参数的配置

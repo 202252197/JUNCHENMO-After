@@ -8,12 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>
- * 操作日志记录 服务实现类
- * </p>
- *
  * @author 吕世昊
- * @since 2024-05-03
  */
 @Service
 @AllArgsConstructor

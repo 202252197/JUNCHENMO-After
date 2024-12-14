@@ -70,10 +70,11 @@ public class SysDictTypeController extends PageBaseController {
      * 删除字典项
      */
     @RequiresPermissions("system:menu:delete")
-    @DeleteMapping("/{dictTypeId}")
+    @DeleteMapping
     @PrintParams
-    public AjaxResult delete(@PathVariable("dictTypeId") Long dictTypeId) {
-        return toAjax(sysDictTypeService.deleteDictType(dictTypeId));
+    public AjaxResult delete(@RequestBody List<Long> dictTypeIds) {
+        sysDictTypeService.deleteDictType(dictTypeIds);
+        return toAjax(true);
     }
 
     /**
@@ -86,8 +87,5 @@ public class SysDictTypeController extends PageBaseController {
     {
         return toAjax(sysDictTypeService.updateDictType(sysDictType));
     }
-
-
-
 
 }

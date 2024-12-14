@@ -11,7 +11,6 @@ import java.util.List;
  * </p>
  *
  * @author 吕世昊
- * @since 2024-10-31
  */
 public interface ISysDictTypeService extends IService<SysDictType> {
 
@@ -34,7 +33,7 @@ public interface ISysDictTypeService extends IService<SysDictType> {
 
     List<SysDictType> selectDictTypeAndExtraAllList();
 
-    Integer deleteDictType(Long dictTypeId);
+    void deleteDictType(List<Long> dictTypeIds);
 
 
     Integer updateDictType(SysDictType sysDictType);

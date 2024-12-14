@@ -2,7 +2,6 @@ package com.jcm.system.service.impl;
 
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -19,17 +18,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 
 /**
- * <p>
- * 字典配置项 服务实现类
- * </p>
- *
  * @author 吕世昊
- * @since 2024-10-31
  */
 @Service
 @AllArgsConstructor
 public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDictType> implements ISysDictTypeService {
-
 
     private final SysDictTypeMapper sysDictTypeMapper;
 
@@ -68,12 +61,9 @@ public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDi
 
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public Integer deleteDictType(Long dictTypeId) {
-        int deleteById = sysDictTypeMapper.deleteById(dictTypeId);
-        LambdaQueryWrapper<SysDictData> sysDictDataLQW=new LambdaQueryWrapper<>();
-        sysDictDataLQW.eq(Objects.nonNull(dictTypeId),SysDictData::getDictTypeId,dictTypeId);
-        sysDictDataMapper.delete(sysDictDataLQW);
-        return deleteById;
+    public void deleteDictType(List<Long> dictTypeIds) {
+        sysDictTypeMapper.deleteByIds(dictTypeIds);
+        sysDictDataMapper.deleteByDictTypeIds(dictTypeIds);
     }
 
     @Transactional(rollbackFor = Exception.class)

@@ -16,12 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * <p>
- * 用户和角色关联关系表 服务实现类
- * </p>
- *
  * @author 吕世昊
- * @since 2024-04-20
  */
 @SuppressWarnings(value = "all")
 @Service

@@ -9,7 +9,6 @@ import com.jcm.system.api.domain.SysOperLog;
  * </p>
  *
  * @author 吕世昊
- * @since 2024-05-03
  */
 public interface ISysOperLogService extends IService<SysOperLog> {
 

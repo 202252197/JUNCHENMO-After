@@ -13,12 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * <p>
- * 字典配置值 服务实现类
- * </p>
- *
  * @author 吕世昊
- * @since 2024-11-24
  */
 @Service
 @AllArgsConstructor
@@ -40,9 +35,8 @@ public class SysDictDataServiceImpl extends ServiceImpl<SysDictDataMapper, SysDi
     }
 
     @Override
-    public Integer deleteDictData(Long dictDataId) {
-        //插入数据
-        return sysDictDataMapper.deleteById(dictDataId);
+    public void deleteDictData(List<Long> dictDataIds) {
+        sysDictDataMapper.deleteByIds(dictDataIds);
     }
 
     @Override

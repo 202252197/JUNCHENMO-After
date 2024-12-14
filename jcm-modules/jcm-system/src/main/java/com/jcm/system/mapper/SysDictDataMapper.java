@@ -2,6 +2,7 @@ package com.jcm.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jcm.system.domain.SysDictData;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,4 +20,8 @@ public interface SysDictDataMapper extends BaseMapper<SysDictData> {
     List<SysDictData> selectListByCondition(SysDictData dictType);
 
     List<SysDictData> getInfoList(List<String> names);
+
+    void deleteByDictTypeIds(@Param("dictTypeIds") List<Long> dictTypeIds);
+
+    void deleteByIds(@Param("dictDataIds") List<Long> dictDataIds);
 }

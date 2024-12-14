@@ -1,9 +1,11 @@
 package com.jcm.system.mapper;
 
-import com.jcm.system.domain.SysDictType;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.jcm.system.domain.SysDictType;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -16,4 +18,6 @@ import java.util.ArrayList;
 public interface SysDictTypeMapper extends BaseMapper<SysDictType> {
 
     ArrayList<SysDictType> selectDictTypeAndExtraAllList();
+
+    void deleteByIds(@Param("dictTypeIds") List<Long> dictTypeIds);
 }
