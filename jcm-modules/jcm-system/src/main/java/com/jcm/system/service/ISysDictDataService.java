@@ -25,4 +25,5 @@ public interface ISysDictDataService extends IService<SysDictData> {
 
     List<JSONObject> getInfoList(List<String> names);
 
+    List<JSONObject> getInfo(String name);
 }

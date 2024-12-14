@@ -104,4 +104,13 @@
     <select id="selectMenuChildLastSort" parameterType="long" resultType="int">
         SELECT IFNULL((SELECT MAX(sort) FROM sys_menu WHERE parent_id = #{parentId} ORDER BY sort desc), 0) AS result;
     </select>
+
+    <update id="updateBatchById" parameterType="com.jcm.system.domain.SysMenu" >
+        UPDATE sys_menu
+        SET status = #{status},visible = #{visible}
+        WHERE menu_id IN
+        <foreach collection="menuList" item="item" open="(" close=")" separator=",">
+            #{item.menuId}
+        </foreach>
+    </update>
 </mapper>

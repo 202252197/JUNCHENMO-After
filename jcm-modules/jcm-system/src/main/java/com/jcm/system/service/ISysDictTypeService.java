@@ -37,4 +37,5 @@ public interface ISysDictTypeService extends IService<SysDictType> {
     Integer deleteDictType(Long dictTypeId);
 
 
+    Integer updateDictType(SysDictType sysDictType);
 }

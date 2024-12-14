@@ -66,9 +66,6 @@ public class SysDictTypeController extends PageBaseController {
         return toAjax(sysDictTypeService.insertDictType(sysDictType));
     }
 
-
-
-
     /**
      * 删除字典项
      */
@@ -78,5 +75,19 @@ public class SysDictTypeController extends PageBaseController {
     public AjaxResult delete(@PathVariable("dictTypeId") Long dictTypeId) {
         return toAjax(sysDictTypeService.deleteDictType(dictTypeId));
     }
+
+    /**
+     * 修改字典项
+     */
+    @RequiresPermissions("system:menu:edit")
+    @PutMapping
+    @PrintParams
+    public AjaxResult edit(@RequestBody SysDictType sysDictType)
+    {
+        return toAjax(sysDictTypeService.updateDictType(sysDictType));
+    }
+
+
+
 
 }

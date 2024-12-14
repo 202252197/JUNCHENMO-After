@@ -79,4 +79,16 @@ public class SysDictDataController  extends PageBaseController {
     }
 
 
+    /**
+     * 根据字典项名称，获取字典项的配置值、描述、以及额外参数的配置
+     */
+    @RequiresPermissions("system:dictType:list")
+    @GetMapping("/getInfoByName/{name}")
+    @PrintParams
+    public R getInfo(@PathVariable(name = "name") String name)
+    {
+        System.out.println("lvshihao");
+        System.out.println(name);
+        return R.ok(sysDictDataService.getInfo(name));
+    }
 }

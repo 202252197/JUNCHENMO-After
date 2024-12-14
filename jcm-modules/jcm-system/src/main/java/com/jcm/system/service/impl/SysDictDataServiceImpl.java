@@ -8,6 +8,7 @@ import com.jcm.system.service.ISysDictDataService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,6 +52,19 @@ public class SysDictDataServiceImpl extends ServiceImpl<SysDictDataMapper, SysDi
         List<JSONObject> infoObjList = infoList.stream().map(dictData -> {
             JSONObject jsonObject = JSONObject.parseObject(dictData.getExtra());
             jsonObject.put("name", dictData.getName());
+            jsonObject.put("value", dictData.getValue());
+            jsonObject.put("description", dictData.getDescription());
+            return jsonObject;
+        }).collect(Collectors.toList());
+        return infoObjList;
+    }
+
+    @Override
+    public List<JSONObject> getInfo(String name) {
+        List<SysDictData> infoList = sysDictDataMapper.getInfoList(Collections.singletonList(name));
+
+        List<JSONObject> infoObjList = infoList.stream().map(dictData -> {
+            JSONObject jsonObject = JSONObject.parseObject(dictData.getExtra());
             jsonObject.put("value", dictData.getValue());
             jsonObject.put("description", dictData.getDescription());
             return jsonObject;

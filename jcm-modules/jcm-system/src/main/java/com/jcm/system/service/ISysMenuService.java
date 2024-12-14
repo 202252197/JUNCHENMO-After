@@ -85,4 +85,6 @@ public interface ISysMenuService extends IService<SysMenu> {
      * @return
      */
     String getHomeMenuIcon();
+
+    void changeStatusWithChildStatus(SysMenu menu);
 }

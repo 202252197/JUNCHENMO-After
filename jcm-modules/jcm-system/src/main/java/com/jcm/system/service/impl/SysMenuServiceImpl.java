@@ -20,12 +20,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * <p>
- * 服务实现类
- * </p>
- *
  * @author 吕世昊
- * @since 2024-04-01
  */
 @Service
 @AllArgsConstructor
@@ -287,6 +282,20 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         lambdaQueryWrapper.eq(SysMenu::getName,"首页");
         SysMenu sysMenu = sysMenuMapper.selectOne(lambdaQueryWrapper);
         return sysMenu.getIcon();
+    }
+
+    /**
+     * 修改菜单及所有子菜单的状态/显示状态
+     * @param menu 父菜单对象
+     * @return
+     */
+    @Override
+    public void changeStatusWithChildStatus(SysMenu menu) {
+        List<SysMenu> menus = sysMenuMapper.selectList(null);
+        List<SysMenu> menuList = getChildList(menus, menu);
+        //把当前菜单也添加进去
+        menuList.add(menu);
+        sysMenuMapper.updateBatchById(menuList,menu.getStatus(),menu.getVisible());
     }
 
     /**

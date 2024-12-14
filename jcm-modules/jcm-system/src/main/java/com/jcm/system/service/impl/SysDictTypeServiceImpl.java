@@ -1,6 +1,10 @@
 package com.jcm.system.service.impl;
 
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.utils.StringUtils;
 import com.jcm.system.domain.SysDictData;
@@ -12,8 +16,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * <p>
@@ -71,5 +74,46 @@ public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDi
         sysDictDataLQW.eq(Objects.nonNull(dictTypeId),SysDictData::getDictTypeId,dictTypeId);
         sysDictDataMapper.delete(sysDictDataLQW);
         return deleteById;
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public Integer updateDictType(SysDictType sysDictType) {
+        UpdateWrapper<SysDictType> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("dict_type_id", sysDictType.getDictTypeId());
+        //获取存在的额外参数名称
+        Set<String> extraSchemasNameSet = new HashSet<>();
+        JSONArray extraSchemasJson = JSONArray.parse(sysDictType.getExtraSchema());
+        extraSchemasJson.stream().forEach(extraSchemaJson->{
+            extraSchemasNameSet.add((String) JSONObject.from(extraSchemaJson).get("parameter"));
+        });
+
+        //查询配置项之前的所有配置值
+        QueryWrapper<SysDictData> queryWrapper =new QueryWrapper<>();
+        queryWrapper.eq("dict_type_id", sysDictType.getDictTypeId());
+        List<SysDictData> sysDictDataList = sysDictDataMapper.selectList(queryWrapper);
+
+        //如果配置项修改的时候删除了配置参数，那么配置值中的配置参数也会被删除
+        for (SysDictData sysDictData : sysDictDataList) {
+            JSONObject extraJson = JSONObject.parse(sysDictData.getExtra());
+            Set<String> extrasName = extraJson.keySet();
+
+            List<String> removeNameList = new ArrayList<>();
+            for (String name : extrasName) {
+                if (!extraSchemasNameSet.contains(name)){
+                    removeNameList.add(name);
+                }
+            }
+
+            //删除配置项中不存在的配置参数
+            for(int i=0;i<removeNameList.size();i++){
+                extraJson.remove(removeNameList.get(i));
+            }
+
+            sysDictData.setExtra(extraJson.toString());
+            sysDictDataMapper.updateById(sysDictData);
+        }
+
+        return sysDictTypeMapper.update(sysDictType,updateWrapper);
     }
 }

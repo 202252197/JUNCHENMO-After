@@ -160,4 +160,16 @@ public class SysMenuController extends PageBaseController {
     {
         return toAjax(sysRoleMenuService.insertAuthRoleMenus(menuDTO));
     }
+
+
+    /**
+     * 更改菜单状态以及子菜单状态
+     */
+    @PutMapping("/changeStatusWithChildStatus")
+    @RequiresPermissions("system:user:disableAccount")
+    @PrintParams
+    public AjaxResult changeStatusWithChildStatus(@RequestBody SysMenu menu) {
+        sysMenuService.changeStatusWithChildStatus(menu);
+        return toAjax(true);
+    }
 }
