@@ -2,25 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jcm.system.mapper.SysUserRoleMapper">
 
-
     <insert id="batchUserRole">
         insert into sys_user_role(user_id, role_id) values
         <foreach item="item" index="index" collection="list" separator=",">
-            (#{item.userId},#{item.roleId})
+            (#{item.userId}, #{item.roleId})
         </foreach>
     </insert>
 
     <!-- 根据用户ID获取角色ID列表 -->
-    <select id="queryRoleIdsByUserId" resultType="java.lang.Integer">
+    <select id="selectAllocatedList" resultType="java.lang.Integer">
         select role_id
         from sys_role
-        where role_id in
-              (select role_id from sys_user_role as ur where ur.user_id = #{userId})
+        where role_id in (
+            select role_id
+            from sys_user_role as ur
+            where ur.user_id = #{userId}
+        )
           and deleted = 0
           and status = 0
     </select>
 
     <delete id="deleteUserRoleByUserId" parameterType="java.lang.Long">
-        delete from sys_user_role where user_id=#{userId}
+        delete from sys_user_role
+        where user_id = #{userId}
     </delete>
 </mapper>

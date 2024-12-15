@@ -69,8 +69,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     {
         return this.lambdaQuery()
                 .like(StringUtils.isNotEmpty(role.getName()),SysRole::getName,role.getName())
-                .like(StringUtils.isNotEmpty(role.getCode()),SysRole::getCode,role.getCode())
-                .eq(Objects.nonNull(role.getStatus()),SysRole::getStatus,role.getStatus()).list();
+                .like(StringUtils.isNotEmpty(role.getCode()),SysRole::getCode,role.getCode()).list();
     }
 
     /**
@@ -141,6 +140,16 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     @Override
     public Integer deleteRole(Long roleId) {
         return sysRoleMapper.deleteById(roleId);
+    }
+
+    /**
+     * 查询所有启用的角色
+     *
+     * @return 角色列表
+     */
+    @Override
+    public List<SysRole> selectRoleAll() {
+        return this.lambdaQuery().eq(SysRole::getStatus,0).list();
     }
 
 

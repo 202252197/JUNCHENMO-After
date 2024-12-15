@@ -3,7 +3,6 @@ package com.jcm.system.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.system.domain.SysUserRole;
-import com.jcm.system.domain.dto.RoleDTO;
 import com.jcm.system.mapper.SysUserRoleMapper;
 import com.jcm.system.service.ISysUserRoleService;
 import lombok.AllArgsConstructor;
@@ -32,19 +31,19 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
      */
     @Transactional
     @Override
-    public Integer insertAuthUserRoles(RoleDTO roleDTO) {
+    public Integer insertAuthUserRoles(Long userId, Long[] rolesId) {
         //删除用户已经授权的所有角色
         LambdaQueryWrapper<SysUserRole> lambdaQueryWrapper=new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(ObjectUtils.isNotEmpty(roleDTO.getUserId()),SysUserRole::getUserId,roleDTO.getUserId());
+        lambdaQueryWrapper.eq(ObjectUtils.isNotEmpty(userId),SysUserRole::getUserId,userId);
         sysUserRoleMapper.delete(lambdaQueryWrapper);
-        if(roleDTO.getRolesId().length<=0){
+        if(rolesId.length<=0){
             return 1;
         }
         //重新新增用户所有的角色
         List<SysUserRole> SysUserRoles = new ArrayList<>();
-        Arrays.asList(roleDTO.getRolesId()).forEach(roleId->{
+        Arrays.asList(rolesId).forEach(roleId->{
             SysUserRole sysUserRole=new SysUserRole();
-            sysUserRole.setUserId(roleDTO.getUserId());
+            sysUserRole.setUserId(userId);
             sysUserRole.setRoleId(roleId);
             SysUserRoles.add(sysUserRole);
         });
@@ -57,8 +56,8 @@ public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUs
      * @return
      */
     @Override
-    public List<Integer> queryRoleIdsByUserId(Integer userId) {
-        return sysUserRoleMapper.queryRoleIdsByUserId(userId);
+    public List<Integer> selectAllocatedList(Long userId) {
+        return sysUserRoleMapper.selectAllocatedList(userId);
     }
 
 

@@ -66,4 +66,9 @@ public class SysDictDataServiceImpl extends ServiceImpl<SysDictDataMapper, SysDi
         return infoObjList;
     }
 
+    @Override
+    public Integer updateDictData(SysDictData sysDictData) {
+        return sysDictDataMapper.updateById(sysDictData);
+    }
+
 }

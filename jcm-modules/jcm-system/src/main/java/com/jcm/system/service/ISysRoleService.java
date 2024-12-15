@@ -49,48 +49,55 @@ public interface ISysRoleService extends IService<SysRole> {
      * @param role 角色信息
      * @return 角色数据集合信息
      */
-    public List<SysRole> selectRoleList(SysRole role);
+     List<SysRole> selectRoleList(SysRole role);
 
     /**
      * 通过角色ID查询角色
      * @param roleId 角色ID
      * @return 角色对象信息
      */
-    public SysRole selectRoleById(Long roleId);
+     SysRole selectRoleById(Long roleId);
 
     /**
      * 新增保存角色信息
      * @param role 角色信息
      * @return 结果
      */
-    public Integer insertRole(SysRole role);
+     Integer insertRole(SysRole role);
 
     /**
      * 校验角色是否允许操作
      * @param role 角色信息
      */
-    public void checkRoleAllowed(SysRole role);
+     void checkRoleAllowed(SysRole role);
 
     /**
      * 修改角色状态
      * @param role 角色信息
      * @return 结果
      */
-    public Integer updateRoleStatus(SysRole role);
+     Integer updateRoleStatus(SysRole role);
 
     /**
      * 修改角色信息
      * @param role 角色信息
      * @return 结果
      */
-    public Integer updateRole(SysRole role);
+     Integer updateRole(SysRole role);
 
     /**
      * 删除角色信息
      * @param roleId 角色Id
      * @return 结果
      */
-    public Integer deleteRole(Long roleId);
+     Integer deleteRole(Long roleId);
+
+    /**
+     * 查询所有启用的角色
+     *
+     * @return 角色列表
+     */
+    List<SysRole> selectRoleAll();
 
 
     /**

@@ -1,14 +1,13 @@
 package com.jcm.system.controller;
 
 
-import com.jcm.common.core.domain.R;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
 import com.jcm.system.domain.SysRole;
-import com.jcm.system.domain.dto.RoleDTO;
+import com.jcm.system.domain.SysUser;
 import com.jcm.system.service.ISysRoleService;
 import com.jcm.system.service.ISysUserRoleService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -37,44 +36,6 @@ public class SysRoleController extends PageBaseController {
     private final ISysUserRoleService sysUserRoleService;
 
     /**
-     * 获取全部角色列表
-     */
-    @RequiresPermissions("system:role:list")
-    @GetMapping("/listAll")
-    @PrintParams
-    public R listAll()
-    {
-        return R.ok(sysRoleService.selectRoleList(new SysRole()));
-    }
-
-    /**
-     * 获取没有被禁用的全部角色列表
-     */
-    @RequiresPermissions("system:role:list")
-    @GetMapping("/listNotDisabledAll")
-    @PrintParams
-    public R listNotDisabledAll()
-    {
-        SysRole sysRole = new SysRole();
-        sysRole.setStatus(0);
-        return R.ok(sysRoleService.selectRoleList(sysRole));
-    }
-
-    /**
-     * 获取角色列表分页条件查询
-     */
-    @RequiresPermissions("system:role:list")
-    @PostMapping("/list")
-    @PrintParams
-    public TableDataInfo list(@RequestBody SysRole role)
-    {
-        startPage();
-        List<SysRole> list = sysRoleService.selectRoleList(role);
-        return getDataTable(list);
-    }
-
-
-    /**
      * 新增角色
      */
     @RequiresPermissions("system:role:add")
@@ -91,7 +52,6 @@ public class SysRoleController extends PageBaseController {
             return error("新增角色'" + role.getCode() + "'失败，角色权限已存在");
         }
         return toAjax(sysRoleService.insertRole(role));
-
     }
 
     /**
@@ -118,6 +78,19 @@ public class SysRoleController extends PageBaseController {
     }
 
     /**
+     * 获取角色列表分页条件查询
+     */
+    @RequiresPermissions("system:role:list")
+    @PostMapping("/list")
+    @PrintParams
+    public TableDataInfo list(@RequestBody SysRole role)
+    {
+        startPage();
+        List<SysRole> list = sysRoleService.selectRoleList(role);
+        return getDataTable(list);
+    }
+
+    /**
      * 状态修改
      */
     @RequiresPermissions("system:role:editStatus")
@@ -129,27 +102,36 @@ public class SysRoleController extends PageBaseController {
     }
 
     /**
-     * 查询已分配用户角色列表
+     * 查询所有启用的角色
+     */
+    @RequiresPermissions("system:role:list")
+    @GetMapping("/optionSelect")
+    @PrintParams
+    public AjaxResult optionSelect()
+    {
+        return success(sysRoleService.selectRoleAll());
+    }
+
+    /**
+     * 根据用户ID查询已经分配的角色列表
      */
     @PrintParams
     @RequiresPermissions("system:role:list")
-    @GetMapping("/queryUserRoles/{userId}")
-    public R queryUserRoles(@PathVariable Integer userId)
+    @GetMapping("/authUser/allocatedList/{userId}")
+    public AjaxResult allocatedList(@PathVariable Long userId)
     {
-        return R.ok(sysUserRoleService.queryRoleIdsByUserId(userId));
+        return success(sysUserRoleService.selectAllocatedList(userId));
     }
-
-
 
     /**
      * 批量选择角色对用户授权
      */
     @PrintParams
     @RequiresPermissions("system:user:authRole")
-    @PutMapping("/authUserRole/selectAll")
-    public AjaxResult selectAuthUserRoleAll(@RequestBody RoleDTO roleDTO)
+    @PutMapping("/authUserRole")
+    public AjaxResult authUserRole(@RequestBody SysUser sysUser)
     {
-        return toAjax(sysUserRoleService.insertAuthUserRoles(roleDTO));
+        return toAjax(sysUserRoleService.insertAuthUserRoles(sysUser.getUserId(),sysUser.getRolesId()));
     }
 
 }

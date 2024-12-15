@@ -93,4 +93,15 @@ public class SysDictDataController  extends PageBaseController {
         System.out.println(name);
         return R.ok(sysDictDataService.getInfo(name));
     }
+
+    /**
+     * 修改字典值
+     */
+    @RequiresPermissions("system:menu:edit")
+    @PutMapping
+    @PrintParams
+    public AjaxResult edit(@RequestBody SysDictData sysDictData)
+    {
+        return toAjax(sysDictDataService.updateDictData(sysDictData));
+    }
 }

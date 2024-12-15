@@ -88,7 +88,6 @@ public interface ISysUserService extends IService<SysUser> {
      */
     int resetUserPassword(SysUser user);
 
-
     /**
      * 校验用户是否允许操作
      *
@@ -112,13 +111,12 @@ public interface ISysUserService extends IService<SysUser> {
      */
     int changeLoginInfo(SysUser sysUser);
 
-
     /**
      * 用户授权角色
      *
      * @param userId 用户ID
      * @param roleIds 角色组
      */
-    public void insertUserAuth(Long userId, Long[] roleIds);
+    int insertUserAuth(Long userId, Long[] roleIds);
 
 }

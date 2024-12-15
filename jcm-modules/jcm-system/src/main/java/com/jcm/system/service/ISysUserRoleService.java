@@ -2,7 +2,6 @@ package com.jcm.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jcm.system.domain.SysUserRole;
-import com.jcm.system.domain.dto.RoleDTO;
 
 import java.util.List;
 
@@ -17,10 +16,11 @@ public interface ISysUserRoleService extends IService<SysUserRole> {
 
     /**
      * 批量选择角色对用户授权
-     * @param roleDTO 用户ID和角色id集合
+     * @param userId 用户ID
+     * @param rolesId 角色ID列表
      * @return
      */
-    public Integer insertAuthUserRoles(RoleDTO roleDTO);
+    public Integer insertAuthUserRoles(Long userId, Long[] rolesId);
 
     /**
      * 查询已分配用户角色列表
@@ -28,6 +28,6 @@ public interface ISysUserRoleService extends IService<SysUserRole> {
      * @param userId 用户ID
      * @return
      */
-    public List<Integer> queryRoleIdsByUserId(Integer userId);
+    public List<Integer> selectAllocatedList(Long userId);
 
 }

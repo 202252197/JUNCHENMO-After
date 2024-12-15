@@ -66,7 +66,6 @@ public class SysUserController extends PageBaseController {
         return R.ok(sysUserVo);
     }
 
-
     /**
      * 内部服务调用接口，根据用户ID修改用户最后登录时间和IP
      */
@@ -78,44 +77,10 @@ public class SysUserController extends PageBaseController {
     }
 
     /**
-     * 获取用户列表
-     */
-    @Operation(summary = "分页条件查询用户列表", description = "分页获取用户列表")
-    @RequiresPermissions("system:user:list")
-    @PostMapping("/list")
-    @PrintParams
-    public TableDataInfo list(@RequestBody SysUser user) {
-        startPage();
-        List<SysUser> list = sysUserService.selectUserList(user);
-        return getDataTable(list);
-    }
-
-    /**
-     * 获取用户信息
-     * @return 用户信息
-     */
-    @Operation(summary = "获取用户的详细信息", description = "包括用户信息、用户角色列表、用户权限列表")
-    @GetMapping("/getInfo")
-    @PrintParams
-    public AjaxResult getInfo() {
-        SysUser user = sysUserService.selectUserById(SecurityUtils.getUserId());
-        // 角色集合
-        Set<String> roles = sysRoleService.getRolePermission(user);
-        // 权限集合
-        Set<String> permissions = sysPermissionService.getMenuPermission(user);
-        AjaxResult ajax = AjaxResult.success();
-        ajax.put("user", user);
-        ajax.put("roles", roles);
-        ajax.put("permissions", permissions);
-        return ajax;
-    }
-
-    /**
      * 新增用户
      */
     @Operation(summary = "新增用户", description = "新增用户的时候判断账号账号是否存在、手机号码是否绑定过、邮箱是否绑定过")
     @RequiresPermissions("system:user:add")
-    @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.INSERT)
     @PostMapping
     @PrintParams
     public AjaxResult add(@RequestBody SysUser user) {
@@ -130,7 +95,6 @@ public class SysUserController extends PageBaseController {
         user.setPassword(SecurityUtils.encryptPassword(user.getPassword()));
         return toAjax(sysUserService.insertUser(user));
     }
-
 
     /**
      * 删除用户账号
@@ -150,7 +114,6 @@ public class SysUserController extends PageBaseController {
      */
     @Operation(summary = "修改用户的信息", description = "修改用户的信息")
     @RequiresPermissions("system:user:edit")
-    @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.UPDATE)
     @PutMapping
     @PrintParams
     public AjaxResult edit(@RequestBody SysUser user)
@@ -163,13 +126,46 @@ public class SysUserController extends PageBaseController {
                 return error("修改用户'" + user.getMobile() + "'失败，手机号码已存在");
             }
         }
-       if (StringUtils.isNotEmpty(user.getEmail()) && !sysUserService.checkEmailUnique(user))
+        if (StringUtils.isNotEmpty(user.getEmail()) && !sysUserService.checkEmailUnique(user))
         {
             if(!sysUser.getEmail().equals(user.getEmail())){
                 return error("修改用户'" + user.getEmail() + "'失败，邮箱账号已存在");
             }
         }
         return toAjax(sysUserService.updateUser(user));
+    }
+
+    /**
+     * 获取用户列表
+     */
+    @Operation(summary = "分页条件查询用户列表", description = "分页获取用户列表")
+    @RequiresPermissions("system:user:list")
+    @PostMapping("/list")
+    @PrintParams
+    public TableDataInfo list(@RequestBody SysUser user) {
+        startPage();
+        List<SysUser> list = sysUserService.selectUserList(user);
+        return getDataTable(list);
+    }
+
+    /**
+     * 获取当前用户信息
+     * @return 用户信息
+     */
+    @Operation(summary = "获取当前用户的详细信息", description = "用户信息、用户角色列表、用户权限列表")
+    @GetMapping("/getInfo")
+    @PrintParams
+    public AjaxResult getInfo() {
+        SysUser user = sysUserService.selectUserById(SecurityUtils.getUserId());
+        // 角色集合
+        Set<String> roles = sysRoleService.getRolePermission(user);
+        // 权限集合
+        Set<String> permissions = sysPermissionService.getMenuPermission(user);
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("user", user);
+        ajax.put("roles", roles);
+        ajax.put("permissions", permissions);
+        return ajax;
     }
 
     /**
@@ -185,7 +181,6 @@ public class SysUserController extends PageBaseController {
         user.setPassword(SecurityUtils.encryptPassword(user.getPassword()));
         return toAjax(sysUserService.resetUserPassword(user));
     }
-
 
     /**
      * 禁用用户账号
@@ -208,9 +203,7 @@ public class SysUserController extends PageBaseController {
     @PutMapping("/authRole")
     public AjaxResult insertAuthRole(Long userId, Long[] roleIds)
     {
-        sysUserService.insertUserAuth(userId, roleIds);
-        return success();
+        return toAjax(sysUserService.insertUserAuth(userId, roleIds));
     }
-
 
 }

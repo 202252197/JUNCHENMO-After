@@ -8,5 +8,5 @@ import lombok.Data;
 @Data
 public class RoleDTO {
     private Long userId;
-    private Long[] rolesId;
+
 }

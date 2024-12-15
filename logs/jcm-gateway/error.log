@@ -1,4 +1,21 @@
-09:29:48.982 [reactor-http-nio-12] ERROR i.n.u.ResourceLeakDetector - [reportTracedLeak,337] - LEAK: ByteBuf.release() was not called before it's garbage-collected. See https://netty.io/wiki/reference-counted-objects.html for more information.
+10:03:36.525 [reactor-http-nio-10] ERROR i.n.u.ResourceLeakDetector - [reportTracedLeak,337] - LEAK: ByteBuf.release() was not called before it's garbage-collected. See https://netty.io/wiki/reference-counted-objects.html for more information.
+Recent access records: 
+Created at:
+	io.netty.buffer.PooledByteBufAllocator.newDirectBuffer(PooledByteBufAllocator.java:402)
+	io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:188)
+	io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:179)
+	io.netty.buffer.AbstractByteBufAllocator.ioBuffer(AbstractByteBufAllocator.java:140)
+	io.netty.channel.DefaultMaxMessagesRecvByteBufAllocator$MaxMessageHandle.allocate(DefaultMaxMessagesRecvByteBufAllocator.java:120)
+	io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:150)
+	io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	java.base/java.lang.Thread.run(Thread.java:834)
+10:03:36.543 [reactor-http-nio-10] ERROR i.n.u.ResourceLeakDetector - [reportTracedLeak,337] - LEAK: ByteBuf.release() was not called before it's garbage-collected. See https://netty.io/wiki/reference-counted-objects.html for more information.
 Recent access records: 
 Created at:
 	io.netty.buffer.SimpleLeakAwareByteBuf.unwrappedDerived(SimpleLeakAwareByteBuf.java:144)
@@ -25,20 +42,18 @@ Created at:
 	io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	java.base/java.lang.Thread.run(Thread.java:834)
-09:29:48.991 [reactor-http-nio-12] ERROR i.n.u.ResourceLeakDetector - [reportTracedLeak,337] - LEAK: ByteBuf.release() was not called before it's garbage-collected. See https://netty.io/wiki/reference-counted-objects.html for more information.
-Recent access records: 
-Created at:
-	io.netty.buffer.PooledByteBufAllocator.newDirectBuffer(PooledByteBufAllocator.java:402)
-	io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:188)
-	io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:179)
-	io.netty.buffer.AbstractByteBufAllocator.ioBuffer(AbstractByteBufAllocator.java:140)
-	io.netty.channel.DefaultMaxMessagesRecvByteBufAllocator$MaxMessageHandle.allocate(DefaultMaxMessagesRecvByteBufAllocator.java:120)
-	io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:150)
-	io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
-	io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
-	io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
-	io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
-	io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	java.base/java.lang.Thread.run(Thread.java:834)
+17:40:52.335 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - [report,40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field redisService in com.jcm.gateway.service.impl.ValidateCodeServiceImpl required a bean of type 'com.jcm.common.redis.service.RedisService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.jcm.common.redis.service.RedisService' in your configuration.
+
