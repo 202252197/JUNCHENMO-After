@@ -23,4 +23,12 @@
     <delete id="deleteRoleMenuByRoleId" parameterType="java.lang.Long">
         delete from sys_role_menu where role_id=#{roleId}
     </delete>
+
+    <delete id="deleteByRoleIds">
+        DELETE FROM sys_role_menu WHERE
+        role_id IN
+        <foreach collection="roleIds" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>

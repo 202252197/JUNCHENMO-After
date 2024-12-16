@@ -8,7 +8,6 @@ import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.system.domain.SysMenu;
-import com.jcm.system.domain.dto.MenuDTO;
 import com.jcm.system.domain.vo.RouterVo;
 import com.jcm.system.service.ISysMenuService;
 import com.jcm.system.service.ISysRoleMenuService;
@@ -147,18 +146,6 @@ public class SysMenuController extends PageBaseController {
     public R queryRoleMenus(@PathVariable Integer roleId)
     {
         return R.ok(sysRoleMenuService.queryMenuIdsByRoleId(roleId));
-    }
-
-
-    /**
-     * 批量选择菜单对角色授权
-     */
-    @PrintParams
-    @RequiresPermissions("system:role:authMenu")
-    @PutMapping("/authRoleMenu/selectAll")
-    public AjaxResult selectAuthRoleMenuAll(@RequestBody MenuDTO menuDTO)
-    {
-        return toAjax(sysRoleMenuService.insertAuthRoleMenus(menuDTO));
     }
 
 

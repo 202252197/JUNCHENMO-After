@@ -1,7 +1,6 @@
 package com.jcm.system.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -88,8 +87,6 @@ public class SysUser extends BaseEntity implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime loginDate;
 
-    @TableField(exist = false)
-    private Long[] rolesId;
     public boolean isAdmin()
     {
         return isAdmin(this.userId);

@@ -1,7 +1,6 @@
 package com.jcm.system.controller;
 
 
-import com.jcm.common.core.domain.R;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.mybatis.controller.PageBaseController;
@@ -32,21 +31,6 @@ public class SysDictDataController  extends PageBaseController {
     private final ISysDictDataService sysDictDataService;
 
     /**
-     * 获取字典配置值列表分页条件查询
-     */
-    @RequiresPermissions("system:dictData:list")
-    @PostMapping("/list")
-    @PrintParams
-    public TableDataInfo list(@RequestBody SysDictData dictType)
-    {
-        startPage();
-        List<SysDictData> list = sysDictDataService.selectDictDataList(dictType);
-        return getDataTable(list);
-    }
-
-
-
-    /**
      * 新增字典项
      */
     @RequiresPermissions("system:role:add")
@@ -64,34 +48,7 @@ public class SysDictDataController  extends PageBaseController {
     @DeleteMapping
     @PrintParams
     public AjaxResult delete(@RequestBody List<Long> dictDataIds) {
-        sysDictDataService.deleteDictData(dictDataIds);
-        return toAjax(true);
-    }
-
-
-    /**
-     * 根据字典项名称，获取字典项的所有配置值、描述、以及额外参数的配置
-     */
-    @RequiresPermissions("system:dictType:list")
-    @PostMapping("/getInfoByNames")
-    @PrintParams
-    public R getInfoList(@RequestBody List<String> names)
-    {
-        return R.ok(sysDictDataService.getInfoList(names));
-    }
-
-
-    /**
-     * 根据字典项名称，获取字典项的配置值、描述、以及额外参数的配置
-     */
-    @RequiresPermissions("system:dictType:list")
-    @GetMapping("/getInfoByName/{name}")
-    @PrintParams
-    public R getInfo(@PathVariable(name = "name") String name)
-    {
-        System.out.println("lvshihao");
-        System.out.println(name);
-        return R.ok(sysDictDataService.getInfo(name));
+        return toAjax(sysDictDataService.deleteDictData(dictDataIds));
     }
 
     /**
@@ -104,4 +61,42 @@ public class SysDictDataController  extends PageBaseController {
     {
         return toAjax(sysDictDataService.updateDictData(sysDictData));
     }
+
+    /**
+     * 获取字典配置值列表分页条件查询
+     */
+    @RequiresPermissions("system:dictData:list")
+    @PostMapping("/list")
+    @PrintParams
+    public TableDataInfo list(@RequestBody SysDictData dictType)
+    {
+        startPage();
+        List<SysDictData> list = sysDictDataService.selectDictDataList(dictType);
+        return getDataTable(list);
+    }
+
+    /**
+     * 根据字典项名称集合，获取字典项的所有配置值、描述、以及额外参数的配置
+     */
+    @RequiresPermissions("system:dictType:list")
+    @PostMapping("/getInfoByNames")
+    @PrintParams
+    public AjaxResult getInfoList(@RequestBody List<String> names)
+    {
+        return AjaxResult.success(sysDictDataService.getInfoList(names));
+    }
+
+
+    /**
+     * 字典项详情显示的内容
+     */
+    @RequiresPermissions("system:dictType:list")
+    @GetMapping("/getInfoByName/{name}")
+    @PrintParams
+    public AjaxResult getInfo(@PathVariable(name = "name") String name)
+    {
+        return AjaxResult.success(sysDictDataService.getInfo(name));
+    }
+
+
 }

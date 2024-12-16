@@ -2,10 +2,15 @@ package com.jcm.common.core.utils.ip;
 
 import com.jcm.common.core.utils.ServletUtils;
 import com.jcm.common.core.utils.StringUtils;
+import org.lionsoul.ip2region.xdb.Searcher;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.net.InetAddress;
+import java.net.URL;
 import java.net.UnknownHostException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 获取IP方法
@@ -380,5 +385,51 @@ public class IpUtils
             }
         }
         return false;
+    }
+    /**
+     * 根据IP地址获取城市
+     * @param ip
+     * @return
+     */
+    public static String getCityInfo(String ip) {
+        URL url = IpUtils.class.getClassLoader().getResource("ip2region.xdb");
+        File file;
+        if (url != null) {
+            file = new File(url.getFile());
+        } else {
+            return null;
+        }
+        if (!file.exists()) {
+            System.out.println("Error: Invalid ip2region.db file, filePath：" + file.getPath());
+            return null;
+        }
+        // 1、创建 searcher 对象
+        Searcher searcher = null;
+        String region = null;
+        try {
+            searcher = Searcher.newWithFileOnly(file.getPath());
+        } catch (IOException e) {
+            System.out.printf("failed to create searcher with `%s`: %s\n", file.getPath(), e);
+            return null;
+        }
+
+        // 2、查询
+        try {
+            long sTime = System.nanoTime();
+            region = searcher.search(ip);
+            long cost = TimeUnit.NANOSECONDS.toMicros((long) (System.nanoTime() - sTime));
+
+            System.out.printf("{region: %s, ioCount: %d, took: %d μs}\n", region, searcher.getIOCount(), cost);
+        } catch (Exception e) {
+            System.out.printf("failed to search(%s): %s\n", ip, e);
+        }
+
+        // 3、关闭资源
+        try {
+            searcher.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return region;
     }
 }

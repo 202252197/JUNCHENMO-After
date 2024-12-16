@@ -1,13 +1,14 @@
 package com.jcm.system.controller;
 
 
+import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
+import com.jcm.common.log.annotation.OperationName;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
 import com.jcm.system.domain.SysRole;
-import com.jcm.system.domain.SysUser;
 import com.jcm.system.service.ISysRoleService;
 import com.jcm.system.service.ISysUserRoleService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,6 +27,7 @@ import java.util.List;
  * @since 2024-04-01
  */
 @Tag(name="角色管理")
+@OperationName(title = OperationNameConstants.SYSTEM_ROLE)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/role")
@@ -59,10 +61,10 @@ public class SysRoleController extends PageBaseController {
      */
     @Operation(summary = "删除角色", description = "将角色删除")
     @RequiresPermissions("system:user:delete")
-    @DeleteMapping("/{roleId}")
+    @DeleteMapping
     @PrintParams
-    public AjaxResult delete(@PathVariable("roleId") Long roleId) {
-        return toAjax(sysRoleService.deleteRole(roleId));
+    public AjaxResult delete(@RequestBody List<Long> roleIds) {
+        return toAjax(sysRoleService.deleteRole(roleIds));
     }
 
     /**
@@ -124,14 +126,14 @@ public class SysRoleController extends PageBaseController {
     }
 
     /**
-     * 批量选择角色对用户授权
+     * 角色授权菜单
      */
     @PrintParams
-    @RequiresPermissions("system:user:authRole")
-    @PutMapping("/authUserRole")
-    public AjaxResult authUserRole(@RequestBody SysUser sysUser)
+    @RequiresPermissions("system:role:authMenu")
+    @PutMapping("/authMenu")
+    public AjaxResult insertAuthMenu(Long roleId,Long[] menusId)
     {
-        return toAjax(sysUserRoleService.insertAuthUserRoles(sysUser.getUserId(),sysUser.getRolesId()));
+        return toAjax(sysRoleService.insertRoleAuth(roleId,menusId));
     }
 
 }

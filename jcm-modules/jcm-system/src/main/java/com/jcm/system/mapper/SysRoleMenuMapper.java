@@ -2,6 +2,7 @@ package com.jcm.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jcm.system.domain.SysRoleMenu;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -21,14 +22,14 @@ public interface SysRoleMenuMapper extends BaseMapper<SysRoleMenu> {
      * @param roleMenuList 用户角色列表
      * @return 结果
      */
-    public Integer batchRoleMenu(List<SysRoleMenu> roleMenuList);
+    int batchRoleMenu(List<SysRoleMenu> roleMenuList);
 
     /**
      * 根据角色ID获取菜单ID列表
      * @param roleId 用户ID
      * @return
      */
-    public List<Integer> queryMenuIdsByRoleId(Integer roleId);
+    List<Integer> queryMenuIdsByRoleId(Integer roleId);
 
     /**
      * 通过用户ID删除角色和菜单的关联
@@ -36,6 +37,7 @@ public interface SysRoleMenuMapper extends BaseMapper<SysRoleMenu> {
      * @param roleId 用户ID
      * @return 结果
      */
-    public Long deleteRoleMenuByRoleId(Long roleId);
+    int deleteRoleMenuByRoleId(Long roleId);
 
+    int deleteByRoleIds(@Param("roleIds") List<Long> roleIds);
 }

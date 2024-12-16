@@ -43,13 +43,23 @@
     </select>
 
     <select id="getInfoList" resultMap="BaseResultMap">
-        SELECT t.name,d.extra,d.`value`,d.description from sys_dict_type t LEFT JOIN sys_dict_data d on t.dict_type_id=d.dict_type_id
+        SELECT
+        t.NAME,
+        d.EXTRA,
+        d.VALUE,
+        d.DESCRIPTION
+        FROM
+        sys_dict_type t
+        LEFT JOIN sys_dict_data d ON t.dict_type_id = d.dict_type_id
         <where>
-            t.name in
-            <foreach item="item" index="index" collection="list" separator="," open="(" close=")">
-                #{item}
-            </foreach>
-            AND t.deleted=0 AND d.deleted = 0
+            <if test="list!= null">
+                t.NAME IN
+                <foreach item="item" index="index" collection="list" separator="," open="(" close=")">
+                    #{item}
+                </foreach>
+            </if>
+            AND t.DELETED = 0
+            AND d.DELETED = 0
         </where>
     </select>
 

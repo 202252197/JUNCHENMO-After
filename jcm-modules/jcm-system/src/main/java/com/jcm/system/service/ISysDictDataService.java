@@ -16,15 +16,15 @@ import java.util.List;
 public interface ISysDictDataService extends IService<SysDictData> {
 
 
-    Integer insertDictData(SysDictData sysDictData);
+    int insertDictData(SysDictData sysDictData);
 
     List<SysDictData> selectDictDataList(SysDictData dictType);
 
-    void deleteDictData(List<Long> dictDataIds);
+    int deleteDictData(List<Long> dictDataIds);
 
     List<JSONObject> getInfoList(List<String> names);
 
     List<JSONObject> getInfo(String name);
 
-    Integer updateDictData(SysDictData sysDictData);
+    int updateDictData(SysDictData sysDictData);
 }

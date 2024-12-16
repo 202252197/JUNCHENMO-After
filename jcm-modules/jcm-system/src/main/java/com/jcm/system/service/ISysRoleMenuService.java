@@ -1,7 +1,5 @@
 package com.jcm.system.service;
 
-import com.jcm.system.domain.dto.MenuDTO;
-
 import java.util.List;
 
 /**
@@ -13,12 +11,6 @@ import java.util.List;
  */
 public interface ISysRoleMenuService {
 
-    /**
-     * 批量选择菜单对角色授权
-     * @param menuDTO 角色ID和菜单id集合
-     * @return
-     */
-    public Integer insertAuthRoleMenus(MenuDTO menuDTO);
 
     /**
      * 查询已分配角色菜单列表

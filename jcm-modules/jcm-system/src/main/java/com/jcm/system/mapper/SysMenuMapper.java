@@ -44,10 +44,10 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
 
     /**
      * 修改菜单及所有子菜单的状态/显示状态
-     * @param childList 当前菜单以及所有子菜单的列表
+     * @param menuList 当前菜单以及所有子菜单的列表
      * @param status 修改的状态
      * @param visible 修改的显示状态
      * @return 用户拥有的菜单树
      */
-    void updateBatchById(@Param("menuList") List<SysMenu> menuList,@Param("status") Integer status,@Param("visible") Boolean visible);
+    int updateBatchById(@Param("menuList") List<SysMenu> menuList,@Param("status") Integer status,@Param("visible") Boolean visible);
 }

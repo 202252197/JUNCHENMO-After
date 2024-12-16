@@ -1,12 +1,12 @@
 package com.jcm.system.api.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jcm.common.mybatis.entity.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -34,6 +34,9 @@ public class SysOperLog extends BaseEntity implements Serializable {
     @Schema(description = "模块标题")
     private String title;
 
+    @Schema(description = "业务名称")
+    private String businessName;
+
     @Schema(description = "业务类型（0其它 1新增 2修改 3删除）")
     private Integer businessType;
 
@@ -42,6 +45,11 @@ public class SysOperLog extends BaseEntity implements Serializable {
 
     @Schema(description = "请求方式")
     private String requestMethod;
+
+    @Schema(description = "请求时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime requestTime;
 
     @Schema(description = "操作类别（0其它 1后台用户）")
     private Integer operatorType;

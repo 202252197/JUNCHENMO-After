@@ -5,6 +5,7 @@ import com.jcm.common.core.utils.ServletUtils;
 import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.core.utils.ip.IpUtils;
 import com.jcm.common.log.annotation.Log;
+import com.jcm.common.log.annotation.OperationName;
 import com.jcm.common.log.enums.BusinessStatus;
 import com.jcm.common.log.filter.PropertyPreExcludeFilter;
 import com.jcm.common.log.service.AsyncLogService;
@@ -26,6 +27,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Collection;
 import java.util.Map;
 
@@ -94,16 +98,28 @@ public class LogAspect
             // 请求的地址
             String ip = IpUtils.getIpAddr();
             operLog.setOperIp(ip);
+            // 请求的IP地区
+            operLog.setOperLocation(IpUtils.getCityInfo("49.93.248.176"));
+            System.out.println("吕IP:"+IpUtils.getCityInfo("49.93.248.176"));
+            // 请求发起的时间
+            // 将long类型的时间戳转换为Instant对象
+            Instant instant = Instant.ofEpochMilli(TIME_THREADLOCAL.get());
+            // 使用系统默认时区将Instant对象转换为LocalDateTime对象
+            operLog.setRequestTime(LocalDateTime.ofInstant(instant, ZoneId.systemDefault()));
+            // 请求的URL
             operLog.setOperUrl(StringUtils.substring(ServletUtils.getRequest().getRequestURI(), 0, 255));
             String username = SecurityUtils.getUsername();
             if (StringUtils.isNotBlank(username))
             {
+                // 操作人员名称
                 operLog.setOperName(username);
             }
 
             if (e != null)
             {
+                // 操作状态
                 operLog.setStatus(BusinessStatus.FAIL.ordinal());
+                // 错误信息
                 operLog.setErrorMsg(StringUtils.substring(e.getMessage(), 0, 2000));
             }
             // 设置方法名称
@@ -114,6 +130,8 @@ public class LogAspect
             operLog.setRequestMethod(ServletUtils.getRequest().getMethod());
             // 处理设置注解上的参数
             getControllerMethodDescription(joinPoint, controllerLog, operLog, jsonResult);
+            // 处理设置方法注解上的类参数
+            getControllerClassDescription(joinPoint, controllerLog, operLog, jsonResult);
             // 设置消耗时间
             operLog.setCostTime(System.currentTimeMillis() - TIME_THREADLOCAL.get());
             // 保存数据库
@@ -143,7 +161,7 @@ public class LogAspect
         // 设置action动作
         operLog.setBusinessType(log.businessType().ordinal());
         // 设置标题
-        operLog.setTitle(log.title());
+        operLog.setBusinessName(log.businessName());
         // 设置操作人类别
         operLog.setOperatorType(log.operatorType().ordinal());
         // 是否需要保存request，参数和值
@@ -160,6 +178,25 @@ public class LogAspect
     }
 
     /**
+     * 获取注解中对方法的类描述信息 用于Controller层注解
+     *
+     * @param log 日志
+     * @param operLog 操作日志
+     * @throws Exception
+     */
+    public void getControllerClassDescription(JoinPoint joinPoint, Log log, SysOperLog operLog, Object jsonResult) throws Exception
+    {
+        // 获取目标方法所在的类
+        Class<?> targetClass = joinPoint.getTarget().getClass();
+        // 获取类上的指定注解
+        OperationName operationNameAnnotation = targetClass.getAnnotation(OperationName.class);
+        if (operationNameAnnotation!= null) {
+            operLog.setTitle(operationNameAnnotation.title());
+            System.out.println("类上的MyAnnotation注解的值为：" + operationNameAnnotation.title());
+        }
+    }
+
+    /**
      * 获取请求的参数，放到log中
      * 
      * @param operLog 操作日志
@@ -167,6 +204,7 @@ public class LogAspect
      */
     private void setRequestValue(JoinPoint joinPoint, SysOperLog operLog, String[] excludeParamNames) throws Exception
     {
+
         String requestMethod = operLog.getRequestMethod();
         Map<?, ?> paramsMap = ServletUtils.getParamMap(ServletUtils.getRequest());
         if (StringUtils.isEmpty(paramsMap)

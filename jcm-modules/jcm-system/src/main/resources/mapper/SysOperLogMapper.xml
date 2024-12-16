@@ -6,9 +6,11 @@
     <resultMap id="BaseResultMap" type="com.jcm.system.api.domain.SysOperLog">
         <id column="oper_id" property="operId" />
         <result column="title" property="title" />
+        <result column="business_name" property="businessName" />
         <result column="business_type" property="businessType" />
         <result column="method" property="method" />
         <result column="request_method" property="requestMethod" />
+        <result column="request_time" property="requestTime" />
         <result column="operator_type" property="operatorType" />
         <result column="oper_name" property="operName" />
         <result column="oper_url" property="operUrl" />
@@ -26,4 +28,12 @@
         <result column="deleted" property="deleted" />
     </resultMap>
 
+
+    <delete id="deleteByIds">
+        DELETE FROM sys_oper_log WHERE
+        oper_id IN
+        <foreach collection="operIds" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </delete>
 </mapper>

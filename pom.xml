@@ -48,6 +48,7 @@
 		<springdoc.version>1.7.0</springdoc.version>
 		<knife4j.version>4.3.0</knife4j.version>
 		<hutool.version>5.8.27</hutool.version>
+		<ip2region.version>2.7.0</ip2region.version>
 	</properties>
 	<!-- 依赖声明 -->
 	<dependencyManagement>
@@ -172,6 +173,13 @@
 				<groupId>com.github.xiaoymin</groupId>
 				<artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
 				<version>${knife4j.version}</version>
+			</dependency>
+
+			<!-- ip2region 根据IP查询具体的城市信息 -->
+			<dependency>
+				<groupId>org.lionsoul</groupId>
+				<artifactId>ip2region</artifactId>
+				<version>${ip2region.version}</version>
 			</dependency>
 
 

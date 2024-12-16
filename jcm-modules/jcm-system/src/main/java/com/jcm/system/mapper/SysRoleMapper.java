@@ -2,6 +2,7 @@ package com.jcm.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jcm.system.domain.SysRole;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -21,5 +22,13 @@ public interface SysRoleMapper extends BaseMapper<SysRole> {
      * @param userId 用户ID
      * @return 角色列表
      */
-   public  List<SysRole> selectRolePermissionByUserId(Long userId);
+    List<SysRole> selectRolePermissionByUserId(Long userId);
+
+    /**
+     * 删除角色集合
+     *
+     * @param roleIds 角色ID集合
+     * @return
+     */
+    int deleteByIds(@Param("roleIds") List<Long> roleIds);
 }

@@ -1,7 +1,6 @@
 package com.jcm.system.controller;
 
 
-import com.jcm.common.core.domain.R;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.mybatis.controller.PageBaseController;
@@ -30,30 +29,6 @@ import java.util.List;
 public class SysDictTypeController extends PageBaseController {
     private final ISysDictTypeService sysDictTypeService;
 
-    /**
-     * 获取字典配置项列表分页条件查询
-     */
-    @RequiresPermissions("system:dictType:list")
-    @PostMapping("/list")
-    @PrintParams
-    public TableDataInfo list(@RequestBody SysDictType dictType)
-    {
-        startPage();
-        List<SysDictType> list = sysDictTypeService.selectDictTypeList(dictType);
-        return getDataTable(list);
-    }
-
-    /**
-     * 获取所有启用的字典以及额外参数
-     */
-    @RequiresPermissions("system:dictType:list")
-    @GetMapping("/listAll")
-    @PrintParams
-    public R listAll()
-    {
-        return R.ok(sysDictTypeService.selectDictTypeAndExtraAllList());
-    }
-
 
     /**
      * 新增字典项
@@ -73,8 +48,7 @@ public class SysDictTypeController extends PageBaseController {
     @DeleteMapping
     @PrintParams
     public AjaxResult delete(@RequestBody List<Long> dictTypeIds) {
-        sysDictTypeService.deleteDictType(dictTypeIds);
-        return toAjax(true);
+        return toAjax(sysDictTypeService.deleteDictType(dictTypeIds));
     }
 
     /**
@@ -87,5 +61,31 @@ public class SysDictTypeController extends PageBaseController {
     {
         return toAjax(sysDictTypeService.updateDictType(sysDictType));
     }
+
+    /**
+     * 获取字典配置项列表分页条件查询
+     */
+    @RequiresPermissions("system:dictType:list")
+    @PostMapping("/list")
+    @PrintParams
+    public TableDataInfo list(@RequestBody SysDictType dictType)
+    {
+        startPage();
+        List<SysDictType> list = sysDictTypeService.selectDictTypeList(dictType);
+        return getDataTable(list);
+    }
+
+    /**
+     * 获取所有启用的字典以及额外参数
+     */
+    @RequiresPermissions("system:dictType:list")
+    @GetMapping("/optionSelect")
+    @PrintParams
+    public AjaxResult optionSelect()
+    {
+        return success(sysDictTypeService.selectDictTypeAndExtraAllList());
+    }
+
+
 
 }

@@ -24,6 +24,11 @@ public class SysRole extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    public SysRole(){}
+
+    public SysRole(Long roleId) {
+        this.roleId = roleId;
+    }
     /**
      * 角色ID
      */

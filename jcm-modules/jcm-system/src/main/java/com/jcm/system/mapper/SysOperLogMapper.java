@@ -2,6 +2,9 @@ package com.jcm.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jcm.system.api.domain.SysOperLog;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.jcm.system.api.domain.SysOperLog;
  */
 public interface SysOperLogMapper extends BaseMapper<SysOperLog> {
 
+    int deleteByIds(@Param("operIds") List<Long> operIds);
 }

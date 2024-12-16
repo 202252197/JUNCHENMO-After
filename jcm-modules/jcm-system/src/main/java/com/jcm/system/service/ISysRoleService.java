@@ -21,7 +21,7 @@ public interface ISysRoleService extends IService<SysRole> {
      * @param userId 用户ID
      * @return 权限列表
      */
-    public List<SysRole> selectRolePermissionByUserId(Long userId);
+     List<SysRole> selectRolePermissionByUserId(Long userId);
 
     /**
      * 获取角色数据权限
@@ -35,14 +35,14 @@ public interface ISysRoleService extends IService<SysRole> {
      * @param role 角色信息
      * @return 结果
      */
-    public boolean checkRoleNameUnique(SysRole role);
+     boolean checkRoleNameUnique(SysRole role);
 
     /**
      * 校验角色名称是否唯一
      * @param role 角色信息
      * @return 结果
      */
-    public boolean checkRoleKeyUnique(SysRole role);
+     boolean checkRoleKeyUnique(SysRole role);
 
     /**
      * 根据条件分页查询角色数据
@@ -63,7 +63,7 @@ public interface ISysRoleService extends IService<SysRole> {
      * @param role 角色信息
      * @return 结果
      */
-     Integer insertRole(SysRole role);
+    int insertRole(SysRole role);
 
     /**
      * 校验角色是否允许操作
@@ -76,21 +76,21 @@ public interface ISysRoleService extends IService<SysRole> {
      * @param role 角色信息
      * @return 结果
      */
-     Integer updateRoleStatus(SysRole role);
+    int updateRoleStatus(SysRole role);
 
     /**
      * 修改角色信息
      * @param role 角色信息
      * @return 结果
      */
-     Integer updateRole(SysRole role);
+    int updateRole(SysRole role);
 
     /**
      * 删除角色信息
-     * @param roleId 角色Id
+     * @param roleIds 角色Id集合
      * @return 结果
      */
-     Integer deleteRole(Long roleId);
+    int deleteRole(List<Long> roleIds);
 
     /**
      * 查询所有启用的角色
@@ -101,13 +101,20 @@ public interface ISysRoleService extends IService<SysRole> {
 
 
     /**
-     * 批量删除角色信息
+     * 批量选择菜单对角色授权
+     * @param roleId 角色ID
+     * @param menusId 菜单ID集合
+     * @return
+     */
+    int insertRoleAuth(Long roleId, Long[] menusId);
+
+
+    /**
+     * 通过角色ID查询角色使用数量
      *
-     * @param roleIds 需要删除的角色ID
+     * @param roleId 角色ID
      * @return 结果
      */
-//    public int deleteRoleByIds(Long[] roleIds);
-
-
+    int countUserRoleByRoleId(Long roleId);
 
 }

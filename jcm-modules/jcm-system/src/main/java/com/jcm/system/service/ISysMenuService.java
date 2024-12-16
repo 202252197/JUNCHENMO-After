@@ -17,8 +17,6 @@ import java.util.Set;
  */
 public interface ISysMenuService extends IService<SysMenu> {
 
-
-
     /**
      * 获取菜单数据权限
      *
@@ -56,21 +54,21 @@ public interface ISysMenuService extends IService<SysMenu> {
      * @param sysMenu
      * @return
      */
-    Integer insertMenu(SysMenu sysMenu);
+    int insertMenu(SysMenu sysMenu);
 
     /**
      * 根据ID删除菜单
      * @param menuId
      * @return
      */
-    Integer deleteMenu(Long menuId);
+    int deleteMenu(Long menuId);
 
     /**
      * 根据菜单信息
      * @param menu
      * @return
      */
-    Integer updateMenu(SysMenu menu);
+    int updateMenu(SysMenu menu);
 
     /**
      * 获取新增菜单最后的sort值
@@ -85,5 +83,5 @@ public interface ISysMenuService extends IService<SysMenu> {
      */
     String getHomeMenuIcon();
 
-    void changeStatusWithChildStatus(SysMenu menu);
+    int changeStatusWithChildStatus(SysMenu menu);
 }

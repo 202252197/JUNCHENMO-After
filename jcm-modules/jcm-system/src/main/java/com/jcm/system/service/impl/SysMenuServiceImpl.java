@@ -232,7 +232,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      * @return
      */
     @Override
-    public Integer insertMenu(SysMenu sysMenu) {
+    public int insertMenu(SysMenu sysMenu) {
         if(StringUtils.isNotEmpty(sysMenu.getComponent())){
             sysMenu.setIsFrame(false);
         }else{
@@ -247,7 +247,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      * @return
      */
     @Override
-    public Integer deleteMenu(Long menuId) {
+    public int deleteMenu(Long menuId) {
         return sysMenuMapper.deleteById(menuId);
     }
     /**
@@ -256,7 +256,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      * @return 结果
      */
     @Override
-    public Integer updateMenu(SysMenu menu) {
+    public int updateMenu(SysMenu menu) {
         UpdateWrapper<SysMenu> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("menu_id", menu.getMenuId());
         return sysMenuMapper.update(menu,updateWrapper);
@@ -290,12 +290,12 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      * @return
      */
     @Override
-    public void changeStatusWithChildStatus(SysMenu menu) {
+    public int changeStatusWithChildStatus(SysMenu menu) {
         List<SysMenu> menus = sysMenuMapper.selectList(null);
         List<SysMenu> menuList = getChildList(menus, menu);
         //把当前菜单也添加进去
         menuList.add(menu);
-        sysMenuMapper.updateBatchById(menuList,menu.getStatus(),menu.getVisible());
+        return sysMenuMapper.updateBatchById(menuList,menu.getStatus(),menu.getVisible());
     }
 
     /**

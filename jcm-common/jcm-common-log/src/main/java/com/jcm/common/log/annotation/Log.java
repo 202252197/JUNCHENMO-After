@@ -18,9 +18,9 @@ import java.lang.annotation.*;
 public @interface Log
 {
     /**
-     * 模块
+     * 业务名称
      */
-    public String title() default "";
+    public String businessName() default "";
 
     /**
      * 功能

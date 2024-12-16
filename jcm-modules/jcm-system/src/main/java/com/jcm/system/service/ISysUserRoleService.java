@@ -15,14 +15,6 @@ import java.util.List;
 public interface ISysUserRoleService extends IService<SysUserRole> {
 
     /**
-     * 批量选择角色对用户授权
-     * @param userId 用户ID
-     * @param rolesId 角色ID列表
-     * @return
-     */
-    public Integer insertAuthUserRoles(Long userId, Long[] rolesId);
-
-    /**
      * 查询已分配用户角色列表
      * 根据用户ID获取角色ID列表
      * @param userId 用户ID

@@ -1,12 +1,13 @@
 package com.jcm.system.controller;
 
-import com.jcm.common.core.constant.ServiceNameConstants;
+import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.constant.UserConstants;
 import com.jcm.common.core.domain.R;
 import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.log.annotation.Log;
+import com.jcm.common.log.annotation.OperationName;
 import com.jcm.common.log.enums.BusinessType;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.InnerAuth;
@@ -35,6 +36,7 @@ import java.util.Set;
  * @since 2024-04-01
  */
 @Tag(name = "用户管理")
+@OperationName(title = OperationNameConstants.SYSTEM_USER)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/user")
@@ -101,7 +103,7 @@ public class SysUserController extends PageBaseController {
      */
     @Operation(summary = "删除用户账号", description = "将用户账号删除")
     @RequiresPermissions("system:user:delete")
-    @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.DELETE)
+    @Log(businessName = "删除用户账号",businessType= BusinessType.DELETE)
     @DeleteMapping("/{userId}")
     @PrintParams
     public AjaxResult delete(@PathVariable("userId") Long userId) {
@@ -173,7 +175,7 @@ public class SysUserController extends PageBaseController {
      */
     @Operation(summary = "重置用户的密码", description = "修改用户的密码")
     @RequiresPermissions("system:user:resetPassword")
-    @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.UPDATE)
+    @Log(businessName = "重置用户的密码",businessType= BusinessType.UPDATE)
     @PutMapping("/changePassword")
     @PrintParams
     public AjaxResult resetPassword(@RequestBody SysUser user) {
@@ -186,7 +188,7 @@ public class SysUserController extends PageBaseController {
      * 禁用用户账号
      */
     @Operation(summary = "禁用用户账号", description = "将用户账号禁用，不可用")
-    @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.UPDATE)
+    @Log(businessName = "禁用用户账号",businessType= BusinessType.UPDATE)
     @PutMapping("/changeStatus")
     @RequiresPermissions("system:user:disableAccount")
     @PrintParams
@@ -199,8 +201,9 @@ public class SysUserController extends PageBaseController {
      * 用户授权角色
      */
     @RequiresPermissions("system:user:authRole")
-    @Log(title = ServiceNameConstants.SYSTEM_SERVICE,businessType= BusinessType.UPDATE)
+    @Log(businessName = "用户授权角色",businessType= BusinessType.UPDATE)
     @PutMapping("/authRole")
+    @PrintParams
     public AjaxResult insertAuthRole(Long userId, Long[] roleIds)
     {
         return toAjax(sysUserService.insertUserAuth(userId, roleIds));

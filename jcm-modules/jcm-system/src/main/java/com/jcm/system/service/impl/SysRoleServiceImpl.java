@@ -1,21 +1,23 @@
 package com.jcm.system.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.exception.ServiceException;
 import com.jcm.common.core.utils.StringUtils;
 import com.jcm.system.api.domain.SysUser;
 import com.jcm.system.domain.SysRole;
+import com.jcm.system.domain.SysRoleMenu;
 import com.jcm.system.mapper.SysRoleMapper;
+import com.jcm.system.mapper.SysRoleMenuMapper;
+import com.jcm.system.mapper.SysUserRoleMapper;
 import com.jcm.system.service.ISysRoleService;
 import lombok.AllArgsConstructor;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author 吕世昊
@@ -25,6 +27,8 @@ import java.util.Set;
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements ISysRoleService {
 
     private final SysRoleMapper sysRoleMapper;
+    private final SysUserRoleMapper sysUserRoleMapper;
+    private final SysRoleMenuMapper sysRoleMenuMapper;
 
     /**
      * 根据用户ID查询角色权限
@@ -89,7 +93,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public Integer insertRole(SysRole role)
+    public int insertRole(SysRole role)
     {
         return  sysRoleMapper.insert(role);
     }
@@ -113,7 +117,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      * @return 结果
      */
     @Override
-    public Integer updateRoleStatus(SysRole role)
+    public int updateRoleStatus(SysRole role)
     {
         UpdateWrapper<SysRole> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("role_id", role.getRoleId()).set("status",1);
@@ -126,7 +130,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      * @return 结果
      */
     @Override
-    public Integer updateRole(SysRole role) {
+    public int updateRole(SysRole role) {
         UpdateWrapper<SysRole> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("role_id", role.getRoleId());
         return sysRoleMapper.update(role, updateWrapper);
@@ -134,12 +138,22 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     /**
      * 删除角色信息
-     * @param roleId 角色Id
+     * @param roleIds 角色Id集合
      * @return 结果
      */
     @Override
-    public Integer deleteRole(Long roleId) {
-        return sysRoleMapper.deleteById(roleId);
+    public int deleteRole(List<Long> roleIds) {
+       for (Long roleId : roleIds)
+        {
+            checkRoleAllowed(new SysRole(roleId));
+            SysRole role = selectRoleById(roleId);
+            if (countUserRoleByRoleId(roleId) > 0)
+            {
+                throw new ServiceException(String.format("%1$s已分配,不能删除", role.getName()));
+            }
+        }
+        sysRoleMenuMapper.deleteByRoleIds(roleIds);
+        return sysRoleMapper.deleteByIds(roleIds);
     }
 
     /**
@@ -152,6 +166,40 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
         return this.lambdaQuery().eq(SysRole::getStatus,0).list();
     }
 
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public int insertRoleAuth(Long roleId, Long[] menusId) {
+        if(StringUtils.isEmpty(menusId)){
+            return 0;
+        }
+
+        //删除角色已经授权的所有菜单
+        LambdaQueryWrapper<SysRoleMenu> lambdaQueryWrapper=new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(ObjectUtils.isNotEmpty(roleId),SysRoleMenu::getRoleId,roleId);
+        sysRoleMenuMapper.delete(lambdaQueryWrapper);
+
+        //重新新增角色下所有的菜单
+        List<SysRoleMenu> SysRoleMenus = new ArrayList<>();
+        Arrays.asList(menusId).forEach(menuId->{
+            SysRoleMenu sysUserRole=new SysRoleMenu();
+            sysUserRole.setRoleId(roleId);
+            sysUserRole.setMenuId(menuId);
+            SysRoleMenus.add(sysUserRole);
+        });
+        return sysRoleMenuMapper.batchRoleMenu(SysRoleMenus);
+    }
+
+    /**
+     * 通过角色ID查询角色使用数量
+     *
+     * @param roleId 角色ID
+     * @return 结果
+     */
+    @Override
+    public int countUserRoleByRoleId(Long roleId)
+    {
+        return sysUserRoleMapper.countUserRoleByRoleId(roleId);
+    }
 
     /**
      * 获取角色数据权限

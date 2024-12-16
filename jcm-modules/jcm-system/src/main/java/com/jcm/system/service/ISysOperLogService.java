@@ -3,6 +3,8 @@ package com.jcm.system.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jcm.system.api.domain.SysOperLog;
 
+import java.util.List;
+
 /**
  * <p>
  * 操作日志记录 服务类
@@ -18,5 +20,9 @@ public interface ISysOperLogService extends IService<SysOperLog> {
      * @param operLog 操作日志对象
      * @return 结果
      */
-    public int insertOperlog(SysOperLog operLog);
+    int insertOperlog(SysOperLog operLog);
+
+    List<SysOperLog> selectOperLogList(SysOperLog sysOperLog);
+
+    int deleteOperLog(List<Long> operIds);
 }

@@ -49,7 +49,7 @@ public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDi
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public Integer insertDictType(SysDictType dictType) {
+    public int insertDictType(SysDictType dictType) {
         //插入数据
         return sysDictTypeMapper.insert(dictType);
     }
@@ -61,14 +61,14 @@ public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDi
 
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public void deleteDictType(List<Long> dictTypeIds) {
-        sysDictTypeMapper.deleteByIds(dictTypeIds);
+    public int deleteDictType(List<Long> dictTypeIds) {
         sysDictDataMapper.deleteByDictTypeIds(dictTypeIds);
+        return sysDictTypeMapper.deleteByIds(dictTypeIds);
     }
 
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public Integer updateDictType(SysDictType sysDictType) {
+    public int updateDictType(SysDictType sysDictType) {
         UpdateWrapper<SysDictType> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("dict_type_id", sysDictType.getDictTypeId());
         //获取存在的额外参数名称
