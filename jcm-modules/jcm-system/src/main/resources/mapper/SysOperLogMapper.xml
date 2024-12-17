@@ -8,6 +8,7 @@
         <result column="title" property="title" />
         <result column="business_name" property="businessName" />
         <result column="business_type" property="businessType" />
+        <result column="description" property="description" />
         <result column="method" property="method" />
         <result column="request_method" property="requestMethod" />
         <result column="request_time" property="requestTime" />
@@ -36,4 +37,16 @@
             #{item}
         </foreach>
     </delete>
+
+    <select id="nameOptionSelect" resultType="java.lang.String">
+        SELECT oper_name FROM sys_oper_log GROUP BY oper_name
+    </select>
+
+    <select id="titleOptionSelect" resultType="java.lang.String">
+        SELECT title FROM sys_oper_log GROUP BY title
+    </select>
+
+    <select id="businessNameOptionSelectByTitle" resultType="java.lang.String">
+        SELECT business_name FROM sys_oper_log WHERE title = #{item} GROUP BY business_name
+    </select>
 </mapper>

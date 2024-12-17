@@ -4,7 +4,12 @@ package com.jcm.system.controller;
 import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
+import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.annotation.OperationName;
+import com.jcm.common.log.constant.BusinessNameConstant;
+import com.jcm.common.log.enums.BusinessType;
+import com.jcm.common.log.local.LogLocalThread;
+import com.jcm.common.log.utils.OperLogCover;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
@@ -41,10 +46,12 @@ public class SysRoleController extends PageBaseController {
      * 新增角色
      */
     @RequiresPermissions("system:role:add")
+    @Log(businessName = "新增角色",businessType= BusinessType.INSERT)
     @PostMapping
     @PrintParams
     public AjaxResult add(@RequestBody SysRole role)
     {
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.insertLogMsg(BusinessNameConstant.ROLE,role.getName()));
         if (!sysRoleService.checkRoleNameUnique(role))
         {
             return error("新增角色'" + role.getName() + "'失败，角色名称已存在");
@@ -61,9 +68,11 @@ public class SysRoleController extends PageBaseController {
      */
     @Operation(summary = "删除角色", description = "将角色删除")
     @RequiresPermissions("system:user:delete")
+    @Log(businessName = "删除角色",businessType= BusinessType.DELETE)
     @DeleteMapping
     @PrintParams
     public AjaxResult delete(@RequestBody List<Long> roleIds) {
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.deleteLogMsg(BusinessNameConstant.ROLE,roleIds.size()));
         return toAjax(sysRoleService.deleteRole(roleIds));
     }
 
@@ -72,10 +81,12 @@ public class SysRoleController extends PageBaseController {
      */
     @Operation(summary = "修改角色信息", description = "修改角色信息")
     @RequiresPermissions("system:role:edit")
+    @Log(businessName = "修改角色",businessType= BusinessType.UPDATE)
     @PutMapping
     @PrintParams
     public AjaxResult edit(@RequestBody SysRole role)
     {
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.updateLogMsg(BusinessNameConstant.USER,role.getRoleId()));
         return toAjax(sysRoleService.updateRole(role));
     }
 

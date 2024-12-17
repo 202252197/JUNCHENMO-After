@@ -1,8 +1,15 @@
 package com.jcm.system.controller;
 
 
+import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.domain.R;
 import com.jcm.common.core.web.domain.AjaxResult;
+import com.jcm.common.log.annotation.Log;
+import com.jcm.common.log.annotation.OperationName;
+import com.jcm.common.log.constant.BusinessNameConstant;
+import com.jcm.common.log.enums.BusinessType;
+import com.jcm.common.log.local.LogLocalThread;
+import com.jcm.common.log.utils.OperLogCover;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
@@ -27,6 +34,7 @@ import java.util.List;
  * @since 2024-04-01
  */
 @Tag(name="菜单管理")
+@OperationName(title = OperationNameConstants.SYSTEM_MENU)
 @RestController
 @RequestMapping("/menu")
 @AllArgsConstructor
@@ -35,6 +43,61 @@ public class SysMenuController extends PageBaseController {
     private final ISysMenuService sysMenuService;
 
     private final ISysRoleMenuService sysRoleMenuService;
+
+    /**
+     * 新增菜单
+     */
+    @RequiresPermissions("system:menu:add")
+    @Log(businessName = "新增菜单",businessType= BusinessType.INSERT)
+    @PostMapping
+    @PrintParams
+    public AjaxResult add(@RequestBody SysMenu menu)
+    {
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.insertLogMsg(BusinessNameConstant.MENU,menu.getName()));
+        return toAjax(sysMenuService.insertMenu(menu));
+
+    }
+
+    /**
+     * 删除菜单
+     */
+    @Operation(summary = "删除菜单", description = "将菜单删除")
+    @RequiresPermissions("system:menu:delete")
+    @Log(businessName = "删除菜单",businessType= BusinessType.DELETE)
+    @DeleteMapping("/{menuId}")
+    @PrintParams
+    public AjaxResult delete(@PathVariable("menuId") Long menuId) {
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.deleteLogMsg(BusinessNameConstant.MENU,1));
+        return toAjax(sysMenuService.deleteMenu(menuId));
+    }
+
+    /**
+     * 修改菜单
+     */
+    @Operation(summary = "修改菜单的信息", description = "修改菜单的信息")
+    @RequiresPermissions("system:menu:edit")
+    @Log(businessName = "修改菜单",businessType= BusinessType.UPDATE)
+    @PutMapping
+    @PrintParams
+    public AjaxResult edit(@RequestBody SysMenu menu)
+    {
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.updateLogMsg(BusinessNameConstant.MENU,menu.getMenuId()));
+        return toAjax(sysMenuService.updateMenu(menu));
+    }
+
+    /**
+     * 获取全部菜单列表
+     * @return 菜单列表
+     */
+    @RequiresPermissions("system:menu:list")
+    @Operation(summary = "获取全部菜单列表",description = "获取全部菜单列表，管理员才有次权限")
+    @PostMapping("/list")
+    @PrintParams
+    public AjaxResult list(@RequestBody SysMenu menu)
+    {
+        List<SysMenu> menus = sysMenuService.selectMenuAllTree(menu);
+        return success(menus);
+    }
 
     /**
      * 获取前端菜单列表
@@ -56,56 +119,6 @@ public class SysMenuController extends PageBaseController {
             }
         });
         return success(routerVos);
-    }
-
-    /**
-     * 获取全部菜单列表
-     * @return 菜单列表
-     */
-    @RequiresPermissions("system:menu:list")
-    @Operation(summary = "获取全部菜单列表",description = "获取全部菜单列表，管理员才有次权限")
-    @PostMapping("/list")
-    @PrintParams
-    public AjaxResult list(@RequestBody SysMenu menu)
-    {
-        List<SysMenu> menus = sysMenuService.selectMenuAllTree(menu);
-        return success(menus);
-    }
-
-
-    /**
-     * 新增角色
-     */
-    @RequiresPermissions("system:menu:add")
-    @PostMapping
-    @PrintParams
-    public AjaxResult add(@RequestBody SysMenu menu)
-    {
-        return toAjax(sysMenuService.insertMenu(menu));
-
-    }
-
-    /**
-     * 删除菜单
-     */
-    @Operation(summary = "删除菜单", description = "将菜单删除")
-    @RequiresPermissions("system:menu:delete")
-    @DeleteMapping("/{menuId}")
-    @PrintParams
-    public AjaxResult delete(@PathVariable("menuId") Long menuId) {
-        return toAjax(sysMenuService.deleteMenu(menuId));
-    }
-
-    /**
-     * 修改菜单
-     */
-    @Operation(summary = "修改菜单的信息", description = "修改菜单的信息")
-    @RequiresPermissions("system:menu:edit")
-    @PutMapping
-    @PrintParams
-    public AjaxResult edit(@RequestBody SysMenu menu)
-    {
-        return toAjax(sysMenuService.updateMenu(menu));
     }
 
     /**

@@ -2,6 +2,7 @@ package com.jcm.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jcm.system.api.domain.SysOperLog;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -12,9 +13,22 @@ import java.util.List;
  * </p>
  *
  * @author 吕世昊
- * @since 2024-05-03
  */
 public interface SysOperLogMapper extends BaseMapper<SysOperLog> {
 
     int deleteByIds(@Param("operIds") List<Long> operIds);
+
+
+    /**
+     * 定义方法用于截断（清空）sys_oper_log表
+     * @return
+     */
+    @Delete("TRUNCATE TABLE sys_oper_log")
+    void clearOperLog();
+
+    List<String> nameOptionSelect();
+
+    List<String> titleOptionSelect();
+
+    List<String> businessNameOptionSelectByTitle(String title);
 }

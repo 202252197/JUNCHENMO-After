@@ -82,7 +82,10 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      */
     @Override
     public boolean checkPhoneUnique(SysUser user) {
-        List<SysUser> list = this.lambdaQuery().eq(StringUtils.isNotEmpty(user.getMobile()), SysUser::getMobile, user.getMobile()).list();
+        List<SysUser> list = this.lambdaQuery()
+                .eq(StringUtils.isNotEmpty(user.getMobile()), SysUser::getMobile, user.getMobile())
+                .eq(SysUser::getDeleted, 0)
+                .list();
         return list.size() == 0;
     }
 

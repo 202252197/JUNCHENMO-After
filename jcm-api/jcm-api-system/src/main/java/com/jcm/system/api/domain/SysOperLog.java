@@ -40,6 +40,9 @@ public class SysOperLog extends BaseEntity implements Serializable {
     @Schema(description = "业务类型（0其它 1新增 2修改 3删除）")
     private Integer businessType;
 
+   @Schema(description = "操作日志")
+    private String description;
+
     @Schema(description = "方法名称")
     private String method;
 
@@ -81,4 +84,12 @@ public class SysOperLog extends BaseEntity implements Serializable {
     @Schema(description = "消耗时间")
     private Long costTime;
 
+
+    @Schema(description = "开始日期")
+    @TableField(exist = false)
+    private String startRequestTime;
+
+    @Schema(description = "结束日期")
+    @TableField(exist = false)
+    private String endRequestTime;
 }

@@ -22,7 +22,48 @@ public interface ISysOperLogService extends IService<SysOperLog> {
      */
     int insertOperlog(SysOperLog operLog);
 
+    /**
+     * 查找操作日志集合
+     *
+     * @sysOperLog 查询条件
+     * @return 结果
+     */
     List<SysOperLog> selectOperLogList(SysOperLog sysOperLog);
 
+    /**
+     * 删除操作日志
+     *
+     * @operIds 操作日志主键集合
+     * @return 结果
+     */
     int deleteOperLog(List<Long> operIds);
+
+    /**
+     * 清空操作日志
+     *
+     * @return 结果
+     */
+    int clearOperLog();
+
+    /**
+     * 获取操作日志操作人员可选项
+     *
+     * @return 操作人员可选项集合
+     */
+    List<String> nameOptionSelect();
+
+    /**
+     * 获取操作日志操模块标题可选项
+     *
+     * @return 模块标题可选项集合
+     */
+    List<String> titleOptionSelect();
+
+    /**
+     * 获取操作日志操业务名称可选项
+     *
+     * @return 业务名称可选项集合
+     */
+    List<String> businessNameOptionSelectByTitle(String title);
+
 }

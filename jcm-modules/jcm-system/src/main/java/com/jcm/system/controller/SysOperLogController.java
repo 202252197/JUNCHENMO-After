@@ -49,6 +49,16 @@ public class SysOperLogController extends PageBaseController {
 
 
     /**
+     * 清空日志
+     */
+    @RequiresPermissions("system:menu:delete")
+    @DeleteMapping("/clear")
+    @PrintParams
+    public AjaxResult clear() {
+        return toAjax( sysOperLogService.clearOperLog());
+    }
+
+    /**
      * 获取操作日志列表
      */
     @RequiresPermissions("system:user:list")
@@ -61,4 +71,33 @@ public class SysOperLogController extends PageBaseController {
     }
 
 
+    /**
+     * 获取操作日志的可查询用户名称
+     */
+    @RequiresPermissions("system:user:list")
+    @GetMapping("/nameOptionSelect")
+    @PrintParams
+    public AjaxResult nameOptionSelect() {
+        return AjaxResult.success(sysOperLogService.nameOptionSelect());
+    }
+
+    /**
+     * 获取操作日志的可查询模块标题
+     */
+    @RequiresPermissions("system:user:list")
+    @GetMapping("/titleOptionSelect")
+    @PrintParams
+    public AjaxResult titleOptionSelect() {
+        return AjaxResult.success(sysOperLogService.titleOptionSelect());
+    }
+
+    /**
+     * 获取操作日志的可查询业务名称
+     */
+    @RequiresPermissions("system:user:list")
+    @GetMapping("/businessNameOptionSelectByTitle")
+    @PrintParams
+    public AjaxResult businessNameOptionSelectByTitle(@RequestParam("title") String title) {
+        return AjaxResult.success(sysOperLogService.businessNameOptionSelectByTitle(title));
+    }
 }

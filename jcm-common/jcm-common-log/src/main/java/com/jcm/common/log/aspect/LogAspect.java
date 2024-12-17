@@ -8,7 +8,9 @@ import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.annotation.OperationName;
 import com.jcm.common.log.enums.BusinessStatus;
 import com.jcm.common.log.filter.PropertyPreExcludeFilter;
+import com.jcm.common.log.local.LogLocalThread;
 import com.jcm.common.log.service.AsyncLogService;
+import com.jcm.common.log.utils.StyleCover;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.system.api.domain.SysOperLog;
 import org.apache.commons.lang3.ArrayUtils;
@@ -99,13 +101,23 @@ public class LogAspect
             String ip = IpUtils.getIpAddr();
             operLog.setOperIp(ip);
             // 请求的IP地区
-            operLog.setOperLocation(IpUtils.getCityInfo("49.93.248.176"));
-            System.out.println("吕IP:"+IpUtils.getCityInfo("49.93.248.176"));
+            String cityInfo = IpUtils.getCityInfo("49.93.248.176");
+            if(StringUtils.isNotEmpty(cityInfo)&&cityInfo.split("\\|").length==5){
+                String[] cityInfoArr = cityInfo.split("\\|");
+                StringBuffer stringBuffer=new StringBuffer();
+                stringBuffer.append(cityInfoArr[0] + "-")
+                        .append(cityInfoArr[2] + "-")
+                        .append(cityInfoArr[3] + "-")
+                        .append("("+cityInfoArr[4]+")");
+                operLog.setOperLocation(stringBuffer.toString());
+            }
             // 请求发起的时间
             // 将long类型的时间戳转换为Instant对象
             Instant instant = Instant.ofEpochMilli(TIME_THREADLOCAL.get());
             // 使用系统默认时区将Instant对象转换为LocalDateTime对象
             operLog.setRequestTime(LocalDateTime.ofInstant(instant, ZoneId.systemDefault()));
+            //设置描述
+            operLog.setDescription(LogLocalThread.LOG_DESCRIPTION_LOCAL.get());
             // 请求的URL
             operLog.setOperUrl(StringUtils.substring(ServletUtils.getRequest().getRequestURI(), 0, 255));
             String username = SecurityUtils.getUsername();
@@ -120,7 +132,7 @@ public class LogAspect
                 // 操作状态
                 operLog.setStatus(BusinessStatus.FAIL.ordinal());
                 // 错误信息
-                operLog.setErrorMsg(StringUtils.substring(e.getMessage(), 0, 2000));
+                operLog.setErrorMsg(StyleCover.getStyleErrorSpan(StringUtils.substring(e.getMessage(), 0, 2000)));
             }
             // 设置方法名称
             String className = joinPoint.getTarget().getClass().getName();
@@ -192,7 +204,6 @@ public class LogAspect
         OperationName operationNameAnnotation = targetClass.getAnnotation(OperationName.class);
         if (operationNameAnnotation!= null) {
             operLog.setTitle(operationNameAnnotation.title());
-            System.out.println("类上的MyAnnotation注解的值为：" + operationNameAnnotation.title());
         }
     }
 

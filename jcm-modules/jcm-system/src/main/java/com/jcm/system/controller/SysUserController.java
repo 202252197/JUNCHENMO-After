@@ -8,7 +8,10 @@ import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.annotation.OperationName;
+import com.jcm.common.log.constant.BusinessNameConstant;
 import com.jcm.common.log.enums.BusinessType;
+import com.jcm.common.log.local.LogLocalThread;
+import com.jcm.common.log.utils.OperLogCover;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.InnerAuth;
 import com.jcm.common.security.annotation.PrintParams;
@@ -83,9 +86,11 @@ public class SysUserController extends PageBaseController {
      */
     @Operation(summary = "新增用户", description = "新增用户的时候判断账号账号是否存在、手机号码是否绑定过、邮箱是否绑定过")
     @RequiresPermissions("system:user:add")
+    @Log(businessName = "新增用户",businessType= BusinessType.INSERT)
     @PostMapping
     @PrintParams
     public AjaxResult add(@RequestBody SysUser user) {
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.insertLogMsg(BusinessNameConstant.USER,user.getUsername()));
         if (!sysUserService.checkUserNameUnique(user)) {
             return error("新增用户'" + user.getUsername() + "'失败，登录账号已存在");
         } else if (StringUtils.isNotEmpty(user.getMobile()) && !sysUserService.checkPhoneUnique(user)) {
@@ -101,12 +106,13 @@ public class SysUserController extends PageBaseController {
     /**
      * 删除用户账号
      */
-    @Operation(summary = "删除用户账号", description = "将用户账号删除")
+    @Operation(summary = "删除用户", description = "将用户账号删除")
     @RequiresPermissions("system:user:delete")
-    @Log(businessName = "删除用户账号",businessType= BusinessType.DELETE)
+    @Log(businessName = "删除用户",businessType= BusinessType.DELETE)
     @DeleteMapping("/{userId}")
     @PrintParams
     public AjaxResult delete(@PathVariable("userId") Long userId) {
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.deleteLogMsg(BusinessNameConstant.USER,1));
         sysUserService.checkUserAllowed(userId);
         return toAjax(sysUserService.deleteUser(userId));
     }
@@ -116,10 +122,12 @@ public class SysUserController extends PageBaseController {
      */
     @Operation(summary = "修改用户的信息", description = "修改用户的信息")
     @RequiresPermissions("system:user:edit")
+    @Log(businessName = "修改用户信息",businessType= BusinessType.UPDATE)
     @PutMapping
     @PrintParams
     public AjaxResult edit(@RequestBody SysUser user)
     {
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.updateLogMsg(BusinessNameConstant.USER,user.getUserId()));
         sysUserService.checkUserAllowed(user.getUserId());
         SysUser sysUser = sysUserService.selectUserById(user.getUserId());
         if (StringUtils.isNotEmpty(user.getMobile()) && !sysUserService.checkPhoneUnique(user))
@@ -175,7 +183,7 @@ public class SysUserController extends PageBaseController {
      */
     @Operation(summary = "重置用户的密码", description = "修改用户的密码")
     @RequiresPermissions("system:user:resetPassword")
-    @Log(businessName = "重置用户的密码",businessType= BusinessType.UPDATE)
+    @Log(businessName = "重置用户密码",businessType= BusinessType.UPDATE)
     @PutMapping("/changePassword")
     @PrintParams
     public AjaxResult resetPassword(@RequestBody SysUser user) {
@@ -188,7 +196,6 @@ public class SysUserController extends PageBaseController {
      * 禁用用户账号
      */
     @Operation(summary = "禁用用户账号", description = "将用户账号禁用，不可用")
-    @Log(businessName = "禁用用户账号",businessType= BusinessType.UPDATE)
     @PutMapping("/changeStatus")
     @RequiresPermissions("system:user:disableAccount")
     @PrintParams
@@ -201,7 +208,6 @@ public class SysUserController extends PageBaseController {
      * 用户授权角色
      */
     @RequiresPermissions("system:user:authRole")
-    @Log(businessName = "用户授权角色",businessType= BusinessType.UPDATE)
     @PutMapping("/authRole")
     @PrintParams
     public AjaxResult insertAuthRole(Long userId, Long[] roleIds)

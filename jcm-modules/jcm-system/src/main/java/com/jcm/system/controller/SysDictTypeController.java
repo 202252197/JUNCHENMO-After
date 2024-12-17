@@ -1,8 +1,15 @@
 package com.jcm.system.controller;
 
 
+import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
+import com.jcm.common.log.annotation.Log;
+import com.jcm.common.log.annotation.OperationName;
+import com.jcm.common.log.constant.BusinessNameConstant;
+import com.jcm.common.log.enums.BusinessType;
+import com.jcm.common.log.local.LogLocalThread;
+import com.jcm.common.log.utils.OperLogCover;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
@@ -23,6 +30,7 @@ import java.util.List;
  * @since 2024-10-31
  */
 @Tag(name="字典配置项管理")
+@OperationName(title = OperationNameConstants.SYSTEM_DICT_TYPE)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/dict-type")
@@ -34,20 +42,24 @@ public class SysDictTypeController extends PageBaseController {
      * 新增字典项
      */
     @RequiresPermissions("system:role:add")
+    @Log(businessName = "新增字典项",businessType= BusinessType.INSERT)
     @PostMapping
     @PrintParams
-    public AjaxResult add(@RequestBody SysDictType sysDictType)
+    public AjaxResult add(@RequestBody SysDictType dictType)
     {
-        return toAjax(sysDictTypeService.insertDictType(sysDictType));
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.insertLogMsg(BusinessNameConstant.DICT_TYPE,dictType.getName()));
+        return toAjax(sysDictTypeService.insertDictType(dictType));
     }
 
     /**
      * 删除字典项
      */
     @RequiresPermissions("system:menu:delete")
+    @Log(businessName = "删除字典项",businessType= BusinessType.DELETE)
     @DeleteMapping
     @PrintParams
     public AjaxResult delete(@RequestBody List<Long> dictTypeIds) {
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.deleteLogMsg(BusinessNameConstant.DICT_TYPE,dictTypeIds.size()));
         return toAjax(sysDictTypeService.deleteDictType(dictTypeIds));
     }
 
@@ -55,11 +67,13 @@ public class SysDictTypeController extends PageBaseController {
      * 修改字典项
      */
     @RequiresPermissions("system:menu:edit")
+    @Log(businessName = "修改字典项",businessType= BusinessType.UPDATE)
     @PutMapping
     @PrintParams
-    public AjaxResult edit(@RequestBody SysDictType sysDictType)
+    public AjaxResult edit(@RequestBody SysDictType dictType)
     {
-        return toAjax(sysDictTypeService.updateDictType(sysDictType));
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.updateLogMsg(BusinessNameConstant.MENU,dictType.getDictTypeId()));
+        return toAjax(sysDictTypeService.updateDictType(dictType));
     }
 
     /**
