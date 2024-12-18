@@ -1,26 +1,13 @@
-09:06:40.080 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:06:40.125 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-09:06:40.423 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:06:40.424 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:06:44.328 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-09:06:58.731 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:06:58.733 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:06:59.000 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
-09:06:59.441 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
-09:06:59.587 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 22.153 seconds (JVM running for 24.749)
-09:06:59.622 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
-09:06:59.630 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
-09:06:59.632 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
-09:11:50.570 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/auth/login
-09:11:56.486 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-09:11:59.333 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/role/list?pageNum=1&pageSize=10
-09:12:03.450 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/operlog/list?pageNum=1&pageSize=10
-09:14:00.419 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/operlog/list?pageNum=1&pageSize=10
-09:14:26.514 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/operlog/list?pageNum=1&pageSize=10
-09:14:51.925 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/operlog/list?pageNum=1&pageSize=10
-09:14:58.037 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/operlog/list?pageNum=1&pageSize=10
-09:15:08.310 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/operlog/list?pageNum=1&pageSize=10
-09:15:19.572 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/operlog/list?pageNum=1&pageSize=10
-09:16:51.251 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/operlog/list?pageNum=1&pageSize=10
-09:17:38.746 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
-09:17:47.341 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/user/list?pageNum=1&pageSize=10
+08:16:07.026 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+08:16:07.153 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+08:16:07.876 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+08:16:07.877 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+08:16:12.254 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+08:16:28.108 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+08:16:28.109 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+08:16:28.291 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
+08:16:28.521 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
+08:16:28.558 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 23.944 seconds (JVM running for 25.931)
+08:16:28.570 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
+08:16:28.575 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
+08:16:28.576 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
