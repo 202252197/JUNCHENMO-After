@@ -45,7 +45,7 @@ public class CacheConstants
     /**
      * 字典管理 cache key
      */
-    public static final String SYS_DICT_KEY = "sys_dict:";
+    public static final String SYS_DICT_KEY = "sys_dict_data:";
 
     /**
      * 登录账户密码错误次数 redis key

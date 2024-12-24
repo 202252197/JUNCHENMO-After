@@ -7,10 +7,21 @@
         <id column="setting_id" property="settingId" />
         <result column="user_id" property="userId" />
         <result column="theme" property="theme" />
-        <result column="menu" property="menu" />
-        <result column="top_menu" property="topMenu" />
-        <result column="copyright" property="copyright" />
+        <result column="theme_color" property="themeColor" />
+        <result column="navigation_bar" property="navigationBar" />
         <result column="tabs" property="tabs" />
+        <result column="tabs_icon" property="tabsIcon" />
+        <result column="breadcrumb" property="breadcrumb" />
+        <result column="menu" property="menu" />
+        <result column="copyright" property="copyright" />
+        <result column="watermark" property="watermark" />
+        <result column="weak_color" property="weakColor" />
+        <result column="grayscale" property="grayscale" />
+        <result column="blur" property="blur" />
+        <result column="contrast" property="contrast" />
+        <result column="hue_rotate" property="hueRotate" />
+        <result column="saturate" property="saturate" />
+        <result column="data_loading" property="dataLoading" />
         <result column="size" property="size" />
         <result column="remark" property="remark" />
         <result column="creator" property="creator" />

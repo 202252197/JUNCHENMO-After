@@ -73,7 +73,9 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     {
         return this.lambdaQuery()
                 .like(StringUtils.isNotEmpty(role.getName()),SysRole::getName,role.getName())
-                .like(StringUtils.isNotEmpty(role.getCode()),SysRole::getCode,role.getCode()).list();
+                .like(StringUtils.isNotEmpty(role.getCode()),SysRole::getCode,role.getCode())
+                .eq(StringUtils.isNotNull(role.getStatus()),SysRole::getStatus,role.getStatus())
+                .list();
     }
 
     /**

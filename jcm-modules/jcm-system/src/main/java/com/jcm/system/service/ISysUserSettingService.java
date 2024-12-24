@@ -1,7 +1,7 @@
 package com.jcm.system.service;
 
-import com.jcm.system.domain.SysUserSetting;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.jcm.system.domain.SysUserSetting;
 
 /**
  * <p>
@@ -12,6 +12,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2024-12-18
  */
 public interface ISysUserSettingService extends IService<SysUserSetting> {
+
+
+    int insertUserSetting(SysUserSetting userSetting);
 
     SysUserSetting selectUserSettingByUserId(Long userId);
 

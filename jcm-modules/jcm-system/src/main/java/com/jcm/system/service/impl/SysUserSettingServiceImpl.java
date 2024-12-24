@@ -19,6 +19,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class SysUserSettingServiceImpl extends ServiceImpl<SysUserSettingMapper, SysUserSetting> implements ISysUserSettingService {
 
+    @Override
+    public int insertUserSetting(SysUserSetting userSetting) {
+        userSetting.setTheme(0).setThemeColor("#2174FF").setNavigationBar(true).setTabs(true).setTabsIcon(true).setBreadcrumb(true)
+                .setMenu(true).setCopyright(true).setWatermark(true).setWeakColor(false).setGrayscale(false).setBlur(false).setContrast(false).setHueRotate(false).setSaturate(false).setDataLoading(false).setSize(10);
+        return this.baseMapper.insert(userSetting);
+    }
+
     /**
      * 查询当前用户的前端设置信息
      * @param userId 用户ID
@@ -40,6 +47,6 @@ public class SysUserSettingServiceImpl extends ServiceImpl<SysUserSettingMapper,
     public int updateUserSetting(SysUserSetting userSetting) {
         LambdaQueryWrapper<SysUserSetting> lambdaQueryWrapper=new LambdaQueryWrapper<>();
         lambdaQueryWrapper.eq(StringUtils.isNotNull(userSetting.getUserId()),SysUserSetting::getUserId,userSetting.getUserId());
-        return this.baseMapper.update(lambdaQueryWrapper);
+        return this.baseMapper.update(userSetting,lambdaQueryWrapper);
     }
 }

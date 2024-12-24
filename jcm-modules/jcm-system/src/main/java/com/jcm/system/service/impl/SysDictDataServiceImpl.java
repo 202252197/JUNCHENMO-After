@@ -2,6 +2,7 @@ package com.jcm.system.service.impl;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.jcm.common.core.constant.CacheConstants;
 import com.jcm.common.redis.service.RedisService;
 import com.jcm.system.domain.SysDictData;
 import com.jcm.system.mapper.SysDictDataMapper;
@@ -41,7 +42,7 @@ public class SysDictDataServiceImpl extends ServiceImpl<SysDictDataMapper, SysDi
 
     @Override
     public List<JSONObject> getInfoList(List<String> names) {
-        if(!redisService.hasKey("dictDataCache")){
+        if(!redisService.hasKey(CacheConstants.SYS_DICT_KEY)){
             //获取全部的字典数据,加载并处理成JSONObject
             List<SysDictData> infoListAll = sysDictDataMapper.getInfoList(null);
             HashMap<String, List<JSONObject>> jsonListMap = new HashMap();
@@ -57,12 +58,12 @@ public class SysDictDataServiceImpl extends ServiceImpl<SysDictDataMapper, SysDi
             })).forEach((name, jsonList)->{
                 jsonListMap.put(name, jsonList);
             });
-            redisService.setCacheMap("dictDataCache",jsonListMap);
+            redisService.setCacheMap(CacheConstants.SYS_DICT_KEY,jsonListMap);
         }
 
         //存放缓存中查到的字典值
         List<JSONObject> dataList = new ArrayList<>();
-        Map<String, List<JSONObject>> dictDataCache = redisService.getCacheMap("dictDataCache");
+        Map<String, List<JSONObject>> dictDataCache = redisService.getCacheMap(CacheConstants.SYS_DICT_KEY);
         for (String name : names) {
             List<JSONObject> jsonObjects = dictDataCache.get(name);
             dataList.addAll(jsonObjects);

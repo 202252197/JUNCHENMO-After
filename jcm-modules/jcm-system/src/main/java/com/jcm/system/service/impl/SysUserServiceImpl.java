@@ -7,9 +7,11 @@ import com.jcm.common.core.exception.ServiceException;
 import com.jcm.common.core.utils.StringUtils;
 import com.jcm.system.api.domain.SysUser;
 import com.jcm.system.domain.SysUserRole;
+import com.jcm.system.domain.SysUserSetting;
 import com.jcm.system.mapper.SysUserMapper;
 import com.jcm.system.mapper.SysUserRoleMapper;
 import com.jcm.system.service.ISysUserService;
+import com.jcm.system.service.ISysUserSettingService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +28,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     private final SysUserMapper sysUserMapper;
     private final SysUserRoleMapper sysUserRoleMapper;
+
+    private final ISysUserSettingService sysUserSettingService;
 
     /**
      * 通过用户名查询用户
@@ -105,9 +109,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      * @param user 用户
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public int insertUser(SysUser user) {
-        return sysUserMapper.insert(user);
+        SysUserSetting sysUserSetting =  new SysUserSetting();
+        int insert = sysUserMapper.insert(user);
+        sysUserSetting.setUserId(user.getUserId());
+        sysUserSettingService.insertUserSetting(sysUserSetting);
+        return insert;
     }
 
     /**
