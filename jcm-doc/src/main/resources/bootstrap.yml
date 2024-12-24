@@ -1,0 +1,16 @@
+server:
+  port: 9209
+knife4j:
+  enableAggregation: true
+  nacos:
+    enable: true
+    serviceUrl: http://localhost:8848/nacos/
+    routes:
+      - name: 认证模块
+        service-name: jcm-auth
+        location: /v2/api-docs?group=default
+        service-path: /
+      - name: 用户模块
+        service-name: jcm-system
+        location: /v2/api-docs?group=default
+        service-path: /

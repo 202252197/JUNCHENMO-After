@@ -26,29 +26,29 @@
 		<spring-cloud.version>2021.0.8</spring-cloud.version>
 <!--		springcloud alibaba版本-->
 		<spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
-<!--		springboot admin版本-->
+		<!--		验证码生成工具版本-->
+		<kaptcha.version>2.3.3</kaptcha.version>
+		<!--		 分页插件版本-->
+		<pagehelper.boot.version>2.0.0</pagehelper.boot.version>
+		<lombok.version>1.18.32</lombok.version>
+		<!--		数据库连接池版本-->
+		<druid.version>1.1.21</druid.version>
+		<!--		java jwt版本-->
+		<jjwt.version>0.9.1</jjwt.version>
+		<!--		ip2region版本:根据IP获取地理位置-->
+		<ip2region.version>2.7.0</ip2region.version>
+		<knife4j.version>2.0.8</knife4j.version>
+		<!--		springboot admin版本-->
 		<spring-boot-admin.version>2.7.11</spring-boot-admin.version>
 		<tobato.version>1.27.2</tobato.version>
-<!--		验证码生成工具版本-->
-		<kaptcha.version>2.3.3</kaptcha.version>
-<!--		 分页插件版本-->
-		<pagehelper.boot.version>2.0.0</pagehelper.boot.version>
-<!--		数据库连接池版本-->
-		<druid.version>1.1.21</druid.version>
 		<commons.io.version>2.13.0</commons.io.version>
 		<velocity.version>2.3</velocity.version>
-<!--		json转换工具版本-->
+		<!--		json转换工具版本-->
 		<fastjson.version>2.0.43</fastjson.version>
-<!--		java jwt版本-->
-		<jjwt.version>0.9.1</jjwt.version>
-		<lombok.version>1.18.32</lombok.version>
 		<minio.version>8.2.2</minio.version>
-		<poi.version>4.1.2</poi.version>
 		<transmittable-thread-local.version>2.14.4</transmittable-thread-local.version>
 		<springdoc.version>1.7.0</springdoc.version>
-		<knife4j.version>4.3.0</knife4j.version>
 		<hutool.version>5.8.27</hutool.version>
-		<ip2region.version>2.7.0</ip2region.version>
 	</properties>
 	<!-- 依赖声明 -->
 	<dependencyManagement>
@@ -116,12 +116,6 @@
 				<version>${commons.io.version}</version>
 			</dependency>
 
-			<!-- excel工具 -->
-			<dependency>
-				<groupId>org.apache.poi</groupId>
-				<artifactId>poi-ooxml</artifactId>
-				<version>${poi.version}</version>
-			</dependency>
 
 			<!-- 代码生成使用模板 -->
 			<dependency>
@@ -171,7 +165,7 @@
 
 			<dependency>
 				<groupId>com.github.xiaoymin</groupId>
-				<artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
+				<artifactId>knife4j-micro-spring-boot-starter</artifactId>
 				<version>${knife4j.version}</version>
 			</dependency>
 
@@ -250,6 +244,7 @@
 		<module>jcm-gateway</module>
 		<module>jcm-modules</module>
 		<module>starteTest</module>
+		<module>jcm-doc</module>
 	</modules>
 	<packaging>pom</packaging>
 

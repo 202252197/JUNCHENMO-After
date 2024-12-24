@@ -20,7 +20,6 @@
         <module>jcm-common-core</module>
         <module>jcm-common-redis</module>
         <module>jcm-common-security</module>
-        <module>jcm-common-swagger</module>
         <module>jcm-common-mybatis</module>
         <module>jcm-common-log</module>
     </modules>
