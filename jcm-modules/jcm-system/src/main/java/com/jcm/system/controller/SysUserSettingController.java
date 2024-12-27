@@ -10,18 +10,22 @@ import com.jcm.common.security.annotation.RequiresPermissions;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.system.domain.SysUserSetting;
 import com.jcm.system.service.ISysUserSettingService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
- * 用户前端样式设置表 前端控制器
+ * 用户样式设置表 前端控制器
  * </p>
  *
  * @author 吕世昊
  * @since 2024-12-18
  */
+
+@Api(tags="用户设置")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/sys-user-setting")
@@ -30,10 +34,10 @@ public class SysUserSettingController extends BaseController {
     private ISysUserSettingService sysUserSettingService;
 
     /**
-     * 修改用户设置信息
+     *
      */
+    @ApiOperation(value="修改用户设置")
     @Log(businessName = "修改用户设置信息",businessType= BusinessType.UPDATE)
-    @Operation(summary = "修改用户设置信息", description = "修改用户设置信息")
     @RequiresPermissions("system:role:edit")
     @PutMapping
     @PrintParams
@@ -43,10 +47,7 @@ public class SysUserSettingController extends BaseController {
         return toAjax(sysUserSettingService.updateUserSetting(userSetting));
     }
 
-    /**
-     * 获取当前用户设置信息
-     * @return 用户设置信息
-     */
+    @ApiOperation(value="查询用户设置")
     @Operation(summary = "获取当前用户设置的详细信息", description = "")
     @GetMapping("/getInfo")
     @PrintParams
@@ -54,7 +55,6 @@ public class SysUserSettingController extends BaseController {
         SysUserSetting userSetting = sysUserSettingService.selectUserSettingByUserId(SecurityUtils.getUserId());
         return AjaxResult.success(userSetting);
     }
-
 
 
 }

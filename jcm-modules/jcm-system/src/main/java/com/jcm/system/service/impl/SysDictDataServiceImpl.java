@@ -42,38 +42,36 @@ public class SysDictDataServiceImpl extends ServiceImpl<SysDictDataMapper, SysDi
 
     @Override
     public List<JSONObject> getInfoList(List<String> names) {
-        if(!redisService.hasKey(CacheConstants.SYS_DICT_KEY)){
-            //获取全部的字典数据,加载并处理成JSONObject
-            List<SysDictData> infoListAll = sysDictDataMapper.getInfoList(null);
-            HashMap<String, List<JSONObject>> jsonListMap = new HashMap();
-            infoListAll.stream().map(dictData -> {
-                JSONObject jsonObject = JSONObject.parseObject(dictData.getExtra());
-                jsonObject.put("name", dictData.getName());
-                jsonObject.put("value", dictData.getValue());
-                jsonObject.put("description", dictData.getDescription());
-                return jsonObject;
-            }).collect(Collectors.groupingBy(json -> {
-                // 根据dictData.getName()获取名称作为分组的键，这里假设dictData是一个对象实例，有对应的getName()方法
-                return json.getString("name");
-            })).forEach((name, jsonList)->{
-                jsonListMap.put(name, jsonList);
-            });
-            redisService.setCacheMap(CacheConstants.SYS_DICT_KEY,jsonListMap);
-        }
-
         //存放缓存中查到的字典值
         List<JSONObject> dataList = new ArrayList<>();
-        Map<String, List<JSONObject>> dictDataCache = redisService.getCacheMap(CacheConstants.SYS_DICT_KEY);
         for (String name : names) {
-            List<JSONObject> jsonObjects = dictDataCache.get(name);
-            dataList.addAll(jsonObjects);
+            List<JSONObject> cacheList = redisService.getCacheList(CacheConstants.SYS_DICT_KEY + name);
+            dataList.addAll(cacheList);
         }
-        //因序列化保存了对象的类型这里给这个@type属性移除
-        for(JSONObject jsonObject:dataList){
-            jsonObject.remove("@type");
-        }
-
         return dataList;
+    }
+
+    private void loadDataToCache() {
+        Set keys = redisService.redisTemplate.keys(CacheConstants.SYS_DICT_KEY + "*");
+        if(keys.size()>0){
+            redisService.deleteObject(keys);
+        }
+        //获取全部的字典数据,加载并处理成JSONObject
+        List<SysDictData> infoListAll = sysDictDataMapper.getInfoList(null);
+        infoListAll.stream().map(dictData -> {
+            JSONObject jsonObject = JSONObject.parseObject(dictData.getExtra());
+            jsonObject.put("name", dictData.getName());
+            jsonObject.put("value", dictData.getValue());
+            jsonObject.put("description", dictData.getDescription());
+            return jsonObject;
+        }).collect(Collectors.groupingBy(json -> {
+            // 根据dictData.getName()获取名称作为分组的键，这里假设dictData是一个对象实例，有对应的getName()方法
+            return json.getString("name");
+        })).forEach((name, jsonList)->{
+            redisService.setCacheList(CacheConstants.SYS_DICT_KEY+name,jsonList);
+        });
+
+
     }
 
     @Override
@@ -89,9 +87,19 @@ public class SysDictDataServiceImpl extends ServiceImpl<SysDictDataMapper, SysDi
         return infoObjList;
     }
 
+
     @Override
     public int updateDictData(SysDictData sysDictData) {
         return sysDictDataMapper.updateById(sysDictData);
+    }
+
+    @Override
+    public void refreshDictDataCache() {
+        if(!redisService.hasKey(CacheConstants.SYS_DICT_KEY)){
+            redisService.deleteObject(CacheConstants.SYS_DICT_KEY);
+        }
+        loadDataToCache();
+
     }
 
 }

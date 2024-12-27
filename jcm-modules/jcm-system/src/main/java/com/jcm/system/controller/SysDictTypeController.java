@@ -15,7 +15,8 @@ import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
 import com.jcm.system.domain.SysDictType;
 import com.jcm.system.service.ISysDictTypeService;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,13 +24,13 @@ import java.util.List;
 
 /**
  * <p>
- * 字典配置项 前端控制器
+ * 数据字典项 前端控制器
  * </p>
  *
  * @author 吕世昊
  * @since 2024-10-31
  */
-@Tag(name="字典配置项管理")
+@Api(tags="数据字典项管理")
 @OperationName(title = OperationNameConstants.SYSTEM_DICT_TYPE)
 @RestController
 @AllArgsConstructor
@@ -38,9 +39,7 @@ public class SysDictTypeController extends PageBaseController {
     private final ISysDictTypeService sysDictTypeService;
 
 
-    /**
-     * 新增字典项
-     */
+    @ApiOperation(value = "新增字典项")
     @RequiresPermissions("system:role:add")
     @Log(businessName = "新增字典项",businessType= BusinessType.INSERT)
     @PostMapping
@@ -51,9 +50,7 @@ public class SysDictTypeController extends PageBaseController {
         return toAjax(sysDictTypeService.insertDictType(dictType));
     }
 
-    /**
-     * 删除字典项
-     */
+    @ApiOperation(value = "删除字典项")
     @RequiresPermissions("system:menu:delete")
     @Log(businessName = "删除字典项",businessType= BusinessType.DELETE)
     @DeleteMapping
@@ -63,9 +60,8 @@ public class SysDictTypeController extends PageBaseController {
         return toAjax(sysDictTypeService.deleteDictType(dictTypeIds));
     }
 
-    /**
-     * 修改字典项
-     */
+
+    @ApiOperation(value = "修改字典项")
     @RequiresPermissions("system:menu:edit")
     @Log(businessName = "修改字典项",businessType= BusinessType.UPDATE)
     @PutMapping
@@ -76,9 +72,7 @@ public class SysDictTypeController extends PageBaseController {
         return toAjax(sysDictTypeService.updateDictType(dictType));
     }
 
-    /**
-     * 获取字典配置项列表分页条件查询
-     */
+    @ApiOperation(value = "分页条件查询字典项列表")
     @RequiresPermissions("system:dictType:list")
     @PostMapping("/list")
     @PrintParams
@@ -89,9 +83,7 @@ public class SysDictTypeController extends PageBaseController {
         return getDataTable(list);
     }
 
-    /**
-     * 获取所有启用的字典以及额外参数
-     */
+    @ApiOperation(value = "查询字典项的选项值")
     @RequiresPermissions("system:dictType:list")
     @GetMapping("/optionSelect")
     @PrintParams

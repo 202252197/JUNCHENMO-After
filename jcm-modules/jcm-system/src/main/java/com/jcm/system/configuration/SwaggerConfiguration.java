@@ -58,7 +58,7 @@ public class SwaggerConfiguration {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(groupApiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.jcm.system.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.jcm.system"))
                 .paths(PathSelectors.any())
                 .build().globalOperationParameters(globalParameters);
     }

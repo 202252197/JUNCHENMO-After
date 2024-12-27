@@ -80,6 +80,10 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.fusesource</groupId>
+            <artifactId>sigar</artifactId>
+        </dependency>
 
     </dependencies>
 

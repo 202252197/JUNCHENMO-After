@@ -1,14 +1,21 @@
 package com.jcm.system.controller;
 
 
+import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
+import com.jcm.common.log.annotation.OperationName;
+import com.jcm.common.log.constant.BusinessNameConstant;
+import com.jcm.common.log.local.LogLocalThread;
+import com.jcm.common.log.utils.OperLogCover;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.InnerAuth;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
 import com.jcm.system.api.domain.SysOperLog;
 import com.jcm.system.service.ISysOperLogService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,12 +23,14 @@ import java.util.List;
 
 /**
  * <p>
- * 操作日志记录 前端控制器
+ * 操作日志 前端控制器
  * </p>
  *
  * @author 吕世昊
  * @since 2024-05-03
  */
+@Api(tags="操作日志")
+@OperationName(title = OperationNameConstants.SYSTEM_OPERATION_LOG)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/operlog")
@@ -29,38 +38,32 @@ public class SysOperLogController extends PageBaseController {
 
     private final ISysOperLogService sysOperLogService;
     @InnerAuth
+    @ApiOperation(value = "新增操作日志",notes = "内部服务使用")
     @PostMapping
     public AjaxResult add(@RequestBody SysOperLog operLog)
     {
         return toAjax(sysOperLogService.insertOperlog(operLog));
     }
 
-
-    /**
-     * 删除日志
-     */
+    @ApiOperation(value = "删除操作日志")
     @RequiresPermissions("system:menu:delete")
     @DeleteMapping
     @PrintParams
     public AjaxResult delete(@RequestBody List<Long> operIds) {
-
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.deleteLogMsg(BusinessNameConstant.OPERATION_LOG,operIds.size()));
         return toAjax( sysOperLogService.deleteOperLog(operIds));
     }
 
-
-    /**
-     * 清空日志
-     */
+    @ApiOperation(value = "清空操作日志")
     @RequiresPermissions("system:menu:delete")
     @DeleteMapping("/clear")
     @PrintParams
     public AjaxResult clear() {
-        return toAjax( sysOperLogService.clearOperLog());
+        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(BusinessNameConstant.OPERATION_LOG+"全部清空");
+        return toAjax(sysOperLogService.clearOperLog());
     }
 
-    /**
-     * 获取操作日志列表
-     */
+    @ApiOperation(value = "分页条件查询操作日志列表")
     @RequiresPermissions("system:user:list")
     @PostMapping("/list")
     @PrintParams
@@ -70,10 +73,7 @@ public class SysOperLogController extends PageBaseController {
         return getDataTable(list);
     }
 
-
-    /**
-     * 获取操作日志的可查询用户名称
-     */
+    @ApiOperation(value = "获取可查询的操作用户选项值")
     @RequiresPermissions("system:user:list")
     @GetMapping("/nameOptionSelect")
     @PrintParams
@@ -81,9 +81,7 @@ public class SysOperLogController extends PageBaseController {
         return AjaxResult.success(sysOperLogService.nameOptionSelect());
     }
 
-    /**
-     * 获取操作日志的可查询模块标题
-     */
+    @ApiOperation(value = "获取可查询的模块标题选项值")
     @RequiresPermissions("system:user:list")
     @GetMapping("/titleOptionSelect")
     @PrintParams
@@ -91,9 +89,7 @@ public class SysOperLogController extends PageBaseController {
         return AjaxResult.success(sysOperLogService.titleOptionSelect());
     }
 
-    /**
-     * 获取操作日志的可查询业务名称
-     */
+    @ApiOperation(value = "获取可查询的业务名称选项值")
     @RequiresPermissions("system:user:list")
     @GetMapping("/businessNameOptionSelectByTitle")
     @PrintParams

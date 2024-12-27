@@ -16,8 +16,8 @@ import com.jcm.common.security.annotation.RequiresPermissions;
 import com.jcm.system.domain.SysRole;
 import com.jcm.system.service.ISysRoleService;
 import com.jcm.system.service.ISysUserRoleService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,13 +25,13 @@ import java.util.List;
 
 /**
  * <p>
- *  前端控制器
+ * 角色管理 前端控制器
  * </p>
  *
  * @author 吕世昊
  * @since 2024-04-01
  */
-@Tag(name="角色管理")
+@Api(tags="角色管理")
 @OperationName(title = OperationNameConstants.SYSTEM_ROLE)
 @RestController
 @AllArgsConstructor
@@ -42,9 +42,7 @@ public class SysRoleController extends PageBaseController {
 
     private final ISysUserRoleService sysUserRoleService;
 
-    /**
-     * 新增角色
-     */
+    @ApiOperation(value = "新增角色", notes = "新增角色的时候判断角色名称，角色编码是否存在")
     @RequiresPermissions("system:role:add")
     @Log(businessName = "新增角色",businessType= BusinessType.INSERT)
     @PostMapping
@@ -63,10 +61,8 @@ public class SysRoleController extends PageBaseController {
         return toAjax(sysRoleService.insertRole(role));
     }
 
-    /**
-     * 删除用户账号
-     */
-    @Operation(summary = "删除角色", description = "将角色删除")
+
+    @ApiOperation(value = "删除角色")
     @RequiresPermissions("system:user:delete")
     @Log(businessName = "删除角色",businessType= BusinessType.DELETE)
     @DeleteMapping
@@ -76,10 +72,8 @@ public class SysRoleController extends PageBaseController {
         return toAjax(sysRoleService.deleteRole(roleIds));
     }
 
-    /**
-     * 修改角色信息
-     */
-    @Operation(summary = "修改角色信息", description = "修改角色信息")
+
+    @ApiOperation(value = "修改角色")
     @RequiresPermissions("system:role:edit")
     @Log(businessName = "修改角色",businessType= BusinessType.UPDATE)
     @PutMapping
@@ -90,9 +84,7 @@ public class SysRoleController extends PageBaseController {
         return toAjax(sysRoleService.updateRole(role));
     }
 
-    /**
-     * 获取角色列表分页条件查询
-     */
+    @ApiOperation(value = "分页条件查询角色列表")
     @RequiresPermissions("system:role:list")
     @PostMapping("/list")
     @PrintParams
@@ -103,9 +95,8 @@ public class SysRoleController extends PageBaseController {
         return getDataTable(list);
     }
 
-    /**
-     * 状态修改
-     */
+
+    @ApiOperation(value = "禁用角色")
     @RequiresPermissions("system:role:editStatus")
     @PutMapping("/changeStatus")
     public AjaxResult changeStatus(@RequestBody SysRole role)
@@ -114,9 +105,7 @@ public class SysRoleController extends PageBaseController {
         return toAjax(sysRoleService.updateRoleStatus(role));
     }
 
-    /**
-     * 查询所有启用的角色
-     */
+    @ApiOperation(value = "查询角色选项值")
     @RequiresPermissions("system:role:list")
     @GetMapping("/optionSelect")
     @PrintParams
@@ -125,9 +114,7 @@ public class SysRoleController extends PageBaseController {
         return success(sysRoleService.selectRoleAll());
     }
 
-    /**
-     * 根据用户ID查询已经分配的角色列表
-     */
+    @ApiOperation(value = "查询用户角色")
     @PrintParams
     @RequiresPermissions("system:role:list")
     @GetMapping("/authUser/allocatedList/{userId}")
@@ -136,9 +123,7 @@ public class SysRoleController extends PageBaseController {
         return success(sysUserRoleService.selectAllocatedList(userId));
     }
 
-    /**
-     * 角色授权菜单
-     */
+    @ApiOperation(value = "授权角色菜单")
     @PrintParams
     @RequiresPermissions("system:role:authMenu")
     @PutMapping("/authMenu")

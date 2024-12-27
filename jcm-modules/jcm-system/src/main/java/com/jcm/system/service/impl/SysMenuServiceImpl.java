@@ -78,7 +78,6 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
                 router.setPath(menu.getLink());
                 router.setComponent(UserConstants.LAYOUT);
             }else {
-                //如果是
                 if(MenuConstant.TYPE_DIR == menu.getType()){
                     router.setPath("/"+menu.getComponent());
                     router.setComponent(UserConstants.LAYOUT);

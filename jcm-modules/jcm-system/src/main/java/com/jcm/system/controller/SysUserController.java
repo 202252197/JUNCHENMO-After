@@ -22,8 +22,8 @@ import com.jcm.system.api.model.LoginUser;
 import com.jcm.system.service.ISysMenuService;
 import com.jcm.system.service.ISysRoleService;
 import com.jcm.system.service.ISysUserService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,13 +32,13 @@ import java.util.Set;
 
 /**
  * <p>
- * 用户表 前端控制器
+ * 用户管理 前端控制器
  * </p>
  *
  * @author 吕世昊
  * @since 2024-04-01
  */
-@Tag(name = "用户管理")
+@Api(tags="用户管理")
 @OperationName(title = OperationNameConstants.SYSTEM_USER)
 @RestController
 @AllArgsConstructor
@@ -49,11 +49,8 @@ public class SysUserController extends PageBaseController {
     private final ISysMenuService sysPermissionService;
     private final ISysRoleService sysRoleService;
 
-    /**
-     * 内部服务调用接口，获取当前用户信息
-     */
-    @Operation(summary = "根据用户账号获取用户信息", description = "内部接口根据用户账号获取用户详情、用户角色集合、用户权限集合", tags = "内部接口")
     @InnerAuth
+    @ApiOperation(value = "获取当前用户信息",notes = "内部服务使用")
     @GetMapping("/info/{username}")
     public R<LoginUser> info(@PathVariable("username") String username) {
         SysUser sysUser = sysUserService.selectUserByUserName(username);
@@ -71,20 +68,14 @@ public class SysUserController extends PageBaseController {
         return R.ok(sysUserVo);
     }
 
-    /**
-     * 内部服务调用接口，根据用户ID修改用户最后登录时间和IP
-     */
-    @Operation(summary = "根据用户ID修改用户最后登录时间和IP", description = "根据用户ID修改用户最后登录时间和IP", tags = "内部接口")
     @InnerAuth
+    @ApiOperation(value = "修改用户最后登录时间和IP",notes = "内部服务使用")
     @PutMapping("/changeLoginInfo")
     public R<Integer> changeLoginInfo(@RequestBody SysUser sysUser) {
         return R.ok(sysUserService.changeLoginInfo(sysUser));
     }
 
-    /**
-     * 新增用户
-     */
-    @Operation(summary = "新增用户", description = "新增用户的时候判断账号账号是否存在、手机号码是否绑定过、邮箱是否绑定过")
+    @ApiOperation(value = "新增用户", notes = "新增用户的时候判断账号账号是否存在、手机号码是否绑定过、邮箱是否绑定过")
     @RequiresPermissions("system:user:add")
     @Log(businessName = "新增用户",businessType= BusinessType.INSERT)
     @PostMapping
@@ -103,10 +94,8 @@ public class SysUserController extends PageBaseController {
         return toAjax(sysUserService.insertUser(user));
     }
 
-    /**
-     * 删除用户账号
-     */
-    @Operation(summary = "删除用户", description = "将用户账号删除")
+
+    @ApiOperation(value = "删除用户", notes = "将用户账号删除")
     @RequiresPermissions("system:user:delete")
     @Log(businessName = "删除用户",businessType= BusinessType.DELETE)
     @DeleteMapping("/{userId}")
@@ -117,10 +106,7 @@ public class SysUserController extends PageBaseController {
         return toAjax(sysUserService.deleteUser(userId));
     }
 
-    /**
-     * 修改用户
-     */
-    @Operation(summary = "修改用户的信息", description = "修改用户的信息")
+    @ApiOperation(value = "修改用户", notes = "修改用户的信息")
     @RequiresPermissions("system:user:edit")
     @Log(businessName = "修改用户信息",businessType= BusinessType.UPDATE)
     @PutMapping
@@ -145,10 +131,7 @@ public class SysUserController extends PageBaseController {
         return toAjax(sysUserService.updateUser(user));
     }
 
-    /**
-     * 获取用户列表
-     */
-    @Operation(summary = "分页条件查询用户列表", description = "分页获取用户列表")
+    @ApiOperation(value= "分页条件查询用户列表")
     @RequiresPermissions("system:user:list")
     @PostMapping("/list")
     @PrintParams
@@ -158,11 +141,7 @@ public class SysUserController extends PageBaseController {
         return getDataTable(list);
     }
 
-    /**
-     * 获取当前用户信息
-     * @return 用户信息
-     */
-    @Operation(summary = "获取当前用户的详细信息", description = "用户信息、用户角色列表、用户权限列表")
+    @ApiOperation(value = "获取当前用户的详细信息",notes = "返回用户信息,角色集合,权限集合")
     @GetMapping("/getInfo")
     @PrintParams
     public AjaxResult getInfo() {
@@ -178,10 +157,7 @@ public class SysUserController extends PageBaseController {
         return ajax;
     }
 
-    /**
-     * 重置用户的密码
-     */
-    @Operation(summary = "重置用户的密码", description = "修改用户的密码")
+    @ApiOperation(value = "修改用户密码")
     @RequiresPermissions("system:user:resetPassword")
     @Log(businessName = "重置用户密码",businessType= BusinessType.UPDATE)
     @PutMapping("/changePassword")
@@ -192,10 +168,7 @@ public class SysUserController extends PageBaseController {
         return toAjax(sysUserService.resetUserPassword(user));
     }
 
-    /**
-     * 禁用用户账号
-     */
-    @Operation(summary = "禁用用户账号", description = "将用户账号禁用，不可用")
+    @ApiOperation(value= "禁用用户")
     @PutMapping("/changeStatus")
     @RequiresPermissions("system:user:disableAccount")
     @PrintParams
@@ -204,9 +177,7 @@ public class SysUserController extends PageBaseController {
         return toAjax(sysUserService.disableUser(user.getUserId()));
     }
 
-    /**
-     * 用户授权角色
-     */
+    @ApiOperation(value= "授权用户角色",notes = "传入用户ID和角色集合")
     @RequiresPermissions("system:user:authRole")
     @PutMapping("/authRole")
     @PrintParams

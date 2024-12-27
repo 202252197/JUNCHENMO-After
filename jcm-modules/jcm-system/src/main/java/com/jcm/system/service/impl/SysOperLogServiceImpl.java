@@ -38,8 +38,8 @@ public class SysOperLogServiceImpl extends ServiceImpl<SysOperLogMapper, SysOper
                 .eq(StringUtils.isNotEmpty(sysOperLog.getTitle()),SysOperLog::getTitle,sysOperLog.getTitle())
                 .eq(StringUtils.isNotEmpty(sysOperLog.getBusinessName()),SysOperLog::getBusinessName,sysOperLog.getBusinessName())
                 .eq(StringUtils.isNotNull(sysOperLog.getStatus()),SysOperLog::getStatus,sysOperLog.getStatus())
-                .ge(StringUtils.isNotNull(sysOperLog.getStartRequestTime()),SysOperLog::getRequestTime,sysOperLog.getStartRequestTime())
-                .le(StringUtils.isNotNull(sysOperLog.getEndRequestTime()),SysOperLog::getRequestTime,sysOperLog.getEndRequestTime())
+                .ge(StringUtils.isNotNull(sysOperLog.getParams().get("requestTimeBeginTime")),SysOperLog::getRequestTime,sysOperLog.getParams().get("requestTimeBeginTime"))
+                .le(StringUtils.isNotNull(sysOperLog.getParams().get("requestTimeEndTime")),SysOperLog::getRequestTime,sysOperLog.getParams().get("requestTimeEndTime"))
                 .orderByDesc(SysOperLog::getRequestTime)
                 .list();
     }

@@ -15,7 +15,8 @@ import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
 import com.jcm.system.domain.SysDictData;
 import com.jcm.system.service.ISysDictDataService;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,13 +24,13 @@ import java.util.List;
 
 /**
  * <p>
- * 字典配置值 前端控制器
+ * 数据字典值 前端控制器
  * </p>
  *
  * @author 吕世昊
  * @since 2024-11-24
  */
-@Tag(name="字典配置值管理")
+@Api(tags="数据字典值管理")
 @OperationName(title = OperationNameConstants.SYSTEM_DICT_VALUE)
 @RestController
 @AllArgsConstructor
@@ -38,9 +39,7 @@ public class SysDictDataController  extends PageBaseController {
 
     private final ISysDictDataService sysDictDataService;
 
-    /**
-     * 新增字典项
-     */
+    @ApiOperation(value = "新增字典值")
     @RequiresPermissions("system:role:add")
     @Log(businessName = "新增字典值",businessType= BusinessType.INSERT)
     @PostMapping
@@ -51,9 +50,7 @@ public class SysDictDataController  extends PageBaseController {
         return toAjax(sysDictDataService.insertDictData(dictData));
     }
 
-    /**
-     * 删除字典值
-     */
+    @ApiOperation(value = "删除字典值")
     @RequiresPermissions("system:menu:delete")
     @Log(businessName = "删除字典值",businessType= BusinessType.DELETE)
     @DeleteMapping
@@ -63,9 +60,7 @@ public class SysDictDataController  extends PageBaseController {
         return toAjax(sysDictDataService.deleteDictData(dictDataIds));
     }
 
-    /**
-     * 修改字典值
-     */
+    @ApiOperation(value = "修改字典值")
     @RequiresPermissions("system:menu:edit")
     @Log(businessName = "修改字典值",businessType= BusinessType.UPDATE)
     @PutMapping
@@ -76,9 +71,7 @@ public class SysDictDataController  extends PageBaseController {
         return toAjax(sysDictDataService.updateDictData(dictData));
     }
 
-    /**
-     * 获取字典配置值列表分页条件查询
-     */
+    @ApiOperation(value = "分页条件查询字典值列表")
     @RequiresPermissions("system:dictData:list")
     @PostMapping("/list")
     @PrintParams
@@ -89,9 +82,7 @@ public class SysDictDataController  extends PageBaseController {
         return getDataTable(list);
     }
 
-    /**
-     * 根据字典项名称集合，获取字典项的所有配置值、描述、以及额外参数的配置
-     */
+    @ApiOperation(value = "根据字典名称查询字典信息集合",notes = "用于前端选项值的获取")
     @RequiresPermissions("system:dictType:list")
     @PostMapping("/getInfoByNames")
     @PrintParams
@@ -100,10 +91,17 @@ public class SysDictDataController  extends PageBaseController {
         return AjaxResult.success(sysDictDataService.getInfoList(names));
     }
 
+    @ApiOperation(value = "刷新字典缓存")
+    @RequiresPermissions("system:dictType:list")
+    @GetMapping("/refreshDictDataCache")
+    @PrintParams
+    public AjaxResult refreshDictDataCache()
+    {
+        sysDictDataService.refreshDictDataCache();
+        return AjaxResult.success();
+    }
 
-    /**
-     * 字典项详情显示的内容
-     */
+    @ApiOperation(value = "字典项详情")
     @RequiresPermissions("system:dictType:list")
     @GetMapping("/getInfoByName/{name}")
     @PrintParams
@@ -111,6 +109,5 @@ public class SysDictDataController  extends PageBaseController {
     {
         return AjaxResult.success(sysDictDataService.getInfo(name));
     }
-
 
 }

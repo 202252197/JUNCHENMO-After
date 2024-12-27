@@ -18,8 +18,9 @@ import com.jcm.system.domain.SysMenu;
 import com.jcm.system.domain.vo.RouterVo;
 import com.jcm.system.service.ISysMenuService;
 import com.jcm.system.service.ISysRoleMenuService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,13 +28,13 @@ import java.util.List;
 
 /**
  * <p>
- *  前端控制器
+ * 菜单管理 前端控制器
  * </p>
  *
  * @author 吕世昊
  * @since 2024-04-01
  */
-@Tag(name="菜单管理")
+@Api(tags="菜单管理")
 @OperationName(title = OperationNameConstants.SYSTEM_MENU)
 @RestController
 @RequestMapping("/menu")
@@ -44,9 +45,7 @@ public class SysMenuController extends PageBaseController {
 
     private final ISysRoleMenuService sysRoleMenuService;
 
-    /**
-     * 新增菜单
-     */
+    @ApiOperation(value = "新增菜单")
     @RequiresPermissions("system:menu:add")
     @Log(businessName = "新增菜单",businessType= BusinessType.INSERT)
     @PostMapping
@@ -58,10 +57,8 @@ public class SysMenuController extends PageBaseController {
 
     }
 
-    /**
-     * 删除菜单
-     */
-    @Operation(summary = "删除菜单", description = "将菜单删除")
+
+    @ApiOperation(value = "删除菜单")
     @RequiresPermissions("system:menu:delete")
     @Log(businessName = "删除菜单",businessType= BusinessType.DELETE)
     @DeleteMapping("/{menuId}")
@@ -71,10 +68,7 @@ public class SysMenuController extends PageBaseController {
         return toAjax(sysMenuService.deleteMenu(menuId));
     }
 
-    /**
-     * 修改菜单
-     */
-    @Operation(summary = "修改菜单的信息", description = "修改菜单的信息")
+    @ApiOperation(value = "修改菜单")
     @RequiresPermissions("system:menu:edit")
     @Log(businessName = "修改菜单",businessType= BusinessType.UPDATE)
     @PutMapping
@@ -85,10 +79,8 @@ public class SysMenuController extends PageBaseController {
         return toAjax(sysMenuService.updateMenu(menu));
     }
 
-    /**
-     * 获取全部菜单列表
-     * @return 菜单列表
-     */
+
+    @ApiOperation(value = "分页条件查询菜单列表")
     @RequiresPermissions("system:menu:list")
     @Operation(summary = "获取全部菜单列表",description = "获取全部菜单列表，管理员才有次权限")
     @PostMapping("/list")
@@ -99,11 +91,8 @@ public class SysMenuController extends PageBaseController {
         return success(menus);
     }
 
-    /**
-     * 获取前端菜单列表
-     *
-     * @return 菜单列表
-     */
+
+    @ApiOperation(value = "查询用户的菜单列表/路由")
     @Operation(summary = "获取菜单列表",description = "获取前端菜单列表")
     @GetMapping("/getRouters")
     @PrintParams
@@ -121,11 +110,9 @@ public class SysMenuController extends PageBaseController {
         return success(routerVos);
     }
 
-    /**
-     * 获取新增菜单最后的sort值
-     * @return 菜单最后的sort值
-     */
-    @Operation(summary = "获取新增菜单最后的sort值",description = "通过id查询所有子菜单，对子菜单的最大sort加100返回")
+
+    @ApiOperation(value = "查询新增菜单Sort值",notes = "根据父菜单的ID查询子菜单最大的Sort+100")
+    @Operation(summary = "查询新增菜单最后的sort值",description = "通过id查询所有子菜单，对子菜单的最大sort加100返回")
     @RequiresPermissions("system:menu:list")
     @GetMapping("/getChildLastSort/{parentId}")
     @PrintParams
@@ -135,12 +122,10 @@ public class SysMenuController extends PageBaseController {
         return success(childLastSort);
     }
 
-    /**
-     * 获取首页动态设置的icon图标
-     * @return 获取首页图标名称
-     */
+
+    @ApiOperation(value = "查询首页动态设置的icon图标")
     @RequiresPermissions("system:menu:list")
-    @Operation(summary = "获取首页图标名称",description = "获取首页动态设置的icon图标")
+    @Operation(summary = "查询首页图标名称",description = "获取首页动态设置的icon图标")
     @GetMapping("/getHomeMenuIcon")
     @PrintParams
     public AjaxResult getHomeMenuIcon()
@@ -149,10 +134,7 @@ public class SysMenuController extends PageBaseController {
         return success(homeIcon);
     }
 
-
-    /**
-     * 查询已分配角色的菜单列表
-     */
+    @ApiOperation(value = "查询角色菜单")
     @PrintParams
     @RequiresPermissions("system:menu:list")
     @GetMapping("/queryRoleMenus/{roleId}")
@@ -161,10 +143,7 @@ public class SysMenuController extends PageBaseController {
         return R.ok(sysRoleMenuService.queryMenuIdsByRoleId(roleId));
     }
 
-
-    /**
-     * 更改菜单状态以及子菜单状态
-     */
+    @ApiOperation(value = "修改菜单及子菜单状态")
     @PutMapping("/changeStatusWithChildStatus")
     @RequiresPermissions("system:user:disableAccount")
     @PrintParams

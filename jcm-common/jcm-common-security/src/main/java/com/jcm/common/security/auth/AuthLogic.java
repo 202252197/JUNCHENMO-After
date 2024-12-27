@@ -69,7 +69,7 @@ public class AuthLogic
      * @return 用户缓存信息
      */
     public LoginUser getLoginUser()
-    {
+        {
         String token = SecurityUtils.getToken();
         if (token == null)
         {
@@ -123,6 +123,8 @@ public class AuthLogic
      */
     public void checkPermi(String permission)
     {
+        System.out.println(getPermiList());
+        System.out.println(permission);
         if (!hasPermi(getPermiList(), permission))
         {
             throw new NotPermissionException(permission);
@@ -171,6 +173,8 @@ public class AuthLogic
      */
     public void checkPermiOr(String... permissions)
     {
+
+        System.out.println(permissions);
         Set<String> permissionList = getPermiList();
         for (String permission : permissions)
         {
@@ -338,6 +342,7 @@ public class AuthLogic
         try
         {
             LoginUser loginUser = getLoginUser();
+            System.out.println(loginUser.getPermissions());
             return loginUser.getPermissions();
         }
         catch (Exception e)

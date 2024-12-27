@@ -27,4 +27,6 @@ public interface ISysDictDataService extends IService<SysDictData> {
     List<JSONObject> getInfo(String name);
 
     int updateDictData(SysDictData sysDictData);
+
+    void refreshDictDataCache();
 }

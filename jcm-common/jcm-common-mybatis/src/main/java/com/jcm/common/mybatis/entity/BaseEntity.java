@@ -3,11 +3,13 @@ package com.jcm.common.mybatis.entity;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Map;
 
 /**
  * Entity基类
@@ -47,4 +49,8 @@ public class BaseEntity implements Serializable
      */
     private Boolean deleted;
 
+    /** 请求参数 */
+    @TableField(exist = false)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private Map<String, Object> params;
 }

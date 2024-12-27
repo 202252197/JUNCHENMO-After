@@ -38,6 +38,8 @@
 		<!--		ip2region版本:根据IP获取地理位置-->
 		<ip2region.version>2.7.0</ip2region.version>
 		<knife4j.version>2.0.8</knife4j.version>
+		<!--系统信息收集-->
+		<fusesource.version>1.6.4</fusesource.version>
 		<!--		springboot admin版本-->
 		<spring-boot-admin.version>2.7.11</spring-boot-admin.version>
 		<tobato.version>1.27.2</tobato.version>
@@ -79,6 +81,12 @@
 				<version>${spring-boot.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.fusesource</groupId>
+				<artifactId>sigar</artifactId>
+				<version>${fusesource.version}</version>
 			</dependency>
 
 			<!-- FastDFS 分布式文件系统 -->

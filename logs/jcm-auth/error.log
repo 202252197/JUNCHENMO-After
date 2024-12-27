@@ -1,7 +1,20 @@
-21:24:53.604 [http-nio-9210-exec-6] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleServiceException,72] - 用户不存在/密码错误
-com.jcm.common.core.exception.ServiceException: 用户不存在/密码错误
-	at com.jcm.auth.service.SysPasswordService.validate(SysPasswordService.java:63)
-	at com.jcm.auth.service.SysLoginService.login(SysLoginService.java:93)
+09:46:19.037 [http-nio-9210-exec-3] ERROR c.j.c.s.h.GlobalExceptionHandler - [handleRuntimeException,106] - 请求地址'/login',发生未知异常.
+feign.FeignException$ServiceUnavailable: [503] during [GET] to [http://jcm-system/user/info/admin] [RemoteUserService#getUserInfo(String,String)]: [Load balancer does not contain an instance for the service jcm-system]
+	at feign.FeignException.serverErrorStatus(FeignException.java:256)
+	at feign.FeignException.errorStatus(FeignException.java:197)
+	at feign.FeignException.errorStatus(FeignException.java:185)
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:92)
+	at feign.AsyncResponseHandler.handleResponse(AsyncResponseHandler.java:98)
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:141)
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:91)
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:100)
+	at org.springframework.cloud.openfeign.FeignCachingInvocationHandlerFactory$1.proceed(FeignCachingInvocationHandlerFactory.java:66)
+	at org.springframework.cache.interceptor.CacheInterceptor.lambda$invoke$0(CacheInterceptor.java:54)
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:351)
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:64)
+	at org.springframework.cloud.openfeign.FeignCachingInvocationHandlerFactory.lambda$create$1(FeignCachingInvocationHandlerFactory.java:53)
+	at com.sun.proxy.$Proxy137.getUserInfo(Unknown Source)
+	at com.jcm.auth.service.SysLoginService.login(SysLoginService.java:73)
 	at com.jcm.auth.controller.TokenController.login(TokenController.java:34)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)

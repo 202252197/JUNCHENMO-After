@@ -84,12 +84,4 @@ public class SysOperLog extends BaseEntity implements Serializable {
     @Schema(description = "消耗时间")
     private Long costTime;
 
-
-    @Schema(description = "开始日期")
-    @TableField(exist = false)
-    private String startRequestTime;
-
-    @Schema(description = "结束日期")
-    @TableField(exist = false)
-    private String endRequestTime;
 }
