@@ -73,17 +73,7 @@
             <artifactId>jcm-common-log</artifactId>
         </dependency>
 
-        <!--Jcm Common swagger-->
-        <dependency>
-            <groupId>com.junchenmo</groupId>
-            <artifactId>jcm-common-swagger</artifactId>
-            <scope>provided</scope>
-        </dependency>
 
-        <dependency>
-            <groupId>org.fusesource</groupId>
-            <artifactId>sigar</artifactId>
-        </dependency>
 
     </dependencies>
 

@@ -20,8 +20,9 @@
         <dependency>
             <groupId>com.junchenmo</groupId>
             <artifactId>jcm-common-mybatis</artifactId>
-            <scope>provided</scope>
         </dependency>
+
+
     </dependencies>
 
 </project>

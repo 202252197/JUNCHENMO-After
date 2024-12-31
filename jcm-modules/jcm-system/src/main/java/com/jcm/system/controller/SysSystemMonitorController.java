@@ -1,5 +1,6 @@
 package com.jcm.system.controller;
 
+import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author lvshihao
  */
 @Api(tags="服务监控")
+@ApiSupport(author = "202252197@qq.com",order = 9)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/systemMonitor")

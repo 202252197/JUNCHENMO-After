@@ -8,8 +8,6 @@ import com.jcm.common.mybatis.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.io.Serializable;
-
 /**
  * <p>
  * 字典配置值
@@ -21,7 +19,7 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_dict_data")
-public class SysDictData extends BaseEntity implements Serializable {
+public class SysDictData extends BaseEntity{
 
     private static final long serialVersionUID = 1L;
 

@@ -1,9 +1,1 @@
-08:56:08.169 [reactor-http-nio-3] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/user/getInfo
-09:47:03.370 [reactor-http-nio-4] ERROR o.s.b.a.w.r.e.AbstractErrorWebExceptionHandler - [error,102] - [e265bc26-1]  500 Server Error for HTTP GET "/system/user/getInfo"
-reactor.netty.http.client.PrematureCloseException: Connection prematurely closed BEFORE response
-	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
-Error has been observed at the following site(s):
-	*__checkpoint ⇢ org.springframework.cloud.gateway.filter.WeightCalculatorWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ org.springframework.boot.actuate.metrics.web.reactive.server.MetricsWebFilter [DefaultWebFilterChain]
-	*__checkpoint ⇢ HTTP GET "/system/user/getInfo" [ExceptionHandlingWebHandler]
-Original Stack Trace:
+08:31:20.661 [reactor-http-nio-2] ERROR c.j.g.f.AuthFilter - [unauthorizedResponse,104] - [鉴权异常处理]请求路径:/system/user/getInfo

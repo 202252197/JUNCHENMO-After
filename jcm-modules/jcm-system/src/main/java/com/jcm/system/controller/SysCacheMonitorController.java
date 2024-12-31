@@ -1,5 +1,6 @@
 package com.jcm.system.controller;
 
+import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author lvshihao
  */
 @Api(tags="缓存监控")
+@ApiSupport(author = "202252197@qq.com",order = 8)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/cacheMonitor")

@@ -1,6 +1,7 @@
 package com.jcm.system.controller;
 
 
+import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.domain.R;
 import com.jcm.common.core.web.domain.AjaxResult;
@@ -35,6 +36,7 @@ import java.util.List;
  * @since 2024-04-01
  */
 @Api(tags="菜单管理")
+@ApiSupport(author = "202252197@qq.com",order = 3)
 @OperationName(title = OperationNameConstants.SYSTEM_MENU)
 @RestController
 @RequestMapping("/menu")
@@ -83,9 +85,9 @@ public class SysMenuController extends PageBaseController {
     @ApiOperation(value = "分页条件查询菜单列表")
     @RequiresPermissions("system:menu:list")
     @Operation(summary = "获取全部菜单列表",description = "获取全部菜单列表，管理员才有次权限")
-    @PostMapping("/list")
+    @GetMapping("/list")
     @PrintParams
-    public AjaxResult list(@RequestBody SysMenu menu)
+    public AjaxResult list(SysMenu menu)
     {
         List<SysMenu> menus = sysMenuService.selectMenuAllTree(menu);
         return success(menus);

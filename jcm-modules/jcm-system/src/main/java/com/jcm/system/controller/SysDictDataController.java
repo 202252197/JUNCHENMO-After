@@ -1,6 +1,7 @@
 package com.jcm.system.controller;
 
 
+import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
@@ -31,11 +32,12 @@ import java.util.List;
  * @since 2024-11-24
  */
 @Api(tags="数据字典值管理")
+@ApiSupport(author = "202252197@qq.com",order = 5)
 @OperationName(title = OperationNameConstants.SYSTEM_DICT_VALUE)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/dict-data")
-public class SysDictDataController  extends PageBaseController {
+public class SysDictDataController extends PageBaseController {
 
     private final ISysDictDataService sysDictDataService;
 
@@ -73,9 +75,9 @@ public class SysDictDataController  extends PageBaseController {
 
     @ApiOperation(value = "分页条件查询字典值列表")
     @RequiresPermissions("system:dictData:list")
-    @PostMapping("/list")
+    @GetMapping("/list")
     @PrintParams
-    public TableDataInfo list(@RequestBody SysDictData dictType)
+    public TableDataInfo list(SysDictData dictType)
     {
         startPage();
         List<SysDictData> list = sysDictDataService.selectDictDataList(dictType);

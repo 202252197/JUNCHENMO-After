@@ -1,5 +1,7 @@
 package com.jcm.system.controller;
 
+import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
+import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.constant.UserConstants;
 import com.jcm.common.core.domain.R;
@@ -39,6 +41,7 @@ import java.util.Set;
  * @since 2024-04-01
  */
 @Api(tags="用户管理")
+@ApiSupport(author = "202252197@qq.com",order = 1)
 @OperationName(title = OperationNameConstants.SYSTEM_USER)
 @RestController
 @AllArgsConstructor
@@ -76,6 +79,7 @@ public class SysUserController extends PageBaseController {
     }
 
     @ApiOperation(value = "新增用户", notes = "新增用户的时候判断账号账号是否存在、手机号码是否绑定过、邮箱是否绑定过")
+    @ApiOperationSupport(order = 1)
     @RequiresPermissions("system:user:add")
     @Log(businessName = "新增用户",businessType= BusinessType.INSERT)
     @PostMapping
@@ -96,6 +100,7 @@ public class SysUserController extends PageBaseController {
 
 
     @ApiOperation(value = "删除用户", notes = "将用户账号删除")
+    @ApiOperationSupport(order = 2)
     @RequiresPermissions("system:user:delete")
     @Log(businessName = "删除用户",businessType= BusinessType.DELETE)
     @DeleteMapping("/{userId}")
@@ -107,6 +112,7 @@ public class SysUserController extends PageBaseController {
     }
 
     @ApiOperation(value = "修改用户", notes = "修改用户的信息")
+    @ApiOperationSupport(order = 3)
     @RequiresPermissions("system:user:edit")
     @Log(businessName = "修改用户信息",businessType= BusinessType.UPDATE)
     @PutMapping
@@ -132,10 +138,11 @@ public class SysUserController extends PageBaseController {
     }
 
     @ApiOperation(value= "分页条件查询用户列表")
+    @ApiOperationSupport(order = 4)
     @RequiresPermissions("system:user:list")
-    @PostMapping("/list")
+    @GetMapping("/list")
     @PrintParams
-    public TableDataInfo list(@RequestBody SysUser user) {
+    public TableDataInfo list(SysUser user) {
         startPage();
         List<SysUser> list = sysUserService.selectUserList(user);
         return getDataTable(list);

@@ -6,11 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jcm.common.mybatis.entity.BaseEntity;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -22,10 +19,8 @@ import java.time.LocalDateTime;
  * @since 2024-04-01
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-@ToString
 @TableName("sys_user")
-public class SysUser extends BaseEntity implements Serializable {
+public class SysUser extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 

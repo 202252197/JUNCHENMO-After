@@ -1,6 +1,7 @@
 package com.jcm.system.controller;
 
 
+import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
@@ -32,6 +33,7 @@ import java.util.List;
  * @since 2024-04-01
  */
 @Api(tags="角色管理")
+@ApiSupport(author = "202252197@qq.com",order = 2)
 @OperationName(title = OperationNameConstants.SYSTEM_ROLE)
 @RestController
 @AllArgsConstructor
@@ -86,9 +88,9 @@ public class SysRoleController extends PageBaseController {
 
     @ApiOperation(value = "分页条件查询角色列表")
     @RequiresPermissions("system:role:list")
-    @PostMapping("/list")
+    @GetMapping("/list")
     @PrintParams
-    public TableDataInfo list(@RequestBody SysRole role)
+    public TableDataInfo list(SysRole role)
     {
         startPage();
         List<SysRole> list = sysRoleService.selectRoleList(role);

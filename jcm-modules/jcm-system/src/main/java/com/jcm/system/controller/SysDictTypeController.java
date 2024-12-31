@@ -1,6 +1,7 @@
 package com.jcm.system.controller;
 
 
+import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
@@ -31,6 +32,7 @@ import java.util.List;
  * @since 2024-10-31
  */
 @Api(tags="数据字典项管理")
+@ApiSupport(author = "202252197@qq.com",order = 4)
 @OperationName(title = OperationNameConstants.SYSTEM_DICT_TYPE)
 @RestController
 @AllArgsConstructor
@@ -74,9 +76,9 @@ public class SysDictTypeController extends PageBaseController {
 
     @ApiOperation(value = "分页条件查询字典项列表")
     @RequiresPermissions("system:dictType:list")
-    @PostMapping("/list")
+    @GetMapping("/list")
     @PrintParams
-    public TableDataInfo list(@RequestBody SysDictType dictType)
+    public TableDataInfo list(SysDictType dictType)
     {
         startPage();
         List<SysDictType> list = sysDictTypeService.selectDictTypeList(dictType);

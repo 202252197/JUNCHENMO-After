@@ -19,6 +19,6 @@ public class JcmSystemApplication
     {
         SpringApplication.run(JcmSystemApplication.class, args);
         System.out.println(" (♥◠‿◠)ﾉﾞ  系统模块启动成功   ლ(´ڡ`ლ)ﾞ ");
-
     }
+
 }

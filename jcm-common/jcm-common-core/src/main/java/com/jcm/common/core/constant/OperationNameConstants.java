@@ -19,5 +19,9 @@ public class OperationNameConstants {
 
     public static final String SYSTEM_CACHE_LIST = "缓存列表";
 
+    public static final String SYSTEM_USER_SETTING = "用户设置";
+
+    public static final String GEN_DATA_TABLE = "数据表生成";
+
 
 }

@@ -1,9 +1,12 @@
 package com.jcm.system.controller;
 
 
+import com.github.xiaoymin.knife4j.annotations.ApiSupport;
+import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.web.controller.BaseController;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.log.annotation.Log;
+import com.jcm.common.log.annotation.OperationName;
 import com.jcm.common.log.enums.BusinessType;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
@@ -26,6 +29,8 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @Api(tags="用户设置")
+@ApiSupport(author = "202252197@qq.com",order = 10)
+@OperationName(title = OperationNameConstants.SYSTEM_USER_SETTING)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/sys-user-setting")
@@ -33,9 +38,6 @@ public class SysUserSettingController extends BaseController {
 
     private ISysUserSettingService sysUserSettingService;
 
-    /**
-     *
-     */
     @ApiOperation(value="修改用户设置")
     @Log(businessName = "修改用户设置信息",businessType= BusinessType.UPDATE)
     @RequiresPermissions("system:role:edit")

@@ -11,10 +11,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping;
 import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.schema.ModelRef;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.service.Parameter;
@@ -33,6 +31,19 @@ import java.util.stream.Collectors;
 @EnableSwagger2WebMvc
 public class SwaggerConfiguration {
 
+
+//    var contentType=ke.response.headers["content-type"];
+//console.log("响应ContentType:"+contentType)
+//    var code = ke.response.data.code;
+//
+////判断,如果服务端响应code是200才执行操作
+//if( code == 200 ){
+//        // 获取token
+//        var token = ke.response.data.data.access_token;
+//
+//        //1、如过需要设置的参数是Header，则设置全局Header
+//        ke.global.setAllHeader("Authorization", "Bearer "+token);
+//    }
     private final OpenApiExtensionResolver openApiExtensionResolver;
 
     @Autowired
@@ -40,21 +51,12 @@ public class SwaggerConfiguration {
         this.openApiExtensionResolver = openApiExtensionResolver;
     }
 
-    @Bean(value = "systemApi")
-    @Order(value = 1)
+    @Order(1)
+    @Bean(value = "api")
     public Docket groupRestApi() {
         // 定义全局参数列表
         List<Parameter> globalParameters = new ArrayList<>();
-        // 添加token参数
-        Parameter tokenParameter = new ParameterBuilder()
-                .name("Authorization")
-                .description("用户认证token")
-                .defaultValue("Bearer ")
-                .modelRef(new ModelRef("string"))
-                .parameterType("header")
-                .required(true)
-                .build();
-        globalParameters.add(tokenParameter);
+
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(groupApiInfo())
                 .select()

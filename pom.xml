@@ -26,21 +26,23 @@
 		<spring-cloud.version>2021.0.8</spring-cloud.version>
 <!--		springcloud alibaba版本-->
 		<spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
-		<!--		验证码生成工具版本-->
+		<!--验证码生成工具版本-->
 		<kaptcha.version>2.3.3</kaptcha.version>
-		<!--		 分页插件版本-->
+		<!--分页插件版本-->
 		<pagehelper.boot.version>2.0.0</pagehelper.boot.version>
-		<lombok.version>1.18.32</lombok.version>
-		<!--		数据库连接池版本-->
+		<lombok.version>1.18.36</lombok.version>
+		<!--数据库连接池版本-->
 		<druid.version>1.1.21</druid.version>
-		<!--		java jwt版本-->
+		<!--java jwt版本-->
 		<jjwt.version>0.9.1</jjwt.version>
-		<!--		ip2region版本:根据IP获取地理位置-->
+		<!--ip2region版本:根据IP获取地理位置-->
 		<ip2region.version>2.7.0</ip2region.version>
-		<knife4j.version>2.0.8</knife4j.version>
+		<knife4j.version>3.0.3</knife4j.version>
+		<dashscope.version>2.17.0</dashscope.version>
 		<!--系统信息收集-->
-		<fusesource.version>1.6.4</fusesource.version>
-		<!--		springboot admin版本-->
+		<oshi.version>6.4.2</oshi.version>
+		<easyexcel.version>4.0.2</easyexcel.version>
+		<!--springboot admin版本-->
 		<spring-boot-admin.version>2.7.11</spring-boot-admin.version>
 		<tobato.version>1.27.2</tobato.version>
 		<commons.io.version>2.13.0</commons.io.version>
@@ -84,9 +86,9 @@
 			</dependency>
 
 			<dependency>
-				<groupId>org.fusesource</groupId>
-				<artifactId>sigar</artifactId>
-				<version>${fusesource.version}</version>
+				<groupId>com.github.oshi</groupId>
+				<artifactId>oshi-core</artifactId>
+				<version>${oshi.version}</version>
 			</dependency>
 
 			<!-- FastDFS 分布式文件系统 -->
@@ -117,6 +119,20 @@
 				<version>${mybatis.plus.version}</version>
 			</dependency>
 
+			<!-- easyexcel -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>easyexcel</artifactId>
+				<version>${easyexcel.version}</version>
+			</dependency>
+
+			<!-- 通义千问需要导入的jar -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dashscope-sdk-java</artifactId>
+				<version>${dashscope.version}</version>
+			</dependency>
+
 			<!-- io常用工具类 -->
 			<dependency>
 				<groupId>commons-io</groupId>
@@ -145,12 +161,19 @@
 				<artifactId>jjwt</artifactId>
 				<version>${jjwt.version}</version>
 			</dependency>
-
+			<!-- Minio -->
+			<dependency>
+				<groupId>io.minio</groupId>
+				<artifactId>minio</artifactId>
+				<version>${minio.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>${lombok.version}</version>
 			</dependency>
+
+
 
 			<!-- 线程传递值 -->
 			<dependency>
@@ -214,13 +237,6 @@
 				<version>${jcm.version}</version>
 			</dependency>
 
-			<!-- Jcm Common springdoc-->
-			<dependency>
-				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-common-swagger</artifactId>
-				<version>${jcm.version}</version>
-			</dependency>
-
 			<!-- Jcm Common mybatis-->
 			<dependency>
 				<groupId>com.junchenmo</groupId>
@@ -253,6 +269,8 @@
 		<module>jcm-modules</module>
 		<module>starteTest</module>
 		<module>jcm-doc</module>
+		<module>jcm-modules/jcm-file</module>
+		<module>jcm-modules/jcm-gen</module>
 	</modules>
 	<packaging>pom</packaging>
 

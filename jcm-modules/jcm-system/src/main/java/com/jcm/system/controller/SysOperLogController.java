@@ -1,11 +1,15 @@
 package com.jcm.system.controller;
 
 
+import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.constant.OperationNameConstants;
+import com.jcm.common.core.utils.poi.ExcelUtil;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
+import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.annotation.OperationName;
 import com.jcm.common.log.constant.BusinessNameConstant;
+import com.jcm.common.log.enums.BusinessType;
 import com.jcm.common.log.local.LogLocalThread;
 import com.jcm.common.log.utils.OperLogCover;
 import com.jcm.common.mybatis.controller.PageBaseController;
@@ -19,6 +23,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -30,6 +35,7 @@ import java.util.List;
  * @since 2024-05-03
  */
 @Api(tags="操作日志")
+@ApiSupport(author = "202252197@qq.com",order = 6)
 @OperationName(title = OperationNameConstants.SYSTEM_OPERATION_LOG)
 @RestController
 @AllArgsConstructor
@@ -65,9 +71,9 @@ public class SysOperLogController extends PageBaseController {
 
     @ApiOperation(value = "分页条件查询操作日志列表")
     @RequiresPermissions("system:user:list")
-    @PostMapping("/list")
+    @GetMapping("/list")
     @PrintParams
-    public TableDataInfo list(@RequestBody SysOperLog sysOperLog) {
+    public TableDataInfo list(SysOperLog sysOperLog) {
         startPage();
         List<SysOperLog> list = sysOperLogService.selectOperLogList(sysOperLog);
         return getDataTable(list);
@@ -96,4 +102,16 @@ public class SysOperLogController extends PageBaseController {
     public AjaxResult businessNameOptionSelectByTitle(@RequestParam("title") String title) {
         return AjaxResult.success(sysOperLogService.businessNameOptionSelectByTitle(title));
     }
+
+    @ApiOperation(value = "导出日志")
+    @Log(businessName = "导出日志", businessType = BusinessType.EXPORT)
+    @RequiresPermissions("system:operlog:export")
+    @PostMapping("/export")
+    public void export(HttpServletResponse response, SysOperLog operLog)
+    {
+        List<SysOperLog> list = sysOperLogService.selectOperLogList(operLog);
+        ExcelUtil<SysOperLog> util = new ExcelUtil<>(SysOperLog.class);
+        util.exportEasyExcel(response, list, "操作日志");
+    }
+
 }

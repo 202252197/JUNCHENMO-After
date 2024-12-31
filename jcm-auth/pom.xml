@@ -53,11 +53,6 @@
             <artifactId>jcm-api-system</artifactId>
         </dependency>
 
-        <!-- Jcm Common Security-->
-        <dependency>
-            <groupId>com.junchenmo</groupId>
-            <artifactId>jcm-common-mybatis</artifactId>
-        </dependency>
 
         <!-- Jcm Common Security-->
         <dependency>
@@ -65,12 +60,6 @@
             <artifactId>jcm-common-security</artifactId>
         </dependency>
 
-        <!-- Jcm Common security-->
-        <dependency>
-            <groupId>com.junchenmo</groupId>
-            <artifactId>jcm-common-swagger</artifactId>
-            <scope>provided</scope>
-        </dependency>
 
     </dependencies>
 

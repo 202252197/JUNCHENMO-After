@@ -1,5 +1,6 @@
 package com.jcm.system.controller;
 
+import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.core.web.domain.AjaxResult;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 2024-11-24
  */
 @Api(tags="缓存列表")
+@ApiSupport(author = "202252197@qq.com",order = 7)
 @OperationName(title = OperationNameConstants.SYSTEM_CACHE_LIST)
 @RestController
 @AllArgsConstructor
