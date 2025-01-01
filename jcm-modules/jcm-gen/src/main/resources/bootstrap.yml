@@ -1,7 +1,9 @@
 # Tomcat
 server:
-  port: 9201
-
+  port: 9202
+ai:
+  api-key: sk-a63b307c5b154bdf9293b4ae73b7f276
+  model: qwen-plus
 # Spring
 spring:
   application:
