@@ -13,6 +13,7 @@
         <result column="tabs_icon" property="tabsIcon" />
         <result column="breadcrumb" property="breadcrumb" />
         <result column="menu" property="menu" />
+        <result column="top_menu" property="topMenu" />
         <result column="copyright" property="copyright" />
         <result column="watermark" property="watermark" />
         <result column="weak_color" property="weakColor" />

@@ -12,7 +12,6 @@
         <result column="method" property="method" />
         <result column="request_method" property="requestMethod" />
         <result column="request_time" property="requestTime" />
-        <result column="operator_type" property="operatorType" />
         <result column="oper_name" property="operName" />
         <result column="oper_url" property="operUrl" />
         <result column="oper_ip" property="operIp" />

@@ -9,7 +9,6 @@ import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.annotation.OperationName;
 import com.jcm.common.log.constant.BusinessNameConstant;
 import com.jcm.common.log.enums.BusinessType;
-import com.jcm.common.log.local.LogLocalThread;
 import com.jcm.common.log.utils.OperLogCover;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
@@ -48,7 +47,7 @@ public class SysDictTypeController extends PageBaseController {
     @PrintParams
     public AjaxResult add(@RequestBody SysDictType dictType)
     {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.insertLogMsg(BusinessNameConstant.DICT_TYPE,dictType.getName()));
+        OperLogCover.insertLogMsg(BusinessNameConstant.DICT_TYPE,dictType.getName());
         return toAjax(sysDictTypeService.insertDictType(dictType));
     }
 
@@ -58,7 +57,7 @@ public class SysDictTypeController extends PageBaseController {
     @DeleteMapping
     @PrintParams
     public AjaxResult delete(@RequestBody List<Long> dictTypeIds) {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.deleteLogMsg(BusinessNameConstant.DICT_TYPE,dictTypeIds.size()));
+        OperLogCover.deleteLogMsg(BusinessNameConstant.DICT_TYPE,dictTypeIds.size());
         return toAjax(sysDictTypeService.deleteDictType(dictTypeIds));
     }
 
@@ -70,7 +69,7 @@ public class SysDictTypeController extends PageBaseController {
     @PrintParams
     public AjaxResult edit(@RequestBody SysDictType dictType)
     {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.updateLogMsg(BusinessNameConstant.MENU,dictType.getDictTypeId()));
+        OperLogCover.updateLogMsg(BusinessNameConstant.MENU,dictType.getDictTypeId());
         return toAjax(sysDictTypeService.updateDictType(dictType));
     }
 

@@ -2,6 +2,15 @@
 server:
   port: 9201
 
+jcm:
+  swagger:
+    title: jcm-system
+    description: 系统模块
+    basePackage: com.jcm.system
+    enable: true
+    version: 1.0.0
+    contact:
+      name: junchenmo
 # Spring
 spring:
   application:

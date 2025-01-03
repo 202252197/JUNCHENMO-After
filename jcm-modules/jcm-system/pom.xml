@@ -37,11 +37,6 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-        <!-- Knife4j文档 -->
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
-        </dependency>
 
         <!-- Mysql Connector -->
         <dependency>
@@ -61,19 +56,27 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!-- Jcm Common security-->
+        <dependency>
+            <groupId>com.junchenmo</groupId>
+            <artifactId>jcm-api-system</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.junchenmo</groupId>
             <artifactId>jcm-common-security</artifactId>
         </dependency>
 
-        <!--Jcm Common log-->
         <dependency>
             <groupId>com.junchenmo</groupId>
-            <artifactId>jcm-common-log</artifactId>
+            <artifactId>jcm-spring-boot-starter-mybatis</artifactId>
         </dependency>
-
-
+        <dependency>
+            <groupId>com.junchenmo</groupId>
+            <artifactId>jcm-spring-boot-starter-log</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.junchenmo</groupId>
+            <artifactId>jcm-spring-boot-starter-swagger</artifactId>
+        </dependency>
 
     </dependencies>
 

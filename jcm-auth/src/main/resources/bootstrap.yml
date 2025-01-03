@@ -2,6 +2,15 @@
 server:
   port: 9210
 
+jcm:
+  swagger:
+    title: jcm-auth
+    description: 认证模块
+    basePackage: com.jcm.auth
+    enable: true
+    version: 1.0.0
+    contact:
+      name: junchenmo
 # Spring
 spring:
   application:

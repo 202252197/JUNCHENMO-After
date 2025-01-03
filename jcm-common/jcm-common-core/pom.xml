@@ -47,6 +47,12 @@
            <artifactId>spring-web</artifactId>
        </dependency>
 
+       <!-- mybatisPlus 注解 -->
+       <dependency>
+           <groupId>com.baomidou</groupId>
+           <artifactId>mybatis-plus-annotation</artifactId>
+       </dependency>
+
        <!-- Transmittable ThreadLocal -->
        <dependency>
            <groupId>com.alibaba</groupId>

@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+/**
+ * @author lvshihao
+ */
 @EnableFeignClients("com.jcm.system.api")
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class JcmAuthApplication {

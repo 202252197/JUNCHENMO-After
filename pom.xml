@@ -16,6 +16,7 @@
 	<properties>
 <!--		统一管理内部模块版本-->
 		<jcm.version>0.0.1-SNAPSHOT</jcm.version>
+		<jcm.framework.version>0.0.1-SNAPSHOT</jcm.framework.version>
 <!--		mybatis-plus版本-->
 		<mybatis.plus.version>3.5.5</mybatis.plus.version>
 <!--		java版本-->
@@ -112,10 +113,16 @@
 				<version>${pagehelper.boot.version}</version>
 			</dependency>
 
-			<!-- mybatisplus 分页插件 -->
+			<!-- mybatisplus-->
 			<dependency>
 				<groupId>com.baomidou</groupId>
 				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatis.plus.version}</version>
+			</dependency>
+			<!-- mybatisPlus 注解 -->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-annotation</artifactId>
 				<version>${mybatis.plus.version}</version>
 			</dependency>
 
@@ -223,13 +230,6 @@
 				<version>${jcm.version}</version>
 			</dependency>
 
-			<!-- Jcm Common Redis-->
-			<dependency>
-				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-common-redis</artifactId>
-				<version>${jcm.version}</version>
-			</dependency>
-
 			<!-- Jcm Common security-->
 			<dependency>
 				<groupId>com.junchenmo</groupId>
@@ -244,20 +244,26 @@
 				<version>${jcm.version}</version>
 			</dependency>
 
-			<!--Jcm Common log-->
 			<dependency>
 				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-common-log</artifactId>
-				<version>${jcm.version}</version>
+				<artifactId>jcm-spring-boot-starter-swagger</artifactId>
+				<version>${jcm.framework.version}</version>
 			</dependency>
-
-			<!-- Jcm api system-->
 			<dependency>
 				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-api-system</artifactId>
-				<version>${jcm.version}</version>
+				<artifactId>jcm-spring-boot-starter-redis</artifactId>
+				<version>${jcm.framework.version}</version>
 			</dependency>
-
+			<dependency>
+				<groupId>com.junchenmo</groupId>
+				<artifactId>jcm-spring-boot-starter-log</artifactId>
+				<version>${jcm.framework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.junchenmo</groupId>
+				<artifactId>jcm-spring-boot-starter-mybatis</artifactId>
+				<version>${jcm.framework.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -267,11 +273,10 @@
 		<module>jcm-common</module>
 		<module>jcm-gateway</module>
 		<module>jcm-modules</module>
-		<module>starteTest</module>
 		<module>jcm-doc</module>
-		<module>jcm-modules/jcm-file</module>
 		<module>jcm-modules/jcm-gen</module>
-	</modules>
+        <module>jcm-framework</module>
+    </modules>
 	<packaging>pom</packaging>
 
 

@@ -3,7 +3,7 @@ package com.jcm.common.core.exception.file;
 /**
  * 文件名大小限制异常类
  * 
- * @author ruoyi
+ * @author junchenmo
  */
 public class FileSizeLimitExceededException extends FileException
 {

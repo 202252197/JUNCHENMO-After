@@ -9,7 +9,6 @@ import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.annotation.OperationName;
 import com.jcm.common.log.constant.BusinessNameConstant;
 import com.jcm.common.log.enums.BusinessType;
-import com.jcm.common.log.local.LogLocalThread;
 import com.jcm.common.log.utils.OperLogCover;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
@@ -54,7 +53,7 @@ public class SysMenuController extends PageBaseController {
     @PrintParams
     public AjaxResult add(@RequestBody SysMenu menu)
     {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.insertLogMsg(BusinessNameConstant.MENU,menu.getName()));
+        OperLogCover.insertLogMsg(BusinessNameConstant.MENU,menu.getName());
         return toAjax(sysMenuService.insertMenu(menu));
 
     }
@@ -66,7 +65,7 @@ public class SysMenuController extends PageBaseController {
     @DeleteMapping("/{menuId}")
     @PrintParams
     public AjaxResult delete(@PathVariable("menuId") Long menuId) {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.deleteLogMsg(BusinessNameConstant.MENU,1));
+        OperLogCover.deleteLogMsg(BusinessNameConstant.MENU,1);
         return toAjax(sysMenuService.deleteMenu(menuId));
     }
 
@@ -77,7 +76,7 @@ public class SysMenuController extends PageBaseController {
     @PrintParams
     public AjaxResult edit(@RequestBody SysMenu menu)
     {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.updateLogMsg(BusinessNameConstant.MENU,menu.getMenuId()));
+        OperLogCover.updateLogMsg(BusinessNameConstant.MENU,menu.getMenuId());
         return toAjax(sysMenuService.updateMenu(menu));
     }
 

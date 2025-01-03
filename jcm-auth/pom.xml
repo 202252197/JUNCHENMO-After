@@ -35,10 +35,9 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-        <!-- Knife4j文档 -->
         <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+            <groupId>com.junchenmo</groupId>
+            <artifactId>jcm-spring-boot-starter-swagger</artifactId>
         </dependency>
 
         <!-- SpringBoot Actuator -->

@@ -9,7 +9,6 @@ import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.annotation.OperationName;
 import com.jcm.common.log.constant.BusinessNameConstant;
 import com.jcm.common.log.enums.BusinessType;
-import com.jcm.common.log.local.LogLocalThread;
 import com.jcm.common.log.utils.OperLogCover;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
@@ -51,7 +50,7 @@ public class SysRoleController extends PageBaseController {
     @PrintParams
     public AjaxResult add(@RequestBody SysRole role)
     {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.insertLogMsg(BusinessNameConstant.ROLE,role.getName()));
+        OperLogCover.insertLogMsg(BusinessNameConstant.ROLE,role.getName());
         if (!sysRoleService.checkRoleNameUnique(role))
         {
             return error("新增角色'" + role.getName() + "'失败，角色名称已存在");
@@ -70,7 +69,7 @@ public class SysRoleController extends PageBaseController {
     @DeleteMapping
     @PrintParams
     public AjaxResult delete(@RequestBody List<Long> roleIds) {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.deleteLogMsg(BusinessNameConstant.ROLE,roleIds.size()));
+        OperLogCover.deleteLogMsg(BusinessNameConstant.ROLE,roleIds.size());
         return toAjax(sysRoleService.deleteRole(roleIds));
     }
 
@@ -82,7 +81,7 @@ public class SysRoleController extends PageBaseController {
     @PrintParams
     public AjaxResult edit(@RequestBody SysRole role)
     {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.updateLogMsg(BusinessNameConstant.USER,role.getRoleId()));
+        OperLogCover.updateLogMsg(BusinessNameConstant.USER,role.getRoleId());
         return toAjax(sysRoleService.updateRole(role));
     }
 

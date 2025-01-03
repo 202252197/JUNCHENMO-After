@@ -2,7 +2,6 @@ package com.jcm.system.service.impl;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.jcm.common.log.constant.BusinessNameConstant;
-import com.jcm.common.log.local.LogLocalThread;
 import com.jcm.common.log.utils.OperLogCover;
 import com.jcm.common.redis.service.RedisService;
 import com.jcm.system.service.SysCacheListService;
@@ -39,7 +38,7 @@ public class SysCacheListServiceImpl implements SysCacheListService {
     @Override
     public int deleteCacheName(String cacheName) {
         Set keys = redisService.redisTemplate.keys(cacheName + "*");
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.deleteLogMsg(BusinessNameConstant.CACHE_LIST,keys.size()));
+        OperLogCover.deleteLogMsg(BusinessNameConstant.CACHE_LIST,keys.size());
         if(keys.size() > 0){
             redisService.redisTemplate.delete(keys);
         }
@@ -52,7 +51,7 @@ public class SysCacheListServiceImpl implements SysCacheListService {
             return 0;
         }else{
             redisService.deleteObject(keyName);
-            LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.deleteLogMsg(BusinessNameConstant.CACHE_LIST,1));
+            OperLogCover.deleteLogMsg(BusinessNameConstant.CACHE_LIST,1);
             return 1;
         }
     }

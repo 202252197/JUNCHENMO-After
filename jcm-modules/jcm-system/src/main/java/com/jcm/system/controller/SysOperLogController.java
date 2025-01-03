@@ -10,7 +10,6 @@ import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.annotation.OperationName;
 import com.jcm.common.log.constant.BusinessNameConstant;
 import com.jcm.common.log.enums.BusinessType;
-import com.jcm.common.log.local.LogLocalThread;
 import com.jcm.common.log.utils.OperLogCover;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.InnerAuth;
@@ -56,7 +55,7 @@ public class SysOperLogController extends PageBaseController {
     @DeleteMapping
     @PrintParams
     public AjaxResult delete(@RequestBody List<Long> operIds) {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.deleteLogMsg(BusinessNameConstant.OPERATION_LOG,operIds.size()));
+        OperLogCover.deleteLogMsg(BusinessNameConstant.OPERATION_LOG,operIds.size());
         return toAjax( sysOperLogService.deleteOperLog(operIds));
     }
 
@@ -65,7 +64,7 @@ public class SysOperLogController extends PageBaseController {
     @DeleteMapping("/clear")
     @PrintParams
     public AjaxResult clear() {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(BusinessNameConstant.OPERATION_LOG+"全部清空");
+//        BusinessNameConstant.OPERATION_LOG+"全部清空");
         return toAjax(sysOperLogService.clearOperLog());
     }
 

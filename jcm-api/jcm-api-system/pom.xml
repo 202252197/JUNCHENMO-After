@@ -16,13 +16,11 @@
     </description>
 
     <dependencies>
-        <!-- JCM Common Core-->
+        <!-- Jcm Common Core-->
         <dependency>
             <groupId>com.junchenmo</groupId>
-            <artifactId>jcm-common-mybatis</artifactId>
+            <artifactId>jcm-common-core</artifactId>
         </dependency>
-
-
     </dependencies>
 
 </project>

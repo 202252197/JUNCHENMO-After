@@ -83,7 +83,6 @@ public class OshiUtil {
     private static void printComputerSystem(final ComputerSystem computerSystem) {
         // 输出计算机系统制造商信息  MECHREVO
         System.out.println("manufacturer: " + computerSystem.getManufacturer());
-
     }
 
     /**

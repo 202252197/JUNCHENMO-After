@@ -28,15 +28,11 @@
             <groupId>com.junchenmo</groupId>
             <artifactId>jcm-api-system</artifactId>
         </dependency>
+
         <!--JCM Common Redis-->
         <dependency>
             <groupId>com.junchenmo</groupId>
-            <artifactId>jcm-common-redis</artifactId>
-        </dependency>
-        <!--JCM Common mybatis-->
-        <dependency>
-            <groupId>com.junchenmo</groupId>
-            <artifactId>jcm-common-mybatis</artifactId>
+            <artifactId>jcm-spring-boot-starter-redis</artifactId>
         </dependency>
     </dependencies>
 

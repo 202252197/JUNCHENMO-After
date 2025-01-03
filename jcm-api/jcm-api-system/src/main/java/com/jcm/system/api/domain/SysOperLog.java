@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.jcm.common.mybatis.entity.BaseEntity;
+import com.jcm.common.core.domain.BaseEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -96,14 +96,6 @@ public class SysOperLog extends BaseEntity {
         @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         @ExcelProperty(value = "请求时间", index = 7)
         private LocalDateTime requestTime;
-
-        /**
-         * 操作类别（0其它 1后台用户）
-         * 在Excel导入导出中，对应表头名称为"操作类别"，列索引为8
-         */
-        @Schema(description = "操作类别（0其它 1后台用户）")
-        @ExcelProperty(value = "操作类别", index = 8)
-        private Integer operatorType;
 
         /**
          * 操作人员

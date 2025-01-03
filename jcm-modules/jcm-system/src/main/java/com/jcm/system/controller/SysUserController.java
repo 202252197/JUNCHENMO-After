@@ -12,7 +12,6 @@ import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.annotation.OperationName;
 import com.jcm.common.log.constant.BusinessNameConstant;
 import com.jcm.common.log.enums.BusinessType;
-import com.jcm.common.log.local.LogLocalThread;
 import com.jcm.common.log.utils.OperLogCover;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.InnerAuth;
@@ -85,7 +84,7 @@ public class SysUserController extends PageBaseController {
     @PostMapping
     @PrintParams
     public AjaxResult add(@RequestBody SysUser user) {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.insertLogMsg(BusinessNameConstant.USER,user.getUsername()));
+        OperLogCover.insertLogMsg(BusinessNameConstant.USER,user.getUsername());
         if (!sysUserService.checkUserNameUnique(user)) {
             return error("新增用户'" + user.getUsername() + "'失败，登录账号已存在");
         } else if (StringUtils.isNotEmpty(user.getMobile()) && !sysUserService.checkPhoneUnique(user)) {
@@ -106,7 +105,7 @@ public class SysUserController extends PageBaseController {
     @DeleteMapping("/{userId}")
     @PrintParams
     public AjaxResult delete(@PathVariable("userId") Long userId) {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.deleteLogMsg(BusinessNameConstant.USER,1));
+        OperLogCover.deleteLogMsg(BusinessNameConstant.USER,1);
         sysUserService.checkUserAllowed(userId);
         return toAjax(sysUserService.deleteUser(userId));
     }
@@ -119,7 +118,7 @@ public class SysUserController extends PageBaseController {
     @PrintParams
     public AjaxResult edit(@RequestBody SysUser user)
     {
-        LogLocalThread.LOG_DESCRIPTION_LOCAL.set(OperLogCover.updateLogMsg(BusinessNameConstant.USER,user.getUserId()));
+        OperLogCover.updateLogMsg(BusinessNameConstant.USER,user.getUserId());
         sysUserService.checkUserAllowed(user.getUserId());
         SysUser sysUser = sysUserService.selectUserById(user.getUserId());
         if (StringUtils.isNotEmpty(user.getMobile()) && !sysUserService.checkPhoneUnique(user))
