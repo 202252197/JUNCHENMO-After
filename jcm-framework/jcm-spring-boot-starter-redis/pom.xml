@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.junchenmo</groupId>
-        <artifactId>jcm-common</artifactId>
+        <artifactId>jcm-framework</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -24,10 +24,9 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
-        <!-- Jcm Common Core-->
         <dependency>
             <groupId>com.junchenmo</groupId>
-            <artifactId>jcm-common-core</artifactId>
+            <artifactId>jcm-spring-boot-starter-core</artifactId>
         </dependency>
 
     </dependencies>

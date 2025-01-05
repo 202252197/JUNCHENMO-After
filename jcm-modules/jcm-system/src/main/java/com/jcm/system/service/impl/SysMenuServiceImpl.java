@@ -25,7 +25,6 @@ import java.util.stream.Collectors;
 @Service
 @AllArgsConstructor
 public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> implements ISysMenuService {
-    public static final RouterVo ROUTER = new RouterVo();
     private final SysMenuMapper sysMenuMapper;
 
     /**

@@ -2,7 +2,6 @@ package com.jcm.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jcm.system.api.domain.SysUser;
-
 import java.util.List;
 
 /**

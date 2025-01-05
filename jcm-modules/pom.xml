@@ -13,6 +13,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>jcm-system</module>
+        <module>jcm-gen</module>
+        <module>jcm-doc</module>
+        <module>jcm-auth</module>
     </modules>
 
     <description>

@@ -113,7 +113,7 @@ public class SysUserController extends PageBaseController {
     @ApiOperation(value = "修改用户", notes = "修改用户的信息")
     @ApiOperationSupport(order = 3)
     @RequiresPermissions("system:user:edit")
-    @Log(businessName = "修改用户信息",businessType= BusinessType.UPDATE)
+    @Log(businessName = "修改用户信息",businessType= BusinessType.UPDATE,excludeParamNames = {"email","admin"})
     @PutMapping
     @PrintParams
     public AjaxResult edit(@RequestBody SysUser user)

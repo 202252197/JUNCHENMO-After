@@ -23,9 +23,11 @@
     </properties>
 
     <modules>
+        <module>jcm-spring-boot-starter-core</module>
         <module>jcm-spring-boot-starter-log</module>
         <module>jcm-spring-boot-starter-redis</module>
         <module>jcm-spring-boot-starter-mybatis</module>
         <module>jcm-spring-boot-starter-swagger</module>
+        <module>jcm-spring-boot-starter-security</module>
     </modules>
 </project>

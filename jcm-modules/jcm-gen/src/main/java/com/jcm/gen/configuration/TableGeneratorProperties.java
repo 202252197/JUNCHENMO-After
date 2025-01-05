@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
  * @author lvshihao
  */
 @Component
-@ConfigurationProperties(prefix = "ai")
+@ConfigurationProperties(prefix = "jcm.ai")
 public class TableGeneratorProperties {
 
     private String apiKey;

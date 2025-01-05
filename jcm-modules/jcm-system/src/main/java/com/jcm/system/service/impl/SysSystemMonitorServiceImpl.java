@@ -3,6 +3,7 @@ package com.jcm.system.service.impl;
 import com.alibaba.fastjson2.JSONObject;
 import com.jcm.system.service.SysSystemMonitorService;
 import lombok.AllArgsConstructor;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
@@ -20,36 +21,53 @@ import java.text.DecimalFormat;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Properties;
+import java.util.concurrent.CompletableFuture;
 
 import static com.jcm.common.core.utils.system.OshiUtil.getFileSystem;
 import static com.jcm.common.core.utils.system.OshiUtil.getProcesses;
 
-
-@Service
 @AllArgsConstructor
+@Service
 public class SysSystemMonitorServiceImpl implements SysSystemMonitorService {
 
+    private final TaskExecutor taskExecutor;
     @Override
     public Properties getSystemBaseInfo() {
-
+        long startTime = System.currentTimeMillis();
         Properties info=new Properties();
         SystemInfo si = new SystemInfo();
         // 获取操作系统实例，用于访问操作系统相关信息
         OperatingSystem os = si.getOperatingSystem();
         // 获取硬件抽象层实例，用于访问硬件相关信息
         HardwareAbstractionLayer hal = si.getHardware();
-        //cpu信息
-        info.put("cpu", getCpuInfo(si));
-        //系统内存
-        info.put("memory", getMemoryInfo(si));
-        //jvm内存
-        info.put("jvmMemory", getJvmMemoryInfo(si));
-        //服务器信息
-        info.put("server",getServerInfo(si));
-        //获取进程
-        info.put("processes",getProcesses(os,hal.getMemory()));
-        //获取文件系统
-        info.put("fileSystem",getFileSystem(os.getFileSystem()));
+        CompletableFuture<Void> cpu = CompletableFuture.runAsync(() -> {
+            //cpu信息
+            info.put("cpu", getCpuInfo(si));
+        },taskExecutor);
+        CompletableFuture<Void> memory = CompletableFuture.runAsync(() -> {
+            //系统内存
+            info.put("memory", getMemoryInfo(si));
+        },taskExecutor);
+        CompletableFuture<Void> jvmMemory = CompletableFuture.runAsync(() -> {
+            //jvm内存
+            info.put("jvmMemory", getJvmMemoryInfo(si));
+        },taskExecutor);
+         CompletableFuture<Void> server = CompletableFuture.runAsync(() -> {
+            //服务器信息
+            info.put("server",getServerInfo(si));
+        },taskExecutor);
+        CompletableFuture<Void> processes = CompletableFuture.runAsync(() -> {
+             //获取进程
+            info.put("processes",getProcesses(os,hal.getMemory()));
+        },taskExecutor);
+        CompletableFuture<Void> fileSystem = CompletableFuture.runAsync(() -> {
+            //获取文件系统
+            info.put("fileSystem",getFileSystem(os.getFileSystem()));
+        },taskExecutor);
+        CompletableFuture.allOf(cpu,memory,jvmMemory,server,processes,fileSystem).join();
+
+        long endTime = System.currentTimeMillis();
+        System.out.println("完成"+(endTime-startTime));
         return info;
     }
 
@@ -67,7 +85,7 @@ public class SysSystemMonitorServiceImpl implements SysSystemMonitorService {
         long[] prevTicks = processor.getSystemCpuLoadTicks();
         try {
             // 等待一段时间，例如1秒，以获取CPU使用率变化
-            Thread.sleep(1000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

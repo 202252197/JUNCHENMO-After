@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.junchenmo</groupId>
-        <artifactId>jcm-common</artifactId>
+        <artifactId>jcm-framework</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -21,7 +21,7 @@
         <!-- Jcm Common Core-->
         <dependency>
             <groupId>com.junchenmo</groupId>
-            <artifactId>jcm-common-core</artifactId>
+            <artifactId>jcm-spring-boot-starter-core</artifactId>
         </dependency>
 
         <!-- mybatisPlus 核心库 -->

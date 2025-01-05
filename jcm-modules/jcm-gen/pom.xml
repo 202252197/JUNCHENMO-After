@@ -5,9 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.junchenmo</groupId>
-        <artifactId>Jcm</artifactId>
+        <artifactId>jcm-modules</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <artifactId>jcm-gen</artifactId>
@@ -36,6 +35,11 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
+        <!-- Apache Velocity -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -46,13 +50,37 @@
             <groupId>com.alibaba</groupId>
             <artifactId>dashscope-sdk-java</artifactId>
         </dependency>
-
-        <!-- Jcm Common security-->
         <dependency>
-            <groupId>com.junchenmo</groupId>
-            <artifactId>jcm-common-security</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>com.junchenmo</groupId>
+            <artifactId>jcm-spring-boot-starter-log</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.junchenmo</groupId>
+            <artifactId>jcm-spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- Mysql Connector -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+        </dependency>
+
+        <!-- Druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.junchenmo</groupId>
+            <artifactId>jcm-spring-boot-starter-mybatis</artifactId>
+        </dependency>
 
     </dependencies>
 </project>

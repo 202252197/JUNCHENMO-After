@@ -1,9 +1,22 @@
 # Tomcat
 server:
   port: 9202
-ai:
-  api-key: sk-a63b307c5b154bdf9293b4ae73b7f276
-  model: qwen-plus
+
+jcm:
+  ai:
+    api-key: sk-a63b307c5b154bdf9293b4ae73b7f276
+    model: qwen-plus
+  swagger:
+    title: jcm-gen
+    description: 系统模块
+    basePackage: com.jcm.gen
+    enable: true
+    version: 1.0.0
+    contact:
+      name: junchenmo
+  gen:
+    author: lvshihao
+    packageName: com.jcm.system
 # Spring
 spring:
   application:

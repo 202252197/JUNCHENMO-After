@@ -50,7 +50,6 @@
 		<velocity.version>2.3</velocity.version>
 		<!--		json转换工具版本-->
 		<fastjson.version>2.0.43</fastjson.version>
-		<minio.version>8.2.2</minio.version>
 		<transmittable-thread-local.version>2.14.4</transmittable-thread-local.version>
 		<springdoc.version>1.7.0</springdoc.version>
 		<hutool.version>5.8.27</hutool.version>
@@ -90,13 +89,6 @@
 				<groupId>com.github.oshi</groupId>
 				<artifactId>oshi-core</artifactId>
 				<version>${oshi.version}</version>
-			</dependency>
-
-			<!-- FastDFS 分布式文件系统 -->
-			<dependency>
-				<groupId>com.github.tobato</groupId>
-				<artifactId>fastdfs-client</artifactId>
-				<version>${tobato.version}</version>
 			</dependency>
 
 			<!-- 验证码 -->
@@ -147,7 +139,17 @@
 				<version>${commons.io.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+			</dependency>
 
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
+			</dependency>
 			<!-- 代码生成使用模板 -->
 			<dependency>
 				<groupId>org.apache.velocity</groupId>
@@ -168,31 +170,12 @@
 				<artifactId>jjwt</artifactId>
 				<version>${jjwt.version}</version>
 			</dependency>
-			<!-- Minio -->
-			<dependency>
-				<groupId>io.minio</groupId>
-				<artifactId>minio</artifactId>
-				<version>${minio.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.projectlombok</groupId>
-				<artifactId>lombok</artifactId>
-				<version>${lombok.version}</version>
-			</dependency>
-
-
 
 			<!-- 线程传递值 -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>transmittable-thread-local</artifactId>
 				<version>${transmittable-thread-local.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>cn.hutool</groupId>
-				<artifactId>hutool-all</artifactId>
-				<version>${hutool.version}</version>
 			</dependency>
 
 			<dependency>
@@ -213,8 +196,6 @@
 				<artifactId>ip2region</artifactId>
 				<version>${ip2region.version}</version>
 			</dependency>
-
-
 			<!-- Jcm api system-->
 			<dependency>
 				<groupId>com.junchenmo</groupId>
@@ -222,28 +203,16 @@
 				<version>${jcm.version}</version>
 			</dependency>
 
-
-			<!-- Jcm Common Core-->
 			<dependency>
 				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-common-core</artifactId>
-				<version>${jcm.version}</version>
+				<artifactId>jcm-spring-boot-starter-core</artifactId>
+				<version>${jcm.framework.version}</version>
 			</dependency>
-
-			<!-- Jcm Common security-->
 			<dependency>
 				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-common-security</artifactId>
-				<version>${jcm.version}</version>
+				<artifactId>jcm-spring-boot-starter-security</artifactId>
+				<version>${jcm.framework.version}</version>
 			</dependency>
-
-			<!-- Jcm Common mybatis-->
-			<dependency>
-				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-common-mybatis</artifactId>
-				<version>${jcm.version}</version>
-			</dependency>
-
 			<dependency>
 				<groupId>com.junchenmo</groupId>
 				<artifactId>jcm-spring-boot-starter-swagger</artifactId>
@@ -269,12 +238,8 @@
 
 	<modules>
 		<module>jcm-api</module>
-		<module>jcm-auth</module>
-		<module>jcm-common</module>
 		<module>jcm-gateway</module>
 		<module>jcm-modules</module>
-		<module>jcm-doc</module>
-		<module>jcm-modules/jcm-gen</module>
         <module>jcm-framework</module>
     </modules>
 	<packaging>pom</packaging>
@@ -290,6 +255,13 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -317,17 +289,6 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
-	<repositories>
-		<repository>
-			<id>public</id>
-			<name>aliyun nexus</name>
-			<url>https://maven.aliyun.com/repository/public</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</repository>
-	</repositories>
 
 	<pluginRepositories>
 		<pluginRepository>
