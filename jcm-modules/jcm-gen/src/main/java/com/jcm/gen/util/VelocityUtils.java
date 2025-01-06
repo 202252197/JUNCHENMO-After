@@ -30,6 +30,9 @@ public class VelocityUtils
     /** 默认上级菜单，系统工具 */
     private static final String DEFAULT_PARENT_MENU_ID = "3";
 
+    /** 前端接口枚举内容 */
+    private static final String DEFAULT_API_ENUM = "${API_ENUM.SERVER_NAME.***}";
+
     /**
      * 设置模板变量信息
      *
@@ -51,6 +54,25 @@ public class VelocityUtils
 
         // 设置表名
         velocityContext.put("tableName", genTable.getTableName());
+
+        // 设置大写的表名
+        velocityContext.put("tableNameUC", genTable.getTableName().toUpperCase());
+
+        // 设置前小，后大写的表名
+        String[] split = genTable.getBusinessName().split("_");
+        StringBuffer BusinessNameLCUC = new StringBuffer();
+        if(split.length>1){
+            BusinessNameLCUC.append(split[0].toLowerCase());
+            for (int i = 1; i < split.length; i++){
+                BusinessNameLCUC.append(split[i].substring(0,1).toUpperCase()+split[i].substring(1));
+            }
+        }else{
+            BusinessNameLCUC.append(genTable.getBusinessName().toLowerCase());
+        }
+        velocityContext.put("businessNameLCUC",BusinessNameLCUC);
+
+        // 设置前端接口枚举名称
+        velocityContext.put("apiEnum", DEFAULT_API_ENUM.replace("***",genTable.getTableName().toUpperCase()));
 
         // 设置功能名称，如果为空则默认为“【请填写功能名称】”
         velocityContext.put("functionName", StringUtils.isNotEmpty(functionName) ? functionName : "【请填写功能名称】");
@@ -163,25 +185,24 @@ public class VelocityUtils
     /**
      * 获取模板信息
      * @param tplCategory 生成的模板
-     * @param tplWebType 前端类型
      * @return 模板列表
      */
     public static List<String> getTemplateList(String tplCategory)
     {
-        String useWebType =  "vm/vue/v3";
+        String useWebType =  "vm/vue";
         List<String> templates = new ArrayList<String>();
-//        templates.add("vm/java/domain.java.vm");
-//        templates.add("vm/java/mapper.java.vm");
-//        templates.add("vm/java/service.java.vm");
-//        templates.add("vm/java/serviceImpl.java.vm");
         templates.add("vm/java/controller.java.vm");
-//        templates.add("vm/xml/mapper.xml.vm");
+        templates.add("vm/java/domain.java.vm");
+        templates.add("vm/java/service.java.vm");
+        templates.add("vm/java/serviceImpl.java.vm");
+        templates.add("vm/java/mapper.java.vm");
+        templates.add("vm/xml/mapper.xml.vm");
 //        templates.add("vm/sql/sql.vm");
-//        templates.add("vm/js/api.js.vm");
-//        if (GenConstants.TPL_CRUD.equals(tplCategory))
-//        {
-//            templates.add(useWebType + "/index.vue.vm");
-//        }
+        templates.add("vm/ts/api.ts.vm");
+        if (GenConstants.TPL_CRUD.equals(tplCategory))
+        {
+            templates.add(useWebType + "/index.vue.vm");
+        }
 //        else if (GenConstants.TPL_TREE.equals(tplCategory))
 //        {
 //            templates.add(useWebType + "/index-tree.vue.vm");
@@ -246,7 +267,7 @@ public class VelocityUtils
         {
             fileName = businessName + "Menu.sql";
         }
-        else if (template.contains("api.js.vm"))
+        else if (template.contains("api.ts.vm"))
         {
             fileName = StringUtils.format("{}/api/{}/{}.js", vuePath, moduleName, businessName);
         }

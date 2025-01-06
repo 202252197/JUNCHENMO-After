@@ -6,7 +6,7 @@ import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.domain.R;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.log.annotation.Log;
-import com.jcm.common.log.annotation.OperationName;
+import com.jcm.common.log.annotation.BusinessName;
 import com.jcm.common.log.constant.BusinessNameConstant;
 import com.jcm.common.log.enums.BusinessType;
 import com.jcm.common.log.utils.OperLogCover;
@@ -36,7 +36,7 @@ import java.util.List;
  */
 @Api(tags="菜单管理")
 @ApiSupport(author = "202252197@qq.com",order = 3)
-@OperationName(title = OperationNameConstants.SYSTEM_MENU)
+@BusinessName(title = OperationNameConstants.SYSTEM_MENU)
 @RestController
 @RequestMapping("/menu")
 @AllArgsConstructor
@@ -48,7 +48,7 @@ public class SysMenuController extends PageBaseController {
 
     @ApiOperation(value = "新增菜单")
     @RequiresPermissions("system:menu:add")
-    @Log(businessName = "新增菜单",businessType= BusinessType.INSERT)
+    @Log(functionName = "新增菜单",businessType= BusinessType.INSERT)
     @PostMapping
     @PrintParams
     public AjaxResult add(@RequestBody SysMenu menu)
@@ -60,18 +60,18 @@ public class SysMenuController extends PageBaseController {
 
 
     @ApiOperation(value = "删除菜单")
-    @RequiresPermissions("system:menu:delete")
-    @Log(businessName = "删除菜单",businessType= BusinessType.DELETE)
+    @RequiresPermissions("system:menu:remove")
+    @Log(functionName = "删除菜单",businessType= BusinessType.DELETE)
     @DeleteMapping("/{menuId}")
     @PrintParams
-    public AjaxResult delete(@PathVariable("menuId") Long menuId) {
+    public AjaxResult remove(@PathVariable("menuId") Long menuId) {
         OperLogCover.deleteLogMsg(BusinessNameConstant.MENU,1);
         return toAjax(sysMenuService.deleteMenu(menuId));
     }
 
     @ApiOperation(value = "修改菜单")
     @RequiresPermissions("system:menu:edit")
-    @Log(businessName = "修改菜单",businessType= BusinessType.UPDATE)
+    @Log(functionName = "修改菜单",businessType= BusinessType.UPDATE)
     @PutMapping
     @PrintParams
     public AjaxResult edit(@RequestBody SysMenu menu)

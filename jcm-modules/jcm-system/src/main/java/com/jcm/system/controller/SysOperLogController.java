@@ -7,7 +7,7 @@ import com.jcm.common.core.utils.poi.ExcelUtil;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.log.annotation.Log;
-import com.jcm.common.log.annotation.OperationName;
+import com.jcm.common.log.annotation.BusinessName;
 import com.jcm.common.log.constant.BusinessNameConstant;
 import com.jcm.common.log.enums.BusinessType;
 import com.jcm.common.log.utils.OperLogCover;
@@ -35,7 +35,7 @@ import java.util.List;
  */
 @Api(tags="操作日志")
 @ApiSupport(author = "202252197@qq.com",order = 6)
-@OperationName(title = OperationNameConstants.SYSTEM_OPERATION_LOG)
+@BusinessName(title = OperationNameConstants.SYSTEM_OPERATION_LOG)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/operlog")
@@ -51,16 +51,16 @@ public class SysOperLogController extends PageBaseController {
     }
 
     @ApiOperation(value = "删除操作日志")
-    @RequiresPermissions("system:menu:delete")
+    @RequiresPermissions("system:menu:remove")
     @DeleteMapping
     @PrintParams
-    public AjaxResult delete(@RequestBody List<Long> operIds) {
+    public AjaxResult remove(@RequestBody List<Long> operIds) {
         OperLogCover.deleteLogMsg(BusinessNameConstant.OPERATION_LOG,operIds.size());
         return toAjax( sysOperLogService.deleteOperLog(operIds));
     }
 
     @ApiOperation(value = "清空操作日志")
-    @RequiresPermissions("system:menu:delete")
+    @RequiresPermissions("system:menu:remove")
     @DeleteMapping("/clear")
     @PrintParams
     public AjaxResult clear() {
@@ -103,7 +103,7 @@ public class SysOperLogController extends PageBaseController {
     }
 
     @ApiOperation(value = "导出日志")
-    @Log(businessName = "导出日志", businessType = BusinessType.EXPORT)
+    @Log(functionName = "导出日志", businessType = BusinessType.EXPORT)
     @RequiresPermissions("system:operlog:export")
     @PostMapping("/export")
     public void export(HttpServletResponse response, SysOperLog operLog)

@@ -1,0 +1,83 @@
+//${functionName}相关的接口}
+import request from '@/utils/request'
+
+import API_ENUM from '@/enum/api-enum'
+
+//项目用户相关的请求地址
+export const API = {
+  //获取${functionName}列表
+  LIST_${tableNameUC}_URL: `${apiEnum}/list`,
+  //添加${functionName}
+  ADD_${tableNameUC}_URL: `${apiEnum}/`,
+  //删除${functionName}
+  DEL_${tableNameUC}_URL: `${apiEnum}/`,
+  //修改${functionName}
+  UPDATE_${tableNameUC}_URL: `${apiEnum}/`,
+  //获取${functionName}信息
+  INFO_${tableNameUC}_URL: `${apiEnum}/info`,
+}
+
+/**
+ * 获取用户列表
+ * @param {Object} query - 查询条件
+ * @param {number} pageNum - 当前页码
+ * @param {number} pageSize - 每页数量
+ */
+// 查询${functionName}列表
+export const list${BusinessName} = (query:any) => {
+  return request({
+    url: API.LIST_${tableNameUC}_URL,
+    method: 'get',
+    params: query
+  })
+}
+
+/**
+ * 获取${functionName}信息
+ * @param {number} ${pkColumn.javaField} - ${pkColumn.columnComment}
+ */
+// 查询${functionName}详细
+export const get${BusinessName} = (${pkColumn.javaField}) => {
+  return request({
+    url: API.INFO_${tableNameUC}_URL,
+    method: 'get'
+  })
+}
+
+/**
+ * 新增${functionName}
+ * @param {Object} data - ${functionName}信息
+ */
+// 新增${functionName}
+export const add${BusinessName} = (data:any) => {
+  return request({
+    url: API.ADD_${tableNameUC}_URL,
+    method: 'post',
+    data: data
+  })
+}
+
+/**
+ * 修改${functionName}
+ * @param {Object} data - ${functionName}信息
+ */
+// 修改${functionName}
+export const update${BusinessName} = (data:any) => {
+  return request({
+    url: API.UPDATE_${tableNameUC}_URL,
+    method: 'put',
+    data: data
+  })
+}
+
+/**
+ * 删除${functionName}
+ * @param {number} ${pkColumn.javaField} - ${pkColumn.columnComment}
+ */
+// 删除${functionName}
+export const del${BusinessName} = (${pkColumn.javaField}) => {
+  return request({
+    url: API.DEL_${tableNameUC}_URL,
+    method: 'delete'
+  })
+}

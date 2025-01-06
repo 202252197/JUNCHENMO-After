@@ -58,7 +58,7 @@ public class GenController extends PageBaseController {
      * 删除代码生成
      */
     @RequiresPermissions("tool:gen:remove")
-    @Log(businessName = "代码生成", businessType = BusinessType.DELETE)
+    @Log(functionName = "代码生成", businessType = BusinessType.DELETE)
     @DeleteMapping("/")
     public AjaxResult remove(@RequestBody Long[] tableIds)
     {
@@ -83,7 +83,7 @@ public class GenController extends PageBaseController {
      * 导入表结构（保存）
      */
     @RequiresPermissions("tool:gen:import")
-    @Log(businessName = "代码生成", businessType = BusinessType.IMPORT)
+    @Log(functionName = "代码生成", businessType = BusinessType.IMPORT)
     @PostMapping("/importTable")
     public AjaxResult importTableSave(String tables)
     {

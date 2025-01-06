@@ -3,11 +3,14 @@ package com.jcm.gen.domain;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.jcm.common.core.constant.GenConstants;
 import com.jcm.common.core.domain.BaseEntity;
+import com.jcm.common.core.utils.StringUtils;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.apache.commons.lang3.ArrayUtils;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -99,4 +102,47 @@ public class GenTable extends BaseEntity {
     /** 上级菜单名称字段 */
     private String parentMenuName;
 
+    public boolean isSub()
+    {
+        return isSub(this.tplCategory);
+    }
+
+    public static boolean isSub(String tplCategory)
+    {
+        return tplCategory != null && StringUtils.equals(GenConstants.TPL_SUB, tplCategory);
+    }
+    public boolean isTree()
+    {
+        return isTree(this.tplCategory);
+    }
+
+    public static boolean isTree(String tplCategory)
+    {
+        return tplCategory != null && StringUtils.equals(GenConstants.TPL_TREE, tplCategory);
+    }
+
+    public boolean isCrud()
+    {
+        return isCrud(this.tplCategory);
+    }
+
+    public static boolean isCrud(String tplCategory)
+    {
+        return tplCategory != null && StringUtils.equals(GenConstants.TPL_CRUD, tplCategory);
+    }
+
+    public boolean isSuperColumn(String javaField)
+    {
+        return isSuperColumn(this.tplCategory, javaField);
+    }
+
+    public static boolean isSuperColumn(String tplCategory, String javaField)
+    {
+        if (isTree(tplCategory))
+        {
+            return StringUtils.equalsAnyIgnoreCase(javaField,
+                    ArrayUtils.addAll(GenConstants.TREE_ENTITY, GenConstants.BASE_ENTITY));
+        }
+        return StringUtils.equalsAnyIgnoreCase(javaField, GenConstants.BASE_ENTITY);
+    }
 }

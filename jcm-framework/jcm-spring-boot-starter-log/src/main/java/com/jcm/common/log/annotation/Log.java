@@ -17,9 +17,9 @@ import java.lang.annotation.*;
 public @interface Log
 {
     /**
-     * 业务名称
+     * 方法名称
      */
-    public String businessName() default "";
+    public String functionName() default "";
 
     /**
      * 功能

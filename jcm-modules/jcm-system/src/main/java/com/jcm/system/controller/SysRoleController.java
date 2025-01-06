@@ -6,7 +6,7 @@ import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.log.annotation.Log;
-import com.jcm.common.log.annotation.OperationName;
+import com.jcm.common.log.annotation.BusinessName;
 import com.jcm.common.log.constant.BusinessNameConstant;
 import com.jcm.common.log.enums.BusinessType;
 import com.jcm.common.log.utils.OperLogCover;
@@ -33,7 +33,7 @@ import java.util.List;
  */
 @Api(tags="角色管理")
 @ApiSupport(author = "202252197@qq.com",order = 2)
-@OperationName(title = OperationNameConstants.SYSTEM_ROLE)
+@BusinessName(title = OperationNameConstants.SYSTEM_ROLE)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/role")
@@ -45,7 +45,7 @@ public class SysRoleController extends PageBaseController {
 
     @ApiOperation(value = "新增角色", notes = "新增角色的时候判断角色名称，角色编码是否存在")
     @RequiresPermissions("system:role:add")
-    @Log(businessName = "新增角色",businessType= BusinessType.INSERT)
+    @Log(functionName = "新增角色",businessType= BusinessType.INSERT)
     @PostMapping
     @PrintParams
     public AjaxResult add(@RequestBody SysRole role)
@@ -64,11 +64,11 @@ public class SysRoleController extends PageBaseController {
 
 
     @ApiOperation(value = "删除角色")
-    @RequiresPermissions("system:user:delete")
-    @Log(businessName = "删除角色",businessType= BusinessType.DELETE)
+    @RequiresPermissions("system:role:remove")
+    @Log(functionName = "删除角色",businessType= BusinessType.DELETE)
     @DeleteMapping
     @PrintParams
-    public AjaxResult delete(@RequestBody List<Long> roleIds) {
+    public AjaxResult remove(@RequestBody List<Long> roleIds) {
         OperLogCover.deleteLogMsg(BusinessNameConstant.ROLE,roleIds.size());
         return toAjax(sysRoleService.deleteRole(roleIds));
     }
@@ -76,7 +76,7 @@ public class SysRoleController extends PageBaseController {
 
     @ApiOperation(value = "修改角色")
     @RequiresPermissions("system:role:edit")
-    @Log(businessName = "修改角色",businessType= BusinessType.UPDATE)
+    @Log(functionName = "修改角色",businessType= BusinessType.UPDATE)
     @PutMapping
     @PrintParams
     public AjaxResult edit(@RequestBody SysRole role)

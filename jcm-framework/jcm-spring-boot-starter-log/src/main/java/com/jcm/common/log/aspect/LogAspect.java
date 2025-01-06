@@ -6,7 +6,7 @@ import com.jcm.common.core.utils.ServletUtils;
 import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.core.utils.ip.IpUtils;
 import com.jcm.common.log.annotation.Log;
-import com.jcm.common.log.annotation.OperationName;
+import com.jcm.common.log.annotation.BusinessName;
 import com.jcm.common.log.enums.BusinessStatus;
 import com.jcm.common.log.filter.PropertyPreExcludeFilter;
 import com.jcm.common.log.service.AsyncLogService;
@@ -177,7 +177,7 @@ public class LogAspect
         // 设置action动作
         operLog.setBusinessType(log.businessType().ordinal());
         // 设置业务名称
-        operLog.setBusinessName(log.businessName());
+        operLog.setBusinessName(log.functionName());
         // 是否需要保存request，参数和值
         if (log.isSaveRequestData())
         {
@@ -203,9 +203,9 @@ public class LogAspect
         // 获取目标方法所在的类
         Class<?> targetClass = joinPoint.getTarget().getClass();
         // 获取类上的指定注解
-        OperationName operationNameAnnotation = targetClass.getAnnotation(OperationName.class);
-        if (operationNameAnnotation!= null) {
-            operLog.setTitle(operationNameAnnotation.title());
+        BusinessName businessNameAnnotation = targetClass.getAnnotation(BusinessName.class);
+        if (businessNameAnnotation != null) {
+            operLog.setTitle(businessNameAnnotation.title());
         }
     }
 

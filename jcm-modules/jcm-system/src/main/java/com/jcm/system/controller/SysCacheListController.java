@@ -4,7 +4,7 @@ import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.core.web.domain.AjaxResult;
-import com.jcm.common.log.annotation.OperationName;
+import com.jcm.common.log.annotation.BusinessName;
 import com.jcm.common.mybatis.controller.PageBaseController;
 import com.jcm.common.security.annotation.PrintParams;
 import com.jcm.common.security.annotation.RequiresPermissions;
@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api(tags="缓存列表")
 @ApiSupport(author = "202252197@qq.com",order = 7)
-@OperationName(title = OperationNameConstants.SYSTEM_CACHE_LIST)
+@BusinessName(title = OperationNameConstants.SYSTEM_CACHE_LIST)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/cacheList")
@@ -36,7 +36,7 @@ public class SysCacheListController extends PageBaseController {
     @RequiresPermissions("system:dictType:list")
     @DeleteMapping("/deleteCacheName")
     @PrintParams
-    public AjaxResult deleteCacheName(@RequestParam String cacheName)
+    public AjaxResult removeCacheName(@RequestParam String cacheName)
     {
         return toAjax(sysCacheListService.deleteCacheName(cacheName));
     }
@@ -45,7 +45,7 @@ public class SysCacheListController extends PageBaseController {
     @RequiresPermissions("system:dictType:list")
     @DeleteMapping("/deleteCacheKey")
     @PrintParams
-    public AjaxResult deleteCacheKey(@RequestParam String keyName)
+    public AjaxResult removeCacheKey(@RequestParam String keyName)
     {
         return toAjax(sysCacheListService.deleteCacheKey(keyName));
     }

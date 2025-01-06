@@ -9,7 +9,7 @@ import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.log.annotation.Log;
-import com.jcm.common.log.annotation.OperationName;
+import com.jcm.common.log.annotation.BusinessName;
 import com.jcm.common.log.constant.BusinessNameConstant;
 import com.jcm.common.log.enums.BusinessType;
 import com.jcm.common.log.utils.OperLogCover;
@@ -41,7 +41,7 @@ import java.util.Set;
  */
 @Api(tags="用户管理")
 @ApiSupport(author = "202252197@qq.com",order = 1)
-@OperationName(title = OperationNameConstants.SYSTEM_USER)
+@BusinessName(title = OperationNameConstants.SYSTEM_USER)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/user")
@@ -80,7 +80,7 @@ public class SysUserController extends PageBaseController {
     @ApiOperation(value = "新增用户", notes = "新增用户的时候判断账号账号是否存在、手机号码是否绑定过、邮箱是否绑定过")
     @ApiOperationSupport(order = 1)
     @RequiresPermissions("system:user:add")
-    @Log(businessName = "新增用户",businessType= BusinessType.INSERT)
+    @Log(functionName = "新增用户",businessType= BusinessType.INSERT)
     @PostMapping
     @PrintParams
     public AjaxResult add(@RequestBody SysUser user) {
@@ -100,11 +100,11 @@ public class SysUserController extends PageBaseController {
 
     @ApiOperation(value = "删除用户", notes = "将用户账号删除")
     @ApiOperationSupport(order = 2)
-    @RequiresPermissions("system:user:delete")
-    @Log(businessName = "删除用户",businessType= BusinessType.DELETE)
+    @RequiresPermissions("system:user:remove")
+    @Log(functionName = "删除用户",businessType= BusinessType.DELETE)
     @DeleteMapping("/{userId}")
     @PrintParams
-    public AjaxResult delete(@PathVariable("userId") Long userId) {
+    public AjaxResult remove(@PathVariable("userId") Long userId) {
         OperLogCover.deleteLogMsg(BusinessNameConstant.USER,1);
         sysUserService.checkUserAllowed(userId);
         return toAjax(sysUserService.deleteUser(userId));
@@ -113,7 +113,7 @@ public class SysUserController extends PageBaseController {
     @ApiOperation(value = "修改用户", notes = "修改用户的信息")
     @ApiOperationSupport(order = 3)
     @RequiresPermissions("system:user:edit")
-    @Log(businessName = "修改用户信息",businessType= BusinessType.UPDATE,excludeParamNames = {"email","admin"})
+    @Log(functionName = "修改用户信息",businessType= BusinessType.UPDATE,excludeParamNames = {"email","admin"})
     @PutMapping
     @PrintParams
     public AjaxResult edit(@RequestBody SysUser user)
@@ -165,7 +165,7 @@ public class SysUserController extends PageBaseController {
 
     @ApiOperation(value = "修改用户密码")
     @RequiresPermissions("system:user:resetPassword")
-    @Log(businessName = "重置用户密码",businessType= BusinessType.UPDATE)
+    @Log(functionName = "重置用户密码",businessType= BusinessType.UPDATE)
     @PutMapping("/changePassword")
     @PrintParams
     public AjaxResult resetPassword(@RequestBody SysUser user) {

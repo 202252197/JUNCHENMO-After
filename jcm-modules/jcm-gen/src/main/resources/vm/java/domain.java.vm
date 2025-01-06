@@ -1,0 +1,54 @@
+package ${packageName}.domain;
+
+import com.alibaba.excel.annotation.ExcelIgnoreUnannotated;
+import com.alibaba.excel.annotation.ExcelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+#foreach ($import in $importList)
+import ${import};
+#end
+#if($table.crud)
+import com.jcm.common.core.domain.BaseEntity;
+#elseif($table.tree)
+import com.ruoyi.common.core.web.domain.TreeEntity;
+#end
+
+/**
+ * ${functionName}对象 ${tableName}
+ * 
+ * @author ${author}
+ * @date ${datetime}
+ */
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ExcelIgnoreUnannotated
+#if($table.crud)
+#set($Entity="BaseEntity")
+#elseif($table.tree)
+#set($Entity="TreeEntity")
+#end
+public class ${ClassName} extends ${Entity}
+{
+    private static final long serialVersionUID = 1L;
+
+#foreach ($column in $columns)
+#if(!$table.isSuperColumn($column.javaField))
+    /** $column.columnComment */
+#if($column.list)
+#set($comment=$column.columnComment)
+#if($column.javaType == 'Date')
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @ExcelProperty(value = "${comment}")
+#else
+    @ExcelProperty(value = "${comment}")
+#end
+#end
+    private $column.javaType $column.javaField;
+
+#end
+#end
+
+}

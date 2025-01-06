@@ -82,128 +82,134 @@ public class GenTableColumn extends BaseEntity  {
     private Integer sort;
 
 
+    public String getCapJavaField()
+    {
+        return StringUtils.capitalize(javaField);
+    }
+
+
+    public boolean isPk()
+    {
+        return isPk(this.isPk);
+    }
     /**
      * 判断是否为主键
      *
      * @param isPk 表示是否为主键的字符串标识
      * @return 如果isPk为"1"且不为空，则返回true，否则返回false
      */
-    public boolean isPk()
-    {
-        return isPk(this.isPk);
-    }
     public boolean isPk(String isPk)
     {
         return isPk != null && StringUtils.equals("1", isPk);
     }
 
+
+    public boolean isIncrement()
+    {
+        return isIncrement(this.isIncrement);
+    }
     /**
      * 判断是否为自增字段
      *
      * @param isIncrement 表示是否为自增字段的字符串标识
      * @return 如果isIncrement为"1"且不为空，则返回true，否则返回false
      */
-    public boolean isIncrement()
-    {
-        return isIncrement(this.isIncrement);
-    }
-
     public boolean isIncrement(String isIncrement)
     {
         return isIncrement != null && StringUtils.equals("1", isIncrement);
     }
 
+
+    public boolean isRequired()
+    {
+        return isRequired(this.isRequired);
+    }
     /**
      * 判断字段是否为必填
      *
      * @param isRequired 表示字段是否必填的字符串标识
      * @return 如果isRequired为"1"且不为空，则返回true，否则返回false
      */
-    public boolean isRequired()
-    {
-        return isRequired(this.isRequired);
-    }
-
     public boolean isRequired(String isRequired)
     {
         return isRequired != null && StringUtils.equals("1", isRequired);
     }
 
+
+    public boolean isInsert()
+    {
+        return isInsert(this.isInsert);
+    }
     /**
      * 判断字段是否在插入时需要
      *
      * @param isInsert 表示字段是否在插入时需要的字符串标识
      * @return 如果isInsert为"1"且不为空，则返回true，否则返回false
      */
-    public boolean isInsert()
-    {
-        return isInsert(this.isInsert);
-    }
-
     public boolean isInsert(String isInsert)
     {
         return isInsert != null && StringUtils.equals("1", isInsert);
     }
 
+
+    public boolean isEdit()
+    {
+        return isInsert(this.isEdit);
+    }
     /**
      * 判断字段是否在编辑时需要
      *
      * @param isEdit 表示字段是否在编辑时需要的字符串标识
      * @return 如果isEdit为"1"且不为空，则返回true，否则返回false
      */
-    public boolean isEdit()
-    {
-        return isInsert(this.isEdit);
-    }
-
     public boolean isEdit(String isEdit)
     {
         return isEdit != null && StringUtils.equals("1", isEdit);
     }
 
+
+    public boolean isList()
+    {
+        return isList(this.isList);
+    }
     /**
      * 判断字段是否在列表中显示
      *
      * @param isList 表示字段是否在列表中显示的字符串标识
      * @return 如果isList为"1"且不为空，则返回true，否则返回false
      */
-    public boolean isList()
-    {
-        return isList(this.isList);
-    }
-
     public boolean isList(String isList)
     {
         return isList != null && StringUtils.equals("1", isList);
     }
 
+
+    public boolean isQuery()
+    {
+        return isQuery(this.isQuery);
+    }
     /**
      * 判断字段是否可用于查询
      *
      * @param isQuery 表示字段是否可用于查询的字符串标识
      * @return 如果isQuery为"1"且不为空，则返回true，否则返回false
      */
-    public boolean isQuery()
-    {
-        return isQuery(this.isQuery);
-    }
-
     public boolean isQuery(String isQuery)
     {
         return isQuery != null && StringUtils.equals("1", isQuery);
     }
 
+
+    public boolean isSuperColumn()
+    {
+        return isSuperColumn(this.javaField);
+    }
     /**
      * 判断字段是否为超级列（用于忽略某些基础实体或树实体的属性）
      *
      * @param javaField 字段名
      * @return 如果字段名与预定义的超级列名之一匹配（不区分大小写），则返回true，否则返回false
      */
-    public boolean isSuperColumn()
-    {
-        return isSuperColumn(this.javaField);
-    }
-
     public static boolean isSuperColumn(String javaField)
     {
         return StringUtils.equalsAnyIgnoreCase(javaField,
@@ -213,17 +219,17 @@ public class GenTableColumn extends BaseEntity  {
                 "parentName", "parentId", "sort", "ancestors");
     }
 
+
+    public boolean isUsableColumn()
+    {
+        return isUsableColumn(javaField);
+    }
     /**
      * 判断字段是否为可用列（创建页面时需要的属性白名单）
      *
      * @param javaField 字段名
      * @return 如果字段名与预定义的可用列名之一匹配（不区分大小写），则返回true，否则返回false
      */
-
-    public boolean isUsableColumn()
-    {
-        return isUsableColumn(javaField);
-    }
     public static boolean isUsableColumn(String javaField)
     {
         // isSuperColumn()中的名单用于避免生成多余Domain属性，若某些属性在生成页面时需要用到不能忽略，则放在此处白名单
