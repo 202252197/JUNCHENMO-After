@@ -23,5 +23,7 @@ public class OperationNameConstants {
 
     public static final String GEN_DATA_TABLE = "数据表生成";
 
+    public static final String TX_VIP = "VIP管理";
+
 
 }

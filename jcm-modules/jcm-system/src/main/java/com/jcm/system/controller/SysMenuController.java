@@ -24,6 +24,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -93,24 +94,23 @@ public class SysMenuController extends PageBaseController {
     }
 
 
-    @ApiOperation(value = "查询用户的菜单列表/路由")
-    @Operation(summary = "获取菜单列表",description = "获取前端菜单列表")
+
+    @ApiOperation(value = "查询用户的路由列表")
+    @Operation(summary = "获取菜单列表",description = "获取前端路由列表")
     @GetMapping("/getRouters")
     @PrintParams
     public AjaxResult getRouters()
     {
         Long userId = SecurityUtils.getUserId();
         List<SysMenu> menus = sysMenuService.selectMenuTreeByUserId(userId);
-        List<RouterVo> routerVos = sysMenuService.buildMenus(menus, null);
-        routerVos.forEach(routerVo -> {
-            if(routerVo.getChildren()!=null &&routerVo.getChildren().size()>=1){
-                RouterVo routerVoChildren = routerVo.getChildren().get(0);
-                routerVo.setRedirect(routerVoChildren.getPath());
-            }
-        });
-        return success(routerVos);
+        List<SysMenu> routers = sysMenuService.selectRouterTreeByUserId(userId);
+        List<RouterVo> menusVos = sysMenuService.buildMenus(menus, null);
+        List<RouterVo> routerVos = sysMenuService.buildMenus(routers, null);
+        HashMap typeMap = new HashMap();
+        typeMap.put("menus",menusVos);
+        typeMap.put("routers",routerVos);
+        return success(typeMap);
     }
-
 
     @ApiOperation(value = "查询新增菜单Sort值",notes = "根据父菜单的ID查询子菜单最大的Sort+100")
     @Operation(summary = "查询新增菜单最后的sort值",description = "通过id查询所有子菜单，对子菜单的最大sort加100返回")

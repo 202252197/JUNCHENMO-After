@@ -1,0 +1,70 @@
+//创建${BusinessName}相关的小仓库
+import { defineStore } from 'pinia'
+
+//导入请求
+import { list${BusinessName},get${BusinessName},add${BusinessName},update${BusinessName},del${BusinessName}} from '@/api/user'
+
+//创建用户小仓库
+const use${BusinessName}Store = defineStore('${BusinessName}', {
+    state: () => {
+        return {
+            tableLoading: true, //表格数据加载loading
+            dataList: { //表格数据
+                list: [],
+                total: 0,
+                page: 1,
+                size: 10,
+            },
+            commonForm: {}, //表单数据
+            searchForm: {}, //搜索表单数据
+        }
+    },
+    actions: {
+        //获取${BusinessName}列表
+        async list(query: any) {
+            const result: any = await list${BusinessName}(query)
+            if (result.code == 200) {
+                this.dataList.list = result.rows
+                this.dataList.total = result.total
+            } else {
+                ElMessage.error({ message: '失败信息: ' + result.msg })
+            }
+        },
+        //添加${BusinessName}
+        async add(data: any) {
+            const result: any = await add${BusinessName}(data)
+            if (result.code == 200) {
+                ElMessage.success({ message: '添加成功' })
+                return Promise.resolve()
+            } else {
+                ElMessage.error({ message: '失败信息: ' + result.msg })
+            }
+        },
+        //删除${BusinessName}
+        async del(userId: any) {
+            const result: any = await del${BusinessName}(userId)
+            if (result.code == 200) {
+                ElMessage.success({ message: '删除成功' })
+                return Promise.resolve()
+            } else {
+                ElMessage.error({ message: '失败信息: ' + result.msg })
+            }
+        },
+        //修改${BusinessName}
+        async update(data: any) {
+            const result: any = await update${BusinessName}(data)
+            if (result.code == 200) {
+                ElMessage.success({ message: '信息修改成功' })
+                return Promise.resolve()
+            } else {
+                ElMessage.error({ message: '失败信息: ' + result.msg })
+            }
+        },
+    },
+    getters: {
+
+    },
+})
+
+//对外暴露获取${BusinessName}小仓库的方法
+export default use${BusinessName}Store

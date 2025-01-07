@@ -31,10 +31,5 @@
         WHERE r.deleted = '0' and ur.user_id = #{userId}
     </select>
 
-    <delete id="deleteByIds">
-        DELETE FROM sys_role WHERE role_id IN
-        <foreach collection="roleIds" item="item" open="(" separator="," close=")">
-            #{item}
-        </foreach>
-    </delete>
+
 </mapper>

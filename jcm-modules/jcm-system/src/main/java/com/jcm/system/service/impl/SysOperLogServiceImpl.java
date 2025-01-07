@@ -51,7 +51,7 @@ public class SysOperLogServiceImpl extends ServiceImpl<SysOperLogMapper, SysOper
 
     @Override
     public int deleteOperLog(List<Long> operIds) {
-        return sysOperLogMapper.deleteByIds(operIds);
+        return sysOperLogMapper.deleteBatchIds(operIds);
     }
 
     @Override

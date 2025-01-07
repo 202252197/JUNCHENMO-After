@@ -37,7 +37,7 @@ public class SysDictDataServiceImpl extends ServiceImpl<SysDictDataMapper, SysDi
 
     @Override
     public int deleteDictData(List<Long> dictDataIds) {
-        return sysDictDataMapper.deleteByIds(dictDataIds);
+        return sysDictDataMapper.deleteBatchIds(dictDataIds);
     }
 
     @Override

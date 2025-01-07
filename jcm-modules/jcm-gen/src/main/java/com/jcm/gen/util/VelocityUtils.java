@@ -52,24 +52,11 @@ public class VelocityUtils
         // 设置模板类型（如 crud, tree, sub）
         velocityContext.put("tplCategory", genTable.getTplCategory());
 
-        // 设置表名
+        // 设置表名 tx_vips
         velocityContext.put("tableName", genTable.getTableName());
 
-        // 设置大写的表名
+        // 设置大写的表名 TX_VIPS
         velocityContext.put("tableNameUC", genTable.getTableName().toUpperCase());
-
-        // 设置前小，后大写的表名
-        String[] split = genTable.getBusinessName().split("_");
-        StringBuffer BusinessNameLCUC = new StringBuffer();
-        if(split.length>1){
-            BusinessNameLCUC.append(split[0].toLowerCase());
-            for (int i = 1; i < split.length; i++){
-                BusinessNameLCUC.append(split[i].substring(0,1).toUpperCase()+split[i].substring(1));
-            }
-        }else{
-            BusinessNameLCUC.append(genTable.getBusinessName().toLowerCase());
-        }
-        velocityContext.put("businessNameLCUC",BusinessNameLCUC);
 
         // 设置前端接口枚举名称
         velocityContext.put("apiEnum", DEFAULT_API_ENUM.replace("***",genTable.getTableName().toUpperCase()));
@@ -199,6 +186,9 @@ public class VelocityUtils
         templates.add("vm/xml/mapper.xml.vm");
 //        templates.add("vm/sql/sql.vm");
         templates.add("vm/ts/api.ts.vm");
+        templates.add("vm/store/indexStore.ts.vm");
+        templates.add(useWebType+"/components/indexAddModal.vue.vm");
+        templates.add(useWebType+"/components/indexUpdateModal.vue.vm");
         if (GenConstants.TPL_CRUD.equals(tplCategory))
         {
             templates.add(useWebType + "/index.vue.vm");

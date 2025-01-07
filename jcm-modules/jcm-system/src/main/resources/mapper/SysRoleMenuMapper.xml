@@ -11,7 +11,7 @@
     </insert>
 
     <!-- 根据角色ID获取菜单ID列表 -->
-    <select id="queryMenuIdsByRoleId" resultType="java.lang.Integer">
+    <select id="queryMenuIdsByRoleId" resultType="Integer">
         select menu_id
         from sys_menu
         where menu_id in
@@ -20,7 +20,7 @@
           and status = 0
     </select>
 
-    <delete id="deleteRoleMenuByRoleId" parameterType="java.lang.Long">
+    <delete id="deleteRoleMenuByRoleId" parameterType="Long">
         delete from sys_role_menu where role_id=#{roleId}
     </delete>
 

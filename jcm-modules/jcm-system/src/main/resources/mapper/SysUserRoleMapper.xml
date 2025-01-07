@@ -10,7 +10,7 @@
     </insert>
 
     <!-- 根据用户ID获取角色ID列表 -->
-    <select id="selectAllocatedList" resultType="java.lang.Integer">
+    <select id="selectAllocatedList" resultType="Integer">
         select role_id
         from sys_role
         where role_id in (
@@ -22,12 +22,12 @@
           and status = 0
     </select>
 
-    <delete id="deleteUserRoleByUserId" parameterType="java.lang.Long">
+    <delete id="deleteUserRoleByUserId" parameterType="Long">
         delete from sys_user_role
         where user_id = #{userId}
     </delete>
 
-    <select id="countUserRoleByRoleId" resultType="java.lang.Integer">
+    <select id="countUserRoleByRoleId" resultType="Integer">
         select count(1) from sys_user_role where role_id=#{roleId}
     </select>
 </mapper>

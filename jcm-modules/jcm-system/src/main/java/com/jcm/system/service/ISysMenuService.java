@@ -84,4 +84,6 @@ public interface ISysMenuService extends IService<SysMenu> {
     String getHomeMenuIcon();
 
     int changeStatusWithChildStatus(SysMenu menu);
+
+    List<SysMenu> selectRouterTreeByUserId(Long userId);
 }

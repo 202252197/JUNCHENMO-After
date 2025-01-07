@@ -23,5 +23,4 @@ public interface SysDictDataMapper extends BaseMapper<SysDictData> {
 
     int deleteByDictTypeIds(@Param("dictTypeIds") List<Long> dictTypeIds);
 
-    int deleteByIds(@Param("dictDataIds") List<Long> dictDataIds);
 }

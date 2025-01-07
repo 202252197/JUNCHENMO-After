@@ -54,9 +54,9 @@ public class SysDictDataController extends PageBaseController {
     @ApiOperation(value = "删除字典值")
     @RequiresPermissions("system:menu:remove")
     @Log(functionName = "删除字典值",businessType= BusinessType.DELETE)
-    @DeleteMapping
+    @DeleteMapping("/{dictDataIds}")
     @PrintParams
-    public AjaxResult remove(@RequestBody List<Long> dictDataIds) {
+    public AjaxResult remove(@PathVariable List<Long> dictDataIds) {
         OperLogCover.deleteLogMsg(BusinessNameConstant.DICT_DATA,dictDataIds.size());
         return toAjax(sysDictDataService.deleteDictData(dictDataIds));
     }

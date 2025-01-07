@@ -1,0 +1,167 @@
+<template>
+  <el-dialog v-model="fromOpenStatus" width="500" :show-close="false">
+    <template #header="{ titleId, titleClass }">
+      <div class="my-header">
+        <h4 :id="titleId" :class="titleClass">新增${businessName}</h4>
+      </div>
+    </template>
+    <el-form :model="${className}.commonForm" label-width="80" :rules="formRules" ref="formRef">
+        #foreach($column in $columns)
+            #set($field=$column.javaField)
+            #if($column.insert && !$column.pk)
+                #if(($column.usableColumn) || (!$column.superColumn))
+                    #set($parentheseIndex=$column.columnComment.indexOf("（"))
+                    #if($parentheseIndex != -1)
+                        #set($comment=$column.columnComment.substring(0, $parentheseIndex))
+                    #else
+                        #set($comment=$column.columnComment)
+                    #end
+                    #set($dictType=$column.dictType)
+                    #if($column.htmlType == "input")
+                      <el-form-item label="${comment}" prop="${field}">
+                        <el-input v-model="${className}.commonForm.${field}" placeholder="请输入${comment}" />
+                      </el-form-item>
+                    #elseif($column.htmlType == "imageUpload")
+                      <el-form-item label="${comment}" prop="${field}">
+                        <image-upload v-model="${className}.commonForm.${field}"/>
+                      </el-form-item>
+                    #elseif($column.htmlType == "fileUpload")
+                      <el-form-item label="${comment}" prop="${field}">
+                        <file-upload v-model="${className}.commonForm.${field}"/>
+                      </el-form-item>
+                    #elseif($column.htmlType == "editor")
+                      <el-form-item label="${comment}">
+                        <editor v-model="${className}.commonForm.${field}" :min-height="192"/>
+                      </el-form-item>
+                    #elseif($column.htmlType == "select" && "" != $dictType)
+                      <el-form-item label="${comment}" prop="${field}">
+                        <el-select v-model="${className}.commonForm.${field}" placeholder="请选择${comment}">
+                          <el-option
+                              v-for="dict in ${dictType}"
+                              :key="dict.value"
+                              :label="dict.label"
+                              #if($column.javaType == "Integer" || $column.javaType == "Long")
+                              :value="parseInt(dict.value)"
+                              #else
+                              :value="dict.value"
+                              #end
+                          ></el-option>
+                        </el-select>
+                      </el-form-item>
+                    #elseif($column.htmlType == "select" && $dictType)
+                      <el-form-item label="${comment}" prop="${field}">
+                        <el-select v-model="${className}.commonForm.${field}" placeholder="请选择${comment}">
+                          <el-option label="请选择字典生成" value="" />
+                        </el-select>
+                      </el-form-item>
+                    #elseif($column.htmlType == "checkbox" && "" != $dictType)
+                      <el-form-item label="${comment}" prop="${field}">
+                        <el-checkbox-group v-model="${className}.commonForm.${field}">
+                          <el-checkbox
+                              v-for="dict in ${dictType}"
+                              :key="dict.value"
+                              :label="dict.value">
+                            {{dict.label}}
+                          </el-checkbox>
+                        </el-checkbox-group>
+                      </el-form-item>
+                    #elseif($column.htmlType == "checkbox" && $dictType)
+                      <el-form-item label="${comment}" prop="${field}">
+                        <el-checkbox-group v-model="${className}.commonForm.${field}">
+                          <el-checkbox>请选择字典生成</el-checkbox>
+                        </el-checkbox-group>
+                      </el-form-item>
+                    #elseif($column.htmlType == "radio" && "" != $dictType)
+                      <el-form-item label="${comment}" prop="${field}">
+                        <el-radio-group v-model="${className}.commonForm.${field}">
+                          <el-radio
+                              v-for="dict in ${dictType}"
+                              :key="dict.value"
+                              #if($column.javaType == "Integer" || $column.javaType == "Long")
+                              :label="parseInt(dict.value)"
+                              #else
+                              :label="dict.value"
+                              #end
+                          >{{dict.label}}</el-radio>
+                        </el-radio-group>
+                      </el-form-item>
+                    #elseif($column.htmlType == "radio" && $dictType)
+                      <el-form-item label="${comment}" prop="${field}">
+                        <el-radio-group v-model="${className}.commonForm.${field}">
+                          <el-radio label="1">请选择字典生成</el-radio>
+                        </el-radio-group>
+                      </el-form-item>
+                    #elseif($column.htmlType == "datetime")
+                      <el-form-item label="${comment}" prop="${field}">
+                        <el-date-picker clearable
+                                        v-model="${className}.commonForm.${field}"
+                                        type="date"
+                                        value-format="YYYY-MM-DD"
+                                        placeholder="请选择${comment}">
+                        </el-date-picker>
+                      </el-form-item>
+                    #elseif($column.htmlType == "textarea")
+                      <el-form-item label="${comment}" prop="${field}">
+                        <el-input v-model="${className}.commonForm.${field}" type="textarea" placeholder="请输入内容" />
+                      </el-form-item>
+                    #end
+                #end
+            #end
+        #end
+    </el-form>
+    <template #footer>
+      <div class="modal-style">
+        <el-button @click="fromOpenStatus = false">取消</el-button>
+        <el-button  type="primary" text bg @click="addItem(formRef)">
+          确认
+        </el-button>
+      </div>
+    </template>
+  </el-dialog>
+</template>
+
+<script setup lang="ts">
+  import type { FormInstance } from 'element-plus'
+  import { formRules } from '../types/form.rules'
+
+  import use${ClassName}Store from '@/store/modules/tool/genCode'
+  //仓库
+  const ${className}Store = use${ClassName}Store();
+  //获取当前组件实例
+  const instance = getCurrentInstance();
+  //表单打开的状态
+  const fromOpenStatus = ref(false)
+  //表单对象引用
+  const formRef = ref<FormInstance>()
+
+  // 打开modal框
+  const open = () => {
+    (instance?.proxy as any).$resetObj(${className}.commonForm)
+    fromOpenStatus.value = true;
+  };
+
+  //点击添加按钮触发的事件
+  const addItem =(formEl: FormInstance | undefined) => {
+    if (!formEl) return
+    formEl.validate((valid) => {
+      if (valid) {
+          ${className}.add(${className}.commonForm).then(() => {
+          const searchQuery = ${className}.searchForm;
+          (instance?.proxy as any).$addPage(searchQuery, ${className}.dataList.page, ${className}.dataList.size);
+          ${className}.list(searchQuery);
+          fromOpenStatus.value = false;
+        })
+      } else {
+        //弹出数据校验失败的message
+        ElMessage.error({ message: '请按提示填写完整' })
+      }
+    })
+  }
+
+
+  defineExpose({ open });
+
+</script>
+
+<style scoped>
+</style>

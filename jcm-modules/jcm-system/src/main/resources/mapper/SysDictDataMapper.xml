@@ -3,7 +3,7 @@
 <mapper namespace="com.jcm.system.mapper.SysDictDataMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.jcm.system.domain.SysDictData">
+    <resultMap id="BaseResultMap" type="SysDictData">
         <id column="dict_data_id" property="dictDataId" />
         <result column="dict_type_id" property="dictTypeId" />
         <result column="name" property="name" />
@@ -71,11 +71,4 @@
         </foreach>
     </delete>
 
-    <delete id="deleteByIds">
-        DELETE FROM sys_dict_data WHERE
-        dict_data_id IN
-        <foreach collection="dictDataIds" item="item" open="(" close=")" separator=",">
-            #{item}
-        </foreach>
-    </delete>
 </mapper>

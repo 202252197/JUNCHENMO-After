@@ -36,7 +36,7 @@ import com.jcm.common.core.web.page.TableDataInfo;
  */
 @Api(tags="${businessName}管理")
 @ApiSupport(author = "202252197@qq.com")
-@BusinessName(title = OperationNameConstants.${ClassName})
+@BusinessName(title = OperationNameConstants.${tableNameUC})
 @AllArgsConstructor
 @RestController
 @RequestMapping("/${businessName}")

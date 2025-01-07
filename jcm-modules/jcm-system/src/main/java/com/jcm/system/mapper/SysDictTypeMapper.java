@@ -19,5 +19,4 @@ public interface SysDictTypeMapper extends BaseMapper<SysDictType> {
 
     ArrayList<SysDictType> selectDictTypeAndExtraAllList();
 
-    int deleteByIds(@Param("dictTypeIds") List<Long> dictTypeIds);
 }

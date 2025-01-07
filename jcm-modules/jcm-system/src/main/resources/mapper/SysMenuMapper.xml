@@ -3,7 +3,7 @@
 <mapper namespace="com.jcm.system.mapper.SysMenuMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="SysMenuResult" type="com.jcm.system.domain.SysMenu">
+    <resultMap id="SysMenuResult" type="SysMenu">
         <id column="menu_id" property="menuId" />
         <result column="name" property="name" />
         <result column="parent_id" property="parentId" />
@@ -63,6 +63,9 @@
                         m.create_time
         FROM sys_menu m
         WHERE m.type IN (0, 1)
+          <if test="visible != null">
+              AND m.visible = 1
+          </if>
           AND m.STATUS = 0
           AND m.deleted = 0
         ORDER BY m.parent_id,
@@ -92,8 +95,11 @@
                  LEFT JOIN sys_role r ON ur.role_id = r.role_id
                  LEFT JOIN sys_user u ON ur.user_id = u.user_id
         WHERE u.user_id = #{userId}
-          and m.type in (0, 1)
-          and m.status = 0
+        <if test="visible != null">
+            AND m.visible = 1
+        </if>
+          And m.type in (0, 1)
+          And m.status = 0
           AND r.status = 0
           AND m.deleted = 0
           AND r.deleted = 0
@@ -105,7 +111,7 @@
         SELECT IFNULL((SELECT MAX(sort) FROM sys_menu WHERE parent_id = #{parentId} ORDER BY sort desc), 0) AS result;
     </select>
 
-    <update id="updateBatchById" parameterType="com.jcm.system.domain.SysMenu" >
+    <update id="updateBatchById" parameterType="SysMenu" >
         UPDATE sys_menu
         SET status = #{status},visible = #{visible}
         WHERE menu_id IN

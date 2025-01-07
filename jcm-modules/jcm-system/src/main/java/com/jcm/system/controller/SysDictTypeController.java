@@ -54,9 +54,9 @@ public class SysDictTypeController extends PageBaseController {
     @ApiOperation(value = "删除字典项")
     @RequiresPermissions("system:menu:remove")
     @Log(functionName = "删除字典项",businessType= BusinessType.DELETE)
-    @DeleteMapping
+    @DeleteMapping("/{dictTypeIds}")
     @PrintParams
-    public AjaxResult remove(@RequestBody List<Long> dictTypeIds) {
+    public AjaxResult remove(@PathVariable List<Long> dictTypeIds) {
         OperLogCover.deleteLogMsg(BusinessNameConstant.DICT_TYPE,dictTypeIds.size());
         return toAjax(sysDictTypeService.deleteDictType(dictTypeIds));
     }

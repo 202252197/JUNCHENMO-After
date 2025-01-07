@@ -3,7 +3,7 @@
 <mapper namespace="com.jcm.system.mapper.SysUserSettingMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.jcm.system.domain.SysUserSetting">
+    <resultMap id="BaseResultMap" type="SysUserSetting">
         <id column="setting_id" property="settingId" />
         <result column="user_id" property="userId" />
         <result column="theme" property="theme" />

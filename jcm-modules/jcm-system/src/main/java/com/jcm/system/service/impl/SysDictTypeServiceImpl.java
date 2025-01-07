@@ -63,7 +63,7 @@ public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDi
     @Override
     public int deleteDictType(List<Long> dictTypeIds) {
         sysDictDataMapper.deleteByDictTypeIds(dictTypeIds);
-        return sysDictTypeMapper.deleteByIds(dictTypeIds);
+        return sysDictTypeMapper.deleteBatchIds(dictTypeIds);
     }
 
     @Transactional(rollbackFor = Exception.class)

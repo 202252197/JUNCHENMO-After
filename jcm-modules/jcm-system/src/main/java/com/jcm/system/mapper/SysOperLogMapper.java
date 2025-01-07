@@ -16,9 +16,6 @@ import java.util.List;
  */
 public interface SysOperLogMapper extends BaseMapper<SysOperLog> {
 
-    int deleteByIds(@Param("operIds") List<Long> operIds);
-
-
     /**
      * 定义方法用于截断（清空）sys_oper_log表
      * @return

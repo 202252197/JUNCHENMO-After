@@ -155,7 +155,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
             }
         }
         sysRoleMenuMapper.deleteByRoleIds(roleIds);
-        return sysRoleMapper.deleteByIds(roleIds);
+        return sysRoleMapper.deleteBatchIds(roleIds);
     }
 
     /**

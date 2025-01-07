@@ -24,16 +24,18 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
 
     /**
      * 查询全部的菜单树
+     * @param visible 是否查询隐藏菜单数据 路由需要，菜单不需要
      * @return 全部的菜单树
      */
-    List<SysMenu> selectMenuTreeAll();
+    List<SysMenu> selectMenuTreeAll(@Param("visible") Boolean visible);
 
     /**
      * 根据用户ID查询所拥有的菜单树
      * @param userId 用户ID
+     * @param visible 是否查询隐藏菜单数据 路由需要，菜单不需要
      * @return 用户拥有的菜单树
      */
-    List<SysMenu> selectMenuTreeByUserId(Long userId);
+    List<SysMenu> selectMenuTreeByUserId(@Param("userId") Long userId,@Param("visible") Boolean visible);
 
     /**
      * 获取新增菜单最后的sort值

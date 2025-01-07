@@ -3,7 +3,7 @@
 <mapper namespace="com.jcm.system.mapper.SysOperLogMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.jcm.system.api.domain.SysOperLog">
+    <resultMap id="BaseResultMap" type="SysOperLog">
         <id column="oper_id" property="operId" />
         <result column="title" property="title" />
         <result column="business_name" property="businessName" />
@@ -28,24 +28,15 @@
         <result column="deleted" property="deleted" />
     </resultMap>
 
-
-    <delete id="deleteByIds">
-        DELETE FROM sys_oper_log WHERE
-        oper_id IN
-        <foreach collection="operIds" item="item" open="(" close=")" separator=",">
-            #{item}
-        </foreach>
-    </delete>
-
-    <select id="nameOptionSelect" resultType="java.lang.String">
+    <select id="nameOptionSelect" resultType="String">
         SELECT oper_name FROM sys_oper_log GROUP BY oper_name
     </select>
 
-    <select id="titleOptionSelect" resultType="java.lang.String">
+    <select id="titleOptionSelect" resultType="String">
         SELECT title FROM sys_oper_log GROUP BY title
     </select>
 
-    <select id="businessNameOptionSelectByTitle" resultType="java.lang.String">
+    <select id="businessNameOptionSelectByTitle" resultType="String">
         SELECT business_name FROM sys_oper_log WHERE title = #{item} GROUP BY business_name
     </select>
 </mapper>

@@ -66,9 +66,9 @@ public class SysRoleController extends PageBaseController {
     @ApiOperation(value = "删除角色")
     @RequiresPermissions("system:role:remove")
     @Log(functionName = "删除角色",businessType= BusinessType.DELETE)
-    @DeleteMapping
+    @DeleteMapping("/{roleIds}")
     @PrintParams
-    public AjaxResult remove(@RequestBody List<Long> roleIds) {
+    public AjaxResult remove(@PathVariable List<Long> roleIds) {
         OperLogCover.deleteLogMsg(BusinessNameConstant.ROLE,roleIds.size());
         return toAjax(sysRoleService.deleteRole(roleIds));
     }

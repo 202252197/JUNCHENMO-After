@@ -52,9 +52,9 @@ public class SysOperLogController extends PageBaseController {
 
     @ApiOperation(value = "删除操作日志")
     @RequiresPermissions("system:menu:remove")
-    @DeleteMapping
+    @DeleteMapping("/{operIds}")
     @PrintParams
-    public AjaxResult remove(@RequestBody List<Long> operIds) {
+    public AjaxResult remove(@PathVariable List<Long> operIds) {
         OperLogCover.deleteLogMsg(BusinessNameConstant.OPERATION_LOG,operIds.size());
         return toAjax( sysOperLogService.deleteOperLog(operIds));
     }

@@ -120,6 +120,13 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
             }
             routers.add(router);
         }
+
+        routers.forEach(routerVo -> {
+            if(routerVo.getChildren()!=null &&routerVo.getChildren().size()>=1){
+                RouterVo routerVoChildren = routerVo.getChildren().get(0);
+                routerVo.setRedirect(routerVoChildren.getPath());
+            }
+        });
         return routers;
     }
 
@@ -134,9 +141,19 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     public List<SysMenu> selectMenuTreeByUserId(Long userId) {
         List<SysMenu> menus = null;
         if (SecurityUtils.isAdmin(userId)) {
-            menus = sysMenuMapper.selectMenuTreeAll();
+            menus = sysMenuMapper.selectMenuTreeAll(true);
         } else {
-            menus = sysMenuMapper.selectMenuTreeByUserId(userId);
+            menus = sysMenuMapper.selectMenuTreeByUserId(userId,true);
+        }
+        return getChildPerms(menus, 0);
+    }
+    @Override
+    public List<SysMenu> selectRouterTreeByUserId(Long userId) {
+        List<SysMenu> menus = null;
+        if (SecurityUtils.isAdmin(userId)) {
+            menus = sysMenuMapper.selectMenuTreeAll(null);
+        } else {
+            menus = sysMenuMapper.selectMenuTreeByUserId(userId,null);
         }
         return getChildPerms(menus, 0);
     }
