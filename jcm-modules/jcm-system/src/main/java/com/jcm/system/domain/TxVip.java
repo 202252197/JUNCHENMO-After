@@ -15,9 +15,9 @@ import java.util.Date;
 
 /**
  * vip对象 tx_vip
- *
+ * 
  * @author lvshihao
- * @date 2025-01-07
+ * @date 2025-01-10
  */
 
 @Data
@@ -30,7 +30,8 @@ public class TxVip extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 会员id */
-    @TableId( type = IdType.AUTO)
+    @TableId(type = IdType.AUTO)
+    @ExcelProperty(value = "${comment}")
     private Long vipId;
 
     /** 咸鱼名称 */
@@ -56,7 +57,6 @@ public class TxVip extends BaseEntity
     private String unitType;
 
     /** 状态(0在用，1下线) */
-    @ExcelProperty(value = "状态(0在用，1下线)")
     private String status;
 
     /** 登录方式（QQ或微信） */
@@ -64,7 +64,6 @@ public class TxVip extends BaseEntity
     private String loginMethod;
 
     /** 登录账号 */
-    @ExcelProperty(value = "登录账号")
     private String loginAccount;
 
 

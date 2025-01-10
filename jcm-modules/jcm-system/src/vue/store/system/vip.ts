@@ -1,11 +1,11 @@
-//创建${BusinessName}相关的小仓库
+//创建Vip相关的小仓库
 import { defineStore } from 'pinia'
 
 //导入请求
-import { list${BusinessName},get${BusinessName},add${BusinessName},update${BusinessName},del${BusinessName}} from '@/api/${businessName}/${functionName}'
+import { listVip,getVip,addVip,updateVip,delVip} from '@/api/vip/vip'
 
 //创建用户小仓库
-const use${BusinessName}Store = defineStore('${BusinessName}', {
+const useVipStore = defineStore('Vip', {
     state: () => {
         return {
             dictData: [], //字典数据数组
@@ -18,31 +18,28 @@ const use${BusinessName}Store = defineStore('${BusinessName}', {
                 size: 10,
             },
             commonForm: {
-    #foreach($column in $columns)
-        #set($field=$column.javaField)
-        #if($column.insert || $column.edit)
-            #if(($column.usableColumn) || (!$column.superColumn))
-                $column.javaField : undefined,
-            #end
-        #end
-    #end
+                vipId : undefined,
+                xyName : undefined,
+                startingTime : undefined,
+                stopingTime : undefined,
+                purchaseDays : undefined,
+                unitType : undefined,
+                loginMethod : undefined,
             }, //表单数据
             searchForm: {
-    #foreach($column in $columns)
-        #set($field=$column.javaField)
-        #if($column.query)
-            #if(($column.usableColumn) || (!$column.superColumn))
-                 $column.javaField : undefined,
-            #end
-        #end
-    #end
+                 xyName : undefined,
+                 startingTime : undefined,
+                 stopingTime : undefined,
+                 purchaseDays : undefined,
+                 unitType : undefined,
+                 loginMethod : undefined,
             }, //搜索表单数据
         }
     },
     actions: {
-        //获取${BusinessName}列表
+        //获取Vip列表
         async list(query: any) {
-            const result: any = await list${BusinessName}(query)
+            const result: any = await listVip(query)
             if (result.code == 200) {
                 this.dataList.list = result.rows
                 this.dataList.total = result.total
@@ -50,9 +47,9 @@ const use${BusinessName}Store = defineStore('${BusinessName}', {
                 ElMessage.error({ message: '失败信息: ' + result.msg })
             }
         },
-        //添加${BusinessName}
+        //添加Vip
         async add(data: any) {
-            const result: any = await add${BusinessName}(data)
+            const result: any = await addVip(data)
             if (result.code == 200) {
                 ElMessage.success({ message: '添加成功' })
                 return Promise.resolve()
@@ -60,9 +57,9 @@ const use${BusinessName}Store = defineStore('${BusinessName}', {
                 ElMessage.error({ message: '失败信息: ' + result.msg })
             }
         },
-        //删除${BusinessName}
-        async del(${pkColumn.javaField}: any) {
-            const result: any = await del${BusinessName}(${pkColumn.javaField})
+        //删除Vip
+        async del(vipId: any) {
+            const result: any = await delVip(vipId)
             if (result.code == 200) {
                 ElMessage.success({ message: '删除成功' })
                 return Promise.resolve()
@@ -70,9 +67,9 @@ const use${BusinessName}Store = defineStore('${BusinessName}', {
                 ElMessage.error({ message: '失败信息: ' + result.msg })
             }
         },
-        //修改${BusinessName}
+        //修改Vip
         async update(data: any) {
-            const result: any = await update${BusinessName}(data)
+            const result: any = await updateVip(data)
             if (result.code == 200) {
                 ElMessage.success({ message: '信息修改成功' })
                 return Promise.resolve()
@@ -86,5 +83,5 @@ const use${BusinessName}Store = defineStore('${BusinessName}', {
     },
 })
 
-//对外暴露获取${BusinessName}小仓库的方法
-export default use${BusinessName}Store
+//对外暴露获取Vip小仓库的方法
+export default useVipStore

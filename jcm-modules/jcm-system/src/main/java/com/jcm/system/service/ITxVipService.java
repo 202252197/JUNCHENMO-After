@@ -1,20 +1,19 @@
 package com.jcm.system.service;
 
-import com.jcm.system.domain.TxVip;
-
 import java.util.List;
+import com.jcm.system.domain.TxVip;
 
 /**
  * vipService接口
- *
+ * 
  * @author lvshihao
- * @date 2025-01-07
+ * @date 2025-01-10
  */
-public interface ITxVipService
+public interface ITxVipService 
 {
     /**
      * 查询vip
-     *
+     * 
      * @param vipId vip主键
      * @return vip
      */
@@ -22,7 +21,7 @@ public interface ITxVipService
 
     /**
      * 查询vip列表
-     *
+     * 
      * @param txVip vip
      * @return vip集合
      */
@@ -30,7 +29,7 @@ public interface ITxVipService
 
     /**
      * 新增vip
-     *
+     * 
      * @param txVip vip
      * @return 结果
      */
@@ -38,7 +37,7 @@ public interface ITxVipService
 
     /**
      * 修改vip
-     *
+     * 
      * @param txVip vip
      * @return 结果
      */
@@ -46,7 +45,7 @@ public interface ITxVipService
 
     /**
      * 批量删除vip
-     *
+     * 
      * @param vipIds 需要删除的vip主键集合
      * @return 结果
      */
@@ -54,7 +53,7 @@ public interface ITxVipService
 
     /**
      * 删除vip信息
-     *
+     * 
      * @param vipId vip主键
      * @return 结果
      */

@@ -30,3 +30,138 @@
 09:17:01.382 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
 09:17:01.385 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
 09:17:01.386 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
+09:20:23.062 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+09:41:51.564 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:05:56.161 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:06:06.965 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:06:13.781 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:09:13.238 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:09:19.210 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:24:03.264 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/vip/
+10:24:33.914 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:30:02.017 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:48:08.623 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:49:08.505 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:55:58.685 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:56:02.131 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:56:04.010 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:56:08.485 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:56:11.342 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:56:17.234 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+11:17:06.212 [lettuce-eventExecutorLoop-3-8] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+11:17:06.287 [lettuce-nioEventLoop-5-3] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+11:17:06.311 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+11:17:24.907 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+11:44:30.836 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+11:45:34.303 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/vip/
+12:19:16.193 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:22:17.687 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:22:30.793 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:35:13.345 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:35:55.530 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:36:43.966 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:36:58.644 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:42:44.567 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:42:50.303 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:43:12.877 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:43:31.082 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:43:38.285 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:57:03.365 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:57:08.261 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:57:11.493 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:57:26.207 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:57:46.934 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:57:50.735 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:58:19.274 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+13:17:28.920 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+13:17:29.012 [lettuce-nioEventLoop-5-3] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+13:17:29.090 [lettuce-eventExecutorLoop-3-8] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+13:17:29.143 [lettuce-nioEventLoop-5-4] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+13:17:29.153 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+13:17:43.947 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+13:53:13.180 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+14:41:38.062 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+14:42:05.061 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+14:42:07.769 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+14:42:37.682 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+14:45:07.361 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+14:45:46.770 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+15:05:17.384 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+15:05:36.490 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+15:17:29.732 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:17:29.787 [lettuce-eventExecutorLoop-3-8] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+15:17:29.857 [lettuce-nioEventLoop-5-5] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+15:17:29.871 [lettuce-nioEventLoop-5-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+15:18:03.652 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:19:39.005 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:49:49.939 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+16:42:12.395 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+16:55:21.134 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+16:56:39.407 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+16:58:06.485 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+16:58:58.153 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:00:20.484 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:17:34.626 [lettuce-nioEventLoop-5-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+17:17:34.625 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+17:17:34.729 [lettuce-eventExecutorLoop-3-5] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+17:17:34.835 [lettuce-nioEventLoop-5-6] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+17:17:34.849 [lettuce-nioEventLoop-5-6] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+17:18:23.553 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+17:19:58.683 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+17:34:40.742 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:34:47.487 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:42:11.954 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:47:08.830 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:47:58.047 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:48:04.516 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:54:15.655 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:54:27.456 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:39:15.602 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:41:05.204 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:52:12.631 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:55:23.900 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:55:32.863 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:55:42.501 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:56:32.317 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:56:38.867 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:56:46.333 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:56:59.536 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:59:03.976 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:59:13.368 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:59:21.481 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:59:26.681 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+19:01:50.495 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+19:04:06.270 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+19:04:06.325 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+19:04:19.520 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+19:04:19.544 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+19:04:19.751 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+19:04:19.752 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+19:04:22.915 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+19:04:32.456 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+19:04:32.456 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+19:04:32.579 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
+19:04:32.702 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
+19:04:32.723 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 14.888 seconds (JVM running for 16.872)
+19:04:32.731 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
+19:04:32.733 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
+19:04:32.734 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP

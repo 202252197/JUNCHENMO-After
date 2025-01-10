@@ -15,3 +15,146 @@
 08:47:08.687 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-auth, group=DEFAULT_GROUP
 08:47:08.688 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-auth.yml, group=DEFAULT_GROUP
 08:47:09.667 [RMI TCP Connection(11)-192.168.0.5] INFO  o.a.c.c.C.[.[.[/] - [log,173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10:47:14.319 [lettuce-eventExecutorLoop-1-7] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+10:47:14.399 [lettuce-nioEventLoop-4-3] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+10:47:14.414 [lettuce-nioEventLoop-4-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+10:49:23.389 [lettuce-nioEventLoop-4-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+10:52:23.395 [lettuce-nioEventLoop-4-2] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+10:52:23.408 [lettuce-nioEventLoop-4-2] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+10:52:23.499 [lettuce-eventExecutorLoop-1-8] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+10:52:23.513 [lettuce-nioEventLoop-4-4] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+10:52:23.518 [lettuce-nioEventLoop-4-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+12:47:36.338 [lettuce-nioEventLoop-4-3] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+12:47:36.397 [lettuce-nioEventLoop-4-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+12:47:36.415 [lettuce-eventExecutorLoop-1-9] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+12:47:36.500 [lettuce-nioEventLoop-4-5] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+12:47:36.510 [lettuce-nioEventLoop-4-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+12:49:46.391 [lettuce-nioEventLoop-4-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+12:52:46.590 [lettuce-nioEventLoop-4-4] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+12:52:46.595 [lettuce-nioEventLoop-4-2] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+12:52:46.600 [lettuce-nioEventLoop-4-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+12:52:46.602 [lettuce-eventExecutorLoop-1-10] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+12:52:46.617 [lettuce-nioEventLoop-4-6] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+12:52:46.624 [lettuce-nioEventLoop-4-6] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+14:47:56.435 [lettuce-nioEventLoop-4-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+14:47:56.486 [lettuce-nioEventLoop-4-5] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+14:47:56.538 [lettuce-nioEventLoop-4-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+14:47:56.610 [lettuce-eventExecutorLoop-1-11] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+14:47:56.691 [lettuce-nioEventLoop-4-7] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+14:47:56.703 [lettuce-nioEventLoop-4-7] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+14:51:56.866 [lettuce-nioEventLoop-4-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+14:52:47.802 [lettuce-nioEventLoop-4-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+14:52:47.877 [lettuce-nioEventLoop-4-6] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+14:52:47.898 [lettuce-eventExecutorLoop-1-12] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+14:52:47.969 [lettuce-nioEventLoop-4-8] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+14:52:47.981 [lettuce-nioEventLoop-4-8] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+14:54:57.151 [lettuce-nioEventLoop-4-2] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+16:48:16.125 [lettuce-nioEventLoop-4-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+16:48:16.125 [lettuce-nioEventLoop-4-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+16:48:16.164 [lettuce-nioEventLoop-4-7] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+16:48:16.246 [lettuce-nioEventLoop-4-7] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+16:48:16.304 [lettuce-eventExecutorLoop-1-13] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+16:48:16.375 [lettuce-nioEventLoop-4-9] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+16:48:16.389 [lettuce-nioEventLoop-4-9] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+16:52:16.372 [lettuce-nioEventLoop-4-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+16:52:52.517 [lettuce-nioEventLoop-4-8] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+16:52:52.600 [lettuce-eventExecutorLoop-1-14] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+16:52:52.636 [lettuce-nioEventLoop-4-10] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+16:52:52.638 [lettuce-nioEventLoop-4-10] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+16:53:11.445 [lettuce-nioEventLoop-4-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+16:55:01.853 [lettuce-nioEventLoop-4-6] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.

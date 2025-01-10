@@ -47,7 +47,7 @@
                       <el-form-item label="${comment}" prop="${field}">
                         <el-select v-model="${className}Store.commonForm.${field}" placeholder="请选择${comment}" clearable>
                           <el-option
-                              v-for="dict in ${dictType}"
+                              v-for="dict in loadDictDataByName('${dictType}')"
                               :key="dict.value"
                               :label="dict.label"
                               #if($column.javaType == "Integer" || $column.javaType == "Long")

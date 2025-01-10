@@ -1,5 +1,8 @@
 package ${packageName}.domain;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.alibaba.excel.annotation.ExcelIgnoreUnannotated;
 import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.AllArgsConstructor;
@@ -25,6 +28,7 @@ import com.ruoyi.common.core.web.domain.TreeEntity;
 @NoArgsConstructor
 @AllArgsConstructor
 @ExcelIgnoreUnannotated
+@TableName("${tableName}")
 #if($table.crud)
 #set($Entity="BaseEntity")
 #elseif($table.tree)
@@ -45,6 +49,10 @@ public class ${ClassName} extends ${Entity}
 #else
     @ExcelProperty(value = "${comment}")
 #end
+#end
+#if($column.javaField == $pkColumn.javaField)
+    @TableId(type = IdType.AUTO)
+    @ExcelProperty(value = "${comment}")
 #end
     private $column.javaType $column.javaField;
 
