@@ -2,6 +2,9 @@ package com.jcm.system.domain;
 
 import com.alibaba.excel.annotation.ExcelIgnoreUnannotated;
 import com.alibaba.excel.annotation.ExcelProperty;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jcm.common.core.domain.BaseEntity;
 import lombok.AllArgsConstructor;
@@ -21,11 +24,13 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ExcelIgnoreUnannotated
+@TableName("tx_vip")
 public class TxVip extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
     /** 会员id */
+    @TableId( type = IdType.AUTO)
     private Long vipId;
 
     /** 咸鱼名称 */

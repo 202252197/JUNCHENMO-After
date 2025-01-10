@@ -31,7 +31,7 @@ public class VelocityUtils
     private static final String DEFAULT_PARENT_MENU_ID = "3";
 
     /** 前端接口枚举内容 */
-    private static final String DEFAULT_API_ENUM = "${API_ENUM.SERVER_NAME.***}";
+    private static final String DEFAULT_API_ENUM = "${API_ENUM.SERVER_MODE_NAME.***}";
 
     /**
      * 设置模板变量信息
@@ -114,10 +114,7 @@ public class VelocityUtils
         {
             setTreeVelocityContext(velocityContext, genTable);
         }
-        if (GenConstants.TPL_SUB.equals(tplCategory))
-        {
-            setSubVelocityContext(velocityContext, genTable);
-        }
+
         return velocityContext;
     }
 
@@ -151,24 +148,6 @@ public class VelocityUtils
         }
     }
 
-    public static void setSubVelocityContext(VelocityContext context, GenTable genTable)
-    {
-        GenTable subTable = genTable.getSubTable();
-        String subTableName = genTable.getSubTableName();
-        String subTableFkName = genTable.getSubTableFkName();
-        String subClassName = genTable.getSubTable().getClassName();
-        String subTableFkClassName = StringUtils.convertToCamelCase(subTableFkName);
-
-        context.put("subTable", subTable);
-        context.put("subTableName", subTableName);
-        context.put("subTableFkName", subTableFkName);
-        context.put("subTableFkClassName", subTableFkClassName);
-        context.put("subTableFkclassName", StringUtils.uncapitalize(subTableFkClassName));
-        context.put("subClassName", subClassName);
-        context.put("subclassName", StringUtils.uncapitalize(subClassName));
-        context.put("subImportList", getImportList(genTable.getSubTable()));
-    }
-
     /**
      * 获取模板信息
      * @param tplCategory 生成的模板
@@ -197,11 +176,6 @@ public class VelocityUtils
 //        {
 //            templates.add(useWebType + "/index-tree.vue.vm");
 //        }
-//        else if (GenConstants.TPL_SUB.equals(tplCategory))
-//        {
-//            templates.add(useWebType + "/index.vue.vm");
-//            templates.add("vm/java/sub-domain.java.vm");
-//        }
         return templates;
     }
 
@@ -229,11 +203,7 @@ public class VelocityUtils
         {
             fileName = StringUtils.format("{}/domain/{}.java", javaPath, className);
         }
-        if (template.contains("sub-domain.java.vm") && StringUtils.equals(GenConstants.TPL_SUB, genTable.getTplCategory()))
-        {
-            fileName = StringUtils.format("{}/domain/{}.java", javaPath, genTable.getSubTable().getClassName());
-        }
-        else if (template.contains("mapper.java.vm"))
+        if (template.contains("mapper.java.vm"))
         {
             fileName = StringUtils.format("{}/mapper/{}Mapper.java", javaPath, className);
         }
@@ -259,7 +229,19 @@ public class VelocityUtils
         }
         else if (template.contains("api.ts.vm"))
         {
-            fileName = StringUtils.format("{}/api/{}/{}.js", vuePath, moduleName, businessName);
+            fileName = StringUtils.format("{}/api/{}/index.ts", vuePath, moduleName, businessName);
+        }
+        else if (template.contains("indexStore.ts.vm"))
+        {
+            fileName = StringUtils.format("{}/store/{}/{}.ts", vuePath, moduleName, businessName);
+        }
+        else if (template.contains("indexAddModal.vue.vm"))
+        {
+            fileName = StringUtils.format("{}/views/{}/{}/components/{}-add-from-modal.vue", vuePath, moduleName, businessName,genTable.getTableName().replace("_","-"));
+        }
+        else if (template.contains("indexUpdateModal.vue.vm"))
+        {
+            fileName = StringUtils.format("{}/views/{}/{}/components/{}-update-from-modal.vue", vuePath, moduleName, businessName,genTable.getTableName().replace("_","-"));
         }
         else if (template.contains("index.vue.vm"))
         {
@@ -293,12 +275,7 @@ public class VelocityUtils
     public static HashSet<String> getImportList(GenTable genTable)
     {
         List<GenTableColumn> columns = genTable.getColumns();
-        GenTable subGenTable = genTable.getSubTable();
         HashSet<String> importList = new HashSet<String>();
-        if (StringUtils.isNotNull(subGenTable))
-        {
-            importList.add("java.util.List");
-        }
         for (GenTableColumn column : columns)
         {
             if (!column.isSuperColumn() && GenConstants.TYPE_DATE.equals(column.getJavaType()))
@@ -325,11 +302,6 @@ public class VelocityUtils
         List<GenTableColumn> columns = genTable.getColumns();
         Set<String> dicts = new HashSet<String>();
         addDicts(dicts, columns);
-        if (StringUtils.isNotNull(genTable.getSubTable()))
-        {
-            List<GenTableColumn> subColumns = genTable.getSubTable().getColumns();
-            addDicts(dicts, subColumns);
-        }
         return StringUtils.join(dicts, ", ");
     }
 

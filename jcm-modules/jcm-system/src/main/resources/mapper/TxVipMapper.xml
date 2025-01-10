@@ -20,18 +20,5 @@
         select vip_id, xy_name, starting_time, stoping_time, purchase_days, unit_type, status, login_method, login_account from tx_vip
     </sql>
 
-    <select id="selectTxVipList" parameterType="TxVip" resultMap="TxVipResult">
-        <include refid="selectTxVipVo"/>
-        <where>
-            <if test="xyName != null  and xyName != ''"> and xy_name like concat('%', #{xyName}, '%')</if>
-            <if test="startingTime != null "> and starting_time = #{startingTime}</if>
-            <if test="stopingTime != null "> and stoping_time = #{stopingTime}</if>
-            <if test="purchaseDays != null  and purchaseDays != ''"> and purchase_days = #{purchaseDays}</if>
-            <if test="unitType != null  and unitType != ''"> and unit_type = #{unitType}</if>
-            <if test="status != null  and status != ''"> and status = #{status}</if>
-            <if test="loginMethod != null  and loginMethod != ''"> and login_method = #{loginMethod}</if>
-            <if test="loginAccount != null  and loginAccount != ''"> and login_account = #{loginAccount}</if>
-        </where>
-    </select>
 
 </mapper>

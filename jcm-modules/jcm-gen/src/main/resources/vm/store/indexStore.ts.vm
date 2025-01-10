@@ -2,12 +2,14 @@
 import { defineStore } from 'pinia'
 
 //导入请求
-import { list${BusinessName},get${BusinessName},add${BusinessName},update${BusinessName},del${BusinessName}} from '@/api/user'
+import { list${BusinessName},get${BusinessName},add${BusinessName},update${BusinessName},del${BusinessName}} from '@/api/${businessName}/${functionName}'
 
 //创建用户小仓库
 const use${BusinessName}Store = defineStore('${BusinessName}', {
     state: () => {
         return {
+            dictData: [], //字典数据数组
+            multipleSelection:[], //选的数据列表
             tableLoading: true, //表格数据加载loading
             dataList: { //表格数据
                 list: [],
@@ -15,8 +17,26 @@ const use${BusinessName}Store = defineStore('${BusinessName}', {
                 page: 1,
                 size: 10,
             },
-            commonForm: {}, //表单数据
-            searchForm: {}, //搜索表单数据
+            commonForm: {
+    #foreach($column in $columns)
+        #set($field=$column.javaField)
+        #if($column.insert && !$column.pk)
+            #if(($column.usableColumn) || (!$column.superColumn))
+                $column.javaField : undefined,
+            #end
+        #end
+    #end
+            }, //表单数据
+            searchForm: {
+    #foreach($column in $columns)
+        #set($field=$column.javaField)
+        #if($column.query)
+            #if(($column.usableColumn) || (!$column.superColumn))
+                 $column.javaField : undefined
+            #end
+        #end
+    #end
+            }, //搜索表单数据
         }
     },
     actions: {
@@ -41,8 +61,8 @@ const use${BusinessName}Store = defineStore('${BusinessName}', {
             }
         },
         //删除${BusinessName}
-        async del(userId: any) {
-            const result: any = await del${BusinessName}(userId)
+        async del(${pkColumn.javaField}: any) {
+            const result: any = await del${BusinessName}(${pkColumn.javaField})
             if (result.code == 200) {
                 ElMessage.success({ message: '删除成功' })
                 return Promise.resolve()

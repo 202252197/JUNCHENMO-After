@@ -65,5 +65,53 @@ public interface IGenTableService extends IService<GenTable> {
      */
     public void importGenTable(List<GenTable> tableList);
 
+    /**
+     * 查询业务信息
+     *
+     * @param id 业务ID
+     * @return 业务信息
+     */
+    public GenTable selectGenTableById(Long id);
+
+    /**
+     * 修改保存参数校验
+     *
+     * @param genTable 业务信息
+     */
+    public void validateEdit(GenTable genTable);
+
+    /**
+     * 修改业务
+     *
+     * @param genTable 业务信息
+     * @return 结果
+     */
+    public void updateGenTable(GenTable genTable);
+
+    /**
+     * 同步数据库
+     *
+     * @param tableName 表名称
+     */
+    public void synchDb(String tableName);
+
+    /**
+     * 批量生成代码（下载方式）
+     *
+     * @param tableNames 表数组
+     * @return 数据
+     */
+    public byte[] downloadCode(String[] tableNames);
+
+
+
+    /**
+     * 生成代码（自定义路径）
+     *
+     * @param tableName 表名称
+     * @return 数据
+     */
+    public void generatorCode(String tableName);
+
 
 }

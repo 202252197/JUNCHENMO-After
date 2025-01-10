@@ -1,19 +1,22 @@
 package com.jcm.system.service.impl;
 
-import java.util.List;
-import java.util.Arrays;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.jcm.common.core.utils.StringUtils;
+import com.jcm.system.domain.TxVip;
+import com.jcm.system.mapper.TxVipMapper;
+import com.jcm.system.service.ITxVipService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import com.jcm.system.mapper.TxVipMapper;
-import com.jcm.system.domain.TxVip;
-import com.jcm.system.service.ITxVipService;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * vipService业务层处理
  *
  * @author lvshihao
- * @date 2025-01-07
+ * @date 2025-01-10
  */
 @Service
 @AllArgsConstructor
@@ -42,7 +45,10 @@ public class TxVipServiceImpl extends ServiceImpl<TxVipMapper, TxVip> implements
         @Override
         public List<TxVip> selectTxVipList(TxVip txVip)
         {
-                return txVipMapper.selectTxVipList(txVip);
+                LambdaQueryWrapper<TxVip> queryWrapper = new LambdaQueryWrapper<>();
+                queryWrapper.select(TxVip::getVipId, TxVip::getXyName, TxVip::getStartingTime, TxVip::getStopingTime, TxVip::getPurchaseDays, TxVip::getUnitType, TxVip::getStatus, TxVip::getLoginMethod,  TxVip::getLoginAccount );
+                queryWrapper.like( StringUtils.isNotEmpty(txVip.getXyName()) , TxVip::getXyName, txVip.getXyName());
+                return txVipMapper.selectList(queryWrapper);
         }
 
         /**

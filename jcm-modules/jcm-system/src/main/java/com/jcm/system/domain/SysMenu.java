@@ -22,7 +22,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_menu")
-public class SysMenu extends BaseEntity  implements Serializable {
+public class SysMenu extends BaseEntity{
 
     private static final long serialVersionUID = 1L;
 

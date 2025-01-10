@@ -7,8 +7,6 @@ import com.jcm.common.core.domain.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.io.Serializable;
-
 /**
  * <p>
  * 
@@ -20,7 +18,7 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_role")
-public class SysRole extends BaseEntity implements Serializable {
+public class SysRole extends BaseEntity{
 
     private static final long serialVersionUID = 1L;
 

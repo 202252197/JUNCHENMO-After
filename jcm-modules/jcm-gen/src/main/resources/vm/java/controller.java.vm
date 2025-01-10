@@ -29,7 +29,7 @@ import com.jcm.common.core.web.page.TableDataInfo;
 #end
 
 /**
- * ${functionName}Controller
+ * ${businessName}Controller
  *
  * @author ${author}
  * @date ${datetime}

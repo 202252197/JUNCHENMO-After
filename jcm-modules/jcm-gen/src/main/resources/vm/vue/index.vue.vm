@@ -20,7 +20,7 @@
           v-model="${className}Store.searchForm.${column.javaField}"
           placeholder="请输入${comment}"
           clearable
-          @keyup.enter="handleQuery"
+          @keyup.enter="refresh"
         />
       </el-form-item>
 #elseif(($column.htmlType == "select" || $column.htmlType == "radio") && "" != $dictType)
@@ -69,7 +69,7 @@
                 <svg-icon name="擦除" />
               </template>
             </JcmButton>
-            <JcmButton :buttonBgColor="layoutSettingStore.getTheme" @click="searchList()">
+            <JcmButton :buttonBgColor="layoutSettingStore.getTheme" @click="refresh()">
               <template #icon>
                 <svg-icon name="搜索" />
               </template>
@@ -91,7 +91,7 @@
                 <svg-icon name="导出excel"  />
               </template>
             </JcmButton>
-            <JcmButton :buttonBgColor="layoutSettingStore.getTheme" @click="add()">
+            <JcmButton :buttonBgColor="layoutSettingStore.getTheme" @click="${businessName}AddFromModal?.open()">
               <template #icon>
                 <svg-icon name="加号" />
               </template>
@@ -123,23 +123,13 @@
               #elseif($column.list && $column.htmlType == "datetime")
                 <el-table-column label="${comment}" align="center" prop="${javaField}" width="180">
                   <template #default="scope">
-                    <span>{{ parseTime(scope.row.${javaField}, '{y}-{m}-{d}') }}</span>
+                    <span>{{ scope.row.${javaField} }}</span>
                   </template>
                 </el-table-column>
               #elseif($column.list && $column.htmlType == "imageUpload")
                 <el-table-column label="${comment}" align="center" prop="${javaField}" width="100">
                   <template #default="scope">
                     <image-preview :src="scope.row.${javaField}" :width="50" :height="50"/>
-                  </template>
-                </el-table-column>
-              #elseif($column.list && "" != $column.dictType)
-                <el-table-column label="${comment}" align="center" prop="${javaField}">
-                  <template #default="scope">
-                      #if($column.htmlType == "checkbox")
-                        <dict-tag :options="${column.dictType}" :value="scope.row.${javaField} ? scope.row.${javaField}.split(',') : []"/>
-                      #else
-                        <dict-tag :options="${column.dictType}" :value="scope.row.${javaField}"/>
-                      #end
                   </template>
                 </el-table-column>
               #elseif($column.list && "" != $javaField)
@@ -149,7 +139,7 @@
 
         <el-table-column align="center" label="操作">
           <template #default="scope">
-            <el-button size="small" type="primary" @click="PreviewCodeModal?.open()" text>
+            <el-button size="small" type="primary" @click="${businessName}UpdateFromModal?.open(scope.row)" text>
               编辑
             </el-button>
             <el-button size="small" type="primary" @click="deleteItem(scope.row)" text>
@@ -169,51 +159,56 @@
       </template>
     </el-card>
 
-    <!-- 添加或修改${functionName}对话框 -->
-    <el-dialog :title="title" v-model="open" width="500px" append-to-body>
-      <el-form ref="${businessName}Ref" :model="form" :rules="rules" label-width="80px">
-
-      </el-form>
-      <template #footer>
-        <div class="dialog-footer">
-          <el-button type="primary" @click="submitForm">确 定</el-button>
-          <el-button @click="cancel">取 消</el-button>
-        </div>
-      </template>
-    </el-dialog>
+    <${BusinessName}AddFromModal ref="${businessName}AddFromModal"></${BusinessName}AddFromModal>
+    <${BusinessName}UpdateFromModal ref="${businessName}UpdateFromModal"></${BusinessName}UpdateFromModal>
   </div>
 </template>
 
 <script setup lang="ts">
 import type { FormInstance } from 'element-plus'
 import type { FromModal } from '@/utils/commonType'
+import API_ENUM from '@/enum/api-enum'
+//弹出窗
+import ${BusinessName}AddFromModal from './components/${businessName}-add-from-modal.vue'
+import ${BusinessName}UpdateFromModal from './components/${businessName}-update-from-modal.vue'
 //仓库
+import useDictDataStore from '@/store/modules/acl/dictData'
 import useLayoutSettingStore from '@/store/modules/layout/layoutSetting'
-import use${ClassName}Store from '@/store/modules/tool/genCode'
+import use${ClassName}Store from '@/store/modules/${businessName}/${functionName}'
 
+const dictDataStore = useDictDataStore()
 const layoutSettingStore = useLayoutSettingStore();
 const ${className}Store = use${ClassName}Store();
+
+//${businessName}弹出窗对象
+const ${businessName}AddFromModal = ref<FromModal>()
+const ${businessName}UpdateFromModal = ref<FromModal>()
+
 //获取当前组件实例
 const instance = getCurrentInstance();
 //表单对象
 const searchFormRef = ref<FormInstance>();
 
 onMounted(() => {
-  instance?.proxy?.$resetObj(${businessNameLCUC}Store.searchForm});
+  const searchForm = ${className}Store.searchForm;
+  instance?.proxy?.$resetObj(searchForm);
   //进入页面初始化的数据 手动触发更新页数的逻辑
   handleSizeChange(Number(layoutSettingStore.setting.size));
+
+  //初始化字典数据
+  loadDictData()
 })
 
 
 //页码变更触发的方法
 const handleCurrentChange = (currentPage: number) => {
-  ${className}Store.dataList.page} = currentPage
+  ${className}Store.dataList.page = currentPage
   refresh();
 }
 
 //页数切换触发的事件
 const handleSizeChange = (pageSize: number) => {
-  ${className}Store.dataList.size} = pageSize
+  ${className}Store.dataList.size = pageSize
   refresh();
 }
 
@@ -222,40 +217,68 @@ const handleSelectionChange = (val: []) => {
    ${className}Store.multipleSelection = val
 }
 
-//删除操作日志触发的事件
+//删除${className}触发的事件
 const deleteItem = (item: any) => {
         ${className}Store
-      .deleteOperationLog([item.operId])
+      .del(item.${pkColumn.javaField})
       .then(() => {
         refresh();
       })
 }
 
-//删除多个操作日志触发的事件
+//删除多个${className}触发的事件
 const deleteItems = () => {
-  const operIds = ${className}Store.multipleSelection.map((item: any) => item.operId);
-  if(operIds.length == 0){
+  if(${className}Store.multipleSelection.length == 0){
     ElMessage.warning({ message: '请选择要删除的数据' })
     return;
   }
-  operationLogStore.deleteOperationLog(operIds).then(() => {
+  const ${pkColumn.javaField}s = ${className}Store.multipleSelection.map((item: any) => item.${pkColumn.javaField}).join(',');
+  ${className}Store.del(${pkColumn.javaField}s).then(() => {
     refresh();
   })
 }
 
 //刷新数据方法
 const refresh = () => {
-  const searchQuery = ${className}Store.searchForm};
-  (instance?.proxy as any).$addPage(searchQuery, ${className}Store.dataList.page}, ${className}Store.dataList.size});
+  const searchQuery = ${className}Store.searchForm;
+  const page = ${className}Store.dataList.page;
+  const size =  ${className}Store.dataList.size;
+  (instance?.proxy as any).$addPage(searchQuery,page,size);
   ${className}Store.list(searchQuery);
 }
 
 //导出操作日志数据
 const exportData = () => {
   const searchQuery=${className}Store.searchForm;
-  (instance?.proxy as any).$download(`${apiEnum}/export`, {
+  const url = `${apiEnum}/export`;
+  (instance?.proxy as any).$download(url, {
     ...searchQuery,
   },`${businessName}_#[[${new Date().getTime()}]]#.xlsx`);
 }
 
+//加载所需要的字典数据
+const loadDictData = () => {
+  const dictNamesStr = '#foreach($column in $columns)#if("" != $column.dictType)$column.dictType,#end#end';
+  const dictNames = dictNamesStr.substring(0,dictNamesStr.length-1).split(",");
+  dictDataStore
+      .dictDataInfoList(dictNames)
+      .then((resp) => {
+         ${className}Store.dictData = resp.data
+      })
+      .catch((error) => {
+        ElMessage.error({ message: error })
+      })
+}
+
+//重置搜索表单
+const resetSearchForm = (ruleFormRef: any) => {
+  if (!ruleFormRef) return
+  ruleFormRef.resetFields()
+}
 </script>
+<script lang="ts">
+  export default {
+    name: '${businessName}',
+  }
+</script>
+<style scoped></style>

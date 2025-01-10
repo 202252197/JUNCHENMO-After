@@ -8,8 +8,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
-
 /**
  * <p>
  * 用户前端样式设置表
@@ -22,7 +20,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("sys_user_setting")
-public class SysUserSetting extends BaseEntity implements Serializable {
+public class SysUserSetting extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 

@@ -15,7 +15,7 @@ import com.ruoyi.common.core.web.domain.TreeEntity;
 #end
 
 /**
- * ${functionName}对象 ${tableName}
+ * ${businessName}对象 ${tableName}
  * 
  * @author ${author}
  * @date ${datetime}

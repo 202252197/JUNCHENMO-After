@@ -4,7 +4,7 @@ import java.util.List;
 import ${packageName}.domain.${ClassName};
 
 /**
- * ${functionName}Service接口
+ * ${businessName}Service接口
  * 
  * @author ${author}
  * @date ${datetime}

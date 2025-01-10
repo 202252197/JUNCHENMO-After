@@ -18,10 +18,8 @@ export const API = {
 }
 
 /**
- * 获取用户列表
+ * 获取${functionName}列表
  * @param {Object} query - 查询条件
- * @param {number} pageNum - 当前页码
- * @param {number} pageSize - 每页数量
  */
 // 查询${functionName}列表
 export const list${BusinessName} = (query:any) => {
@@ -37,9 +35,9 @@ export const list${BusinessName} = (query:any) => {
  * @param {number} ${pkColumn.javaField} - ${pkColumn.columnComment}
  */
 // 查询${functionName}详细
-export const get${BusinessName} = (${pkColumn.javaField}) => {
+export const get${BusinessName} = (${pkColumn.javaField}:any) => {
   return request({
-    url: API.INFO_${tableNameUC}_URL,
+    url: API.INFO_${tableNameUC}_URL+${pkColumn.javaField},
     method: 'get'
   })
 }
@@ -75,9 +73,9 @@ export const update${BusinessName} = (data:any) => {
  * @param {number} ${pkColumn.javaField} - ${pkColumn.columnComment}
  */
 // 删除${functionName}
-export const del${BusinessName} = (${pkColumn.javaField}) => {
+export const del${BusinessName} = (${pkColumn.javaField}:any) => {
   return request({
-    url: API.DEL_${tableNameUC}_URL,
+    url: API.DEL_${tableNameUC}_URL+${pkColumn.javaField},
     method: 'delete'
   })
 }

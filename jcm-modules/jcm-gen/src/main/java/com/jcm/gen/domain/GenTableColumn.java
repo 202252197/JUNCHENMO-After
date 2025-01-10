@@ -214,7 +214,7 @@ public class GenTableColumn extends BaseEntity  {
     {
         return StringUtils.equalsAnyIgnoreCase(javaField,
                 // BaseEntity
-                "create", "createTime", "update", "updateTime", "remark",
+                "create","creator", "createTime", "update", "updater", "updateTime", "remark",
                 // TreeEntity
                 "parentName", "parentId", "sort", "ancestors");
     }

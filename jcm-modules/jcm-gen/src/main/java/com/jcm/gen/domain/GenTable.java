@@ -1,6 +1,7 @@
 package com.jcm.gen.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.jcm.common.core.constant.GenConstants;
@@ -41,12 +42,6 @@ public class GenTable extends BaseEntity {
     @ApiModelProperty(value = "表描述")
     private String tableComment;
 
-    @ApiModelProperty(value = "关联子表的表名")
-    private String subTableName;
-
-    @ApiModelProperty(value = "子表关联的外键名")
-    private String subTableFkName;
-
     @ApiModelProperty(value = "实体类名称")
     private String className;
 
@@ -77,11 +72,9 @@ public class GenTable extends BaseEntity {
     /** 主键信息 */
     private GenTableColumn pkColumn;
 
-    /** 子表信息 */
-    private GenTable subTable;
-
     /** 表列信息 */
     @Valid
+    @TableField(exist = false)
     private List<GenTableColumn> columns;
 
     @ApiModelProperty(value = "其它生成选项")
@@ -102,15 +95,7 @@ public class GenTable extends BaseEntity {
     /** 上级菜单名称字段 */
     private String parentMenuName;
 
-    public boolean isSub()
-    {
-        return isSub(this.tplCategory);
-    }
 
-    public static boolean isSub(String tplCategory)
-    {
-        return tplCategory != null && StringUtils.equals(GenConstants.TPL_SUB, tplCategory);
-    }
     public boolean isTree()
     {
         return isTree(this.tplCategory);

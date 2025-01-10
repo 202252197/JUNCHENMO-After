@@ -6,7 +6,7 @@ import ${packageName}.domain.${ClassName};
 
 
 /**
- * ${functionName}Mapper接口
+ * ${businessName}Mapper接口
  * 
  * @author ${author}
  * @date ${datetime}
@@ -14,11 +14,4 @@ import ${packageName}.domain.${ClassName};
 public interface ${ClassName}Mapper extends BaseMapper<${ClassName}>
 {
 
-    /**
-     * 查询${functionName}列表
-     * 
-     * @param ${className} ${functionName}
-     * @return ${functionName}集合
-     */
-    public List<${ClassName}> select${ClassName}List(${ClassName} ${className});
 }
