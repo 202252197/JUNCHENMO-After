@@ -1,0 +1,22 @@
+server:
+  port: 8002
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 127.0.0.1:8848
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+# 日志
+logging:
+  file: /application/applogs/admin.log

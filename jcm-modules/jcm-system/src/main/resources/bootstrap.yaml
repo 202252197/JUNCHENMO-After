@@ -2,6 +2,15 @@
 server:
   port: 9201
 
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
 jcm:
   swagger:
     title: jcm-system

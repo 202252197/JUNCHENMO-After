@@ -5,7 +5,6 @@ import com.jcm.common.core.exception.ServiceException;
 import com.jcm.common.redis.service.RedisService;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.system.api.domain.SysUser;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
@@ -18,8 +17,11 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class SysPasswordService
 {
-    @Autowired
-    private RedisService redisService;
+    public SysPasswordService(RedisService redisService) {
+        this.redisService = redisService;
+    }
+
+    private final RedisService redisService;
 
     private int maxRetryCount = CacheConstants.PASSWORD_MAX_RETRY_COUNT;
 

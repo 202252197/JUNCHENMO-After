@@ -44,11 +44,11 @@ public class ${ClassName}Controller extends PageBaseController
 {
     private final I${ClassName}Service ${className}Service;
 
-/**
- * 查询${functionName}列表
- */
-@RequiresPermissions("${permissionPrefix}:list")
-@GetMapping("/list")
+    /**
+     * 查询${functionName}列表
+     */
+    @RequiresPermissions("${permissionPrefix}:list")
+    @GetMapping("/list")
     #if($table.crud)
     public TableDataInfo list(${ClassName} ${className})
     {

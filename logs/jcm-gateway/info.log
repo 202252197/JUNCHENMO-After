@@ -47,3 +47,74 @@
 09:50:22.351 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
 09:50:30.693 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
 09:51:06.359 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+09:57:41.209 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+09:58:06.018 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/vip/
+10:06:04.481 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:06:06.368 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:06:14.662 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:06:17.127 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:06:19.881 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:06:20.460 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:06:49.745 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:18:19.058 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:18:22.129 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:28:59.215 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:29:00.193 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:29:08.805 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:29:12.418 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:29:16.964 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:29:57.130 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:34:19.155 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:34:52.782 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:35:04.837 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:36:36.533 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:37:18.184 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:37:37.599 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:37:43.490 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:37:50.992 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:38:03.409 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:39:24.687 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:39:36.364 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:40:35.726 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:40:44.611 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:42:34.154 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:42:37.160 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:43:02.268 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:43:43.799 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:43:56.079 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:45:18.572 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+10:52:49.470 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+11:25:08.829 [lettuce-eventExecutorLoop-3-10] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+11:25:08.901 [lettuce-nioEventLoop-5-3] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+11:25:27.532 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+11:25:27.532 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+11:32:56.188 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+11:32:59.744 [reactor-http-nio-15] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+11:33:01.131 [reactor-http-nio-16] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+11:33:14.307 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+11:33:16.464 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:16:59.703 [reactor-http-nio-6] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:17:09.478 [reactor-http-nio-13] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:17:57.016 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:19:07.014 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/menu/
+12:19:08.827 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:20:57.309 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:21:32.035 [reactor-http-nio-10] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:22:26.391 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+12:22:26.409 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+12:23:25.304 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+12:23:25.352 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+12:23:25.644 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+12:23:25.644 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+12:23:28.612 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+12:23:40.131 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+12:23:40.131 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+12:23:40.269 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
+12:23:40.392 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
+12:23:40.419 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 17.356 seconds (JVM running for 18.785)
+12:23:40.426 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
+12:23:40.436 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
+12:23:40.436 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
+12:25:16.160 [reactor-http-nio-14] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:25:20.795 [reactor-http-nio-1] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+12:25:23.177 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,70] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames

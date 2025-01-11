@@ -16,6 +16,7 @@
         <module>jcm-gen</module>
         <module>jcm-doc</module>
         <module>jcm-auth</module>
+        <module>jcm-monitor</module>
     </modules>
 
     <description>

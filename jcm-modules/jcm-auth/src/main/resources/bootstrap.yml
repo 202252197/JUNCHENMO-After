@@ -2,6 +2,14 @@
 server:
   port: 9210
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
 jcm:
   swagger:
     title: jcm-auth

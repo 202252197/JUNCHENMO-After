@@ -53,6 +53,11 @@ public class LogAspect
     private static final ThreadLocal<Long> TIME_THREADLOCAL = new NamedThreadLocal<Long>("Cost Time");
 
     /**
+     * 保存业务处理的自定义信息HTML
+     */
+    public static final ThreadLocal<String> LOG_DESCRIPTION_HTML_LOCAL = new ThreadLocal<>();
+
+    /**
      * 保存业务处理的自定义信息
      */
     public static final ThreadLocal<String> LOG_DESCRIPTION_LOCAL = new ThreadLocal<>();
@@ -122,6 +127,7 @@ public class LogAspect
             operLog.setRequestTime(LocalDateTime.ofInstant(instant, ZoneId.systemDefault()));
             // 设置描述
             operLog.setDescription(LOG_DESCRIPTION_LOCAL.get());
+            operLog.setDescriptionHtml(LOG_DESCRIPTION_HTML_LOCAL.get());
             // 请求的URL
             operLog.setOperUrl(StringUtils.substring(ServletUtils.getRequest().getRequestURI(), 0, 255));
             String username = SecurityContextHolder.getUserName();
@@ -136,7 +142,8 @@ public class LogAspect
                 // 操作状态
                 operLog.setStatus(BusinessStatus.FAIL.ordinal());
                 // 错误信息
-                operLog.setErrorMsg(StyleCover.getStyleErrorSpan(StringUtils.substring(e.getMessage(), 0, 2000)));
+                operLog.setErrorMsg(StringUtils.substring(e.getMessage(), 0, 2000));
+                operLog.setErrorMsgHtml(StyleCover.getStyleErrorSpan(StringUtils.substring(e.getMessage(), 0, 2000)));
             }
             // 设置类名和方法名称
             String className = joinPoint.getTarget().getClass().getName();

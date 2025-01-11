@@ -64,7 +64,7 @@ public class SysOperLogController extends PageBaseController {
     @DeleteMapping("/clear")
     @PrintParams
     public AjaxResult clear() {
-//        BusinessNameConstant.OPERATION_LOG+"全部清空");
+        OperLogCover.outherLogMsg(BusinessNameConstant.OPERATION_LOG+"全部清空");
         return toAjax(sysOperLogService.clearOperLog());
     }
 

@@ -3,6 +3,7 @@ package com.jcm.system.api.factory;
 
 import com.jcm.common.core.domain.R;
 import com.jcm.system.api.RemoteLogService;
+import com.jcm.system.api.domain.SysLogininfor;
 import com.jcm.system.api.domain.SysOperLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,8 +32,14 @@ public class RemoteLogFallbackFactory implements FallbackFactory<RemoteLogServic
             {
                 return R.fail("保存操作日志失败:" + throwable.getMessage());
             }
-
+            @Override
+            public R<Boolean> saveLogininfor(SysLogininfor sysLogininfor, String source)
+            {
+                return R.fail("保存登录日志失败:" + throwable.getMessage());
+            }
         };
 
     }
+
+
 }

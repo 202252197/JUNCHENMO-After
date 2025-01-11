@@ -116,3 +116,18 @@ com.jcm.common.core.exception.ServiceException: 用户不存在/密码错误
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
+15:53:22.813 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - [report,40] - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 1 of constructor in com.jcm.auth.service.SysPasswordService required a bean of type 'int' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'int' in your configuration.
+

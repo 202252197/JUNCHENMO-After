@@ -71,6 +71,12 @@ public class SysOperLog extends BaseEntity {
         private String description;
 
         /**
+         * 操作日志Html
+         */
+        @Schema(description = "操作日志Html")
+        private String descriptionHtml;
+
+        /**
          * 方法名称
          * 在Excel导入导出中，对应表头名称为"方法名称"，列索引为5
          */
@@ -160,6 +166,12 @@ public class SysOperLog extends BaseEntity {
         @Schema(description = "错误消息")
         @ExcelProperty(value = "错误消息", index = 16)
         private String errorMsg;
+
+        /**
+         * 错误消息
+         */
+        @Schema(description = "错误消息Html")
+        private String errorMsgHtml;
 
         /**
          * 消耗时间

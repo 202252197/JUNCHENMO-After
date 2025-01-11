@@ -1,8 +1,10 @@
 package com.jcm.gen.controller;
 
+import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.text.Convert;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
+import com.jcm.common.log.annotation.BusinessName;
 import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.enums.BusinessType;
 import com.jcm.common.mybatis.controller.PageBaseController;
@@ -29,6 +31,7 @@ import java.util.Map;
  */
 @RequestMapping("/genCode")
 @AllArgsConstructor
+@BusinessName(title = OperationNameConstants.GEN_CODE)
 @RestController
 public class GenController extends PageBaseController {
 
@@ -63,7 +66,7 @@ public class GenController extends PageBaseController {
      * 删除代码生成
      */
     @RequiresPermissions("tool:gen:remove")
-    @Log(functionName = "代码生成", businessType = BusinessType.DELETE)
+    @Log(functionName = "删除导入的表", businessType = BusinessType.DELETE)
     @DeleteMapping("/")
     public AjaxResult remove(@RequestBody Long[] tableIds)
     {
@@ -88,7 +91,7 @@ public class GenController extends PageBaseController {
      * 导入表结构（保存）
      */
     @RequiresPermissions("tool:gen:import")
-    @Log(functionName = "代码生成", businessType = BusinessType.IMPORT)
+    @Log(functionName = "导入表结构", businessType = BusinessType.IMPORT)
     @PostMapping("/importTable")
     public AjaxResult importTableSave(String tables)
     {
@@ -118,6 +121,7 @@ public class GenController extends PageBaseController {
      * 修改保存代码生成业务
      */
     @RequiresPermissions("tool:gen:edit")
+    @Log(functionName = "修改业务信息", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult editSave(@Validated @RequestBody GenTable genTable)
     {
@@ -143,7 +147,7 @@ public class GenController extends PageBaseController {
      * 生成代码（自定义路径）
      */
     @RequiresPermissions("tool:gen:code")
-    @Log(functionName = "代码生成", businessType = BusinessType.GENCODE)
+    @Log(functionName = "生成代码", businessType = BusinessType.GENCODE)
     @GetMapping("/genCode/{tableName}")
     public AjaxResult genCode(@PathVariable("tableName") String tableName)
     {
@@ -155,7 +159,7 @@ public class GenController extends PageBaseController {
      * 批量生成代码
      */
     @RequiresPermissions("tool:gen:code")
-    @Log(functionName = "代码生成", businessType = BusinessType.GENCODE)
+    @Log(functionName = "生成代码", businessType = BusinessType.GENCODE)
     @GetMapping("/batchGenCode")
     public void batchGenCode(HttpServletResponse response, String tables) throws IOException
     {
