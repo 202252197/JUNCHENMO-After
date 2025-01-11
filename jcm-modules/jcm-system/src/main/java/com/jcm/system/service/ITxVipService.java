@@ -1,13 +1,14 @@
 package com.jcm.system.service;
 
-import java.util.List;
 import com.jcm.system.domain.TxVip;
+
+import java.util.List;
 
 /**
  * vipService接口
  * 
  * @author lvshihao
- * @date 2025-01-10
+ * @date 2025-01-11
  */
 public interface ITxVipService 
 {

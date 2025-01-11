@@ -9,7 +9,7 @@ import com.jcm.system.domain.TxVip;
  * vipMapper接口
  * 
  * @author lvshihao
- * @date 2025-01-10
+ * @date 2025-01-11
  */
 public interface TxVipMapper extends BaseMapper<TxVip>
 {

@@ -18,7 +18,7 @@
     >
         #foreach($column in $columns)
             #set($field=$column.javaField)
-            #if($column.insert && !$column.pk)
+            #if($column.edit && !$column.pk)
                 #if(($column.usableColumn) || (!$column.superColumn))
                     #set($parentheseIndex=$column.columnComment.indexOf("（"))
                     #if($parentheseIndex != -1)
@@ -134,7 +134,7 @@
   import type { FormInstance } from 'element-plus'
   import { formRules } from '../types/form.rules'
   //仓库
-  import use${ClassName}Store from '@/store/modules/${businessName}/${functionName}'
+  import use${ClassName}Store from '@/store/modules/${moduleName}/${businessName}'
   import useDictTypeStore from '@/store/modules/acl/dictType'
 
   const ${className}Store = use${ClassName}Store()

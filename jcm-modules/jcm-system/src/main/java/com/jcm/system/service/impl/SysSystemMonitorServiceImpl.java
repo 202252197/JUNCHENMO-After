@@ -3,6 +3,7 @@ package com.jcm.system.service.impl;
 import com.alibaba.fastjson2.JSONObject;
 import com.jcm.system.service.SysSystemMonitorService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
@@ -26,6 +27,7 @@ import java.util.concurrent.CompletableFuture;
 import static com.jcm.common.core.utils.system.OshiUtil.getFileSystem;
 import static com.jcm.common.core.utils.system.OshiUtil.getProcesses;
 
+@Slf4j
 @AllArgsConstructor
 @Service
 public class SysSystemMonitorServiceImpl implements SysSystemMonitorService {
@@ -67,7 +69,7 @@ public class SysSystemMonitorServiceImpl implements SysSystemMonitorService {
         CompletableFuture.allOf(cpu,memory,jvmMemory,server,processes,fileSystem).join();
 
         long endTime = System.currentTimeMillis();
-        System.out.println("完成"+(endTime-startTime));
+        log.debug("getSystemBaseInfo耗时"+(endTime-startTime));
         return info;
     }
 

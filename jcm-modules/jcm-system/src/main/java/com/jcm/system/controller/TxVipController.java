@@ -1,35 +1,29 @@
 package com.jcm.system.controller;
 
-import java.util.List;
-import javax.servlet.http.HttpServletResponse;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import com.jcm.common.security.annotation.RequiresPermissions;
-import com.jcm.common.mybatis.controller.PageBaseController;
-import com.jcm.common.core.web.domain.AjaxResult;
-import com.jcm.common.log.annotation.BusinessName;
-import com.jcm.common.core.constant.OperationNameConstants;
-import com.jcm.common.log.enums.BusinessType;
-import com.jcm.common.log.annotation.Log;
-import com.jcm.common.core.utils.poi.ExcelUtil;
-import io.swagger.annotations.Api;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
-import lombok.AllArgsConstructor;
+import com.jcm.common.core.constant.OperationNameConstants;
+import com.jcm.common.core.utils.poi.ExcelUtil;
+import com.jcm.common.core.web.domain.AjaxResult;
+import com.jcm.common.core.web.page.TableDataInfo;
+import com.jcm.common.log.annotation.BusinessName;
+import com.jcm.common.log.annotation.Log;
+import com.jcm.common.log.enums.BusinessType;
+import com.jcm.common.mybatis.controller.PageBaseController;
+import com.jcm.common.security.annotation.RequiresPermissions;
 import com.jcm.system.domain.TxVip;
 import com.jcm.system.service.ITxVipService;
-import com.jcm.common.core.web.page.TableDataInfo;
+import io.swagger.annotations.Api;
+import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * vipController
  *
  * @author lvshihao
- * @date 2025-01-10
+ * @date 2025-01-11
  */
 @Api(tags="vip管理")
 @ApiSupport(author = "202252197@qq.com")

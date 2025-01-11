@@ -38,6 +38,9 @@
                       <el-form-item label="开通天数" prop="purchaseDays">
                         <el-input v-model="txVipStore.commonForm.purchaseDays" placeholder="请输入开通天数" />
                       </el-form-item>
+                      <el-form-item label="设备名称" prop="unitType">
+                        <el-input v-model="txVipStore.commonForm.unitType" placeholder="请输入设备名称" />
+                      </el-form-item>
                       <el-form-item label="登录方式" prop="loginMethod">
                         <el-input v-model="txVipStore.commonForm.loginMethod" placeholder="请输入登录方式" />
                       </el-form-item>

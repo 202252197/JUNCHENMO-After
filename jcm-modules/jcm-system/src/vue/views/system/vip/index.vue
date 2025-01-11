@@ -36,6 +36,14 @@
           @keyup.enter="refresh"
         />
       </el-form-item>
+      <el-form-item label="设备名称" prop="unitType">
+        <el-input
+          v-model="txVipStore.searchForm.unitType"
+          placeholder="请输入设备名称"
+          clearable
+          @keyup.enter="refresh"
+        />
+      </el-form-item>
       <el-form-item label="登录方式" prop="loginMethod">
         <el-input
           v-model="txVipStore.searchForm.loginMethod"

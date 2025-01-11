@@ -174,7 +174,7 @@ import ${BusinessName}UpdateFromModal from './components/${businessName}-update-
 //仓库
 import useDictDataStore from '@/store/modules/acl/dictData'
 import useLayoutSettingStore from '@/store/modules/layout/layoutSetting'
-import use${ClassName}Store from '@/store/modules/${businessName}/${functionName}'
+import use${ClassName}Store from '@/store/modules/${moduleName}/${businessName}'
 
 const dictDataStore = useDictDataStore()
 const layoutSettingStore = useLayoutSettingStore();

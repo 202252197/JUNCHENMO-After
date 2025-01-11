@@ -1,6 +1,7 @@
 package com.jcm.common.core.utils.system;
 
 import com.alibaba.fastjson2.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import oshi.SystemInfo;
 import oshi.hardware.*;
 import oshi.software.os.*;
@@ -13,9 +14,10 @@ import java.util.List;
 
 /**
  * OSHI工具类
- * @author zhaohy
+ * @author junchenmo
  *
  */
+@Slf4j
 public class OshiUtil {
 
     /**
@@ -125,8 +127,7 @@ public class OshiUtil {
      */
     public static List<JSONObject> getProcesses(OperatingSystem os, GlobalMemory memory) {
         // 输出系统中进程的数量以及线程的数量 Processes: 330, Threads: 5993
-        System.out.println("Processes: " + os.getProcessCount() + ", Threads: " + os.getThreadCount());
-
+        log.debug("Processes: " + os.getProcessCount() + ", Threads: " + os.getThreadCount());
         // 定义按照CPU使用率从高到低排序的比较器
         Comparator<OSProcess> cpuUsageComparator = (p1, p2) -> {
             double cpuUsage1 = 100d * (p1.getKernelTime() + p1.getUserTime()) / p1.getUpTime();
@@ -212,9 +213,6 @@ public class OshiUtil {
      * @param fileSystem 文件系统对象，包含了系统文件系统相关的详细信息
      */
     public static List<JSONObject> getFileSystem(FileSystem fileSystem) {
-        // 输出文件系统中已打开的文件描述符数量和最大文件描述符数量
-        System.out.format(" File Descriptors: %d/%d%n", fileSystem.getOpenFileDescriptors(),
-                fileSystem.getMaxFileDescriptors());
         List<JSONObject> fileSystemObjList=new ArrayList<>();
 
         // 获取文件系统中的文件存储列表

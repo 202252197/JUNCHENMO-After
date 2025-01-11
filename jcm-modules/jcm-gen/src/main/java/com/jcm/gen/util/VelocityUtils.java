@@ -237,11 +237,11 @@ public class VelocityUtils
         }
         else if (template.contains("indexAddModal.vue.vm"))
         {
-            fileName = StringUtils.format("{}/views/{}/{}/components/{}-add-from-modal.vue", vuePath, moduleName, businessName,genTable.getTableName().replace("_","-"));
+            fileName = StringUtils.format("{}/views/{}/{}/components/{}-add-from-modal.vue", vuePath, moduleName, businessName,businessName.replace("_","-"));
         }
         else if (template.contains("indexUpdateModal.vue.vm"))
         {
-            fileName = StringUtils.format("{}/views/{}/{}/components/{}-update-from-modal.vue", vuePath, moduleName, businessName,genTable.getTableName().replace("_","-"));
+            fileName = StringUtils.format("{}/views/{}/{}/components/{}-update-from-modal.vue", vuePath, moduleName, businessName,businessName.replace("_","-"));
         }
         else if (template.contains("index.vue.vm"))
         {

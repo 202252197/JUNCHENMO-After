@@ -10,6 +10,7 @@ import com.jcm.common.core.domain.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -17,7 +18,7 @@ import java.util.Date;
  * vip对象 tx_vip
  * 
  * @author lvshihao
- * @date 2025-01-10
+ * @date 2025-01-11
  */
 
 @Data
@@ -40,11 +41,13 @@ public class TxVip extends BaseEntity
 
     /** 起始时间 */
     @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @ExcelProperty(value = "起始时间")
     private Date startingTime;
 
     /** 结束时间 */
     @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @ExcelProperty(value = "结束时间")
     private Date stopingTime;
 
@@ -57,7 +60,7 @@ public class TxVip extends BaseEntity
     private String unitType;
 
     /** 状态(0在用，1下线) */
-    private String status;
+    private Boolean status;
 
     /** 登录方式（QQ或微信） */
     @ExcelProperty(value = "登录方式（QQ或微信）")
