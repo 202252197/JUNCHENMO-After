@@ -118,4 +118,5 @@ public interface ISysUserService extends IService<SysUser> {
      */
     int insertUserAuth(Long userId, Long[] roleIds);
 
+    List<SysUser> selectUserAll();
 }

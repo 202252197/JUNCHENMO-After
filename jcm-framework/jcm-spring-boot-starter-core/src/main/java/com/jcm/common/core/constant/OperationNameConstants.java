@@ -28,5 +28,7 @@ public class OperationNameConstants {
 
     public static final String GEN_CODE = "代码生成";
 
+    public static final String SYS_USER_TASK = "用户任务";
+
 
 }

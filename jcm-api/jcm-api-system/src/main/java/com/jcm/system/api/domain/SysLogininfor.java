@@ -32,7 +32,7 @@ public class SysLogininfor extends BaseEntity
 
     /** 访问ID */
     @TableId(type = IdType.AUTO)
-    @ExcelProperty(value = "${comment}")
+    @ExcelProperty(value = "登录日志ID")
     private Long infoId;
 
     /** 用户账号 */

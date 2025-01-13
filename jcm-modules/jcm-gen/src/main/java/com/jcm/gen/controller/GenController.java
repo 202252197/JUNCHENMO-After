@@ -180,4 +180,6 @@ public class GenController extends PageBaseController {
         response.setContentType("application/octet-stream; charset=UTF-8");
         IOUtils.write(data, response.getOutputStream());
     }
+
+
 }

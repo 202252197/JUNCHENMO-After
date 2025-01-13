@@ -192,4 +192,14 @@ public class SysUserController extends PageBaseController {
         return toAjax(sysUserService.insertUserAuth(userId, roleIds));
     }
 
+
+    @ApiOperation(value = "查询用户选项值")
+    @RequiresPermissions("system:user:list")
+    @GetMapping("/optionSelect")
+    @PrintParams
+    public AjaxResult optionSelect()
+    {
+        return success(sysUserService.selectUserAll());
+    }
+
 }

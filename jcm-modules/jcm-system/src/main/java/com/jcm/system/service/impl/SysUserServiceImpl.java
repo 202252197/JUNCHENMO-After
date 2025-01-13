@@ -1,5 +1,6 @@
 package com.jcm.system.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.constant.UserConstants;
@@ -207,6 +208,15 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     {
        sysUserRoleMapper.deleteUserRoleByUserId(userId);
        return insertUserRole(userId, roleIds);
+    }
+
+    @Override
+    public List<SysUser> selectUserAll() {
+        LambdaQueryWrapper<SysUser> lambdaQueryWrapper=new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.select(SysUser::getUserId,SysUser::getUsername);
+        lambdaQueryWrapper.eq(SysUser::getDeleted,0);
+        lambdaQueryWrapper.eq(SysUser::getStatus,UserConstants.USER_NORMAL);
+        return baseMapper.selectList(lambdaQueryWrapper);
     }
 
 
