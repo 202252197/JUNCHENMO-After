@@ -1,6 +1,6 @@
 # Tomcat
 server:
-  port: 9202
+  port: 9203
 
 management:
   endpoints:
@@ -11,25 +11,19 @@ management:
     health:
       show-details: always
 jcm:
-  ai:
-    api-key: sk-a63b307c5b154bdf9293b4ae73b7f276
-    model: qwen-plus
   swagger:
-    title: jcm-gen
-    description: 系统模块
-    basePackage: com.jcm.gen
+    title: jcm-job
+    description: 定时任务模块
+    basePackage: com.jcm.job
     enable: true
     version: 1.0.0
     contact:
       name: junchenmo
-  gen:
-    author: lvshihao
-    packageName: com.jcm.job
 # Spring
 spring:
   application:
     # 应用名称
-    name: jcm-gen
+    name: jcm-job
   profiles:
     # 环境配置
     active: dev

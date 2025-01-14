@@ -34,21 +34,23 @@
 		<lombok.version>1.18.36</lombok.version>
 		<!--数据库连接池版本-->
 		<druid.version>1.1.21</druid.version>
-		<!--java jwt版本-->
+		<!--jwt版本-->
 		<jjwt.version>0.9.1</jjwt.version>
 		<!--ip2region版本:根据IP获取地理位置-->
 		<ip2region.version>2.7.0</ip2region.version>
 		<knife4j.version>3.0.3</knife4j.version>
+		<!--集成阿里大模型-->
 		<dashscope.version>2.17.0</dashscope.version>
 		<!--系统信息收集-->
 		<oshi.version>6.4.2</oshi.version>
+		<!--excel导入导出-->
 		<easyexcel.version>4.0.2</easyexcel.version>
 		<!--springboot admin版本-->
 		<spring-boot-admin.version>2.7.11</spring-boot-admin.version>
-		<tobato.version>1.27.2</tobato.version>
+
 		<commons.io.version>2.13.0</commons.io.version>
 		<velocity.version>2.3</velocity.version>
-		<!--		json转换工具版本-->
+		<!--json转换工具版本-->
 		<fastjson.version>2.0.43</fastjson.version>
 		<transmittable-thread-local.version>2.14.4</transmittable-thread-local.version>
 		<springdoc.version>1.7.0</springdoc.version>

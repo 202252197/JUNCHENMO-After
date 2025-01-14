@@ -1,7 +1,9 @@
 package com.jcm.gen.controller;
 
 import com.alibaba.dashscope.exception.ApiException;
+import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.web.domain.AjaxResult;
+import com.jcm.common.log.annotation.BusinessName;
 import com.jcm.gen.configuration.TableGeneratorConfig;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,7 @@ import java.util.HashMap;
  */
 @RestController
 @AllArgsConstructor
+@BusinessName(title = OperationNameConstants.GEN_DATA_TABLE)
 @RequestMapping("/tableGen")
 public class SysTableGenController {
 

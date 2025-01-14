@@ -16,7 +16,7 @@ import ${import};
 #if($table.crud)
 import com.jcm.common.core.domain.BaseEntity;
 #elseif($table.tree)
-import com.ruoyi.common.core.web.domain.TreeEntity;
+import com.junchenmo.common.core.web.domain.TreeEntity;
 #end
 
 /**

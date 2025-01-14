@@ -17,6 +17,7 @@
         <module>jcm-doc</module>
         <module>jcm-auth</module>
         <module>jcm-monitor</module>
+        <module>jcm-job</module>
     </modules>
 
     <description>

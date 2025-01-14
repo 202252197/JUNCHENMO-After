@@ -30,5 +30,8 @@ public class OperationNameConstants {
 
     public static final String SYS_USER_TASK = "用户任务";
 
+    public static final String SYS_JOB = "定时任务";
+    public static final String SYS_JOB_LOG = "定时任务日志";
+
 
 }
