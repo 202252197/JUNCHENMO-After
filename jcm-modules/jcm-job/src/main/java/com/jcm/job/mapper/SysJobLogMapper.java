@@ -1,8 +1,8 @@
 package com.jcm.job.mapper;
 
-import java.util.List;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jcm.job.domain.SysJobLog;
+import org.apache.ibatis.annotations.Delete;
 
 
 /**
@@ -13,5 +13,10 @@ import com.jcm.job.domain.SysJobLog;
  */
 public interface SysJobLogMapper extends BaseMapper<SysJobLog>
 {
-
+    /**
+     * 定义方法用于截断（清空）sys_oper_log表
+     * @return
+     */
+    @Delete("TRUNCATE TABLE sys_job_log")
+    void clearOperLog();
 }

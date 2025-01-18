@@ -37,14 +37,6 @@ public interface ISysJobLogService
     public int insertSysJobLog(SysJobLog sysJobLog);
 
     /**
-     * 修改定时任务调度日志
-     * 
-     * @param sysJobLog 定时任务调度日志
-     * @return 结果
-     */
-    public int updateSysJobLog(SysJobLog sysJobLog);
-
-    /**
      * 批量删除定时任务调度日志
      * 
      * @param jobLogIds 需要删除的定时任务调度日志主键集合
@@ -59,4 +51,10 @@ public interface ISysJobLogService
      * @return 结果
      */
     public int deleteSysJobLogByJobLogId(Long jobLogId);
+    /**
+     * 清空全部定时任务调度日志
+     *
+     * @return 结果
+     */
+    int clearOperLog();
 }

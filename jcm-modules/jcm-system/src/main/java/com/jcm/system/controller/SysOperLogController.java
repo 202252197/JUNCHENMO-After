@@ -109,6 +109,7 @@ public class SysOperLogController extends PageBaseController {
     public void export(HttpServletResponse response, SysOperLog operLog)
     {
         List<SysOperLog> list = sysOperLogService.selectOperLogList(operLog);
+        OperLogCover.exportLogMsg(BusinessNameConstant.OPERATION_LOG,list.size());
         ExcelUtil<SysOperLog> util = new ExcelUtil<>(SysOperLog.class);
         util.exportEasyExcel(response, list, "操作日志");
     }

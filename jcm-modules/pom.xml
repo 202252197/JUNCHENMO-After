@@ -18,6 +18,7 @@
         <module>jcm-auth</module>
         <module>jcm-monitor</module>
         <module>jcm-job</module>
+        <module>jcm-saTokenTest</module>
     </modules>
 
     <description>

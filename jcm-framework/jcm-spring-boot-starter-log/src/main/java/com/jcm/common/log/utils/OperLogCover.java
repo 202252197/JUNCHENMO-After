@@ -3,11 +3,18 @@ package com.jcm.common.log.utils;
 import com.jcm.common.log.aspect.LogAspect;
 import com.jcm.common.log.constant.StyleClassConstant;
 
+/**
+ * 钻井测井盖
+ *
+ * @author junchenmo
+ * @date 2025/01/16 17:04
+ */
 public class OperLogCover {
 
     private static final String INSERT="新增";
     private static final String UPDATE="信息被修改";
     private static final String DELECT="删除";
+    private static final String EXPORT="导出";
 
     //添加信息
     public static void insertLogMsg(String BUSINESS_NAME,String context){
@@ -27,6 +34,12 @@ public class OperLogCover {
     public static void updateLogMsg(String BUSINESS_NAME,Long Id){
         LogAspect.LOG_DESCRIPTION_HTML_LOCAL.set(BUSINESS_NAME+"ID: "+StyleCover.getStyleSpan(StyleClassConstant.HEIGHT_LIGHT_SPAN, String.valueOf(Id))+UPDATE);
         LogAspect.LOG_DESCRIPTION_LOCAL.set(BUSINESS_NAME+"ID: "+ Id +UPDATE);
+    }
+
+    //导出信息
+    public static void exportLogMsg(String BUSINESS_NAME,Integer size){
+        LogAspect.LOG_DESCRIPTION_HTML_LOCAL.set(BUSINESS_NAME+EXPORT+StyleCover.getStyleSpan(StyleClassConstant.HEIGHT_LIGHT_SPAN, String.valueOf(size))+"条");
+        LogAspect.LOG_DESCRIPTION_LOCAL.set(BUSINESS_NAME+ EXPORT + size +"条");
     }
 
 

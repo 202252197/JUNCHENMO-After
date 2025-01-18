@@ -1,16 +1,17 @@
 package com.jcm.job.service.impl;
 
-import java.util.List;
-import java.util.Arrays;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.utils.StringUtils;
-import lombok.AllArgsConstructor;
-import com.jcm.common.core.utils.DateUtils;
-import org.springframework.stereotype.Service;
-import com.jcm.job.mapper.SysJobLogMapper;
 import com.jcm.job.domain.SysJobLog;
+import com.jcm.job.mapper.SysJobLogMapper;
 import com.jcm.job.service.ISysJobLogService;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * logService业务层处理
@@ -46,14 +47,15 @@ public class SysJobLogServiceImpl extends ServiceImpl<SysJobLogMapper, SysJobLog
     public List<SysJobLog> selectSysJobLogList(SysJobLog sysJobLog)
     {
         LambdaQueryWrapper<SysJobLog> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.select(SysJobLog::getJobLogId, SysJobLog::getJobName, SysJobLog::getJobGroup, SysJobLog::getInvokeTarget, SysJobLog::getJobMessage, SysJobLog::getStatus, SysJobLog::getExceptionInfo, SysJobLog::getRemark, SysJobLog::getCreator, SysJobLog::getCreateTime, SysJobLog::getUpdater, SysJobLog::getUpdateTime,  SysJobLog::getDeleted );
+        queryWrapper.select(SysJobLog::getJobLogId, SysJobLog::getJobName, SysJobLog::getJobGroup, SysJobLog::getInvokeTarget,SysJobLog::getExecuteTime,SysJobLog::getJobMessage, SysJobLog::getStatus, SysJobLog::getExceptionInfo, SysJobLog::getRemark, SysJobLog::getCreator, SysJobLog::getCreateTime, SysJobLog::getUpdater, SysJobLog::getUpdateTime,  SysJobLog::getDeleted );
         queryWrapper.like( StringUtils.isNotEmpty(sysJobLog.getJobName()) , SysJobLog::getJobName, sysJobLog.getJobName());
         queryWrapper.eq( StringUtils.isNotEmpty(sysJobLog.getJobGroup()) , SysJobLog::getJobGroup, sysJobLog.getJobGroup());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysJobLog.getInvokeTarget()) , SysJobLog::getInvokeTarget, sysJobLog.getInvokeTarget());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysJobLog.getJobMessage()) , SysJobLog::getJobMessage, sysJobLog.getJobMessage());
         queryWrapper.eq( StringUtils.isNotEmpty(sysJobLog.getStatus()) , SysJobLog::getStatus, sysJobLog.getStatus());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysJobLog.getExceptionInfo()) , SysJobLog::getExceptionInfo, sysJobLog.getExceptionInfo());
-        queryWrapper.eq( StringUtils.isNotNull(sysJobLog.getCreateTime()), SysJobLog::getCreateTime, sysJobLog.getCreateTime());
+        if(Objects.nonNull(sysJobLog.getParams())){
+            queryWrapper.ge(StringUtils.isNotNull(sysJobLog.getParams().get("beginExecuteTime")), SysJobLog::getExecuteTime,sysJobLog.getParams().get("beginExecuteTime"))
+                    .le(Objects.nonNull(sysJobLog.getParams())&&StringUtils.isNotNull(sysJobLog.getParams().get("endExecuteTime")),SysJobLog::getExecuteTime,sysJobLog.getParams().get("endExecuteTime"));
+        }
+        queryWrapper.orderByDesc(SysJobLog::getExecuteTime);
         return sysJobLogMapper.selectList(queryWrapper);
     }
 
@@ -67,18 +69,6 @@ public class SysJobLogServiceImpl extends ServiceImpl<SysJobLogMapper, SysJobLog
     public int insertSysJobLog(SysJobLog sysJobLog)
     {
         return sysJobLogMapper.insert(sysJobLog);
-    }
-
-    /**
-     * 修改定时任务调度日志
-     *
-     * @param sysJobLog 定时任务调度日志
-     * @return 结果
-     */
-    @Override
-    public int updateSysJobLog(SysJobLog sysJobLog)
-    {
-        return sysJobLogMapper.updateById(sysJobLog);
     }
 
     /**
@@ -103,5 +93,11 @@ public class SysJobLogServiceImpl extends ServiceImpl<SysJobLogMapper, SysJobLog
     public int deleteSysJobLogByJobLogId(Long jobLogId)
     {
         return sysJobLogMapper.deleteById(jobLogId);
+    }
+
+    @Override
+    public int clearOperLog() {
+        sysJobLogMapper.clearOperLog();
+        return 1;
     }
 }

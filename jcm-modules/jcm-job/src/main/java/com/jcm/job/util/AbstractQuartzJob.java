@@ -14,6 +14,9 @@ import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 
 /**
@@ -72,13 +75,14 @@ public abstract class AbstractQuartzJob implements Job
     {
         Date startTime = threadLocal.get();
         threadLocal.remove();
-
         final SysJobLog sysJobLog = new SysJobLog();
         sysJobLog.setJobName(sysJob.getJobName());
         sysJobLog.setJobGroup(sysJob.getJobGroup());
         sysJobLog.setInvokeTarget(sysJob.getInvokeTarget());
         sysJobLog.setStartTime(startTime);
         sysJobLog.setStopTime(new Date());
+        Instant instant = Instant.ofEpochMilli(startTime.getTime());
+        sysJobLog.setExecuteTime(LocalDateTime.ofInstant(instant, ZoneId.systemDefault()));
         long runMs = sysJobLog.getStopTime().getTime() - sysJobLog.getStartTime().getTime();
         sysJobLog.setJobMessage(sysJobLog.getJobName() + " 总共耗时：" + runMs + "毫秒");
         if (e != null)
