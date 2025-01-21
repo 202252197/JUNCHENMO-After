@@ -1,4 +1,5 @@
 package com.jcm.gen.configuration;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 

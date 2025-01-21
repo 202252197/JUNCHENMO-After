@@ -28,25 +28,27 @@ public class SysUserSettingServiceImpl extends ServiceImpl<SysUserSettingMapper,
 
     /**
      * 查询当前用户的前端设置信息
+     *
      * @param userId 用户ID
      * @return
      */
     @Override
     public SysUserSetting selectUserSettingByUserId(Long userId) {
-        LambdaQueryWrapper<SysUserSetting> lambdaQueryWrapper=new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(StringUtils.isNotNull(userId),SysUserSetting::getUserId,userId);
+        LambdaQueryWrapper<SysUserSetting> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(StringUtils.isNotNull(userId), SysUserSetting::getUserId, userId);
         return this.baseMapper.selectOne(lambdaQueryWrapper);
     }
 
     /**
      * 修改当前用户的前端设置信息
+     *
      * @param userSetting
      * @return
      */
     @Override
     public int updateUserSetting(SysUserSetting userSetting) {
-        LambdaQueryWrapper<SysUserSetting> lambdaQueryWrapper=new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(StringUtils.isNotNull(userSetting.getUserId()),SysUserSetting::getUserId,userSetting.getUserId());
-        return this.baseMapper.update(userSetting,lambdaQueryWrapper);
+        LambdaQueryWrapper<SysUserSetting> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(StringUtils.isNotNull(userSetting.getUserId()), SysUserSetting::getUserId, userSetting.getUserId());
+        return this.baseMapper.update(userSetting, lambdaQueryWrapper);
     }
 }

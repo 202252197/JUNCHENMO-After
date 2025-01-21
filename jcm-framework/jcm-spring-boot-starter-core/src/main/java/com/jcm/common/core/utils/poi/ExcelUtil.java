@@ -21,8 +21,7 @@ public class ExcelUtil<T> {
      */
     public Class<T> clazz;
 
-    public ExcelUtil(Class<T> clazz)
-    {
+    public ExcelUtil(Class<T> clazz) {
         this.clazz = clazz;
     }
 

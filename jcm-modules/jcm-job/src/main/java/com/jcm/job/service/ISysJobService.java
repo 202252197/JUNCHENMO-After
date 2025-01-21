@@ -8,15 +8,14 @@ import java.util.List;
 
 /**
  * jobService接口
- * 
+ *
  * @author lvshihao
  * @date 2025-01-14
  */
-public interface ISysJobService 
-{
+public interface ISysJobService {
     /**
      * 查询定时任务调度
-     * 
+     *
      * @param jobId 定时任务调度主键
      * @return 定时任务调度
      */
@@ -24,7 +23,7 @@ public interface ISysJobService
 
     /**
      * 查询定时任务调度列表
-     * 
+     *
      * @param sysJob 定时任务调度
      * @return 定时任务调度集合
      */
@@ -32,7 +31,7 @@ public interface ISysJobService
 
     /**
      * 新增定时任务调度
-     * 
+     *
      * @param sysJob 定时任务调度
      * @return 结果
      */
@@ -40,7 +39,7 @@ public interface ISysJobService
 
     /**
      * 修改定时任务调度
-     * 
+     *
      * @param sysJob 定时任务调度
      * @return 结果
      */
@@ -48,7 +47,7 @@ public interface ISysJobService
 
     /**
      * 批量删除定时任务调度
-     * 
+     *
      * @param jobIds 需要删除的定时任务调度主键集合
      * @return 结果
      */
@@ -56,7 +55,7 @@ public interface ISysJobService
 
     /**
      * 删除定时任务调度信息
-     * 
+     *
      * @param jobId 定时任务调度主键
      * @return 结果
      */

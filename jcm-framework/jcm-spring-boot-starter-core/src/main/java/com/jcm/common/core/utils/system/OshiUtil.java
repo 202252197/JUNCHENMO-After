@@ -14,8 +14,8 @@ import java.util.List;
 
 /**
  * OSHI工具类
- * @author junchenmo
  *
+ * @author junchenmo
  */
 @Slf4j
 public class OshiUtil {
@@ -122,7 +122,7 @@ public class OshiUtil {
     /**
      * 打印系统进程相关信息的方法，包括进程数量、线程数量以及按照CPU使用率排序后的部分进程详细信息（如PID、CPU使用率、内存使用率、虚拟内存大小、实际内存大小、进程名称等）
      *
-     * @param os 操作系统对象，用于获取进程相关信息
+     * @param os     操作系统对象，用于获取进程相关信息
      * @param memory 全局内存对象，用于辅助计算内存使用率等信息
      */
     public static List<JSONObject> getProcesses(OperatingSystem os, GlobalMemory memory) {
@@ -138,16 +138,16 @@ public class OshiUtil {
         List<OSProcess> procs = os.getProcesses(null, cpuUsageComparator, 0);
 
         // 遍历并输出部分进程的详细信息（最多输出前5个进程，以避免输出过多信息）
-        List<JSONObject>  powerSourcesObjList = new ArrayList<>();
+        List<JSONObject> powerSourcesObjList = new ArrayList<>();
         for (int i = 0; i < procs.size() && i < 50; i++) {
-            JSONObject powerSourcesObject=new JSONObject();
+            JSONObject powerSourcesObject = new JSONObject();
             OSProcess p = procs.get(i);
-            powerSourcesObject.put("PID",String.format("%5d",p.getProcessID()));
-            powerSourcesObject.put("%CPU",String.format("%5.1f",100d * (p.getKernelTime() + p.getUserTime()) / p.getUpTime()));
-            powerSourcesObject.put("%MEM",String.format("%4.1f",100d * p.getResidentSetSize() / memory.getTotal()));
-            powerSourcesObject.put("VSZ",String.format("%9s",FormatUtil.formatBytes(p.getVirtualSize())));
-            powerSourcesObject.put("RSS",String.format("%9s",FormatUtil.formatBytes(p.getResidentSetSize())));
-            powerSourcesObject.put("Name",String.format("%s%n",p.getName()));
+            powerSourcesObject.put("PID", String.format("%5d", p.getProcessID()));
+            powerSourcesObject.put("%CPU", String.format("%5.1f", 100d * (p.getKernelTime() + p.getUserTime()) / p.getUpTime()));
+            powerSourcesObject.put("%MEM", String.format("%4.1f", 100d * p.getResidentSetSize() / memory.getTotal()));
+            powerSourcesObject.put("VSZ", String.format("%9s", FormatUtil.formatBytes(p.getVirtualSize())));
+            powerSourcesObject.put("RSS", String.format("%9s", FormatUtil.formatBytes(p.getResidentSetSize())));
+            powerSourcesObject.put("Name", String.format("%s%n", p.getName()));
             powerSourcesObjList.add(powerSourcesObject);
         }
         return powerSourcesObjList;
@@ -185,10 +185,10 @@ public class OshiUtil {
             // 如果磁盘大小大于0，则格式化输出其大小（使用FormatUtil工具类进行格式化），否则输出 "?"
             System.out.format(" %s: (model: %s - S/N: %s) size: %s, reads: %s (%s), writes: %s (%s), xfer: %s ms%n",
                     disk.getName(), disk.getModel(), disk.getSerial(),
-                    disk.getSize() > 0? FormatUtil.formatBytesDecimal(disk.getSize()) : "?",
-                    readwrite? disk.getReads() : "?", readwrite? FormatUtil.formatBytes(disk.getReadBytes()) : "?",
-                    readwrite? disk.getWrites() : "?", readwrite? FormatUtil.formatBytes(disk.getWriteBytes()) : "?",
-                    readwrite? disk.getTransferTime() : "?");
+                    disk.getSize() > 0 ? FormatUtil.formatBytesDecimal(disk.getSize()) : "?",
+                    readwrite ? disk.getReads() : "?", readwrite ? FormatUtil.formatBytes(disk.getReadBytes()) : "?",
+                    readwrite ? disk.getWrites() : "?", readwrite ? FormatUtil.formatBytes(disk.getWriteBytes()) : "?",
+                    readwrite ? disk.getTransferTime() : "?");
 
             // 获取磁盘的分区列表
             List<HWPartition> partitions = disk.getPartitions();
@@ -202,7 +202,7 @@ public class OshiUtil {
                 System.out.format(" |-- %s: %s (%s) Maj:Min=%d:%d, size: %s%s%n", part.getIdentification(),
                         part.getName(), part.getType(), part.getMajor(), part.getMinor(),
                         FormatUtil.formatBytesDecimal(part.getSize()),
-                        part.getMountPoint().isEmpty()? "" : " @ " + part.getMountPoint());
+                        part.getMountPoint().isEmpty() ? "" : " @ " + part.getMountPoint());
             }
         }
     }
@@ -213,24 +213,24 @@ public class OshiUtil {
      * @param fileSystem 文件系统对象，包含了系统文件系统相关的详细信息
      */
     public static List<JSONObject> getFileSystem(FileSystem fileSystem) {
-        List<JSONObject> fileSystemObjList=new ArrayList<>();
+        List<JSONObject> fileSystemObjList = new ArrayList<>();
 
         // 获取文件系统中的文件存储列表
         List<OSFileStore> fsArray = fileSystem.getFileStores();
         // 遍历每个文件存储，输出其详细信息
         for (OSFileStore fs : fsArray) {
-            JSONObject fileSystemObject=new JSONObject();
+            JSONObject fileSystemObject = new JSONObject();
             // 获取文件存储的可用空间大小
             long usable = fs.getUsableSpace();
             // 获取文件存储的总空间大小
             long total = fs.getTotalSpace();
 
             fileSystemObject.put("name", fs.getName());
-            fileSystemObject.put("description", fs.getDescription().isEmpty()? "file system" : fs.getDescription());
+            fileSystemObject.put("description", fs.getDescription().isEmpty() ? "file system" : fs.getDescription());
             fileSystemObject.put("type", fs.getType());
             fileSystemObject.put("usable_space", FormatUtil.formatBytes(usable));
             fileSystemObject.put("total_space", FormatUtil.formatBytes(total));
-            fileSystemObject.put("usage",String.format("%.2f", 100d * usable / total)+"%");
+            fileSystemObject.put("usage", String.format("%.2f", 100d * usable / total) + "%");
             fileSystemObjList.add(fileSystemObject);
         }
         return fileSystemObjList;
@@ -261,12 +261,12 @@ public class OshiUtil {
                     || net.getPacketsSent() > 0;
             // 格式化输出网络接口的流量信息，包括接收和发送的数据包数量、字节数以及错误数量（如果有数据活动则输出具体信息，否则输出 "?"）
             System.out.format("   Traffic: received %s/%s%s; transmitted %s/%s%s %n",
-                    hasData? net.getPacketsRecv() + " packets" : "?",
-                    hasData? FormatUtil.formatBytes(net.getBytesRecv()) : "?",
-                    hasData? " (" + net.getInErrors() + " err)" : "",
-                    hasData? net.getPacketsSent() + " packets" : "?",
-                    hasData? FormatUtil.formatBytes(net.getBytesSent()) : "?",
-                    hasData? " (" + net.getOutErrors() + " err)" : "");
+                    hasData ? net.getPacketsRecv() + " packets" : "?",
+                    hasData ? FormatUtil.formatBytes(net.getBytesRecv()) : "?",
+                    hasData ? " (" + net.getInErrors() + " err)" : "",
+                    hasData ? net.getPacketsSent() + " packets" : "?",
+                    hasData ? FormatUtil.formatBytes(net.getBytesSent()) : "?",
+                    hasData ? " (" + net.getOutErrors() + " err)" : "");
         }
     }
 

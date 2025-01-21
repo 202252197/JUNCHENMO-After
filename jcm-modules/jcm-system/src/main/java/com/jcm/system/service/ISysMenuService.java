@@ -10,7 +10,7 @@ import java.util.Set;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author 吕世昊
@@ -35,7 +35,8 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 将菜单树构建为路由结构
-     * @param menus 菜单树
+     *
+     * @param menus      菜单树
      * @param parentPath 父级菜单路径
      * @return 路由树
      */
@@ -44,6 +45,7 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 获取全部菜单列表
+     *
      * @param sysMenu
      * @return 菜单权限信息
      */
@@ -51,6 +53,7 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 新增菜单
+     *
      * @param sysMenu
      * @return
      */
@@ -58,6 +61,7 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 根据ID删除菜单
+     *
      * @param menuId
      * @return
      */
@@ -65,6 +69,7 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 根据菜单信息
+     *
      * @param menu
      * @return
      */
@@ -72,6 +77,7 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 获取新增菜单最后的sort值
+     *
      * @param parentId 父菜单id
      * @return
      */
@@ -79,6 +85,7 @@ public interface ISysMenuService extends IService<SysMenu> {
 
     /**
      * 获取首页动态图标名称
+     *
      * @return
      */
     String getHomeMenuIcon();

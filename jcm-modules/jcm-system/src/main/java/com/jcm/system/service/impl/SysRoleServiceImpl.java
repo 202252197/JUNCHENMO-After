@@ -32,6 +32,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     /**
      * 根据用户ID查询角色权限
+     *
      * @param userId 用户ID
      * @return 权限列表
      */
@@ -41,45 +42,46 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     /**
      * 校验角色名称是否唯一
+     *
      * @param role 角色信息
      * @return 结果
      */
     @Override
-    public boolean checkRoleNameUnique(SysRole role)
-    {
+    public boolean checkRoleNameUnique(SysRole role) {
         List<SysRole> list = this.lambdaQuery().eq(StringUtils.isNotEmpty(role.getName()), SysRole::getName, role.getName()).list();
         return list.size() == 0;
     }
 
     /**
      * 校验角色权限是否唯一
+     *
      * @param role 角色信息
      * @return 结果
      */
     @Override
-    public boolean checkRoleKeyUnique(SysRole role)
-    {
+    public boolean checkRoleKeyUnique(SysRole role) {
         List<SysRole> list = this.lambdaQuery().eq(StringUtils.isNotEmpty(role.getCode()), SysRole::getCode, role.getCode()).list();
         return list.size() == 0;
     }
 
     /**
      * 根据条件分页查询角色数据
+     *
      * @param role 角色信息
      * @return 角色数据集合信息
      */
     @Override
-    public List<SysRole> selectRoleList(SysRole role)
-    {
+    public List<SysRole> selectRoleList(SysRole role) {
         return this.lambdaQuery()
-                .like(StringUtils.isNotEmpty(role.getName()),SysRole::getName,role.getName())
-                .like(StringUtils.isNotEmpty(role.getCode()),SysRole::getCode,role.getCode())
-                .eq(StringUtils.isNotNull(role.getStatus()),SysRole::getStatus,role.getStatus())
+                .like(StringUtils.isNotEmpty(role.getName()), SysRole::getName, role.getName())
+                .like(StringUtils.isNotEmpty(role.getCode()), SysRole::getCode, role.getCode())
+                .eq(StringUtils.isNotNull(role.getStatus()), SysRole::getStatus, role.getStatus())
                 .list();
     }
 
     /**
      * 通过角色ID查询角色
+     *
      * @param roleId 角色ID
      * @return 角色对象信息
      */
@@ -90,44 +92,44 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     /**
      * 新增保存角色信息
+     *
      * @param role 角色信息
      * @return 结果
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int insertRole(SysRole role)
-    {
-        return  sysRoleMapper.insert(role);
+    public int insertRole(SysRole role) {
+        return sysRoleMapper.insert(role);
     }
 
     /**
      * 校验角色是否允许操作
+     *
      * @param role 角色信息
      */
     @Override
-    public void checkRoleAllowed(SysRole role)
-    {
-        if (StringUtils.isNotNull(role.getRoleId()) && role.isAdmin())
-        {
+    public void checkRoleAllowed(SysRole role) {
+        if (StringUtils.isNotNull(role.getRoleId()) && role.isAdmin()) {
             throw new ServiceException("不允许操作超级管理员角色");
         }
     }
 
     /**
      * 修改角色状态
+     *
      * @param role 角色信息
      * @return 结果
      */
     @Override
-    public int updateRoleStatus(SysRole role)
-    {
+    public int updateRoleStatus(SysRole role) {
         UpdateWrapper<SysRole> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq("role_id", role.getRoleId()).set("status",1);
+        updateWrapper.eq("role_id", role.getRoleId()).set("status", 1);
         return sysRoleMapper.update(null, updateWrapper);
     }
 
     /**
      * 修改角色信息
+     *
      * @param role 角色信息
      * @return 结果
      */
@@ -140,17 +142,16 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
 
     /**
      * 删除角色信息
+     *
      * @param roleIds 角色Id集合
      * @return 结果
      */
     @Override
     public int deleteRole(List<Long> roleIds) {
-       for (Long roleId : roleIds)
-        {
+        for (Long roleId : roleIds) {
             checkRoleAllowed(new SysRole(roleId));
             SysRole role = selectRoleById(roleId);
-            if (countUserRoleByRoleId(roleId) > 0)
-            {
+            if (countUserRoleByRoleId(roleId) > 0) {
                 throw new ServiceException(String.format("%1$s已分配,不能删除", role.getName()));
             }
         }
@@ -165,25 +166,25 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     @Override
     public List<SysRole> selectRoleAll() {
-        return this.lambdaQuery().eq(SysRole::getStatus,0).list();
+        return this.lambdaQuery().eq(SysRole::getStatus, 0).list();
     }
 
     @Transactional(rollbackFor = Exception.class)
     @Override
     public int insertRoleAuth(Long roleId, Long[] menusId) {
-        if(StringUtils.isEmpty(menusId)){
+        if (StringUtils.isEmpty(menusId)) {
             return 0;
         }
 
         //删除角色已经授权的所有菜单
-        LambdaQueryWrapper<SysRoleMenu> lambdaQueryWrapper=new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(ObjectUtils.isNotEmpty(roleId),SysRoleMenu::getRoleId,roleId);
+        LambdaQueryWrapper<SysRoleMenu> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(ObjectUtils.isNotEmpty(roleId), SysRoleMenu::getRoleId, roleId);
         sysRoleMenuMapper.delete(lambdaQueryWrapper);
 
         //重新新增角色下所有的菜单
         List<SysRoleMenu> SysRoleMenus = new ArrayList<>();
-        Arrays.asList(menusId).forEach(menuId->{
-            SysRoleMenu sysUserRole=new SysRoleMenu();
+        Arrays.asList(menusId).forEach(menuId -> {
+            SysRoleMenu sysUserRole = new SysRoleMenu();
             sysUserRole.setRoleId(roleId);
             sysUserRole.setMenuId(menuId);
             SysRoleMenus.add(sysUserRole);
@@ -198,13 +199,13 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      * @return 结果
      */
     @Override
-    public int countUserRoleByRoleId(Long roleId)
-    {
+    public int countUserRoleByRoleId(Long roleId) {
         return sysUserRoleMapper.countUserRoleByRoleId(roleId);
     }
 
     /**
      * 获取角色数据权限
+     *
      * @param user 用户
      * @return 角色权限信息
      */

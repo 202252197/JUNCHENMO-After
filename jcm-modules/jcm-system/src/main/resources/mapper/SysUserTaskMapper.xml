@@ -1,33 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jcm.system.mapper.SysUserTaskMapper">
-    
+
     <resultMap type="SysUserTask" id="SysUserTaskResult">
-        <result property="taskId"    column="task_id"    />
-        <result property="title"    column="title"    />
-        <result property="description"    column="description"    />
-        <result property="startDate"    column="start_date"    />
-        <result property="endDate"    column="end_date"    />
-        <result property="priority"    column="priority"    />
-        <result property="status"    column="status"    />
-        <result property="type"    column="type"    />
-        <result property="userId"    column="user_id"    />
-        <result property="remark"    column="remark"    />
-        <result property="creator"    column="creator"    />
-        <result property="createTime"    column="create_time"    />
-        <result property="updater"    column="updater"    />
-        <result property="updateTime"    column="update_time"    />
-        <result property="deleted"    column="deleted"    />
+        <result property="taskId" column="task_id"/>
+        <result property="title" column="title"/>
+        <result property="description" column="description"/>
+        <result property="startDate" column="start_date"/>
+        <result property="endDate" column="end_date"/>
+        <result property="priority" column="priority"/>
+        <result property="status" column="status"/>
+        <result property="type" column="type"/>
+        <result property="userId" column="user_id"/>
+        <result property="remark" column="remark"/>
+        <result property="creator" column="creator"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updater" column="updater"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleted" column="deleted"/>
     </resultMap>
 
     <sql id="selectSysUserTaskVo">
-        select task_id, title, description, start_date, end_date, priority, status, type, user_id, remark, creator, create_time, updater, update_time, deleted from sys_user_task
+        select task_id,
+               title,
+               description,
+               start_date,
+               end_date,
+               priority,
+               status,
+               type,
+               user_id,
+               remark,
+               creator,
+               create_time,
+               updater,
+               update_time,
+               deleted
+        from sys_user_task
     </sql>
     <!-- 定义查询方法，id 与接口中的方法名对应，这里假设接口中的方法名为 selectSysUserTaskList -->
     <select id="selectList" resultType="SysUserTask">
-        select ut.task_id, ut.title, ut.description, ut.start_date, ut.end_date, ut.priority, ut.status, ut.type, ut.user_id, ut.remark,u.username from sys_user_task ut
+        select ut.task_id, ut.title, ut.description, ut.start_date, ut.end_date, ut.priority, ut.status, ut.type,
+        ut.user_id, ut.remark,u.username from sys_user_task ut
         LEFT JOIN sys_user u ON ut.user_id = u.user_id
         <trim prefix="where" prefixOverrides="and">
             <if test="title!= null and title!= ''">

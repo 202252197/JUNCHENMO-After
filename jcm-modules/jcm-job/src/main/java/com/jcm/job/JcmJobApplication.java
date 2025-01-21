@@ -15,8 +15,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableCustomConfig
 @SpringBootApplication
 public class JcmJobApplication {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         SpringApplication.run(JcmJobApplication.class, args);
         System.out.println(" (♥◠‿◠)ﾉﾞ  定时任务模块启动成功   ლ(´ڡ`ლ)ﾞ ");
     }

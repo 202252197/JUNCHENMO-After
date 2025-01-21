@@ -8,12 +8,11 @@ import java.util.List;
 
 /**
  * taskMapper接口
- * 
+ *
  * @author lvshihao
  * @date 2025-01-13
  */
-public interface SysUserTaskMapper extends BaseMapper<SysUserTask>
-{
+public interface SysUserTaskMapper extends BaseMapper<SysUserTask> {
 
     List<SysUserTask> selectList(SysUserTask sysUserTask);
 }

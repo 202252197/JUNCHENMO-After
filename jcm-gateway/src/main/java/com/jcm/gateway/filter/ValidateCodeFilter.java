@@ -22,48 +22,37 @@ import java.nio.charset.StandardCharsets;
  * @author 君尘陌
  */
 @Component
-public class ValidateCodeFilter extends AbstractGatewayFilterFactory<Object>
-{
-    private final static String[] VALIDATE_URL = new String[] { "/auth/login", "/auth/register" };
-
+public class ValidateCodeFilter extends AbstractGatewayFilterFactory<Object> {
+    private final static String[] VALIDATE_URL = new String[]{"/auth/login", "/auth/register",};
+    private static final String CODE = "code";
+    private static final String UUID = "uuid";
     @Autowired
     private ValidateCodeService validateCodeService;
-
     @Autowired
     private CaptchaProperties captchaProperties;
 
-    private static final String CODE = "code";
-
-    private static final String UUID = "uuid";
-
     @Override
-    public GatewayFilter apply(Object config)
-    {
+    public GatewayFilter apply(Object config) {
         return (exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest();
 
             // 非登录/注册请求或验证码关闭，不处理
-            if (!StringUtils.equalsAnyIgnoreCase(request.getURI().getPath(), VALIDATE_URL) || !captchaProperties.getEnabled())
-            {
+            if (!StringUtils.equalsAnyIgnoreCase(request.getURI().getPath(), VALIDATE_URL) || !captchaProperties.getEnabled()) {
                 return chain.filter(exchange);
             }
 
-            try
-            {
+            try {
                 String rspStr = resolveBodyFromRequest(request);
                 JSONObject obj = JSON.parseObject(rspStr);
                 validateCodeService.checkCaptcha(obj.getString(CODE), obj.getString(UUID));
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 return ServletUtils.webFluxResponseWriter(exchange.getResponse(), e.getMessage());
             }
             return chain.filter(exchange);
         };
     }
 
-    private String resolveBodyFromRequest(ServerHttpRequest serverHttpRequest)
-    {
+    private String resolveBodyFromRequest(ServerHttpRequest serverHttpRequest) {
         //获取请求体
         Flux<DataBuffer> body = serverHttpRequest.getBody();
         StringBuilder sb = new StringBuilder();
@@ -76,6 +65,7 @@ public class ValidateCodeFilter extends AbstractGatewayFilterFactory<Object>
         });
         return formatStr(sb.toString());
     }
+
     private String formatStr(String str) {
         return str.trim().replaceAll("\\s+", "");
     }

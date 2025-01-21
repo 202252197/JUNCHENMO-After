@@ -24,8 +24,8 @@ import org.springframework.web.bind.annotation.*;
  * @since 2024-12-18
  */
 
-@Api(tags="用户设置")
-@ApiSupport(author = "202252197@qq.com",order = 10)
+@Api(tags = "用户设置")
+@ApiSupport(author = "202252197@qq.com", order = 10)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/sys-user-setting")
@@ -33,16 +33,15 @@ public class SysUserSettingController extends BaseController {
 
     private ISysUserSettingService sysUserSettingService;
 
-    @ApiOperation(value="修改用户设置")
+    @ApiOperation(value = "修改用户设置")
     @RequiresPermissions("system:role:edit")
     @PutMapping
     @PrintParams
-    public AjaxResult edit(@RequestBody SysUserSetting userSetting)
-    {
+    public AjaxResult edit(@RequestBody SysUserSetting userSetting) {
         return toAjax(sysUserSettingService.updateUserSetting(userSetting));
     }
 
-    @ApiOperation(value="查询用户设置")
+    @ApiOperation(value = "查询用户设置")
     @Operation(summary = "获取当前用户设置的详细信息", description = "")
     @GetMapping("/getInfo")
     @PrintParams

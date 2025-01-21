@@ -2,11 +2,10 @@ package com.jcm.common.core.constant;
 
 /**
  * 服务名称
- * 
+ *
  * @author junchenmo
  */
-public class ServiceNameConstants
-{
+public class ServiceNameConstants {
     /**
      * 认证服务的serviceid
      */

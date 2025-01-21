@@ -1,6 +1,7 @@
 package com.jcm.common.core.utils;
 
 import java.util.concurrent.Callable;
+
 /**
  * 多线程下工具类
  *
@@ -23,7 +24,7 @@ public class ThreadUtils {
     public static <T> Callable<T> wrap(Callable<T> callable) {
         return () -> {
             // 执行线程并且清理MDC
-           return callable.call();
+            return callable.call();
         };
     }
 
@@ -35,7 +36,7 @@ public class ThreadUtils {
      */
     public static Runnable wrap(Runnable runnable) {
         return () -> {
-           runnable.run();
+            runnable.run();
         };
     }
 

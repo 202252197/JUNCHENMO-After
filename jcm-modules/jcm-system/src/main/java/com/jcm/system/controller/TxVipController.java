@@ -25,23 +25,21 @@ import java.util.List;
  * @author lvshihao
  * @date 2025-01-11
  */
-@Api(tags="vip管理")
+@Api(tags = "vip管理")
 @ApiSupport(author = "202252197@qq.com")
 @BusinessName(title = OperationNameConstants.TX_VIP)
 @AllArgsConstructor
 @RestController
 @RequestMapping("/vip")
-public class TxVipController extends PageBaseController
-{
+public class TxVipController extends PageBaseController {
     private final ITxVipService txVipService;
 
-/**
- * 查询vip列表
- */
-@RequiresPermissions("system:vip:list")
-@GetMapping("/list")
-    public TableDataInfo list(TxVip txVip)
-    {
+    /**
+     * 查询vip列表
+     */
+    @RequiresPermissions("system:vip:list")
+    @GetMapping("/list")
+    public TableDataInfo list(TxVip txVip) {
         startPage();
         List<TxVip> list = txVipService.selectTxVipList(txVip);
         return getDataTable(list);
@@ -53,8 +51,7 @@ public class TxVipController extends PageBaseController
     @RequiresPermissions("system:vip:export")
     @Log(functionName = "导出vip列表", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
-    public void export(HttpServletResponse response, TxVip txVip)
-    {
+    public void export(HttpServletResponse response, TxVip txVip) {
         List<TxVip> list = txVipService.selectTxVipList(txVip);
         ExcelUtil<TxVip> util = new ExcelUtil<TxVip>(TxVip.class);
         util.exportEasyExcel(response, list, "vip数据");
@@ -65,8 +62,7 @@ public class TxVipController extends PageBaseController
      */
     @RequiresPermissions("system:vip:query")
     @GetMapping(value = "/{vipId}")
-    public AjaxResult getInfo(@PathVariable("vipId") Long vipId)
-    {
+    public AjaxResult getInfo(@PathVariable("vipId") Long vipId) {
         return success(txVipService.selectTxVipByVipId(vipId));
     }
 
@@ -76,8 +72,7 @@ public class TxVipController extends PageBaseController
     @RequiresPermissions("system:vip:add")
     @Log(functionName = "新增vip", businessType = BusinessType.INSERT)
     @PostMapping
-    public AjaxResult add(@RequestBody TxVip txVip)
-    {
+    public AjaxResult add(@RequestBody TxVip txVip) {
         return toAjax(txVipService.insertTxVip(txVip));
     }
 
@@ -87,8 +82,7 @@ public class TxVipController extends PageBaseController
     @RequiresPermissions("system:vip:edit")
     @Log(functionName = "修改vip", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult edit(@RequestBody TxVip txVip)
-    {
+    public AjaxResult edit(@RequestBody TxVip txVip) {
         return toAjax(txVipService.updateTxVip(txVip));
     }
 
@@ -98,8 +92,7 @@ public class TxVipController extends PageBaseController
     @RequiresPermissions("system:vip:remove")
     @Log(functionName = "删除vip", businessType = BusinessType.DELETE)
     @DeleteMapping("/{vipIds}")
-    public AjaxResult remove(@PathVariable Long[] vipIds)
-    {
+    public AjaxResult remove(@PathVariable Long[] vipIds) {
         return toAjax(txVipService.deleteTxVipByVipIds(vipIds));
     }
 }

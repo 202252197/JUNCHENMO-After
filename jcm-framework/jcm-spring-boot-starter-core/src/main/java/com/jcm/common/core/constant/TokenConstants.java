@@ -2,11 +2,10 @@ package com.jcm.common.core.constant;
 
 /**
  * Token的Key常量
- * 
+ *
  * @author junchenmo
  */
-public class TokenConstants
-{
+public class TokenConstants {
     /**
      * 令牌自定义标识
      */

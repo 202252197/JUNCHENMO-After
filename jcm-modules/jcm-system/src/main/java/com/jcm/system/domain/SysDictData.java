@@ -19,7 +19,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_dict_data")
-public class SysDictData extends BaseEntity{
+public class SysDictData extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 

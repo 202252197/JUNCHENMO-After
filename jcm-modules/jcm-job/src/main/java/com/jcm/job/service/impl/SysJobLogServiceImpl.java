@@ -32,8 +32,7 @@ public class SysJobLogServiceImpl extends ServiceImpl<SysJobLogMapper, SysJobLog
      * @return 定时任务调度日志
      */
     @Override
-    public SysJobLog selectSysJobLogByJobLogId(Long jobLogId)
-    {
+    public SysJobLog selectSysJobLogByJobLogId(Long jobLogId) {
         return sysJobLogMapper.selectById(jobLogId);
     }
 
@@ -44,16 +43,15 @@ public class SysJobLogServiceImpl extends ServiceImpl<SysJobLogMapper, SysJobLog
      * @return 定时任务调度日志
      */
     @Override
-    public List<SysJobLog> selectSysJobLogList(SysJobLog sysJobLog)
-    {
+    public List<SysJobLog> selectSysJobLogList(SysJobLog sysJobLog) {
         LambdaQueryWrapper<SysJobLog> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.select(SysJobLog::getJobLogId, SysJobLog::getJobName, SysJobLog::getJobGroup, SysJobLog::getInvokeTarget,SysJobLog::getExecuteTime,SysJobLog::getJobMessage, SysJobLog::getStatus, SysJobLog::getExceptionInfo, SysJobLog::getRemark, SysJobLog::getCreator, SysJobLog::getCreateTime, SysJobLog::getUpdater, SysJobLog::getUpdateTime,  SysJobLog::getDeleted );
-        queryWrapper.like( StringUtils.isNotEmpty(sysJobLog.getJobName()) , SysJobLog::getJobName, sysJobLog.getJobName());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysJobLog.getJobGroup()) , SysJobLog::getJobGroup, sysJobLog.getJobGroup());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysJobLog.getStatus()) , SysJobLog::getStatus, sysJobLog.getStatus());
-        if(Objects.nonNull(sysJobLog.getParams())){
-            queryWrapper.ge(StringUtils.isNotNull(sysJobLog.getParams().get("beginExecuteTime")), SysJobLog::getExecuteTime,sysJobLog.getParams().get("beginExecuteTime"))
-                    .le(Objects.nonNull(sysJobLog.getParams())&&StringUtils.isNotNull(sysJobLog.getParams().get("endExecuteTime")),SysJobLog::getExecuteTime,sysJobLog.getParams().get("endExecuteTime"));
+        queryWrapper.select(SysJobLog::getJobLogId, SysJobLog::getJobName, SysJobLog::getJobGroup, SysJobLog::getInvokeTarget, SysJobLog::getExecuteTime, SysJobLog::getJobMessage, SysJobLog::getStatus, SysJobLog::getExceptionInfo, SysJobLog::getRemark, SysJobLog::getCreator, SysJobLog::getCreateTime, SysJobLog::getUpdater, SysJobLog::getUpdateTime, SysJobLog::getDeleted);
+        queryWrapper.like(StringUtils.isNotEmpty(sysJobLog.getJobName()), SysJobLog::getJobName, sysJobLog.getJobName());
+        queryWrapper.eq(StringUtils.isNotEmpty(sysJobLog.getJobGroup()), SysJobLog::getJobGroup, sysJobLog.getJobGroup());
+        queryWrapper.eq(StringUtils.isNotEmpty(sysJobLog.getStatus()), SysJobLog::getStatus, sysJobLog.getStatus());
+        if (Objects.nonNull(sysJobLog.getParams())) {
+            queryWrapper.ge(StringUtils.isNotNull(sysJobLog.getParams().get("beginExecuteTime")), SysJobLog::getExecuteTime, sysJobLog.getParams().get("beginExecuteTime"))
+                    .le(Objects.nonNull(sysJobLog.getParams()) && StringUtils.isNotNull(sysJobLog.getParams().get("endExecuteTime")), SysJobLog::getExecuteTime, sysJobLog.getParams().get("endExecuteTime"));
         }
         queryWrapper.orderByDesc(SysJobLog::getExecuteTime);
         return sysJobLogMapper.selectList(queryWrapper);
@@ -66,8 +64,7 @@ public class SysJobLogServiceImpl extends ServiceImpl<SysJobLogMapper, SysJobLog
      * @return 结果
      */
     @Override
-    public int insertSysJobLog(SysJobLog sysJobLog)
-    {
+    public int insertSysJobLog(SysJobLog sysJobLog) {
         return sysJobLogMapper.insert(sysJobLog);
     }
 
@@ -78,8 +75,7 @@ public class SysJobLogServiceImpl extends ServiceImpl<SysJobLogMapper, SysJobLog
      * @return 结果
      */
     @Override
-    public int deleteSysJobLogByJobLogIds(Long[] jobLogIds)
-    {
+    public int deleteSysJobLogByJobLogIds(Long[] jobLogIds) {
         return sysJobLogMapper.deleteBatchIds(Arrays.asList(jobLogIds));
     }
 
@@ -90,8 +86,7 @@ public class SysJobLogServiceImpl extends ServiceImpl<SysJobLogMapper, SysJobLog
      * @return 结果
      */
     @Override
-    public int deleteSysJobLogByJobLogId(Long jobLogId)
-    {
+    public int deleteSysJobLogByJobLogId(Long jobLogId) {
         return sysJobLogMapper.deleteById(jobLogId);
     }
 

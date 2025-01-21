@@ -1,15 +1,15 @@
 //创建${BusinessName}相关的小仓库
-import { defineStore } from 'pinia'
+import {defineStore} from 'pinia'
 
 //导入请求
-import { list${BusinessName},get${BusinessName},add${BusinessName},update${BusinessName},del${BusinessName}} from '@/api/${businessName}/${functionName}'
+import {add${BusinessName}, del${BusinessName}, list${BusinessName}, update${BusinessName}} from '@/api/'
 
 //创建用户小仓库
 const use${BusinessName}Store = defineStore('${BusinessName}', {
     state: () => {
         return {
             dictData: [], //字典数据数组
-            multipleSelection:[], //选的数据列表
+            multipleSelection: [], //选的数据列表
             tableLoading: true, //表格数据加载loading
             dataList: { //表格数据
                 list: [],
@@ -18,24 +18,24 @@ const use${BusinessName}Store = defineStore('${BusinessName}', {
                 size: 10,
             },
             commonForm: {
-    #foreach($column in $columns)
-        #set($field=$column.javaField)
-        #if($column.insert || $column.edit)
-            #if(($column.usableColumn) || (!$column.superColumn))
-                $column.javaField : undefined,
-            #end
-        #end
-    #end
+                #foreach($column in $columns)
+                    #set($field=$column.javaField)
+                    #if($column.insert || $column.edit)
+                        #if(($column.usableColumn) || (!$column.superColumn))
+                                $column.javaField : undefined,
+                        #end
+                    #end
+                #end
             }, //表单数据
             searchForm: {
-    #foreach($column in $columns)
-        #set($field=$column.javaField)
-        #if($column.query)
-            #if(($column.usableColumn) || (!$column.superColumn))
-                 $column.javaField : undefined,
-            #end
-        #end
-    #end
+                #foreach($column in $columns)
+                    #set($field=$column.javaField)
+                    #if($column.query)
+                        #if(($column.usableColumn) || (!$column.superColumn))
+                                $column.javaField : undefined,
+                        #end
+                    #end
+                #end
             }, //搜索表单数据
         }
     },
@@ -47,43 +47,41 @@ const use${BusinessName}Store = defineStore('${BusinessName}', {
                 this.dataList.list = result.rows
                 this.dataList.total = result.total
             } else {
-                ElMessage.error({ message: '失败信息: ' + result.msg })
+                ElMessage.error({message: '失败信息: ' + result.msg})
             }
         },
         //添加${BusinessName}
         async add(data: any) {
             const result: any = await add${BusinessName}(data)
             if (result.code == 200) {
-                ElMessage.success({ message: '添加成功' })
+                ElMessage.success({message: '添加成功'})
                 return Promise.resolve()
             } else {
-                ElMessage.error({ message: '失败信息: ' + result.msg })
+                ElMessage.error({message: '失败信息: ' + result.msg})
             }
         },
         //删除${BusinessName}
         async del(${pkColumn.javaField}: any) {
             const result: any = await del${BusinessName}(${pkColumn.javaField})
             if (result.code == 200) {
-                ElMessage.success({ message: '删除成功' })
+                ElMessage.success({message: '删除成功'})
                 return Promise.resolve()
             } else {
-                ElMessage.error({ message: '失败信息: ' + result.msg })
+                ElMessage.error({message: '失败信息: ' + result.msg})
             }
         },
         //修改${BusinessName}
         async update(data: any) {
             const result: any = await update${BusinessName}(data)
             if (result.code == 200) {
-                ElMessage.success({ message: '信息修改成功' })
+                ElMessage.success({message: '信息修改成功'})
                 return Promise.resolve()
             } else {
-                ElMessage.error({ message: '失败信息: ' + result.msg })
+                ElMessage.error({message: '失败信息: ' + result.msg})
             }
         },
     },
-    getters: {
-
-    },
+    getters: {},
 })
 
 //对外暴露获取${BusinessName}小仓库的方法

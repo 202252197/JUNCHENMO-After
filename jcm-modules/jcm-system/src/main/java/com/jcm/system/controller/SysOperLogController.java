@@ -6,8 +6,8 @@ import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.utils.poi.ExcelUtil;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
-import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.annotation.BusinessName;
+import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.constant.BusinessNameConstant;
 import com.jcm.common.log.enums.BusinessType;
 import com.jcm.common.log.utils.OperLogCover;
@@ -33,8 +33,8 @@ import java.util.List;
  * @author 吕世昊
  * @since 2024-05-03
  */
-@Api(tags="操作日志")
-@ApiSupport(author = "202252197@qq.com",order = 6)
+@Api(tags = "操作日志")
+@ApiSupport(author = "202252197@qq.com", order = 6)
 @BusinessName(title = OperationNameConstants.SYSTEM_OPERATION_LOG)
 @RestController
 @AllArgsConstructor
@@ -42,11 +42,11 @@ import java.util.List;
 public class SysOperLogController extends PageBaseController {
 
     private final ISysOperLogService sysOperLogService;
+
     @InnerAuth
-    @ApiOperation(value = "新增操作日志",notes = "内部服务使用")
+    @ApiOperation(value = "新增操作日志", notes = "内部服务使用")
     @PostMapping
-    public AjaxResult add(@RequestBody SysOperLog operLog)
-    {
+    public AjaxResult add(@RequestBody SysOperLog operLog) {
         return toAjax(sysOperLogService.insertOperlog(operLog));
     }
 
@@ -55,8 +55,8 @@ public class SysOperLogController extends PageBaseController {
     @DeleteMapping("/{operIds}")
     @PrintParams
     public AjaxResult remove(@PathVariable List<Long> operIds) {
-        OperLogCover.deleteLogMsg(BusinessNameConstant.OPERATION_LOG,operIds.size());
-        return toAjax( sysOperLogService.deleteOperLog(operIds));
+        OperLogCover.deleteLogMsg(BusinessNameConstant.OPERATION_LOG, operIds.size());
+        return toAjax(sysOperLogService.deleteOperLog(operIds));
     }
 
     @ApiOperation(value = "清空操作日志")
@@ -64,7 +64,7 @@ public class SysOperLogController extends PageBaseController {
     @DeleteMapping("/clear")
     @PrintParams
     public AjaxResult clear() {
-        OperLogCover.outherLogMsg(BusinessNameConstant.OPERATION_LOG+"全部清空");
+        OperLogCover.outherLogMsg(BusinessNameConstant.OPERATION_LOG + "全部清空");
         return toAjax(sysOperLogService.clearOperLog());
     }
 
@@ -106,10 +106,9 @@ public class SysOperLogController extends PageBaseController {
     @Log(functionName = "导出日志", businessType = BusinessType.EXPORT)
     @RequiresPermissions("system:operlog:export")
     @PostMapping("/export")
-    public void export(HttpServletResponse response, SysOperLog operLog)
-    {
+    public void export(HttpServletResponse response, SysOperLog operLog) {
         List<SysOperLog> list = sysOperLogService.selectOperLogList(operLog);
-        OperLogCover.exportLogMsg(BusinessNameConstant.OPERATION_LOG,list.size());
+        OperLogCover.exportLogMsg(BusinessNameConstant.OPERATION_LOG, list.size());
         ExcelUtil<SysOperLog> util = new ExcelUtil<>(SysOperLog.class);
         util.exportEasyExcel(response, list, "操作日志");
     }

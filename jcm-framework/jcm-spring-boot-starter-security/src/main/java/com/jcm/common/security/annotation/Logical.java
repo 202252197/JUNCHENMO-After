@@ -2,12 +2,10 @@ package com.jcm.common.security.annotation;
 
 /**
  * 权限注解的验证模式
- * 
- * @author junchenmo
  *
+ * @author junchenmo
  */
-public enum Logical
-{
+public enum Logical {
     /**
      * 必须具有所有的元素
      */

@@ -10,7 +10,7 @@ management:
     health:
       show-details: always
 # Spring
-spring: 
+spring:
   application:
     # 应用名称
     name: jcm-gateway

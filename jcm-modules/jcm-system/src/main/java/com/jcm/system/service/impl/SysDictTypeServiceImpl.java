@@ -30,20 +30,22 @@ public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDi
 
     /**
      * 根据条件分页查询字典配置项数据
+     *
      * @param dictType 字典项信息
      * @return 字典项数据集合信息
      */
     @Override
     public List<SysDictType> selectDictTypeList(SysDictType dictType) {
         return this.lambdaQuery()
-                .like(StringUtils.isNotEmpty(dictType.getName()), SysDictType::getName,dictType.getName())
-                .like(StringUtils.isNotEmpty(dictType.getDescription()),SysDictType::getDescription,dictType.getDescription())
-                .eq(Objects.nonNull(dictType.getStatus()),SysDictType::getStatus,dictType.getStatus()).list();
+                .like(StringUtils.isNotEmpty(dictType.getName()), SysDictType::getName, dictType.getName())
+                .like(StringUtils.isNotEmpty(dictType.getDescription()), SysDictType::getDescription, dictType.getDescription())
+                .eq(Objects.nonNull(dictType.getStatus()), SysDictType::getStatus, dictType.getStatus()).list();
     }
 
 
     /**
      * 新增保存字典项信息
+     *
      * @param dictType 字典项信息
      * @return 结果
      */
@@ -74,12 +76,12 @@ public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDi
         //获取存在的额外参数名称
         Set<String> extraSchemasNameSet = new HashSet<>();
         JSONArray extraSchemasJson = JSONArray.parse(sysDictType.getExtraSchema());
-        extraSchemasJson.stream().forEach(extraSchemaJson->{
+        extraSchemasJson.stream().forEach(extraSchemaJson -> {
             extraSchemasNameSet.add((String) JSONObject.from(extraSchemaJson).get("parameter"));
         });
 
         //查询配置项之前的所有配置值
-        QueryWrapper<SysDictData> queryWrapper =new QueryWrapper<>();
+        QueryWrapper<SysDictData> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("dict_type_id", sysDictType.getDictTypeId());
         List<SysDictData> sysDictDataList = sysDictDataMapper.selectList(queryWrapper);
 
@@ -90,13 +92,13 @@ public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDi
 
             List<String> removeNameList = new ArrayList<>();
             for (String name : extrasName) {
-                if (!extraSchemasNameSet.contains(name)){
+                if (!extraSchemasNameSet.contains(name)) {
                     removeNameList.add(name);
                 }
             }
 
             //删除配置项中不存在的配置参数
-            for(int i=0;i<removeNameList.size();i++){
+            for (int i = 0; i < removeNameList.size(); i++) {
                 extraJson.remove(removeNameList.get(i));
             }
 
@@ -104,6 +106,6 @@ public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDi
             sysDictDataMapper.updateById(sysDictData);
         }
 
-        return sysDictTypeMapper.update(sysDictType,updateWrapper);
+        return sysDictTypeMapper.update(sysDictType, updateWrapper);
     }
 }

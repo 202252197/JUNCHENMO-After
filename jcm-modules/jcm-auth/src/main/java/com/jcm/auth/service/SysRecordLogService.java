@@ -16,38 +16,36 @@ import java.time.LocalDateTime;
 
 /**
  * 记录日志方法
- * 
+ *
  * @author junchenmo
  */
 @Component
 @AllArgsConstructor
-public class SysRecordLogService
-{
+public class SysRecordLogService {
     private final RemoteLogService remoteLogService;
 
     /**
      * 记录登录信息
-     * 
+     *
      * @param username 用户名
-     * @param status 状态
-     * @param message 消息内容
+     * @param status   状态
+     * @param message  消息内容
      * @return
      */
-    public void recordLogininfor(String username, String status, String message)
-    {
+    public void recordLogininfor(String username, String status, String message) {
         HttpServletRequest request = ServletUtils.getRequest();
 
         SysLogininfor logininfor = new SysLogininfor();
         logininfor.setUserName(username);
         logininfor.setIpaddr(IpUtils.getIpAddr());
         String cityInfo = IpUtils.getCityInfo(IpUtils.getIpAddr());
-        if(StringUtils.isNotEmpty(cityInfo)&&cityInfo.split("\\|").length==5){
+        if (StringUtils.isNotEmpty(cityInfo) && cityInfo.split("\\|").length == 5) {
             String[] cityInfoArr = cityInfo.split("\\|");
-            StringBuffer stringBuffer=new StringBuffer();
+            StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append(cityInfoArr[0] + "-")
                     .append(cityInfoArr[2] + "-")
                     .append(cityInfoArr[3] + "-")
-                    .append("("+cityInfoArr[4]+")");
+                    .append("(" + cityInfoArr[4] + ")");
             logininfor.setLoginLocation(stringBuffer.toString());
         }
         logininfor.setMsg(message);
@@ -65,12 +63,9 @@ public class SysRecordLogService
         logininfor.setOs(operatingSystem);
 
         // 日志状态
-        if (StringUtils.equalsAny(status, Constants.LOGIN_SUCCESS, Constants.LOGOUT, Constants.REGISTER))
-        {
+        if (StringUtils.equalsAny(status, Constants.LOGIN_SUCCESS, Constants.LOGOUT, Constants.REGISTER)) {
             logininfor.setStatus(Constants.LOGIN_SUCCESS_STATUS);
-        }
-        else if (Constants.LOGIN_FAIL.equals(status))
-        {
+        } else if (Constants.LOGIN_FAIL.equals(status)) {
             logininfor.setStatus(Constants.LOGIN_FAIL_STATUS);
         }
         remoteLogService.saveLogininfor(logininfor, SecurityConstants.INNER);

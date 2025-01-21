@@ -53,8 +53,8 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      * @param userId 用户ID
      * @return 权限列表
      */
-    public Set<String> selectMenuPermsByUserId(Long userId){
-        return  sysMenuMapper.selectMenuPermsByUserId(userId).stream()
+    public Set<String> selectMenuPermsByUserId(Long userId) {
+        return sysMenuMapper.selectMenuPermsByUserId(userId).stream()
                 .filter(StringUtils::isNotEmpty).map(String::trim).collect(Collectors.toSet());
     }
 
@@ -69,38 +69,38 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         List<RouterVo> routers = new LinkedList<RouterVo>();
         for (SysMenu menu : menus) {
             RouterVo router = new RouterVo();
-            router.setMeta(new MetaVo(menu.getName(),menu.getVisible(),menu.getIsFrame(),menu.getIcon(), menu.getKeepAlive()));
+            router.setMeta(new MetaVo(menu.getName(), menu.getVisible(), menu.getIsFrame(), menu.getIcon(), menu.getKeepAlive()));
             List<SysMenu> cMenus = menu.getChildren();
 
             //如果是外链
-            if(menu.getIsFrame()){
+            if (menu.getIsFrame()) {
                 router.setPath(menu.getLink());
                 router.setComponent(UserConstants.LAYOUT);
-            }else {
-                if(MenuConstant.TYPE_DIR == menu.getType()){
-                    router.setPath("/"+menu.getComponent());
+            } else {
+                if (MenuConstant.TYPE_DIR == menu.getType()) {
+                    router.setPath("/" + menu.getComponent());
                     router.setComponent(UserConstants.LAYOUT);
-                }else if(MenuConstant.TYPE_MENU == menu.getType() && menu.getParentId() != 0){
+                } else if (MenuConstant.TYPE_MENU == menu.getType() && menu.getParentId() != 0) {
                     router.setName(menu.getComponent());
-                    router.setPath("/"+parentPath+"/"+menu.getComponent());
-                    router.setComponent("/"+parentPath+"/"+menu.getComponent()+"/index");
-                }else if(MenuConstant.TYPE_MENU == menu.getType() && menu.getParentId() == 0){
+                    router.setPath("/" + parentPath + "/" + menu.getComponent());
+                    router.setComponent("/" + parentPath + "/" + menu.getComponent() + "/index");
+                } else if (MenuConstant.TYPE_MENU == menu.getType() && menu.getParentId() == 0) {
                     List<RouterVo> routerVos = new ArrayList<>();
-                    RouterVo routerVo=new RouterVo();
+                    RouterVo routerVo = new RouterVo();
                     routerVo.setPath("/index");
-                    routerVo.setComponent("/"+menu.getComponent()+"/index");
+                    routerVo.setComponent("/" + menu.getComponent() + "/index");
                     routerVo.setMeta(router.getMeta());
 
 
-                    if("home".equals(menu.getComponent())){
+                    if ("home".equals(menu.getComponent())) {
                         router.setPath("/");
                         router.setRedirect("/home");
                         routerVo.setName("home");
                         routerVo.setPath("/home");
-                    }else{
+                    } else {
                         routerVo.setName(menu.getComponent());
                         routerVo.setPath("/index");
-                        router.setPath("/"+menu.getComponent());
+                        router.setPath("/" + menu.getComponent());
                     }
                     routerVos.add(routerVo);
 
@@ -111,18 +111,18 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
             }
 
             //如果还有子菜单，递归
-            if(StringUtils.isNotEmpty(cMenus)) {
-                router.setChildren(buildMenus(cMenus,menu.getComponent()));
+            if (StringUtils.isNotEmpty(cMenus)) {
+                router.setChildren(buildMenus(cMenus, menu.getComponent()));
             }
             //如果组件是空的
-            if(StringUtils.isEmpty(menu.getComponent())){
+            if (StringUtils.isEmpty(menu.getComponent())) {
                 router.setComponent(UserConstants.LAYOUT);
             }
             routers.add(router);
         }
 
         routers.forEach(routerVo -> {
-            if(routerVo.getChildren()!=null &&routerVo.getChildren().size()>=1){
+            if (routerVo.getChildren() != null && routerVo.getChildren().size() >= 1) {
                 RouterVo routerVoChildren = routerVo.getChildren().get(0);
                 routerVo.setRedirect(routerVoChildren.getPath());
             }
@@ -143,17 +143,18 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         if (SecurityUtils.isAdmin(userId)) {
             menus = sysMenuMapper.selectMenuTreeAll(true);
         } else {
-            menus = sysMenuMapper.selectMenuTreeByUserId(userId,true);
+            menus = sysMenuMapper.selectMenuTreeByUserId(userId, true);
         }
         return getChildPerms(menus, 0);
     }
+
     @Override
     public List<SysMenu> selectRouterTreeByUserId(Long userId) {
         List<SysMenu> menus = null;
         if (SecurityUtils.isAdmin(userId)) {
             menus = sysMenuMapper.selectMenuTreeAll(null);
         } else {
-            menus = sysMenuMapper.selectMenuTreeByUserId(userId,null);
+            menus = sysMenuMapper.selectMenuTreeByUserId(userId, null);
         }
         return getChildPerms(menus, 0);
     }
@@ -243,14 +244,15 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 
     /**
      * 新增菜单
+     *
      * @param sysMenu 菜单
      * @return
      */
     @Override
     public int insertMenu(SysMenu sysMenu) {
-        if(StringUtils.isNotEmpty(sysMenu.getComponent())){
+        if (StringUtils.isNotEmpty(sysMenu.getComponent())) {
             sysMenu.setIsFrame(false);
-        }else{
+        } else {
             sysMenu.setIsFrame(true);
         }
         return sysMenuMapper.insert(sysMenu);
@@ -258,6 +260,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 
     /**
      * 删除菜单通过id
+     *
      * @param menuId
      * @return
      */
@@ -265,8 +268,10 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     public int deleteMenu(Long menuId) {
         return sysMenuMapper.deleteById(menuId);
     }
+
     /**
      * 修改菜单信息
+     *
      * @param menu 菜单信息
      * @return 结果
      */
@@ -274,11 +279,12 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     public int updateMenu(SysMenu menu) {
         UpdateWrapper<SysMenu> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("menu_id", menu.getMenuId());
-        return sysMenuMapper.update(menu,updateWrapper);
+        return sysMenuMapper.update(menu, updateWrapper);
     }
 
     /**
      * 获取新增菜单最后的sort值
+     *
      * @param parentId 父菜单id
      * @return 结果
      */
@@ -289,18 +295,20 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
 
     /**
      * 获取首页动态图标名称
+     *
      * @return 结果
      */
     @Override
     public String getHomeMenuIcon() {
-        LambdaQueryWrapper<SysMenu> lambdaQueryWrapper=new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(SysMenu::getName,"首页");
+        LambdaQueryWrapper<SysMenu> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(SysMenu::getName, "首页");
         SysMenu sysMenu = sysMenuMapper.selectOne(lambdaQueryWrapper);
         return sysMenu.getIcon();
     }
 
     /**
      * 修改菜单及所有子菜单的状态/显示状态
+     *
      * @param menu 父菜单对象
      * @return
      */
@@ -310,12 +318,13 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         List<SysMenu> menuList = getChildList(menus, menu);
         //把当前菜单也添加进去
         menuList.add(menu);
-        return sysMenuMapper.updateBatchById(menuList,menu.getStatus(),menu.getVisible());
+        return sysMenuMapper.updateBatchById(menuList, menu.getStatus(), menu.getVisible());
     }
 
     /**
      * 过滤菜单：遍历每个菜单项 menu，检查是否存在其他菜单项的 menuId 等于当前菜单项的 parentId。
      * 收集结果：如果不存在这样的菜单项，则认为当前菜单项是根菜单，将其加入结果列表。
+     *
      * @param menus 菜单项 menu对象集合
      * @return
      */
@@ -332,13 +341,14 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      * 4：如果条件成立，将 menu 添加到 children 列表中。
      * 5：递归调用 addChildren 方法为 menu 添加子菜单。
      * 6：设置 parentMenu 的 children 属性为 children 列表。
+     *
      * @param parentMenu 父菜单
-     * @param allMenus 需要遍历的菜单对象集合
+     * @param allMenus   需要遍历的菜单对象集合
      */
     private void addChildren(SysMenu parentMenu, List<SysMenu> allMenus) {
         List<SysMenu> children = new ArrayList<>();
         for (SysMenu menu : allMenus) {
-            if (menu.getParentId()!= null && menu.getParentId().equals(parentMenu.getMenuId())) {
+            if (menu.getParentId() != null && menu.getParentId().equals(parentMenu.getMenuId())) {
                 children.add(menu);
                 addChildren(menu, allMenus);
             }

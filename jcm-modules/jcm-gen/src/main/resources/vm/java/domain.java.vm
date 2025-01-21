@@ -21,7 +21,7 @@ import com.junchenmo.common.core.web.domain.TreeEntity;
 
 /**
  * ${businessName}对象 ${tableName}
- * 
+ *
  * @author ${author}
  * @date ${datetime}
  */
@@ -31,35 +31,35 @@ import com.junchenmo.common.core.web.domain.TreeEntity;
 @AllArgsConstructor
 @ExcelIgnoreUnannotated
 @TableName("${tableName}")
-#if($table.crud)
-#set($Entity="BaseEntity")
-#elseif($table.tree)
-#set($Entity="TreeEntity")
-#end
+    #if($table.crud)
+        #set($Entity="BaseEntity")
+    #elseif($table.tree)
+        #set($Entity="TreeEntity")
+    #end
 public class ${ClassName} extends ${Entity}
-{
-    private static final long serialVersionUID = 1L;
+        {
+private static final long serialVersionUID=1L;
 
 #foreach ($column in $columns)
-#if(!$table.isSuperColumn($column.javaField))
+    #if(!$table.isSuperColumn($column.javaField))
     /** $column.columnComment */
-#if($column.list)
-#set($comment=$column.columnComment)
-#if($column.javaType == 'Date')
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @ExcelProperty(value = "${comment}")
-#else
-    @ExcelProperty(value = "${comment}")
-#end
-#end
-#if($column.javaField == $pkColumn.javaField)
-    @TableId(type = IdType.AUTO)
-    @ExcelProperty(value = "${comment}")
-#end
+        #if($column.list)
+            #set($comment=$column.columnComment)
+            #if($column.javaType == 'Date')
+            @JsonFormat(pattern = "yyyy-MM-dd")
+            @DateTimeFormat(pattern = "yyyy-MM-dd")
+            @ExcelProperty(value = "${comment}")
+            #else
+            @ExcelProperty(value = "${comment}")
+            #end
+        #end
+        #if($column.javaField == $pkColumn.javaField)
+        @TableId(type = IdType.AUTO)
+        @ExcelProperty(value = "${comment}")
+        #end
     private $column.javaType $column.javaField;
 
-#end
+    #end
 #end
 
 }

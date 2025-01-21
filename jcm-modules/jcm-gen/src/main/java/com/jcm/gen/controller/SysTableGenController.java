@@ -20,19 +20,20 @@ import java.util.HashMap;
 public class SysTableGenController {
 
     private final TableGeneratorConfig generateTableStructure;
+
     @GetMapping("/genTable")
-    public AjaxResult genTable(String prompts) throws ApiException{
+    public AjaxResult genTable(String prompts) throws ApiException {
         HashMap<String, String> dataMap = generateTableStructure.generateTableStructure(prompts);
-        return AjaxResult.success("成功",dataMap);
+        return AjaxResult.success("成功", dataMap);
     }
 
 
     @PostMapping("/genSql")
-    public AjaxResult genSql(@RequestBody String prompts) throws ApiException{
+    public AjaxResult genSql(@RequestBody String prompts) throws ApiException {
         System.out.println("表数据");
         System.out.println(prompts);
         String sql = generateTableStructure.generateSqlStructure(prompts);
-        return AjaxResult.success("成功",sql);
+        return AjaxResult.success("成功", sql);
     }
 
 

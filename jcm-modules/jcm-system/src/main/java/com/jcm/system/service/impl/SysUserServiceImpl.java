@@ -34,6 +34,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 通过用户名查询用户
+     *
      * @param userName 用户名
      * @return 用户对象信息
      */
@@ -44,6 +45,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 根据ID查询用户信息
+     *
      * @param userId 用户ID
      * @return 用户信息
      */
@@ -56,6 +58,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 根据条件进行查找用户列表
+     *
      * @param user 用户信息
      * @return
      */
@@ -71,6 +74,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 检查用户名是否重复
+     *
      * @param user 用户
      * @return
      */
@@ -82,6 +86,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 检查手机号是否重复
+     *
      * @param user 用户
      * @return
      */
@@ -96,6 +101,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 检查邮箱是否重复
+     *
      * @param user 用户
      * @return
      */
@@ -107,13 +113,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 新增用户
+     *
      * @param user 用户
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
     public int insertUser(SysUser user) {
-        SysUserSetting sysUserSetting =  new SysUserSetting();
+        SysUserSetting sysUserSetting = new SysUserSetting();
         int insert = sysUserMapper.insert(user);
         sysUserSetting.setUserId(user.getUserId());
         sysUserSettingService.insertUserSetting(sysUserSetting);
@@ -122,6 +129,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 禁用用户账号
+     *
      * @param userId
      */
     @Override
@@ -133,6 +141,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 删除用户
+     *
      * @param userId
      * @return
      */
@@ -145,6 +154,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 重置密码
+     *
      * @param user
      * @return
      */
@@ -157,6 +167,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 校验用户是否允许操作
+     *
      * @param userId 用户信息id
      */
     @Override
@@ -169,12 +180,12 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 修改保存用户信息
+     *
      * @param user 用户信息
      * @return 结果
      */
     @Override
-    public int updateUser(SysUser user)
-    {
+    public int updateUser(SysUser user) {
         UpdateWrapper<SysUser> updateWrapper = new UpdateWrapper<>();
         updateWrapper.eq("user_id", user.getUserId())
                 .set("nickname", user.getNickname())
@@ -185,6 +196,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 修改用户最后登录时间和IP
+     *
      * @param user 用户信息
      * @return
      */
@@ -199,41 +211,40 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
     /**
      * 用户授权角色
-     * @param userId 用户ID
+     *
+     * @param userId  用户ID
      * @param roleIds 角色组
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int insertUserAuth(Long userId, Long[] roleIds)
-    {
-       sysUserRoleMapper.deleteUserRoleByUserId(userId);
-       return insertUserRole(userId, roleIds);
+    public int insertUserAuth(Long userId, Long[] roleIds) {
+        sysUserRoleMapper.deleteUserRoleByUserId(userId);
+        return insertUserRole(userId, roleIds);
     }
 
     @Override
     public List<SysUser> selectUserAll() {
-        LambdaQueryWrapper<SysUser> lambdaQueryWrapper=new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.select(SysUser::getUserId,SysUser::getUsername);
-        lambdaQueryWrapper.eq(SysUser::getDeleted,0);
-        lambdaQueryWrapper.eq(SysUser::getStatus,UserConstants.USER_NORMAL);
+        LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.select(SysUser::getUserId, SysUser::getUsername);
+        lambdaQueryWrapper.eq(SysUser::getDeleted, 0);
+        lambdaQueryWrapper.eq(SysUser::getStatus, UserConstants.USER_NORMAL);
         return baseMapper.selectList(lambdaQueryWrapper);
     }
 
 
     /**
      * 新增用户角色信息
-     * @param userId 用户ID
+     *
+     * @param userId  用户ID
      * @param roleIds 角色组
      */
-    public int insertUserRole(Long userId, Long[] roleIds)
-    {
-        if (StringUtils.isEmpty(roleIds)){
+    public int insertUserRole(Long userId, Long[] roleIds) {
+        if (StringUtils.isEmpty(roleIds)) {
             return 0;
         }
         // 新增用户与角色管理
         List<SysUserRole> list = new ArrayList<SysUserRole>();
-        for (Long roleId : roleIds)
-        {
+        for (Long roleId : roleIds) {
             SysUserRole ur = new SysUserRole();
             ur.setUserId(userId);
             ur.setRoleId(roleId);

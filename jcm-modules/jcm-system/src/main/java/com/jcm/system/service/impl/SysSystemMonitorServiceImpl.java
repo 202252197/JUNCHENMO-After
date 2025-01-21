@@ -27,62 +27,30 @@ import java.util.concurrent.CompletableFuture;
 import static com.jcm.common.core.utils.system.OshiUtil.getFileSystem;
 import static com.jcm.common.core.utils.system.OshiUtil.getProcesses;
 
+/**
+ * 系统监控服务impl
+ *
+ * @author junchenmo
+ * @date 2025/01/19 09:59
+ */
 @Slf4j
 @AllArgsConstructor
 @Service
 public class SysSystemMonitorServiceImpl implements SysSystemMonitorService {
 
     private final TaskExecutor taskExecutor;
-    @Override
-    public Properties getSystemBaseInfo() {
-        long startTime = System.currentTimeMillis();
-        Properties info=new Properties();
-        SystemInfo si = new SystemInfo();
-        // 获取操作系统实例，用于访问操作系统相关信息
-        OperatingSystem os = si.getOperatingSystem();
-        // 获取硬件抽象层实例，用于访问硬件相关信息
-        HardwareAbstractionLayer hal = si.getHardware();
-        CompletableFuture<Void> cpu = CompletableFuture.runAsync(() -> {
-            //cpu信息
-            info.put("cpu", getCpuInfo(si));
-        },taskExecutor);
-        CompletableFuture<Void> memory = CompletableFuture.runAsync(() -> {
-            //系统内存
-            info.put("memory", getMemoryInfo(si));
-        },taskExecutor);
-        CompletableFuture<Void> jvmMemory = CompletableFuture.runAsync(() -> {
-            //jvm内存
-            info.put("jvmMemory", getJvmMemoryInfo(si));
-        },taskExecutor);
-         CompletableFuture<Void> server = CompletableFuture.runAsync(() -> {
-            //服务器信息
-            info.put("server",getServerInfo(si));
-        },taskExecutor);
-        CompletableFuture<Void> processes = CompletableFuture.runAsync(() -> {
-             //获取进程
-            info.put("processes",getProcesses(os,hal.getMemory()));
-        },taskExecutor);
-        CompletableFuture<Void> fileSystem = CompletableFuture.runAsync(() -> {
-            //获取文件系统
-            info.put("fileSystem",getFileSystem(os.getFileSystem()));
-        },taskExecutor);
-        CompletableFuture.allOf(cpu,memory,jvmMemory,server,processes,fileSystem).join();
-
-        long endTime = System.currentTimeMillis();
-        log.debug("getSystemBaseInfo耗时"+(endTime-startTime));
-        return info;
-    }
 
     /**
      * 获取系统Cpu信息
+     *
      * @param si
      * @return
      */
-    private static JSONObject getCpuInfo(SystemInfo si){
+    private static JSONObject getCpuInfo(SystemInfo si) {
         JSONObject cpuInfo = new JSONObject();
         // 获取CPU信息
         CentralProcessor cpu = si.getHardware().getProcessor();
-        cpuInfo.put("Cpu核心数量:  ",cpu.getPhysicalProcessorCount());
+        cpuInfo.put("Cpu核心数量:  ", cpu.getPhysicalProcessorCount());
         CentralProcessor processor = si.getHardware().getProcessor();
         long[] prevTicks = processor.getSystemCpuLoadTicks();
         try {
@@ -127,15 +95,16 @@ public class SysSystemMonitorServiceImpl implements SysSystemMonitorService {
 
     /**
      * 获取系统内存信息
+     *
      * @param si
      * @return
      */
-    private static JSONObject getMemoryInfo(SystemInfo si){
+    private static JSONObject getMemoryInfo(SystemInfo si) {
         JSONObject memoryInfo = new JSONObject();
         // 获取内存信息
         GlobalMemory memory = si.getHardware().getMemory();
         long pageSize = memory.getPageSize();
-        memoryInfo.put("内存页面大小: " , FormatUtil.formatBytes(pageSize));
+        memoryInfo.put("内存页面大小: ", FormatUtil.formatBytes(pageSize));
         // 将字节转换为MB（1MB = 1024 * 1024字节）
         long totalMemoryInMB = memory.getTotal() / (1024 * 1024);
         long availableMemoryInMB = memory.getAvailable() / (1024 * 1024);
@@ -151,13 +120,13 @@ public class SysSystemMonitorServiceImpl implements SysSystemMonitorService {
         return memoryInfo;
     }
 
-
     /**
      * 获取jvm内存信息
+     *
      * @param si
      * @return
      */
-    private static JSONObject getJvmMemoryInfo(SystemInfo si)  {
+    private static JSONObject getJvmMemoryInfo(SystemInfo si) {
         JSONObject jvmMemoryInfo = new JSONObject();
         MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
         // 获取RuntimeMXBean实例
@@ -200,6 +169,7 @@ public class SysSystemMonitorServiceImpl implements SysSystemMonitorService {
 
     /**
      * 获取服务器信息
+     *
      * @param si
      * @return
      */
@@ -224,6 +194,46 @@ public class SysSystemMonitorServiceImpl implements SysSystemMonitorService {
         serverInfo.put("系统架构: ", osArch);
         // 打印服务器信息
         return serverInfo;
+    }
+
+    @Override
+    public Properties getSystemBaseInfo() {
+        long startTime = System.currentTimeMillis();
+        Properties info = new Properties();
+        SystemInfo si = new SystemInfo();
+        // 获取操作系统实例，用于访问操作系统相关信息
+        OperatingSystem os = si.getOperatingSystem();
+        // 获取硬件抽象层实例，用于访问硬件相关信息
+        HardwareAbstractionLayer hal = si.getHardware();
+        CompletableFuture<Void> cpu = CompletableFuture.runAsync(() -> {
+            //cpu信息
+            info.put("cpu", getCpuInfo(si));
+        }, taskExecutor);
+        CompletableFuture<Void> memory = CompletableFuture.runAsync(() -> {
+            //系统内存
+            info.put("memory", getMemoryInfo(si));
+        }, taskExecutor);
+        CompletableFuture<Void> jvmMemory = CompletableFuture.runAsync(() -> {
+            //jvm内存
+            info.put("jvmMemory", getJvmMemoryInfo(si));
+        }, taskExecutor);
+        CompletableFuture<Void> server = CompletableFuture.runAsync(() -> {
+            //服务器信息
+            info.put("server", getServerInfo(si));
+        }, taskExecutor);
+        CompletableFuture<Void> processes = CompletableFuture.runAsync(() -> {
+            //获取进程
+            info.put("processes", getProcesses(os, hal.getMemory()));
+        }, taskExecutor);
+        CompletableFuture<Void> fileSystem = CompletableFuture.runAsync(() -> {
+            //获取文件系统
+            info.put("fileSystem", getFileSystem(os.getFileSystem()));
+        }, taskExecutor);
+        CompletableFuture.allOf(cpu, memory, jvmMemory, server, processes, fileSystem).join();
+
+        long endTime = System.currentTimeMillis();
+        log.debug("getSystemBaseInfo耗时" + (endTime - startTime));
+        return info;
     }
 
     /**

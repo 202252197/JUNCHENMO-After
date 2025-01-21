@@ -2,6 +2,7 @@ package com.jcm.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.jcm.system.api.domain.SysUser;
+
 import java.util.List;
 
 /**
@@ -38,6 +39,7 @@ public interface ISysUserService extends IService<SysUser> {
 
     /**
      * 检查用户名是否独有
+     *
      * @param user 用户
      * @return 是或否
      */
@@ -45,6 +47,7 @@ public interface ISysUserService extends IService<SysUser> {
 
     /**
      * 检查手机号是否独有
+     *
      * @param user 用户
      * @return 是或否
      */
@@ -52,6 +55,7 @@ public interface ISysUserService extends IService<SysUser> {
 
     /**
      * 检查邮箱是否独有
+     *
      * @param user 用户
      * @return 是或否
      */
@@ -59,6 +63,7 @@ public interface ISysUserService extends IService<SysUser> {
 
     /**
      * 添加用户
+     *
      * @param user 用户
      * @return 成功的记录数
      */
@@ -67,6 +72,7 @@ public interface ISysUserService extends IService<SysUser> {
 
     /**
      * 禁用用户账号
+     *
      * @param userId
      * @return
      */
@@ -75,6 +81,7 @@ public interface ISysUserService extends IService<SysUser> {
 
     /**
      * 根据ID删除用户
+     *
      * @param userId
      * @return
      */
@@ -82,6 +89,7 @@ public interface ISysUserService extends IService<SysUser> {
 
     /**
      * 根据用户ID重置密码
+     *
      * @param user
      * @return
      */
@@ -92,7 +100,7 @@ public interface ISysUserService extends IService<SysUser> {
      *
      * @param user 用户信息
      */
-     void checkUserAllowed(Long user);
+    void checkUserAllowed(Long user);
 
     /**
      * 修改用户信息
@@ -113,7 +121,7 @@ public interface ISysUserService extends IService<SysUser> {
     /**
      * 用户授权角色
      *
-     * @param userId 用户ID
+     * @param userId  用户ID
      * @param roleIds 角色组
      */
     int insertUserAuth(Long userId, Long[] roleIds);

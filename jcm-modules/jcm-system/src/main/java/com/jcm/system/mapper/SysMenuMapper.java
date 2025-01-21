@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author 吕世昊
@@ -17,6 +17,7 @@ import java.util.List;
 public interface SysMenuMapper extends BaseMapper<SysMenu> {
     /**
      * 根据用户ID查询所拥有的权限列表
+     *
      * @param id 用户ID
      * @return 用户所拥有的权限列表
      */
@@ -24,6 +25,7 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
 
     /**
      * 查询全部的菜单树
+     *
      * @param visible 是否查询隐藏菜单数据 路由需要，菜单不需要
      * @return 全部的菜单树
      */
@@ -31,14 +33,16 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
 
     /**
      * 根据用户ID查询所拥有的菜单树
-     * @param userId 用户ID
+     *
+     * @param userId  用户ID
      * @param visible 是否查询隐藏菜单数据 路由需要，菜单不需要
      * @return 用户拥有的菜单树
      */
-    List<SysMenu> selectMenuTreeByUserId(@Param("userId") Long userId,@Param("visible") Boolean visible);
+    List<SysMenu> selectMenuTreeByUserId(@Param("userId") Long userId, @Param("visible") Boolean visible);
 
     /**
      * 获取新增菜单最后的sort值
+     *
      * @param parentId 父菜单id
      * @return 用户拥有的菜单树
      */
@@ -46,10 +50,11 @@ public interface SysMenuMapper extends BaseMapper<SysMenu> {
 
     /**
      * 修改菜单及所有子菜单的状态/显示状态
+     *
      * @param menuList 当前菜单以及所有子菜单的列表
-     * @param status 修改的状态
-     * @param visible 修改的显示状态
+     * @param status   修改的状态
+     * @param visible  修改的显示状态
      * @return 用户拥有的菜单树
      */
-    int updateBatchById(@Param("menuList") List<SysMenu> menuList,@Param("status") Integer status,@Param("visible") Boolean visible);
+    int updateBatchById(@Param("menuList") List<SysMenu> menuList, @Param("status") Integer status, @Param("visible") Boolean visible);
 }

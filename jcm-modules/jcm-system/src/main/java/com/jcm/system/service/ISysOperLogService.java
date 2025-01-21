@@ -25,16 +25,16 @@ public interface ISysOperLogService extends IService<SysOperLog> {
     /**
      * 查找操作日志集合
      *
-     * @sysOperLog 查询条件
      * @return 结果
+     * @sysOperLog 查询条件
      */
     List<SysOperLog> selectOperLogList(SysOperLog sysOperLog);
 
     /**
      * 删除操作日志
      *
-     * @operIds 操作日志主键集合
      * @return 结果
+     * @operIds 操作日志主键集合
      */
     int deleteOperLog(List<Long> operIds);
 

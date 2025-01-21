@@ -31,8 +31,7 @@ public class TxVipServiceImpl extends ServiceImpl<TxVipMapper, TxVip> implements
      * @return vip
      */
     @Override
-    public TxVip selectTxVipByVipId(Long vipId)
-    {
+    public TxVip selectTxVipByVipId(Long vipId) {
         return txVipMapper.selectById(vipId);
     }
 
@@ -43,16 +42,15 @@ public class TxVipServiceImpl extends ServiceImpl<TxVipMapper, TxVip> implements
      * @return vip
      */
     @Override
-    public List<TxVip> selectTxVipList(TxVip txVip)
-    {
+    public List<TxVip> selectTxVipList(TxVip txVip) {
         LambdaQueryWrapper<TxVip> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.select(TxVip::getVipId, TxVip::getXyName, TxVip::getStartingTime, TxVip::getStopingTime, TxVip::getPurchaseDays, TxVip::getUnitType, TxVip::getStatus, TxVip::getLoginMethod, TxVip::getLoginAccount, TxVip::getCreator, TxVip::getCreateTime, TxVip::getUpdater, TxVip::getUpdateTime, TxVip::getRemark,  TxVip::getDeleted );
-        queryWrapper.like( StringUtils.isNotEmpty(txVip.getXyName()) , TxVip::getXyName, txVip.getXyName());
-        queryWrapper.ge( StringUtils.isNotNull(txVip.getStartingTime()), TxVip::getStartingTime, txVip.getStartingTime());
-        queryWrapper.le( StringUtils.isNotNull(txVip.getStopingTime()), TxVip::getStopingTime, txVip.getStopingTime());
-        queryWrapper.eq( StringUtils.isNotEmpty(txVip.getPurchaseDays()) , TxVip::getPurchaseDays, txVip.getPurchaseDays());
-        queryWrapper.eq( StringUtils.isNotEmpty(txVip.getUnitType()) , TxVip::getUnitType, txVip.getUnitType());
-        queryWrapper.eq( StringUtils.isNotEmpty(txVip.getLoginMethod()) , TxVip::getLoginMethod, txVip.getLoginMethod());
+        queryWrapper.select(TxVip::getVipId, TxVip::getXyName, TxVip::getStartingTime, TxVip::getStopingTime, TxVip::getPurchaseDays, TxVip::getUnitType, TxVip::getStatus, TxVip::getLoginMethod, TxVip::getLoginAccount, TxVip::getCreator, TxVip::getCreateTime, TxVip::getUpdater, TxVip::getUpdateTime, TxVip::getRemark, TxVip::getDeleted);
+        queryWrapper.like(StringUtils.isNotEmpty(txVip.getXyName()), TxVip::getXyName, txVip.getXyName());
+        queryWrapper.ge(StringUtils.isNotNull(txVip.getStartingTime()), TxVip::getStartingTime, txVip.getStartingTime());
+        queryWrapper.le(StringUtils.isNotNull(txVip.getStopingTime()), TxVip::getStopingTime, txVip.getStopingTime());
+        queryWrapper.eq(StringUtils.isNotEmpty(txVip.getPurchaseDays()), TxVip::getPurchaseDays, txVip.getPurchaseDays());
+        queryWrapper.eq(StringUtils.isNotEmpty(txVip.getUnitType()), TxVip::getUnitType, txVip.getUnitType());
+        queryWrapper.eq(StringUtils.isNotEmpty(txVip.getLoginMethod()), TxVip::getLoginMethod, txVip.getLoginMethod());
         return txVipMapper.selectList(queryWrapper);
     }
 
@@ -63,8 +61,7 @@ public class TxVipServiceImpl extends ServiceImpl<TxVipMapper, TxVip> implements
      * @return 结果
      */
     @Override
-    public int insertTxVip(TxVip txVip)
-    {
+    public int insertTxVip(TxVip txVip) {
         return txVipMapper.insert(txVip);
     }
 
@@ -75,8 +72,7 @@ public class TxVipServiceImpl extends ServiceImpl<TxVipMapper, TxVip> implements
      * @return 结果
      */
     @Override
-    public int updateTxVip(TxVip txVip)
-    {
+    public int updateTxVip(TxVip txVip) {
         return txVipMapper.updateById(txVip);
     }
 
@@ -87,8 +83,7 @@ public class TxVipServiceImpl extends ServiceImpl<TxVipMapper, TxVip> implements
      * @return 结果
      */
     @Override
-    public int deleteTxVipByVipIds(Long[] vipIds)
-    {
+    public int deleteTxVipByVipIds(Long[] vipIds) {
         return txVipMapper.deleteBatchIds(Arrays.asList(vipIds));
     }
 
@@ -99,8 +94,7 @@ public class TxVipServiceImpl extends ServiceImpl<TxVipMapper, TxVip> implements
      * @return 结果
      */
     @Override
-    public int deleteTxVipByVipId(Long vipId)
-    {
+    public int deleteTxVipByVipId(Long vipId) {
         return txVipMapper.deleteById(vipId);
     }
 }

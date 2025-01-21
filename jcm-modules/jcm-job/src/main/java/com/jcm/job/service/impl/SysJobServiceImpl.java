@@ -37,12 +37,10 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
      * 项目启动时，初始化定时器 主要是防止手动修改数据库导致未同步到定时任务处理（注：不能手动修改数据库ID和任务组名，否则会导致脏数据）
      */
     @PostConstruct
-    public void init() throws SchedulerException, TaskException
-    {
+    public void init() throws SchedulerException, TaskException {
         scheduler.clear();
         List<SysJob> jobList = sysJobMapper.selectList(null);
-        for (SysJob job : jobList)
-        {
+        for (SysJob job : jobList) {
             ScheduleUtils.createScheduleJob(scheduler, job);
         }
     }
@@ -54,8 +52,7 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
      * @return 定时任务调度
      */
     @Override
-    public SysJob selectSysJobByJobId(Long jobId)
-    {
+    public SysJob selectSysJobByJobId(Long jobId) {
         return sysJobMapper.selectById(jobId);
     }
 
@@ -66,17 +63,16 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
      * @return 定时任务调度
      */
     @Override
-    public List<SysJob> selectSysJobList(SysJob sysJob)
-    {
+    public List<SysJob> selectSysJobList(SysJob sysJob) {
         LambdaQueryWrapper<SysJob> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.select(SysJob::getJobId, SysJob::getJobName, SysJob::getJobGroup, SysJob::getInvokeTarget, SysJob::getCronExpression, SysJob::getMisfirePolicy, SysJob::getConcurrent, SysJob::getStatus, SysJob::getRemark, SysJob::getCreator, SysJob::getCreateTime, SysJob::getUpdater, SysJob::getUpdateTime,  SysJob::getDeleted );
-        queryWrapper.like( StringUtils.isNotEmpty(sysJob.getJobName()) , SysJob::getJobName, sysJob.getJobName());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysJob.getJobGroup()) , SysJob::getJobGroup, sysJob.getJobGroup());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysJob.getInvokeTarget()) , SysJob::getInvokeTarget, sysJob.getInvokeTarget());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysJob.getCronExpression()) , SysJob::getCronExpression, sysJob.getCronExpression());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysJob.getMisfirePolicy()) , SysJob::getMisfirePolicy, sysJob.getMisfirePolicy());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysJob.getConcurrent()) , SysJob::getConcurrent, sysJob.getConcurrent());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysJob.getStatus()) , SysJob::getStatus, sysJob.getStatus());
+        queryWrapper.select(SysJob::getJobId, SysJob::getJobName, SysJob::getJobGroup, SysJob::getInvokeTarget, SysJob::getCronExpression, SysJob::getMisfirePolicy, SysJob::getConcurrent, SysJob::getStatus, SysJob::getRemark, SysJob::getCreator, SysJob::getCreateTime, SysJob::getUpdater, SysJob::getUpdateTime, SysJob::getDeleted);
+        queryWrapper.like(StringUtils.isNotEmpty(sysJob.getJobName()), SysJob::getJobName, sysJob.getJobName());
+        queryWrapper.eq(StringUtils.isNotEmpty(sysJob.getJobGroup()), SysJob::getJobGroup, sysJob.getJobGroup());
+        queryWrapper.eq(StringUtils.isNotEmpty(sysJob.getInvokeTarget()), SysJob::getInvokeTarget, sysJob.getInvokeTarget());
+        queryWrapper.eq(StringUtils.isNotEmpty(sysJob.getCronExpression()), SysJob::getCronExpression, sysJob.getCronExpression());
+        queryWrapper.eq(StringUtils.isNotEmpty(sysJob.getMisfirePolicy()), SysJob::getMisfirePolicy, sysJob.getMisfirePolicy());
+        queryWrapper.eq(StringUtils.isNotEmpty(sysJob.getConcurrent()), SysJob::getConcurrent, sysJob.getConcurrent());
+        queryWrapper.eq(StringUtils.isNotEmpty(sysJob.getStatus()), SysJob::getStatus, sysJob.getStatus());
         return sysJobMapper.selectList(queryWrapper);
     }
 
@@ -87,8 +83,7 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
      * @return 结果
      */
     @Override
-    public int insertSysJob(SysJob sysJob)
-    {
+    public int insertSysJob(SysJob sysJob) {
         return sysJobMapper.insert(sysJob);
     }
 
@@ -100,28 +95,25 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int updateSysJob(SysJob sysJob) throws SchedulerException, TaskException
-    {
+    public int updateSysJob(SysJob sysJob) throws SchedulerException, TaskException {
         int rows = sysJobMapper.updateById(sysJob);
-        if (rows > 0)
-        {
+        if (rows > 0) {
             updateSchedulerJob(sysJob, sysJob.getJobGroup());
         }
         return rows;
     }
+
     /**
      * 更新任务
      *
-     * @param job 任务对象
+     * @param job      任务对象
      * @param jobGroup 任务组名
      */
-    public void updateSchedulerJob(SysJob job, String jobGroup) throws SchedulerException, TaskException
-    {
+    public void updateSchedulerJob(SysJob job, String jobGroup) throws SchedulerException, TaskException {
         Long jobId = job.getJobId();
         // 判断是否存在
         JobKey jobKey = ScheduleUtils.getJobKey(jobId, jobGroup);
-        if (scheduler.checkExists(jobKey))
-        {
+        if (scheduler.checkExists(jobKey)) {
             // 防止创建时存在数据问题 先移除，然后在执行创建操作
             scheduler.deleteJob(jobKey);
         }
@@ -137,8 +129,7 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void deleteSysJobByJobIds(Long[] jobIds) throws SchedulerException {
-        for (Long jobId : jobIds)
-        {
+        for (Long jobId : jobIds) {
             SysJob job = baseMapper.selectById(jobId);
             deleteJob(job);
         }
@@ -151,8 +142,7 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
      * @return 结果
      */
     @Override
-    public int deleteSysJobByJobId(Long jobId)
-    {
+    public int deleteSysJobByJobId(Long jobId) {
         return sysJobMapper.deleteById(jobId);
     }
 
@@ -164,8 +154,7 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean run(SysJob job) throws SchedulerException
-    {
+    public boolean run(SysJob job) throws SchedulerException {
         boolean result = false;
         Long jobId = job.getJobId();
         String jobGroup = job.getJobGroup();
@@ -174,8 +163,7 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
         JobDataMap dataMap = new JobDataMap();
         dataMap.put(ScheduleConstants.TASK_PROPERTIES, properties);
         JobKey jobKey = ScheduleUtils.getJobKey(jobId, jobGroup);
-        if (scheduler.checkExists(jobKey))
-        {
+        if (scheduler.checkExists(jobKey)) {
             result = true;
             scheduler.triggerJob(jobKey, dataMap);
         }
@@ -190,13 +178,11 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int deleteJob(SysJob job) throws SchedulerException
-    {
+    public int deleteJob(SysJob job) throws SchedulerException {
         Long jobId = job.getJobId();
         String jobGroup = job.getJobGroup();
         int rows = baseMapper.deleteById(jobId);
-        if (rows > 0)
-        {
+        if (rows > 0) {
             scheduler.deleteJob(ScheduleUtils.getJobKey(jobId, jobGroup));
         }
         return rows;
@@ -209,16 +195,12 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int changeStatus(SysJob job) throws SchedulerException
-    {
+    public int changeStatus(SysJob job) throws SchedulerException {
         int rows = 0;
         String status = job.getStatus();
-        if (ScheduleConstants.Status.NORMAL.getValue().equals(status))
-        {
+        if (ScheduleConstants.Status.NORMAL.getValue().equals(status)) {
             rows = resumeJob(job);
-        }
-        else if (ScheduleConstants.Status.PAUSE.getValue().equals(status))
-        {
+        } else if (ScheduleConstants.Status.PAUSE.getValue().equals(status)) {
             rows = pauseJob(job);
         }
         return rows;
@@ -231,14 +213,12 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int resumeJob(SysJob job) throws SchedulerException
-    {
+    public int resumeJob(SysJob job) throws SchedulerException {
         Long jobId = job.getJobId();
         String jobGroup = job.getJobGroup();
         job.setStatus(ScheduleConstants.Status.NORMAL.getValue());
         int rows = baseMapper.updateById(job);
-        if (rows > 0)
-        {
+        if (rows > 0) {
             scheduler.resumeJob(ScheduleUtils.getJobKey(jobId, jobGroup));
         }
         return rows;
@@ -251,14 +231,12 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int pauseJob(SysJob job) throws SchedulerException
-    {
+    public int pauseJob(SysJob job) throws SchedulerException {
         Long jobId = job.getJobId();
         String jobGroup = job.getJobGroup();
         job.setStatus(ScheduleConstants.Status.PAUSE.getValue());
         int rows = baseMapper.updateById(job);
-        if (rows > 0)
-        {
+        if (rows > 0) {
             scheduler.pauseJob(ScheduleUtils.getJobKey(jobId, jobGroup));
         }
         return rows;

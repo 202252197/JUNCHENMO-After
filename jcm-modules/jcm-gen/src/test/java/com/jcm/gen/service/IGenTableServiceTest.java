@@ -10,6 +10,12 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 
+/**
+ * 生成表服务测试
+ *
+ * @author junchenmo
+ * @date 2025/01/19 09:57
+ */
 @SpringBootTest(classes = JcmGenApplication.class)
 @ExtendWith(SpringExtension.class) // 添加此行
 class IGenTableServiceTest {
@@ -19,7 +25,7 @@ class IGenTableServiceTest {
     @Test
     void selectDbTableList() {
         List<GenTable> genTables = genTableService.selectDbTableList(null);
-        genTables.stream().forEach(v->{
+        genTables.stream().forEach(v -> {
             System.out.println(v);
         });
         assert genTables != null;

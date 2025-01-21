@@ -1,7 +1,7 @@
 package com.jcm.system.mapper;
 
-import com.jcm.system.domain.SysUserRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.jcm.system.domain.SysUserRole;
 
 import java.util.List;
 
@@ -25,6 +25,7 @@ public interface SysUserRoleMapper extends BaseMapper<SysUserRole> {
 
     /**
      * 根据用户ID获取角色ID列表
+     *
      * @param userId 用户ID
      * @return
      */

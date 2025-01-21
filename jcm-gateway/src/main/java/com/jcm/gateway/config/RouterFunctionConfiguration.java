@@ -11,13 +11,12 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 
 /**
  * 路由配置信息
- * 
+ *
  * @author 君尘陌
  */
 @Configuration
 @AllArgsConstructor
-public class RouterFunctionConfiguration
-{
+public class RouterFunctionConfiguration {
     /**
      * 获取验证码的请求处理类
      */
@@ -30,8 +29,7 @@ public class RouterFunctionConfiguration
      */
     @SuppressWarnings("rawtypes")
     @Bean
-    public RouterFunction routerFunction()
-    {
+    public RouterFunction routerFunction() {
         return RouterFunctions.route(
                 RequestPredicates.GET("/code").and(RequestPredicates.accept(MediaType.TEXT_PLAIN)),
                 validateCodeHandler);

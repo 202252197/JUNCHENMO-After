@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author lvshihao
  */
-@Api(tags="缓存监控")
-@ApiSupport(author = "202252197@qq.com",order = 8)
+@Api(tags = "缓存监控")
+@ApiSupport(author = "202252197@qq.com", order = 8)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/cacheMonitor")
@@ -29,8 +29,7 @@ public class SysCacheMonitorController extends PageBaseController {
     @RequiresPermissions("system:dictType:list")
     @GetMapping("/getRedisBaseInfo")
     @PrintParams
-    public AjaxResult getRedisBaseInfo()
-    {
+    public AjaxResult getRedisBaseInfo() {
         return AjaxResult.success(sysCacheMonitorService.getRedisBaseInfo());
     }
 
@@ -38,8 +37,7 @@ public class SysCacheMonitorController extends PageBaseController {
     @RequiresPermissions("system:dictType:list")
     @GetMapping("/getRedisInfo")
     @PrintParams
-    public AjaxResult getRedisInfo()
-    {
+    public AjaxResult getRedisInfo() {
         return AjaxResult.success(sysCacheMonitorService.getRedisInfo());
     }
 

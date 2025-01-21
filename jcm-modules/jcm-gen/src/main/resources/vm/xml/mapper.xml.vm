@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="${packageName}.mapper.${ClassName}Mapper">
-    
+
     <resultMap type="${ClassName}" id="${ClassName}Result">
-#foreach ($column in $columns)
-        <result property="${column.javaField}"    column="${column.columnName}"    />
-#end
+        #foreach ($column in $columns)
+            <result property="${column.javaField}" column="${column.columnName}"/>
+        #end
     </resultMap>
 
     <sql id="select${ClassName}Vo">
-        select#foreach($column in $columns) $column.columnName#if($foreach.count != $columns.size()),#end#end from ${tableName}
+        select#foreach($column in $columns) $column.columnName#if($foreach.count != $columns.size()),#end#end
+        from ${tableName}
     </sql>
 
 

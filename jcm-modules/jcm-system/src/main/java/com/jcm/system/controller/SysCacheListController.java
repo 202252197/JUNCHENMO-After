@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.*;
  * @author 吕世昊
  * @since 2024-11-24
  */
-@Api(tags="缓存列表")
-@ApiSupport(author = "202252197@qq.com",order = 7)
+@Api(tags = "缓存列表")
+@ApiSupport(author = "202252197@qq.com", order = 7)
 @BusinessName(title = OperationNameConstants.SYSTEM_CACHE_LIST)
 @RestController
 @AllArgsConstructor
@@ -32,43 +32,39 @@ public class SysCacheListController extends PageBaseController {
 
     private final SysCacheListService sysCacheListService;
 
-    @ApiOperation(value = "删除键名列表",notes = "根据缓存名称删除键名列表")
+    @ApiOperation(value = "删除键名列表", notes = "根据缓存名称删除键名列表")
     @RequiresPermissions("system:dictType:list")
     @DeleteMapping("/deleteCacheName")
     @PrintParams
-    public AjaxResult removeCacheName(@RequestParam String cacheName)
-    {
+    public AjaxResult removeCacheName(@RequestParam String cacheName) {
         return toAjax(sysCacheListService.deleteCacheName(cacheName));
     }
 
-    @ApiOperation(value = "删除缓存",notes = "根据缓存键名删除缓存")
+    @ApiOperation(value = "删除缓存", notes = "根据缓存键名删除缓存")
     @RequiresPermissions("system:dictType:list")
     @DeleteMapping("/deleteCacheKey")
     @PrintParams
-    public AjaxResult removeCacheKey(@RequestParam String keyName)
-    {
+    public AjaxResult removeCacheKey(@RequestParam String keyName) {
         return toAjax(sysCacheListService.deleteCacheKey(keyName));
     }
 
-    @ApiOperation(value = "查询键名列表",notes = "根据缓存名称查询")
+    @ApiOperation(value = "查询键名列表", notes = "根据缓存名称查询")
     @RequiresPermissions("system:dictType:list")
     @GetMapping("/getRedisKeys")
     @PrintParams
-    public AjaxResult getRedisKeys(@RequestParam String cacheName)
-    {
+    public AjaxResult getRedisKeys(@RequestParam String cacheName) {
         return AjaxResult.success(sysCacheListService.getRedisKeysByCacheName(cacheName));
     }
 
-    @ApiOperation(value = "查询缓存内容",notes = "根据键名查询缓存内容")
+    @ApiOperation(value = "查询缓存内容", notes = "根据键名查询缓存内容")
     @RequiresPermissions("system:dictType:list")
     @GetMapping("/getRedisKeyData")
     @PrintParams
-    public AjaxResult getRedisKeyData(@RequestParam String keyName)
-    {
+    public AjaxResult getRedisKeyData(@RequestParam String keyName) {
         Object redisKeyData = sysCacheListService.getRedisKeyDataByKeyName(keyName);
-        if(StringUtils.isNotNull(redisKeyData)){
+        if (StringUtils.isNotNull(redisKeyData)) {
             return AjaxResult.success(redisKeyData);
-        }else{
+        } else {
             return AjaxResult.error("站不支持此类型");
         }
     }

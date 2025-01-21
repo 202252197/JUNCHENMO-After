@@ -29,7 +29,7 @@
                     #set($dictType=$column.dictType)
                     #if($column.htmlType == "input")
                       <el-form-item label="${comment}" prop="${field}">
-                        <el-input v-model="${className}Store.commonForm.${field}" placeholder="请输入${comment}" />
+                        <el-input v-model="${className}Store.commonForm.${field}" placeholder="请输入${comment}"/>
                       </el-form-item>
                     #elseif($column.htmlType == "imageUpload")
                       <el-form-item label="${comment}" prop="${field}">
@@ -45,7 +45,8 @@
                       </el-form-item>
                     #elseif($column.htmlType == "select" && "" != $dictType)
                       <el-form-item label="${comment}" prop="${field}">
-                        <el-select v-model="${className}Store.commonForm.${field}" placeholder="请选择${comment}" clearable>
+                        <el-select v-model="${className}Store.commonForm.${field}" placeholder="请选择${comment}"
+                                   clearable>
                           <el-option
                               v-for="dict in loadDictDataByName('${dictType}')"
                               :key="dict.value"
@@ -61,7 +62,7 @@
                     #elseif($column.htmlType == "select" && $dictType)
                       <el-form-item label="${comment}" prop="${field}">
                         <el-select v-model="${className}Store.commonForm.${field}" placeholder="请选择${comment}">
-                          <el-option label="请选择字典生成" value="" />
+                          <el-option label="请选择字典生成" value=""/>
                         </el-select>
                       </el-form-item>
                     #elseif($column.htmlType == "checkbox" && "" != $dictType)
@@ -92,7 +93,8 @@
                               #else
                               :label="dict.value"
                               #end
-                          >{{dict.label}}</el-radio>
+                          >{{dict.label}}
+                          </el-radio>
                         </el-radio-group>
                       </el-form-item>
                     #elseif($column.htmlType == "radio" && $dictType)
@@ -112,7 +114,8 @@
                       </el-form-item>
                     #elseif($column.htmlType == "textarea")
                       <el-form-item label="${comment}" prop="${field}">
-                        <el-input v-model="${className}Store.commonForm.${field}" type="textarea" placeholder="请输入内容" />
+                        <el-input v-model="${className}Store.commonForm.${field}" type="textarea"
+                                  placeholder="请输入内容"/>
                       </el-form-item>
                     #end
                 #end
@@ -131,27 +134,25 @@
 </template>
 
 <script setup lang="ts">
-  import type { FormInstance } from 'element-plus'
-  import { formRules } from '../types/form.rules'
+  import type {FormInstance} from 'element-plus'
   //仓库
-  import use${ClassName}Store from '@/store/modules/${moduleName}/${businessName}'
   import useDictTypeStore from '@/store/modules/acl/dictType'
 
   const ${className}Store = use${ClassName}Store()
   const dictTypeStore = useDictTypeStore()
 
   //获取当前组件实例
-  const instance  = getCurrentInstance();
+  const instance = getCurrentInstance();
   //表单对象引用
   const formRef = ref<FormInstance>()
   //添加表单打开的状态
   const fromOpenStatus = ref(false)
 
   // 打开
-  const open = (item:any) => {
+  const open = (item: any) => {
     const commonForm = ${className}Store.commonForm;
     (instance?.proxy as any).$resetObj(commonForm);
-    (instance?.proxy as any).$assign(commonForm,item);
+    (instance?.proxy as any).$assign(commonForm, item);
     fromOpenStatus.value = true;
   };
 
@@ -159,29 +160,29 @@
     if (!formEl) return
     formEl.validate((valid) => {
       if (valid) {
-          const searchQuery = ${className}Store.searchForm;
-          const commonForm = ${className}Store.commonForm;
-          const page = ${className}Store.dataList.page;
-          const size =  ${className}Store.dataList.size;
-          ${className}Store.update(commonForm).then(() => {
-              (instance?.proxy as any).$addPage(searchQuery,page,size);
-              ${className}Store.list(searchQuery);
-              fromOpenStatus.value = false;
-          })
+        const searchQuery = ${className}Store.searchForm;
+        const commonForm = ${className}Store.commonForm;
+        const page = ${className}Store.dataList.page;
+        const size = ${className}Store.dataList.size;
+              ${className}Store.update(commonForm).then(() => {
+          (instance?.proxy as any).$addPage(searchQuery, page, size);
+                  ${className}Store.list(searchQuery);
+          fromOpenStatus.value = false;
+        })
       } else {
         //弹出数据校验失败的message
-        ElMessage.error({ message: '请将信息填写完整' })
+        ElMessage.error({message: '请将信息填写完整'})
       }
     })
   }
 
   //根据名称加载字典数据
-  const loadDictDataByName = (name:string) => {
+  const loadDictDataByName = (name: string) => {
     return ${className}Store.dictData.filter((item: any) => item.name === name)
   }
 
 
-  defineExpose({ open });
+  defineExpose({open});
 
 
 </script>

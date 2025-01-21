@@ -1,7 +1,7 @@
 package com.jcm.gen.service;
 
-import com.jcm.gen.domain.GenTableColumn;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.jcm.gen.domain.GenTableColumn;
 
 import java.util.List;
 

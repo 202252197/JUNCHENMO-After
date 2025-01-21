@@ -10,8 +10,7 @@ import java.io.IOException;
  *
  * @author 君尘陌
  */
-public interface ValidateCodeService
-{
+public interface ValidateCodeService {
     /**
      * 生成验证码
      */

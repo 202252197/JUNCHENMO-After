@@ -28,8 +28,7 @@ public class SysOperLogServiceImpl extends ServiceImpl<SysOperLogMapper, SysOper
      * @return 结果
      */
     @Override
-    public int insertOperlog(SysOperLog operLog)
-    {
+    public int insertOperlog(SysOperLog operLog) {
         return sysOperLogMapper.insert(operLog);
     }
 
@@ -41,10 +40,10 @@ public class SysOperLogServiceImpl extends ServiceImpl<SysOperLogMapper, SysOper
                 .eq(StringUtils.isNotEmpty(sysOperLog.getBusinessName()), SysOperLog::getBusinessName, sysOperLog.getBusinessName())
                 .eq(StringUtils.isNotNull(sysOperLog.getStatus()), SysOperLog::getStatus, sysOperLog.getStatus())
                 .orderByDesc(SysOperLog::getRequestTime);
-                if(Objects.nonNull(sysOperLog.getParams())){
-                    queryChainWrapper.ge(StringUtils.isNotNull(sysOperLog.getParams().get("beginRequestTime")),SysOperLog::getRequestTime,sysOperLog.getParams().get("beginRequestTime"))
-                    .le(Objects.nonNull(sysOperLog.getParams())&&StringUtils.isNotNull(sysOperLog.getParams().get("endRequestTime")),SysOperLog::getRequestTime,sysOperLog.getParams().get("endRequestTime"));
-                }
+        if (Objects.nonNull(sysOperLog.getParams())) {
+            queryChainWrapper.ge(StringUtils.isNotNull(sysOperLog.getParams().get("beginRequestTime")), SysOperLog::getRequestTime, sysOperLog.getParams().get("beginRequestTime"))
+                    .le(Objects.nonNull(sysOperLog.getParams()) && StringUtils.isNotNull(sysOperLog.getParams().get("endRequestTime")), SysOperLog::getRequestTime, sysOperLog.getParams().get("endRequestTime"));
+        }
 
         return queryChainWrapper.list();
     }

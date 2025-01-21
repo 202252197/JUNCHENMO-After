@@ -7,12 +7,11 @@ import org.apache.ibatis.annotations.Delete;
 
 /**
  * logininforMapper接口
- * 
+ *
  * @author lvshihao
  * @date 2025-01-11
  */
-public interface SysLogininforMapper extends BaseMapper<SysLogininfor>
-{
+public interface SysLogininforMapper extends BaseMapper<SysLogininfor> {
 
     @Delete("TRUNCATE TABLE sys_logininfor")
     void clearLogininfor();

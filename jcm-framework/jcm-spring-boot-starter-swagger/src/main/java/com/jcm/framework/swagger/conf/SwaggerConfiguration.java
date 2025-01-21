@@ -33,32 +33,9 @@ import java.util.stream.Collectors;
 @AutoConfiguration
 public class SwaggerConfiguration {
 
-    @Bean(value = "api")
-    public Docket groupRestApi(SwaggerProperties swaggerProperties) {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .enable(swaggerProperties.getEnable())
-                .apiInfo(groupApiInfo(swaggerProperties))
-                .select()
-                .apis(RequestHandlerSelectors.basePackage(swaggerProperties.getBasePackage()))
-                .paths(PathSelectors.any())
-                .build();
-    }
-
-    private ApiInfo groupApiInfo(SwaggerProperties swaggerProperties){
-        return new ApiInfoBuilder()
-                .title(swaggerProperties.getTitle())
-                .description(swaggerProperties.getDescription())
-                .licenseUrl(swaggerProperties.getLicenseUrl())
-                .license(swaggerProperties.getLicense())
-                .termsOfServiceUrl(swaggerProperties.getUrl())
-                .contact(new Contact(swaggerProperties.getContact().getName(),swaggerProperties.getContact().getUrl(),swaggerProperties.getContact().getEmail()))
-                .version(swaggerProperties.getVersion())
-                .build();
-    }
-
-
     /**
      * 解决springboot高版本 swagger启动报错
+     *
      * @return
      */
     @Bean
@@ -92,6 +69,29 @@ public class SwaggerConfiguration {
                 }
             }
         };
+    }
+
+    @Bean(value = "api")
+    public Docket groupRestApi(SwaggerProperties swaggerProperties) {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .enable(swaggerProperties.getEnable())
+                .apiInfo(groupApiInfo(swaggerProperties))
+                .select()
+                .apis(RequestHandlerSelectors.basePackage(swaggerProperties.getBasePackage()))
+                .paths(PathSelectors.any())
+                .build();
+    }
+
+    private ApiInfo groupApiInfo(SwaggerProperties swaggerProperties) {
+        return new ApiInfoBuilder()
+                .title(swaggerProperties.getTitle())
+                .description(swaggerProperties.getDescription())
+                .licenseUrl(swaggerProperties.getLicenseUrl())
+                .license(swaggerProperties.getLicense())
+                .termsOfServiceUrl(swaggerProperties.getUrl())
+                .contact(new Contact(swaggerProperties.getContact().getName(), swaggerProperties.getContact().getUrl(), swaggerProperties.getContact().getEmail()))
+                .version(swaggerProperties.getVersion())
+                .build();
     }
 
 

@@ -29,14 +29,13 @@ import java.util.List;
  * @author lvshihao
  * @date 2025-01-14
  */
-@Api(tags="log管理")
+@Api(tags = "log管理")
 @ApiSupport(author = "202252197@qq.com")
 @BusinessName(title = OperationNameConstants.SYS_JOB_LOG)
 @AllArgsConstructor
 @RestController
 @RequestMapping("/jobTaskLog")
-public class SysJobLogController extends PageBaseController
-{
+public class SysJobLogController extends PageBaseController {
     private final ISysJobLogService sysJobLogService;
 
     /**
@@ -44,8 +43,7 @@ public class SysJobLogController extends PageBaseController
      */
     @RequiresPermissions("job:log:list")
     @GetMapping("/list")
-    public TableDataInfo list(SysJobLog sysJobLog)
-    {
+    public TableDataInfo list(SysJobLog sysJobLog) {
         startPage();
         List<SysJobLog> list = sysJobLogService.selectSysJobLogList(sysJobLog);
         return getDataTable(list);
@@ -57,8 +55,7 @@ public class SysJobLogController extends PageBaseController
     @RequiresPermissions("job:log:export")
     @Log(functionName = "导出定时任务调度日志列表", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
-    public void export(HttpServletResponse response, SysJobLog sysJobLog)
-    {
+    public void export(HttpServletResponse response, SysJobLog sysJobLog) {
         List<SysJobLog> list = sysJobLogService.selectSysJobLogList(sysJobLog);
         ExcelUtil<SysJobLog> util = new ExcelUtil<SysJobLog>(SysJobLog.class);
         util.exportEasyExcel(response, list, "定时任务调度日志数据");
@@ -69,8 +66,7 @@ public class SysJobLogController extends PageBaseController
      */
     @RequiresPermissions("job:log:query")
     @GetMapping(value = "/{jobLogId}")
-    public AjaxResult getInfo(@PathVariable("jobLogId") Long jobLogId)
-    {
+    public AjaxResult getInfo(@PathVariable("jobLogId") Long jobLogId) {
         return success(sysJobLogService.selectSysJobLogByJobLogId(jobLogId));
     }
 
@@ -80,8 +76,7 @@ public class SysJobLogController extends PageBaseController
     @RequiresPermissions("job:log:remove")
     @Log(functionName = "删除定时任务调度日志", businessType = BusinessType.DELETE)
     @DeleteMapping("/{jobLogIds}")
-    public AjaxResult remove(@PathVariable Long[] jobLogIds)
-    {
+    public AjaxResult remove(@PathVariable Long[] jobLogIds) {
         return toAjax(sysJobLogService.deleteSysJobLogByJobLogIds(jobLogIds));
     }
 
@@ -91,7 +86,7 @@ public class SysJobLogController extends PageBaseController
     @DeleteMapping("/clear")
     @PrintParams
     public AjaxResult clear() {
-        OperLogCover.outherLogMsg(BusinessNameConstant.JOB_TASK_LOG+"全部清空");
+        OperLogCover.outherLogMsg(BusinessNameConstant.JOB_TASK_LOG + "全部清空");
         return toAjax(sysJobLogService.clearOperLog());
     }
 }

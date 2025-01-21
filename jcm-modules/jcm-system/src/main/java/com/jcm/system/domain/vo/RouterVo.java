@@ -8,14 +8,13 @@ import java.util.List;
 
 /**
  * 路由配置信息
- * 
+ *
  * @author junchenmo
  */
-@Schema(description ="统一返回格式")
+@Schema(description = "统一返回格式")
 @Data
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class RouterVo
-{
+public class RouterVo {
 
     /**
      * 路由地址

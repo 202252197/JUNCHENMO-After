@@ -2,6 +2,7 @@ package ${packageName}.controller;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -34,31 +35,28 @@ import com.jcm.common.core.web.page.TableDataInfo;
  * @author ${author}
  * @date ${datetime}
  */
-@Api(tags="${businessName}管理")
+@Api(tags = "${businessName}管理")
 @ApiSupport(author = "202252197@qq.com")
 @BusinessName(title = OperationNameConstants.${tableNameUC})
 @AllArgsConstructor
 @RestController
 @RequestMapping("/${businessName}")
-public class ${ClassName}Controller extends PageBaseController
-{
+public class ${ClassName}Controller extends PageBaseController {
     private final I${ClassName}Service ${className}Service;
 
-    /**
-     * 查询${functionName}列表
-     */
-    @RequiresPermissions("${permissionPrefix}:list")
-    @GetMapping("/list")
+/**
+ * 查询${functionName}列表
+ */
+@RequiresPermissions("${permissionPrefix}:list")
+@GetMapping("/list")
     #if($table.crud)
-    public TableDataInfo list(${ClassName} ${className})
-    {
+    public TableDataInfo list(${ClassName} ${className}) {
         startPage();
         List<${ClassName}> list = ${className}Service.select${ClassName}List(${className});
         return getDataTable(list);
     }
     #elseif($table.tree)
-        public AjaxResult list(${ClassName} ${className})
-        {
+        public AjaxResult list(${ClassName} ${className}) {
             List<${ClassName}> list = ${className}Service.select${ClassName}List(${className});
             return success(list);
         }
@@ -70,10 +68,9 @@ public class ${ClassName}Controller extends PageBaseController
     @RequiresPermissions("${permissionPrefix}:export")
     @Log(functionName = "导出${functionName}列表", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
-    public void export(HttpServletResponse response, ${ClassName} ${className})
-    {
+    public void export(HttpServletResponse response, ${ClassName} ${className}) {
         List<${ClassName}> list = ${className}Service.select${ClassName}List(${className});
-        ExcelUtil<${ClassName}> util = new ExcelUtil<${ClassName}>(${ClassName}.class);
+        ExcelUtil<${ClassName}> util = new ExcelUtil<${ClassName}>(${ClassName}. class);
         util.exportEasyExcel(response, list, "${functionName}数据");
     }
 
@@ -82,8 +79,7 @@ public class ${ClassName}Controller extends PageBaseController
      */
     @RequiresPermissions("${permissionPrefix}:query")
     @GetMapping(value = "/{${pkColumn.javaField}}")
-    public AjaxResult getInfo(@PathVariable("${pkColumn.javaField}") ${pkColumn.javaType} ${pkColumn.javaField})
-    {
+    public AjaxResult getInfo(@PathVariable("${pkColumn.javaField}") ${pkColumn.javaType} ${pkColumn.javaField}) {
         return success(${className}Service.select${ClassName}By${pkColumn.capJavaField}(${pkColumn.javaField}));
     }
 
@@ -93,8 +89,7 @@ public class ${ClassName}Controller extends PageBaseController
     @RequiresPermissions("${permissionPrefix}:add")
     @Log(functionName = "新增${functionName}", businessType = BusinessType.INSERT)
     @PostMapping
-    public AjaxResult add(@RequestBody ${ClassName} ${className})
-    {
+    public AjaxResult add(@RequestBody ${ClassName} ${className}) {
         return toAjax(${className}Service.insert${ClassName}(${className}));
     }
 
@@ -104,8 +99,7 @@ public class ${ClassName}Controller extends PageBaseController
     @RequiresPermissions("${permissionPrefix}:edit")
     @Log(functionName = "修改${functionName}", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult edit(@RequestBody ${ClassName} ${className})
-    {
+    public AjaxResult edit(@RequestBody ${ClassName} ${className}) {
         return toAjax(${className}Service.update${ClassName}(${className}));
     }
 
@@ -115,8 +109,7 @@ public class ${ClassName}Controller extends PageBaseController
     @RequiresPermissions("${permissionPrefix}:remove")
     @Log(functionName = "删除${functionName}", businessType = BusinessType.DELETE)
     @DeleteMapping("/{${pkColumn.javaField}s}")
-    public AjaxResult remove(@PathVariable ${pkColumn.javaType}[] ${pkColumn.javaField}s)
-    {
+    public AjaxResult remove(@PathVariable ${pkColumn.javaType}[] ${pkColumn.javaField}s) {
         return toAjax(${className}Service.delete${ClassName}By${pkColumn.capJavaField}s(${pkColumn.javaField}s));
     }
 }

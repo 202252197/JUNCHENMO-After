@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -13,125 +13,135 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!--操作ssh -->
+        <jsch.version>0.2.15</jsch.version>
     </properties>
 
     <artifactId>jcm-spring-boot-starter-core</artifactId>
 
+
     <description>
     </description>
 
-   <dependencies>
-       <!-- SpringCloud Openfeign -->
-       <dependency>
-           <groupId>org.springframework.cloud</groupId>
-           <artifactId>spring-cloud-starter-openfeign</artifactId>
-       </dependency>
+    <dependencies>
+        <!-- jsch -->
+        <dependency>
+            <groupId>com.github.mwiede</groupId>
+            <artifactId>jsch</artifactId>
+            <version>${jsch.version}</version>
+        </dependency>
 
-       <!-- SpringCloud Loadbalancer -->
-       <dependency>
-           <groupId>org.springframework.cloud</groupId>
-           <artifactId>spring-cloud-starter-loadbalancer</artifactId>
-       </dependency>
+        <!-- SpringCloud Openfeign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
 
-       <!-- Spring Context Support -->
-       <dependency>
-           <groupId>org.springframework</groupId>
-           <artifactId>spring-context-support</artifactId>
-       </dependency>
+        <!-- SpringCloud Loadbalancer -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
 
-       <!-- Spring Web -->
-       <dependency>
-           <groupId>org.springframework</groupId>
-           <artifactId>spring-web</artifactId>
-       </dependency>
+        <!-- Spring Context Support -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+        </dependency>
 
-       <!-- mybatisPlus 注解 -->
-       <dependency>
-           <groupId>com.baomidou</groupId>
-           <artifactId>mybatis-plus-annotation</artifactId>
-       </dependency>
+        <!-- Spring Web -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
 
-       <!-- Transmittable ThreadLocal -->
-       <dependency>
-           <groupId>com.alibaba</groupId>
-           <artifactId>transmittable-thread-local</artifactId>
-       </dependency>
+        <!-- mybatisPlus 注解 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-annotation</artifactId>
+        </dependency>
 
-       <!-- Hibernate Validator -->
-       <dependency>
-           <groupId>org.springframework.boot</groupId>
-           <artifactId>spring-boot-starter-validation</artifactId>
-       </dependency>
+        <!-- Transmittable ThreadLocal -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+        </dependency>
 
-       <!-- Jackson -->
-       <dependency>
-           <groupId>com.fasterxml.jackson.core</groupId>
-           <artifactId>jackson-databind</artifactId>
-       </dependency>
+        <!-- Hibernate Validator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
 
-       <!-- Alibaba Fastjson -->
-       <dependency>
-           <groupId>com.alibaba.fastjson2</groupId>
-           <artifactId>fastjson2</artifactId>
-       </dependency>
+        <!-- Jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
 
-       <!-- Jwt -->
-       <dependency>
-           <groupId>io.jsonwebtoken</groupId>
-           <artifactId>jjwt</artifactId>
-       </dependency>
+        <!-- Alibaba Fastjson -->
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+        </dependency>
 
-       <!-- Jaxb -->
-       <dependency>
-           <groupId>javax.xml.bind</groupId>
-           <artifactId>jaxb-api</artifactId>
-       </dependency>
+        <!-- Jwt -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+        </dependency>
 
-       <!-- Apache Lang3 -->
-       <dependency>
-           <groupId>org.apache.commons</groupId>
-           <artifactId>commons-lang3</artifactId>
-       </dependency>
+        <!-- Jaxb -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+        </dependency>
 
-       <!-- Commons Io -->
-       <dependency>
-           <groupId>commons-io</groupId>
-           <artifactId>commons-io</artifactId>
-       </dependency>
+        <!-- Apache Lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
 
-       <!-- Java Servlet -->
-       <dependency>
-           <groupId>javax.servlet</groupId>
-           <artifactId>javax.servlet-api</artifactId>
-       </dependency>
+        <!-- Commons Io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
 
-       <!--lombok -->
-       <dependency>
-           <groupId>org.projectlombok</groupId>
-           <artifactId>lombok</artifactId>
-       </dependency>
+        <!-- Java Servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
 
-       <dependency>
-           <groupId>org.springdoc</groupId>
-           <artifactId>springdoc-openapi-common</artifactId>
-       </dependency>
+        <!--lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
 
-       <!-- ip2region 根据IP查询具体的城市信息 -->
-       <dependency>
-           <groupId>org.lionsoul</groupId>
-           <artifactId>ip2region</artifactId>
-       </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-common</artifactId>
+        </dependency>
 
-       <dependency>
-           <groupId>com.github.oshi</groupId>
-           <artifactId>oshi-core</artifactId>
-       </dependency>
+        <!-- ip2region 根据IP查询具体的城市信息 -->
+        <dependency>
+            <groupId>org.lionsoul</groupId>
+            <artifactId>ip2region</artifactId>
+        </dependency>
 
-       <dependency>
-           <groupId>com.alibaba</groupId>
-           <artifactId>easyexcel</artifactId>
-       </dependency>
+        <dependency>
+            <groupId>com.github.oshi</groupId>
+            <artifactId>oshi-core</artifactId>
+        </dependency>
 
-   </dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>

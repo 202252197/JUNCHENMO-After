@@ -2,12 +2,10 @@ package com.jcm.common.log.enums;
 
 /**
  * 操作状态
- * 
- * @author junchenmo
  *
+ * @author junchenmo
  */
-public enum BusinessStatus
-{
+public enum BusinessStatus {
     /**
      * 成功
      */

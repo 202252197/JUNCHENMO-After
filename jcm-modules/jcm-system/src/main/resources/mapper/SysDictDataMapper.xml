@@ -4,30 +4,30 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="SysDictData">
-        <id column="dict_data_id" property="dictDataId" />
-        <result column="dict_type_id" property="dictTypeId" />
-        <result column="name" property="name" />
-        <result column="value" property="value" />
-        <result column="extra" property="extra" />
-        <result column="sort" property="sort" />
-        <result column="status" property="status" />
-        <result column="description" property="description" />
-        <result column="remark" property="remark" />
-        <result column="creator" property="creator" />
-        <result column="create_time" property="createTime" />
-        <result column="updater" property="updater" />
-        <result column="update_time" property="updateTime" />
-        <result column="deleted" property="deleted" />
+        <id column="dict_data_id" property="dictDataId"/>
+        <result column="dict_type_id" property="dictTypeId"/>
+        <result column="name" property="name"/>
+        <result column="value" property="value"/>
+        <result column="extra" property="extra"/>
+        <result column="sort" property="sort"/>
+        <result column="status" property="status"/>
+        <result column="description" property="description"/>
+        <result column="remark" property="remark"/>
+        <result column="creator" property="creator"/>
+        <result column="create_time" property="createTime"/>
+        <result column="updater" property="updater"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
     </resultMap>
 
 
     <select id="selectListByCondition" resultMap="BaseResultMap">
         SELECT CONCAT(t.NAME, ' - ', t.description) AS NAME, d.*
         FROM sys_dict_data d
-                 LEFT JOIN sys_dict_type t ON d.dict_type_id = t.dict_type_id
+        LEFT JOIN sys_dict_type t ON d.dict_type_id = t.dict_type_id
         <trim prefix="WHERE" prefixOverrides="AND">
             <if test="name != null">
-                AND  NAME LIKE CONCAT('%', #{name}, '%')
+                AND NAME LIKE CONCAT('%', #{name}, '%')
             </if>
             <if test="value != null">
                 AND d.`value` LIKE CONCAT('%', #{value}, '%')

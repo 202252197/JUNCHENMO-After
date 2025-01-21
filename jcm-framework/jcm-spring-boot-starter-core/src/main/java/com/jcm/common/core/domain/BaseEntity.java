@@ -13,35 +13,44 @@ import java.util.Map;
 
 /**
  * Entity基类
- * 
+ *
  * @author junchenmo
  */
 @Data
-public class BaseEntity implements Serializable
-{
+public class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    /** 创建者 */
+    /**
+     * 创建者
+     */
     @TableField(value = "creator", fill = FieldFill.INSERT)
     private String creator;
 
-    /** 创建时间 */
+    /**
+     * 创建时间
+     */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(value = "create_time", fill = FieldFill.INSERT)
     private LocalDateTime createTime;
 
-    /** 更新者 */
+    /**
+     * 更新者
+     */
     @TableField(value = "updater", fill = FieldFill.UPDATE)
     private String updater;
 
-    /** 更新时间 */
+    /**
+     * 更新时间
+     */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
 
-    /** 备注 */
+    /**
+     * 备注
+     */
     private String remark;
 
     /**
@@ -49,7 +58,9 @@ public class BaseEntity implements Serializable
      */
     private Boolean deleted;
 
-    /** 请求参数 */
+    /**
+     * 请求参数
+     */
     @TableField(exist = false)
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Map<String, Object> params;

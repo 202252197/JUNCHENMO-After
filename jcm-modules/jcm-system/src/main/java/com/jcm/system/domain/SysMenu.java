@@ -8,12 +8,11 @@ import com.jcm.common.core.domain.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author 吕世昊
@@ -22,7 +21,7 @@ import java.util.List;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_menu")
-public class SysMenu extends BaseEntity{
+public class SysMenu extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 

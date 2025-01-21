@@ -19,11 +19,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author junchenmo
  */
-public class HeaderInterceptor implements AsyncHandlerInterceptor
-{
+public class HeaderInterceptor implements AsyncHandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        if (!(handler instanceof HandlerMethod)){
+        if (!(handler instanceof HandlerMethod)) {
             return true;
         }
 
@@ -32,7 +31,7 @@ public class HeaderInterceptor implements AsyncHandlerInterceptor
         SecurityContextHolder.setUserKey(ServletUtils.getHeader(request, SecurityConstants.USER_KEY));
 
         String token = SecurityUtils.getToken();
-        if (StringUtils.isNotEmpty(token)){
+        if (StringUtils.isNotEmpty(token)) {
             LoginUser loginUser = AuthUtil.getLoginUser(token);
             if (StringUtils.isNotNull(loginUser)) {
                 AuthUtil.verifyLoginUserExpire(loginUser);
@@ -44,8 +43,7 @@ public class HeaderInterceptor implements AsyncHandlerInterceptor
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
-            throws Exception
-    {
+            throws Exception {
         SecurityContextHolder.remove();
     }
 }

@@ -4,114 +4,108 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="SysMenuResult" type="SysMenu">
-        <id column="menu_id" property="menuId" />
-        <result column="name" property="name" />
-        <result column="parent_id" property="parentId" />
-        <result column="sort" property="sort" />
-        <result column="link" property="link" />
-        <result column="component" property="component" />
-        <result column="is_frame" property="isFrame" />
-        <result column="permission" property="permission" />
-        <result column="type" property="type" />
-        <result column="icon" property="icon" />
-        <result column="status" property="status" />
-        <result column="visible" property="visible" />
-        <result column="keep_alive" property="keepAlive" />
-        <result column="remark" property="remark" />
-        <result column="creator" property="creator" />
-        <result column="create_time" property="createTime" />
-        <result column="updater" property="updater" />
-        <result column="update_time" property="updateTime" />
-        <result column="deleted" property="deleted" />
+        <id column="menu_id" property="menuId"/>
+        <result column="name" property="name"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="sort" property="sort"/>
+        <result column="link" property="link"/>
+        <result column="component" property="component"/>
+        <result column="is_frame" property="isFrame"/>
+        <result column="permission" property="permission"/>
+        <result column="type" property="type"/>
+        <result column="icon" property="icon"/>
+        <result column="status" property="status"/>
+        <result column="visible" property="visible"/>
+        <result column="keep_alive" property="keepAlive"/>
+        <result column="remark" property="remark"/>
+        <result column="creator" property="creator"/>
+        <result column="create_time" property="createTime"/>
+        <result column="updater" property="updater"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
     </resultMap>
-
 
 
     <!--根据用户id查询权限列表-->
     <select id="selectMenuPermsByUserId" parameterType="long" resultType="string">
-        SELECT
-            m.permission
-        FROM
-            sys_menu m
-                LEFT JOIN sys_role_menu rm ON m.menu_id = rm.menu_id
-                LEFT JOIN sys_user_role ur ON rm.role_id = ur.role_id
-                LEFT JOIN sys_role r ON r.role_id = ur.role_id
-        WHERE
-            m.`status` = 0
+        SELECT m.permission
+        FROM sys_menu m
+                 LEFT JOIN sys_role_menu rm ON m.menu_id = rm.menu_id
+                 LEFT JOIN sys_user_role ur ON rm.role_id = ur.role_id
+                 LEFT JOIN sys_role r ON r.role_id = ur.role_id
+        WHERE m.`status` = 0
           AND r.`status` = 0
           AND m.deleted = 0
           AND r.deleted = 0
-          AND
-            ur.user_id = #{userid}
+          AND ur.user_id = #{userid}
     </select>
 
     <!--    查询全部路由列表-->
     <select id="selectMenuTreeAll" resultMap="SysMenuResult">
         SELECT DISTINCT m.menu_id,
-                        m.parent_id,
-                        m.name,
-                        m.link,
-                        m.component,
-                        m.is_frame,
-                        m.visible,
-                        m.STATUS,
-                        ifnull(m.permission, '') AS permission,
-                        m.keep_alive,
-                        m.type,
-                        m.icon,
-                        m.sort,
-                        m.create_time
+        m.parent_id,
+        m.name,
+        m.link,
+        m.component,
+        m.is_frame,
+        m.visible,
+        m.STATUS,
+        ifnull(m.permission, '') AS permission,
+        m.keep_alive,
+        m.type,
+        m.icon,
+        m.sort,
+        m.create_time
         FROM sys_menu m
         WHERE m.type IN (0, 1)
-          <if test="visible != null">
-              AND m.visible = 1
-          </if>
-          AND m.STATUS = 0
-          AND m.deleted = 0
+        <if test="visible != null">
+            AND m.visible = 1
+        </if>
+        AND m.STATUS = 0
+        AND m.deleted = 0
         ORDER BY m.parent_id,
-                 m.sort
+        m.sort
     </select>
-
 
 
     <select id="selectMenuTreeByUserId" parameterType="long" resultMap="SysMenuResult">
         SELECT DISTINCT m.menu_id,
-                        m.parent_id,
-                        m.NAME,
-                        m.link,
-                        m.component,
-                        m.is_frame,
-                        m.visible,
-                        m.STATUS,
-                        ifnull(m.permission, '') AS permission,
-                        m.keep_alive,
-                        m.type,
-                        m.icon,
-                        m.sort,
-                        m.create_time
+        m.parent_id,
+        m.NAME,
+        m.link,
+        m.component,
+        m.is_frame,
+        m.visible,
+        m.STATUS,
+        ifnull(m.permission, '') AS permission,
+        m.keep_alive,
+        m.type,
+        m.icon,
+        m.sort,
+        m.create_time
         FROM sys_menu m
-                 LEFT JOIN sys_role_menu rm ON m.menu_id = rm.menu_id
-                 LEFT JOIN sys_user_role ur ON rm.role_id = ur.role_id
-                 LEFT JOIN sys_role r ON ur.role_id = r.role_id
-                 LEFT JOIN sys_user u ON ur.user_id = u.user_id
+        LEFT JOIN sys_role_menu rm ON m.menu_id = rm.menu_id
+        LEFT JOIN sys_user_role ur ON rm.role_id = ur.role_id
+        LEFT JOIN sys_role r ON ur.role_id = r.role_id
+        LEFT JOIN sys_user u ON ur.user_id = u.user_id
         WHERE u.user_id = #{userId}
         <if test="visible != null">
             AND m.visible = 1
         </if>
-          And m.type in (0, 1)
-          And m.status = 0
-          AND r.status = 0
-          AND m.deleted = 0
-          AND r.deleted = 0
+        And m.type in (0, 1)
+        And m.status = 0
+        AND r.status = 0
+        AND m.deleted = 0
+        AND r.deleted = 0
         ORDER BY m.parent_id,
-                 m.sort
+        m.sort
     </select>
 
     <select id="selectMenuChildLastSort" parameterType="long" resultType="int">
         SELECT IFNULL((SELECT MAX(sort) FROM sys_menu WHERE parent_id = #{parentId} ORDER BY sort desc), 0) AS result;
     </select>
 
-    <update id="updateBatchById" parameterType="SysMenu" >
+    <update id="updateBatchById" parameterType="SysMenu">
         UPDATE sys_menu
         SET status = #{status},visible = #{visible}
         WHERE menu_id IN

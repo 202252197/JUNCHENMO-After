@@ -26,6 +26,7 @@ public interface SysRoleMenuMapper extends BaseMapper<SysRoleMenu> {
 
     /**
      * 根据角色ID获取菜单ID列表
+     *
      * @param roleId 用户ID
      * @return
      */

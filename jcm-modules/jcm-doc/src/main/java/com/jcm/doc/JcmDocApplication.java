@@ -9,10 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author junchenmo
  */
 @SpringBootApplication
-public class JcmDocApplication
-{
-    public static void main(String[] args)
-    {
+public class JcmDocApplication {
+    public static void main(String[] args) {
         SpringApplication.run(JcmDocApplication.class, args);
         System.out.println(" (♥◠‿◠)ﾉﾞ  doc动成功   ლ(´ڡ`ლ)ﾞ ");
     }

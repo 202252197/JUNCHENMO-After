@@ -30,14 +30,13 @@ import java.util.List;
  * @author lvshihao
  * @date 2025-01-11
  */
-@Api(tags="logininfor管理")
+@Api(tags = "logininfor管理")
 @ApiSupport(author = "202252197@qq.com")
 @BusinessName(title = OperationNameConstants.LOGIN_INFO)
 @AllArgsConstructor
 @RestController
 @RequestMapping("/logininfor")
-public class SysLogininforController extends PageBaseController
-{
+public class SysLogininforController extends PageBaseController {
     private final ISysLogininforService sysLogininforService;
 
     /**
@@ -45,8 +44,7 @@ public class SysLogininforController extends PageBaseController
      */
     @RequiresPermissions("system:logininfor:list")
     @GetMapping("/list")
-    public TableDataInfo list(SysLogininfor sysLogininfor)
-    {
+    public TableDataInfo list(SysLogininfor sysLogininfor) {
         startPage();
         List<SysLogininfor> list = sysLogininforService.selectSysLogininforList(sysLogininfor);
         return getDataTable(list);
@@ -58,8 +56,7 @@ public class SysLogininforController extends PageBaseController
     @RequiresPermissions("system:logininfor:export")
     @Log(functionName = "导出系统访问记录列表", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
-    public void export(HttpServletResponse response, SysLogininfor sysLogininfor)
-    {
+    public void export(HttpServletResponse response, SysLogininfor sysLogininfor) {
         List<SysLogininfor> list = sysLogininforService.selectSysLogininforList(sysLogininfor);
         ExcelUtil<SysLogininfor> util = new ExcelUtil<SysLogininfor>(SysLogininfor.class);
         util.exportEasyExcel(response, list, "系统访问记录数据");
@@ -71,8 +68,7 @@ public class SysLogininforController extends PageBaseController
      */
     @InnerAuth
     @PostMapping
-    public AjaxResult add(@RequestBody SysLogininfor sysLogininfor)
-    {
+    public AjaxResult add(@RequestBody SysLogininfor sysLogininfor) {
         return toAjax(sysLogininforService.insertSysLogininfor(sysLogininfor));
     }
 
@@ -83,8 +79,7 @@ public class SysLogininforController extends PageBaseController
     @RequiresPermissions("system:logininfor:remove")
     @Log(functionName = "删除系统访问记录", businessType = BusinessType.DELETE)
     @DeleteMapping("/{infoIds}")
-    public AjaxResult remove(@PathVariable Long[] infoIds)
-    {
+    public AjaxResult remove(@PathVariable Long[] infoIds) {
         return toAjax(sysLogininforService.deleteSysLogininforByInfoIds(infoIds));
     }
 
@@ -94,7 +89,7 @@ public class SysLogininforController extends PageBaseController
     @DeleteMapping("/clear")
     @PrintParams
     public AjaxResult clear() {
-        OperLogCover.outherLogMsg(BusinessNameConstant.LOGIN_INFO+"全部清空");
+        OperLogCover.outherLogMsg(BusinessNameConstant.LOGIN_INFO + "全部清空");
         return toAjax(sysLogininforService.clearLogininfor());
     }
 }

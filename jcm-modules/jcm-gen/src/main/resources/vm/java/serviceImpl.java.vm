@@ -2,16 +2,17 @@ package ${packageName}.service.impl;
 
 import java.util.List;
 import java.util.Arrays;
+
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.utils.StringUtils;
 import lombok.AllArgsConstructor;
-#foreach ($column in $columns)
-#if($column.javaField == 'createTime' || $column.javaField == 'updateTime')
-import com.jcm.common.core.utils.DateUtils;
-#break
-#end
-#end
+    #foreach ($column in $columns)
+        #if($column.javaField == 'createTime' || $column.javaField == 'updateTime')
+        import com.jcm.common.core.utils.DateUtils;
+            #break
+        #end
+    #end
 import org.springframework.stereotype.Service;
 import ${packageName}.mapper.${ClassName}Mapper;
 import ${packageName}.domain.${ClassName};
@@ -36,8 +37,7 @@ public class ${ClassName}ServiceImpl extends ServiceImpl<${ClassName}Mapper, ${C
      * @return ${functionName}
      */
     @Override
-    public ${ClassName} select${ClassName}By${pkColumn.capJavaField}(${pkColumn.javaType} ${pkColumn.javaField})
-    {
+    public ${ClassName} select${ClassName}By${pkColumn.capJavaField}(${pkColumn.javaType} ${pkColumn.javaField}) {
         return ${className}Mapper.selectById(${pkColumn.javaField});
     }
 
@@ -48,43 +48,61 @@ public class ${ClassName}ServiceImpl extends ServiceImpl<${ClassName}Mapper, ${C
      * @return ${functionName}
      */
     @Override
-    public List<${ClassName}> select${ClassName}List(${ClassName} ${className})
-    {
+    public List<${ClassName}> select${ClassName}List(${ClassName} ${className}) {
         LambdaQueryWrapper<${ClassName}> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.select(#foreach($column in $columns)#set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})#if($foreach.count != $columns.size())${ClassName}::get${AttrName},#else ${ClassName}::get${AttrName}#end #end);
-#foreach($column in $columns)
-    #set($queryType=$column.queryType)
-    #set($javaField=$column.javaField)
-    #set($javaType=$column.javaType)
-    #set($columnName=$column.columnName)
-    #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
-#if($column.query)
-    #if($column.queryType == "EQ")
-        queryWrapper.eq(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::get${AttrName}, ${className}.get${AttrName}());
-    #end
-    #if($column.queryType == "NE")
-        queryWrapper.ne(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::get${AttrName}, ${className}.get${AttrName}());
-    #end
-    #if($column.queryType == "GT")
-        queryWrapper.gt(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::get${AttrName}, ${className}.get${AttrName}());
-    #end
-    #if($column.queryType == "GTE")
-        queryWrapper.ge(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::get${AttrName}, ${className}.get${AttrName}());
-    #end
-    #if($column.queryType == "LT")
-        queryWrapper.lt(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::get${AttrName}, ${className}.get${AttrName}());
-    #end
-    #if($column.queryType == "LTE")
-        queryWrapper.le(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::get${AttrName}, ${className}.get${AttrName}());
-    #end
-    #if($column.queryType == "LIKE")
-        queryWrapper.like(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::get${AttrName}, ${className}.get${AttrName}());
-    #end
-    #if($column.queryType == "BETWEEN")
-        queryWrapper.between(StringUtils.isNotNull(${className}.getParams())&&StringUtils.isNotNull(${className}.getParams().get("begin${AttrName}"))&&,StringUtils.isNotNull(${className}.getParams().get("end${AttrName}")), ${ClassName}::get${AttrName}, ${className}.getParams().get("begin${AttrName}"),${className}.getParams().get("end${AttrName}"));
-    #end
-#end
-#end
+            queryWrapper.select(#foreach($column in $columns)#set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})#if($foreach.count != $columns.size())${ClassName}::get${AttrName},#else ${ClassName}::
+            get${AttrName}#end #end);
+        #foreach($column in $columns)
+            #set($queryType=$column.queryType)
+            #set($javaField=$column.javaField)
+            #set($javaType=$column.javaType)
+            #set($columnName=$column.columnName)
+            #set($AttrName=$column.javaField.substring(0,1).toUpperCase() + ${column.javaField.substring(1)})
+            #if($column.query)
+                #if($column.queryType == "EQ")
+                queryWrapper.eq(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else
+                    StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::
+                    get${AttrName}, ${className}.get${AttrName}());
+                #end
+                #if($column.queryType == "NE")
+                queryWrapper.ne(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else
+                    StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::
+                    get${AttrName}, ${className}.get${AttrName}());
+                #end
+                #if($column.queryType == "GT")
+                queryWrapper.gt(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else
+                    StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::
+                    get${AttrName}, ${className}.get${AttrName}());
+                #end
+                #if($column.queryType == "GTE")
+                queryWrapper.ge(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else
+                    StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::
+                    get${AttrName}, ${className}.get${AttrName}());
+                #end
+                #if($column.queryType == "LT")
+                queryWrapper.lt(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else
+                    StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::
+                    get${AttrName}, ${className}.get${AttrName}());
+                #end
+                #if($column.queryType == "LTE")
+                queryWrapper.le(#if($javaType == 'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else
+                    StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::
+                    get${AttrName}, ${className}.get${AttrName}());
+                #end
+                #if($column.queryType == "LIKE")
+                queryWrapper.like(#if($javaType ==
+                    'String' ) StringUtils.isNotEmpty(${className}.get${AttrName}()) #else
+                    StringUtils.isNotNull(${className}.get${AttrName}())#end, ${ClassName}::
+                    get${AttrName}, ${className}.get${AttrName}());
+                #end
+                #if($column.queryType == "BETWEEN")
+                    queryWrapper.between(StringUtils.isNotNull(${className}.getParams()) && StringUtils.isNotNull(${className}.getParams().get("begin${AttrName}"))&&,
+                    StringUtils.isNotNull(${className}.getParams().get("end${AttrName}")), ${ClassName}::
+                    get${AttrName}, ${className}.getParams().get("begin${AttrName}"),${className}.
+                    getParams().get("end${AttrName}"));
+                #end
+            #end
+        #end
         return ${className}Mapper.selectList(queryWrapper);
     }
 
@@ -95,8 +113,7 @@ public class ${ClassName}ServiceImpl extends ServiceImpl<${ClassName}Mapper, ${C
      * @return 结果
      */
     @Override
-    public int insert${ClassName}(${ClassName} ${className})
-    {
+    public int insert${ClassName}(${ClassName} ${className}) {
         return ${className}Mapper.insert(${className});
     }
 
@@ -107,8 +124,7 @@ public class ${ClassName}ServiceImpl extends ServiceImpl<${ClassName}Mapper, ${C
      * @return 结果
      */
     @Override
-    public int update${ClassName}(${ClassName} ${className})
-    {
+    public int update${ClassName}(${ClassName} ${className}) {
         return ${className}Mapper.updateById(${className});
     }
 
@@ -119,8 +135,7 @@ public class ${ClassName}ServiceImpl extends ServiceImpl<${ClassName}Mapper, ${C
      * @return 结果
      */
     @Override
-    public int delete${ClassName}By${pkColumn.capJavaField}s(${pkColumn.javaType}[] ${pkColumn.javaField}s)
-    {
+    public int delete${ClassName}By${pkColumn.capJavaField}s(${pkColumn.javaType}[] ${pkColumn.javaField}s) {
         return ${className}Mapper.deleteBatchIds(Arrays.asList(${pkColumn.javaField}s));
     }
 
@@ -131,8 +146,7 @@ public class ${ClassName}ServiceImpl extends ServiceImpl<${ClassName}Mapper, ${C
      * @return 结果
      */
     @Override
-    public int delete${ClassName}By${pkColumn.capJavaField}(${pkColumn.javaType} ${pkColumn.javaField})
-    {
+    public int delete${ClassName}By${pkColumn.capJavaField}(${pkColumn.javaType} ${pkColumn.javaField}) {
         return ${className}Mapper.deleteById(${pkColumn.javaField});
     }
 }

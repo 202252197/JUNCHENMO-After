@@ -7,12 +7,10 @@ import java.lang.annotation.Target;
 
 /**
  * 登录认证：只有登录之后才能进入该方法
- * 
- * @author junchenmo
  *
+ * @author junchenmo
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ ElementType.METHOD, ElementType.TYPE })
-public @interface RequiresLogin
-{
+@Target({ElementType.METHOD, ElementType.TYPE})
+public @interface RequiresLogin {
 }

@@ -14,16 +14,32 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * sys用户服务测试
+ *
+ * @author junchenmo
+ * @date 2025/01/19 10:02
+ */
 @SpringBootTest(classes = JcmSystemApplication.class)
 @ExtendWith(SpringExtension.class) // 添加此行
 class ISysUserServiceTest {
+    static CountDownLatch countDownLatch = new CountDownLatch(50);
     @Autowired
     private ISysUserService sysUserService;
-
     @Autowired
     private JcmThreadPoolTaskExecutor jcmThreadPoolTaskExecutor;
 
-    static CountDownLatch countDownLatch=new CountDownLatch(50);
+    static void test() throws InterruptedException {
+        Thread.sleep(1000);
+    }
+
+    static void test2() throws InterruptedException {
+        Thread.sleep(3000);
+    }
+
+    static void test3() throws InterruptedException {
+        Thread.sleep(6000);
+    }
 
     @BeforeEach
     void setUp() {
@@ -44,7 +60,7 @@ class ISysUserServiceTest {
 //        assertEquals(1,i);
 //        ThreadLocal<String> ces=new ThreadLocal();
 //        ces.set("lvsshihao");
-        
+
 //        long startTime = System.currentTimeMillis();
 //        try{
 //            System.out.println("启动1");
@@ -84,28 +100,18 @@ class ISysUserServiceTest {
                 throw new RuntimeException(e);
             }
         }, jcmThreadPoolTaskExecutor);
-        CompletableFuture.allOf(voidCompletableFuture,voidCompletableFuture1,voidCompletableFuture2).join();
+        CompletableFuture.allOf(voidCompletableFuture, voidCompletableFuture1, voidCompletableFuture2).join();
 
         long endTime = System.currentTimeMillis();
-        System.out.println("完成"+(endTime-startTime));
+        System.out.println("完成" + (endTime - startTime));
     }
 
-    static void test() throws InterruptedException {
-       Thread.sleep(1000);
-    }
-    static void test2() throws InterruptedException {
-       Thread.sleep(3000);
-    }
-    static void test3() throws InterruptedException {
-       Thread.sleep(6000);
-    }
-
-    static class MyThread implements Runnable{
+    static class MyThread implements Runnable {
 
         @Getter
         private Integer name;
 
-        public MyThread(Integer name){
+        public MyThread(Integer name) {
             this.name = name;
         }
 
@@ -113,7 +119,7 @@ class ISysUserServiceTest {
         public void run() {
             try {
                 Thread.sleep(1000);
-                System.out.println(name+"Thread...");
+                System.out.println(name + "Thread...");
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             } finally {

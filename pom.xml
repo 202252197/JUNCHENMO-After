@@ -1,309 +1,314 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
 
-	<groupId>com.junchenmo</groupId>
-	<artifactId>Jcm</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+    <groupId>com.junchenmo</groupId>
+    <artifactId>Jcm</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
 
-	<name>Jcm</name>
-	<description>君尘陌微服务系统</description>
+    <name>Jcm</name>
+    <description>君尘陌微服务系统</description>
 
 
-	<properties>
-<!--		统一管理内部模块版本-->
-		<jcm.version>0.0.1-SNAPSHOT</jcm.version>
-		<jcm.framework.version>0.0.1-SNAPSHOT</jcm.framework.version>
-<!--		mybatis-plus版本-->
-		<mybatis.plus.version>3.5.5</mybatis.plus.version>
-<!--		java版本-->
-		<java.version>11</java.version>
-<!--		springboot版本-->
-		<spring-boot.version>2.7.18</spring-boot.version>
-<!--		sppringcloud版本-->
-		<spring-cloud.version>2021.0.8</spring-cloud.version>
-<!--		springcloud alibaba版本-->
-		<spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
-		<!--验证码生成工具版本-->
-		<kaptcha.version>2.3.3</kaptcha.version>
-		<!--分页插件版本-->
-		<pagehelper.boot.version>2.0.0</pagehelper.boot.version>
-		<lombok.version>1.18.36</lombok.version>
-		<!--数据库连接池版本-->
-		<druid.version>1.1.21</druid.version>
-		<!--jwt版本-->
-		<jjwt.version>0.9.1</jjwt.version>
-		<!--ip2region版本:根据IP获取地理位置-->
-		<ip2region.version>2.7.0</ip2region.version>
-		<knife4j.version>3.0.3</knife4j.version>
-		<!--集成阿里大模型-->
-		<dashscope.version>2.17.0</dashscope.version>
-		<!--系统信息收集-->
-		<oshi.version>6.4.2</oshi.version>
-		<!--excel导入导出-->
-		<easyexcel.version>4.0.2</easyexcel.version>
-		<!--springboot admin版本-->
-		<spring-boot-admin.version>2.7.11</spring-boot-admin.version>
+    <properties>
+        <!--		统一管理内部模块版本-->
+        <jcm.version>0.0.1-SNAPSHOT</jcm.version>
+        <jcm.framework.version>0.0.1-SNAPSHOT</jcm.framework.version>
+        <!--		mybatis-plus版本-->
+        <mybatis.plus.version>3.5.5</mybatis.plus.version>
+        <!--		java版本-->
+        <java.version>11</java.version>
+        <!--		springboot版本-->
+        <spring-boot.version>2.7.18</spring-boot.version>
+        <!--		sppringcloud版本-->
+        <spring-cloud.version>2021.0.8</spring-cloud.version>
+        <!--		springcloud alibaba版本-->
+        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+        <!--验证码生成工具版本-->
+        <kaptcha.version>2.3.3</kaptcha.version>
+        <!--分页插件版本-->
+        <pagehelper.boot.version>2.0.0</pagehelper.boot.version>
+        <lombok.version>1.18.36</lombok.version>
+        <!--数据库连接池版本-->
+        <druid.version>1.1.21</druid.version>
+        <!--jwt版本-->
+        <jjwt.version>0.9.1</jjwt.version>
+        <!--ip2region版本:根据IP获取地理位置-->
+        <ip2region.version>2.7.0</ip2region.version>
+        <knife4j.version>3.0.3</knife4j.version>
+        <!--集成阿里大模型-->
+        <dashscope.version>2.17.0</dashscope.version>
+        <!--系统信息收集-->
+        <oshi.version>6.4.2</oshi.version>
+        <!--excel导入导出-->
+        <easyexcel.version>4.0.2</easyexcel.version>
+        <!--springboot admin版本-->
+        <spring-boot-admin.version>2.7.11</spring-boot-admin.version>
 
-		<commons.io.version>2.13.0</commons.io.version>
-		<velocity.version>2.3</velocity.version>
-		<!--json转换工具版本-->
-		<fastjson.version>2.0.43</fastjson.version>
-		<transmittable-thread-local.version>2.14.4</transmittable-thread-local.version>
-		<springdoc.version>1.7.0</springdoc.version>
-		<hutool.version>5.8.27</hutool.version>
-	</properties>
-	<!-- 依赖声明 -->
-	<dependencyManagement>
-		<dependencies>
+        <commons.io.version>2.13.0</commons.io.version>
+        <velocity.version>2.3</velocity.version>
+        <!--json转换工具版本-->
+        <fastjson.version>2.0.43</fastjson.version>
+        <transmittable-thread-local.version>2.14.4</transmittable-thread-local.version>
+        <springdoc.version>1.7.0</springdoc.version>
+        <hutool.version>5.8.27</hutool.version>
+    </properties>
+    <!-- 依赖声明 -->
+    <dependencyManagement>
+        <dependencies>
 
-			<!-- SpringCloud 微服务 -->
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+            <!-- SpringCloud 微服务 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
-			<!-- SpringCloud Alibaba 微服务 -->
-			<dependency>
-				<groupId>com.alibaba.cloud</groupId>
-				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
-				<version>${spring-cloud-alibaba.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+            <!-- SpringCloud Alibaba 微服务 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
-			<!-- SpringBoot 依赖配置 -->
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-				<version>${spring-boot.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
+            <!-- SpringBoot 依赖配置 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
-			<dependency>
-				<groupId>com.github.oshi</groupId>
-				<artifactId>oshi-core</artifactId>
-				<version>${oshi.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>${oshi.version}</version>
+            </dependency>
 
-			<!-- 验证码 -->
-			<dependency>
-				<groupId>pro.fessional</groupId>
-				<artifactId>kaptcha</artifactId>
-				<version>${kaptcha.version}</version>
-			</dependency>
+            <!-- 验证码 -->
+            <dependency>
+                <groupId>pro.fessional</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
 
-			<!-- pagehelper 分页插件 -->
-			<dependency>
-				<groupId>com.github.pagehelper</groupId>
-				<artifactId>pagehelper-spring-boot-starter</artifactId>
-				<version>${pagehelper.boot.version}</version>
-			</dependency>
+            <!-- pagehelper 分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.boot.version}</version>
+            </dependency>
 
-			<!-- mybatisplus-->
-			<dependency>
-				<groupId>com.baomidou</groupId>
-				<artifactId>mybatis-plus-boot-starter</artifactId>
-				<version>${mybatis.plus.version}</version>
-			</dependency>
-			<!-- mybatisPlus 注解 -->
-			<dependency>
-				<groupId>com.baomidou</groupId>
-				<artifactId>mybatis-plus-annotation</artifactId>
-				<version>${mybatis.plus.version}</version>
-			</dependency>
+            <!-- mybatisplus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
+            <!-- mybatisPlus 注解 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis.plus.version}</version>
+            </dependency>
 
-			<!-- easyexcel -->
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>easyexcel</artifactId>
-				<version>${easyexcel.version}</version>
-			</dependency>
+            <!-- easyexcel -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>${easyexcel.version}</version>
+            </dependency>
 
-			<!-- 通义千问需要导入的jar -->
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>dashscope-sdk-java</artifactId>
-				<version>${dashscope.version}</version>
-			</dependency>
+            <!-- 通义千问需要导入的jar -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dashscope-sdk-java</artifactId>
+                <version>${dashscope.version}</version>
+            </dependency>
 
-			<!-- io常用工具类 -->
-			<dependency>
-				<groupId>commons-io</groupId>
-				<artifactId>commons-io</artifactId>
-				<version>${commons.io.version}</version>
-			</dependency>
+            <!-- io常用工具类 -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>org.projectlombok</groupId>
-				<artifactId>lombok</artifactId>
-				<version>${lombok.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>cn.hutool</groupId>
-				<artifactId>hutool-all</artifactId>
-				<version>${hutool.version}</version>
-			</dependency>
-			<!-- 代码生成使用模板 -->
-			<dependency>
-				<groupId>org.apache.velocity</groupId>
-				<artifactId>velocity-engine-core</artifactId>
-				<version>${velocity.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!-- 代码生成使用模板 -->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
 
-			<!-- JSON 解析器和生成器 -->
-			<dependency>
-				<groupId>com.alibaba.fastjson2</groupId>
-				<artifactId>fastjson2</artifactId>
-				<version>${fastjson.version}</version>
-			</dependency>
+            <!-- JSON 解析器和生成器 -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
 
-			<!-- JWT -->
-			<dependency>
-				<groupId>io.jsonwebtoken</groupId>
-				<artifactId>jjwt</artifactId>
-				<version>${jjwt.version}</version>
-			</dependency>
+            <!-- JWT -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
 
-			<!-- 线程传递值 -->
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>transmittable-thread-local</artifactId>
-				<version>${transmittable-thread-local.version}</version>
-			</dependency>
+            <!-- 线程传递值 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>org.springdoc</groupId>
-				<artifactId>springdoc-openapi-common</artifactId>
-				<version>${springdoc.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-common</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>com.github.xiaoymin</groupId>
-				<artifactId>knife4j-micro-spring-boot-starter</artifactId>
-				<version>${knife4j.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
 
-			<!-- ip2region 根据IP查询具体的城市信息 -->
-			<dependency>
-				<groupId>org.lionsoul</groupId>
-				<artifactId>ip2region</artifactId>
-				<version>${ip2region.version}</version>
-			</dependency>
-			<!-- Jcm api system-->
-			<dependency>
-				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-api-system</artifactId>
-				<version>${jcm.version}</version>
-			</dependency>
+            <!-- ip2region 根据IP查询具体的城市信息 -->
+            <dependency>
+                <groupId>org.lionsoul</groupId>
+                <artifactId>ip2region</artifactId>
+                <version>${ip2region.version}</version>
+            </dependency>
+            <!-- Jcm api system-->
+            <dependency>
+                <groupId>com.junchenmo</groupId>
+                <artifactId>jcm-api-system</artifactId>
+                <version>${jcm.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-spring-boot-starter-core</artifactId>
-				<version>${jcm.framework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-spring-boot-starter-security</artifactId>
-				<version>${jcm.framework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-spring-boot-starter-swagger</artifactId>
-				<version>${jcm.framework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-spring-boot-starter-redis</artifactId>
-				<version>${jcm.framework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-spring-boot-starter-log</artifactId>
-				<version>${jcm.framework.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.junchenmo</groupId>
-				<artifactId>jcm-spring-boot-starter-mybatis</artifactId>
-				<version>${jcm.framework.version}</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+            <dependency>
+                <groupId>com.junchenmo</groupId>
+                <artifactId>jcm-spring-boot-starter-core</artifactId>
+                <version>${jcm.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.junchenmo</groupId>
+                <artifactId>jcm-spring-boot-starter-security</artifactId>
+                <version>${jcm.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.junchenmo</groupId>
+                <artifactId>jcm-spring-boot-starter-swagger</artifactId>
+                <version>${jcm.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.junchenmo</groupId>
+                <artifactId>jcm-spring-boot-starter-redis</artifactId>
+                <version>${jcm.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.junchenmo</groupId>
+                <artifactId>jcm-spring-boot-starter-log</artifactId>
+                <version>${jcm.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.junchenmo</groupId>
+                <artifactId>jcm-spring-boot-starter-mybatis</artifactId>
+                <version>${jcm.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.junchenmo</groupId>
+                <artifactId>jcm-spring-boot-starter-websocket</artifactId>
+                <version>${jcm.framework.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-	<modules>
-		<module>jcm-api</module>
-		<module>jcm-gateway</module>
-		<module>jcm-modules</module>
+    <modules>
+        <module>jcm-api</module>
+        <module>jcm-gateway</module>
+        <module>jcm-modules</module>
         <module>jcm-framework</module>
     </modules>
-	<packaging>pom</packaging>
+    <packaging>pom</packaging>
 
 
-	<dependencies>
-		<!-- bootstrap 启动器 -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-bootstrap</artifactId>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <!-- bootstrap 启动器 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<testFailureIgnore>true</testFailureIgnore>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-			</plugin>
-		</plugins>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-					<version>${spring-boot.version}</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>repackage</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>public</id>
-			<name>aliyun nexus</name>
-			<url>https://maven.aliyun.com/repository/public</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>

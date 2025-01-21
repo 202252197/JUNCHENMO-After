@@ -32,17 +32,16 @@ public class SysLogininforServiceImpl extends ServiceImpl<SysLogininforMapper, S
      * @return 系统访问记录
      */
     @Override
-    public List<SysLogininfor> selectSysLogininforList(SysLogininfor sysLogininfor)
-    {
+    public List<SysLogininfor> selectSysLogininforList(SysLogininfor sysLogininfor) {
         LambdaQueryWrapper<SysLogininfor> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.select(SysLogininfor::getInfoId, SysLogininfor::getUserName, SysLogininfor::getIpaddr, SysLogininfor::getLoginLocation, SysLogininfor::getBrowser, SysLogininfor::getOs, SysLogininfor::getStatus, SysLogininfor::getMsg, SysLogininfor::getLoginTime, SysLogininfor::getRemark, SysLogininfor::getCreator, SysLogininfor::getCreateTime, SysLogininfor::getUpdater, SysLogininfor::getUpdateTime,  SysLogininfor::getDeleted );
-        queryWrapper.like( StringUtils.isNotEmpty(sysLogininfor.getUserName()) , SysLogininfor::getUserName, sysLogininfor.getUserName());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysLogininfor.getIpaddr()) , SysLogininfor::getIpaddr, sysLogininfor.getIpaddr());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysLogininfor.getStatus()) , SysLogininfor::getStatus, sysLogininfor.getStatus());
-        queryWrapper.eq( StringUtils.isNotEmpty(sysLogininfor.getOs()) , SysLogininfor::getOs, sysLogininfor.getOs());
-        if(Objects.nonNull(sysLogininfor.getParams())){
-            queryWrapper.ge(StringUtils.isNotNull(sysLogininfor.getParams().get("beginLoginTime")), SysLogininfor::getLoginTime,sysLogininfor.getParams().get("beginLoginTime"))
-            .le(Objects.nonNull(sysLogininfor.getParams())&&StringUtils.isNotNull(sysLogininfor.getParams().get("endLoginTime")),SysLogininfor::getLoginTime,sysLogininfor.getParams().get("endLoginTime"));
+        queryWrapper.select(SysLogininfor::getInfoId, SysLogininfor::getUserName, SysLogininfor::getIpaddr, SysLogininfor::getLoginLocation, SysLogininfor::getBrowser, SysLogininfor::getOs, SysLogininfor::getStatus, SysLogininfor::getMsg, SysLogininfor::getLoginTime, SysLogininfor::getRemark, SysLogininfor::getCreator, SysLogininfor::getCreateTime, SysLogininfor::getUpdater, SysLogininfor::getUpdateTime, SysLogininfor::getDeleted);
+        queryWrapper.like(StringUtils.isNotEmpty(sysLogininfor.getUserName()), SysLogininfor::getUserName, sysLogininfor.getUserName());
+        queryWrapper.eq(StringUtils.isNotEmpty(sysLogininfor.getIpaddr()), SysLogininfor::getIpaddr, sysLogininfor.getIpaddr());
+        queryWrapper.eq(StringUtils.isNotEmpty(sysLogininfor.getStatus()), SysLogininfor::getStatus, sysLogininfor.getStatus());
+        queryWrapper.eq(StringUtils.isNotEmpty(sysLogininfor.getOs()), SysLogininfor::getOs, sysLogininfor.getOs());
+        if (Objects.nonNull(sysLogininfor.getParams())) {
+            queryWrapper.ge(StringUtils.isNotNull(sysLogininfor.getParams().get("beginLoginTime")), SysLogininfor::getLoginTime, sysLogininfor.getParams().get("beginLoginTime"))
+                    .le(Objects.nonNull(sysLogininfor.getParams()) && StringUtils.isNotNull(sysLogininfor.getParams().get("endLoginTime")), SysLogininfor::getLoginTime, sysLogininfor.getParams().get("endLoginTime"));
         }
         return sysLogininforMapper.selectList(queryWrapper);
     }
@@ -54,8 +53,7 @@ public class SysLogininforServiceImpl extends ServiceImpl<SysLogininforMapper, S
      * @return 结果
      */
     @Override
-    public int insertSysLogininfor(SysLogininfor sysLogininfor)
-    {
+    public int insertSysLogininfor(SysLogininfor sysLogininfor) {
         return sysLogininforMapper.insert(sysLogininfor);
     }
 
@@ -67,8 +65,7 @@ public class SysLogininforServiceImpl extends ServiceImpl<SysLogininforMapper, S
      * @return 结果
      */
     @Override
-    public int deleteSysLogininforByInfoIds(Long[] infoIds)
-    {
+    public int deleteSysLogininforByInfoIds(Long[] infoIds) {
         return sysLogininforMapper.deleteBatchIds(Arrays.asList(infoIds));
     }
 
@@ -79,8 +76,7 @@ public class SysLogininforServiceImpl extends ServiceImpl<SysLogininforMapper, S
      * @return 结果
      */
     @Override
-    public int deleteSysLogininforByInfoId(Long infoId)
-    {
+    public int deleteSysLogininforByInfoId(Long infoId) {
         return sysLogininforMapper.deleteById(infoId);
     }
 

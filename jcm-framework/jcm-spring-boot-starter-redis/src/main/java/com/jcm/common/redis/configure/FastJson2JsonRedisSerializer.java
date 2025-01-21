@@ -12,11 +12,10 @@ import java.nio.charset.Charset;
 
 /**
  * Redis使用FastJson序列化
- * 
+ *
  * @author 君尘陌
  */
-public class FastJson2JsonRedisSerializer<T> implements RedisSerializer<T>
-{
+public class FastJson2JsonRedisSerializer<T> implements RedisSerializer<T> {
     public static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
 
     //不太明白Constants.JSON_WHITELIST_STR
@@ -24,27 +23,22 @@ public class FastJson2JsonRedisSerializer<T> implements RedisSerializer<T>
 
     private Class<T> clazz;
 
-    public FastJson2JsonRedisSerializer(Class<T> clazz)
-    {
+    public FastJson2JsonRedisSerializer(Class<T> clazz) {
         super();
         this.clazz = clazz;
     }
 
     @Override
-    public byte[] serialize(T t) throws SerializationException
-    {
-        if (t == null)
-        {
+    public byte[] serialize(T t) throws SerializationException {
+        if (t == null) {
             return new byte[0];
         }
         return JSON.toJSONString(t, JSONWriter.Feature.WriteClassName).getBytes(DEFAULT_CHARSET);
     }
 
     @Override
-    public T deserialize(byte[] bytes) throws SerializationException
-    {
-        if (bytes == null || bytes.length <= 0)
-        {
+    public T deserialize(byte[] bytes) throws SerializationException {
+        if (bytes == null || bytes.length <= 0) {
             return null;
         }
         String str = new String(bytes, DEFAULT_CHARSET);

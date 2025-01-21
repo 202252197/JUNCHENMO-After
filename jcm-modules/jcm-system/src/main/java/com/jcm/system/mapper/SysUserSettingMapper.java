@@ -1,7 +1,7 @@
 package com.jcm.system.mapper;
 
-import com.jcm.system.domain.SysUserSetting;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.jcm.system.domain.SysUserSetting;
 
 /**
  * <p>

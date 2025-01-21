@@ -21,7 +21,9 @@
     </select>
 
     <delete id="deleteRoleMenuByRoleId" parameterType="Long">
-        delete from sys_role_menu where role_id=#{roleId}
+        delete
+        from sys_role_menu
+        where role_id = #{roleId}
     </delete>
 
     <delete id="deleteByRoleIds">

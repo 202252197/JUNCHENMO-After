@@ -16,7 +16,7 @@ import java.util.Date;
 
 /**
  * vip对象 tx_vip
- * 
+ *
  * @author lvshihao
  * @date 2025-01-11
  */
@@ -26,47 +26,64 @@ import java.util.Date;
 @AllArgsConstructor
 @ExcelIgnoreUnannotated
 @TableName("tx_vip")
-public class TxVip extends BaseEntity
-{
+public class TxVip extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    /** 会员id */
+    /**
+     * 会员id
+     */
     @TableId(type = IdType.AUTO)
     @ExcelProperty(value = "${comment}")
     private Long vipId;
 
-    /** 咸鱼名称 */
+    /**
+     * 咸鱼名称
+     */
     @ExcelProperty(value = "咸鱼名称")
     private String xyName;
 
-    /** 起始时间 */
+    /**
+     * 起始时间
+     */
     @JsonFormat(pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @ExcelProperty(value = "起始时间")
     private Date startingTime;
 
-    /** 结束时间 */
+    /**
+     * 结束时间
+     */
     @JsonFormat(pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @ExcelProperty(value = "结束时间")
     private Date stopingTime;
 
-    /** 开通天数 */
+    /**
+     * 开通天数
+     */
     @ExcelProperty(value = "开通天数")
     private String purchaseDays;
 
-    /** 设备名称 */
+    /**
+     * 设备名称
+     */
     @ExcelProperty(value = "设备名称")
     private String unitType;
 
-    /** 状态(0在用，1下线) */
+    /**
+     * 状态(0在用，1下线)
+     */
     private Boolean status;
 
-    /** 登录方式（QQ或微信） */
+    /**
+     * 登录方式（QQ或微信）
+     */
     @ExcelProperty(value = "登录方式（QQ或微信）")
     private String loginMethod;
 
-    /** 登录账号 */
+    /**
+     * 登录账号
+     */
     private String loginAccount;
 
 

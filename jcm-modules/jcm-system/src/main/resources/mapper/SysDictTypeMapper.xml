@@ -4,27 +4,24 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="SysDictType">
-        <id column="dict_type_id" property="dictTypeId" />
-        <result column="name" property="name" />
-        <result column="description" property="description" />
-        <result column="type" property="type" />
-        <result column="extra_schema" property="extraSchema" />
-        <result column="status" property="status" />
-        <result column="creator" property="creator" />
-        <result column="create_time" property="createTime" />
-        <result column="updater" property="updater" />
-        <result column="update_time" property="updateTime" />
-        <result column="deleted" property="deleted" />
+        <id column="dict_type_id" property="dictTypeId"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="type" property="type"/>
+        <result column="extra_schema" property="extraSchema"/>
+        <result column="status" property="status"/>
+        <result column="creator" property="creator"/>
+        <result column="create_time" property="createTime"/>
+        <result column="updater" property="updater"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
     </resultMap>
 
     <select id="selectDictTypeAndExtraAllList" resultMap="BaseResultMap">
-        SELECT
-           *
-        FROM
-            sys_dict_type dt
-        WHERE
-            dt.deleted = 0
-          AND dt.`status` =0
+        SELECT *
+        FROM sys_dict_type dt
+        WHERE dt.deleted = 0
+          AND dt.`status` = 0
     </select>
 
 </mapper>

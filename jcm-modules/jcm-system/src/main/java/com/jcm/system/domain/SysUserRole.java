@@ -19,8 +19,8 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_user_role")
-@Tag(name="SysUserRole对象", description="用户和角色关联关系表")
-public class SysUserRole   implements Serializable {
+@Tag(name = "SysUserRole对象", description = "用户和角色关联关系表")
+public class SysUserRole implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

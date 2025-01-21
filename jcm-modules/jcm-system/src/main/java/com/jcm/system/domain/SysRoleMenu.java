@@ -19,7 +19,7 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_role_menu")
-@Tag(name="SysRoleMenu对象", description="角色和菜单关联关系表")
+@Tag(name = "SysRoleMenu对象", description = "角色和菜单关联关系表")
 public class SysRoleMenu implements Serializable {
 
     private static final long serialVersionUID = 1L;

@@ -5,8 +5,8 @@ import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.domain.R;
 import com.jcm.common.core.web.domain.AjaxResult;
-import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.annotation.BusinessName;
+import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.constant.BusinessNameConstant;
 import com.jcm.common.log.enums.BusinessType;
 import com.jcm.common.log.utils.OperLogCover;
@@ -35,8 +35,8 @@ import java.util.List;
  * @author 吕世昊
  * @since 2024-04-01
  */
-@Api(tags="菜单管理")
-@ApiSupport(author = "202252197@qq.com",order = 3)
+@Api(tags = "菜单管理")
+@ApiSupport(author = "202252197@qq.com", order = 3)
 @BusinessName(title = OperationNameConstants.SYSTEM_MENU)
 @RestController
 @RequestMapping("/menu")
@@ -49,12 +49,11 @@ public class SysMenuController extends PageBaseController {
 
     @ApiOperation(value = "新增菜单")
     @RequiresPermissions("system:menu:add")
-    @Log(functionName = "新增菜单",businessType= BusinessType.INSERT)
+    @Log(functionName = "新增菜单", businessType = BusinessType.INSERT)
     @PostMapping
     @PrintParams
-    public AjaxResult add(@RequestBody SysMenu menu)
-    {
-        OperLogCover.insertLogMsg(BusinessNameConstant.MENU,menu.getName());
+    public AjaxResult add(@RequestBody SysMenu menu) {
+        OperLogCover.insertLogMsg(BusinessNameConstant.MENU, menu.getName());
         return toAjax(sysMenuService.insertMenu(menu));
 
     }
@@ -62,63 +61,58 @@ public class SysMenuController extends PageBaseController {
 
     @ApiOperation(value = "删除菜单")
     @RequiresPermissions("system:menu:remove")
-    @Log(functionName = "删除菜单",businessType= BusinessType.DELETE)
+    @Log(functionName = "删除菜单", businessType = BusinessType.DELETE)
     @DeleteMapping("/{menuId}")
     @PrintParams
     public AjaxResult remove(@PathVariable("menuId") Long menuId) {
-        OperLogCover.deleteLogMsg(BusinessNameConstant.MENU,1);
+        OperLogCover.deleteLogMsg(BusinessNameConstant.MENU, 1);
         return toAjax(sysMenuService.deleteMenu(menuId));
     }
 
     @ApiOperation(value = "修改菜单")
     @RequiresPermissions("system:menu:edit")
-    @Log(functionName = "修改菜单",businessType= BusinessType.UPDATE)
+    @Log(functionName = "修改菜单", businessType = BusinessType.UPDATE)
     @PutMapping
     @PrintParams
-    public AjaxResult edit(@RequestBody SysMenu menu)
-    {
-        OperLogCover.updateLogMsg(BusinessNameConstant.MENU,menu.getMenuId());
+    public AjaxResult edit(@RequestBody SysMenu menu) {
+        OperLogCover.updateLogMsg(BusinessNameConstant.MENU, menu.getMenuId());
         return toAjax(sysMenuService.updateMenu(menu));
     }
 
 
     @ApiOperation(value = "分页条件查询菜单列表")
     @RequiresPermissions("system:menu:list")
-    @Operation(summary = "获取全部菜单列表",description = "获取全部菜单列表，管理员才有次权限")
+    @Operation(summary = "获取全部菜单列表", description = "获取全部菜单列表，管理员才有次权限")
     @GetMapping("/list")
     @PrintParams
-    public AjaxResult list(SysMenu menu)
-    {
+    public AjaxResult list(SysMenu menu) {
         List<SysMenu> menus = sysMenuService.selectMenuAllTree(menu);
         return success(menus);
     }
 
 
-
     @ApiOperation(value = "查询用户的路由列表")
-    @Operation(summary = "获取菜单列表",description = "获取前端路由列表")
+    @Operation(summary = "获取菜单列表", description = "获取前端路由列表")
     @GetMapping("/getRouters")
     @PrintParams
-    public AjaxResult getRouters()
-    {
+    public AjaxResult getRouters() {
         Long userId = SecurityUtils.getUserId();
         List<SysMenu> menus = sysMenuService.selectMenuTreeByUserId(userId);
         List<SysMenu> routers = sysMenuService.selectRouterTreeByUserId(userId);
         List<RouterVo> menusVos = sysMenuService.buildMenus(menus, null);
         List<RouterVo> routerVos = sysMenuService.buildMenus(routers, null);
         HashMap typeMap = new HashMap();
-        typeMap.put("menus",menusVos);
-        typeMap.put("routers",routerVos);
+        typeMap.put("menus", menusVos);
+        typeMap.put("routers", routerVos);
         return success(typeMap);
     }
 
-    @ApiOperation(value = "查询新增菜单Sort值",notes = "根据父菜单的ID查询子菜单最大的Sort+100")
-    @Operation(summary = "查询新增菜单最后的sort值",description = "通过id查询所有子菜单，对子菜单的最大sort加100返回")
+    @ApiOperation(value = "查询新增菜单Sort值", notes = "根据父菜单的ID查询子菜单最大的Sort+100")
+    @Operation(summary = "查询新增菜单最后的sort值", description = "通过id查询所有子菜单，对子菜单的最大sort加100返回")
     @RequiresPermissions("system:menu:list")
     @GetMapping("/getChildLastSort/{parentId}")
     @PrintParams
-    public AjaxResult getMenuChildLastSort(@PathVariable("parentId") Long parentId)
-    {
+    public AjaxResult getMenuChildLastSort(@PathVariable("parentId") Long parentId) {
         Integer childLastSort = sysMenuService.getMenuChildLastSort(parentId) + 100;
         return success(childLastSort);
     }
@@ -126,11 +120,10 @@ public class SysMenuController extends PageBaseController {
 
     @ApiOperation(value = "查询首页动态设置的icon图标")
     @RequiresPermissions("system:menu:list")
-    @Operation(summary = "查询首页图标名称",description = "获取首页动态设置的icon图标")
+    @Operation(summary = "查询首页图标名称", description = "获取首页动态设置的icon图标")
     @GetMapping("/getHomeMenuIcon")
     @PrintParams
-    public AjaxResult getHomeMenuIcon()
-    {
+    public AjaxResult getHomeMenuIcon() {
         String homeIcon = sysMenuService.getHomeMenuIcon();
         return success(homeIcon);
     }
@@ -139,8 +132,7 @@ public class SysMenuController extends PageBaseController {
     @PrintParams
     @RequiresPermissions("system:menu:list")
     @GetMapping("/queryRoleMenus/{roleId}")
-    public R queryRoleMenus(@PathVariable Integer roleId)
-    {
+    public R queryRoleMenus(@PathVariable Integer roleId) {
         return R.ok(sysRoleMenuService.queryMenuIdsByRoleId(roleId));
     }
 

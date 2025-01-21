@@ -13,10 +13,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @MapperScan("com.jcm.system.mapper")
 @EnableCustomConfig
 @SpringBootApplication
-public class JcmSystemApplication
-{
-    public static void main(String[] args)
-    {
+public class JcmSystemApplication {
+    public static void main(String[] args) {
         SpringApplication.run(JcmSystemApplication.class, args);
         System.out.println(" (♥◠‿◠)ﾉﾞ  系统模块启动成功   ლ(´ڡ`ლ)ﾞ ");
     }

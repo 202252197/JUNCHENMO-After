@@ -2,11 +2,10 @@ package com.jcm.common.log.enums;
 
 /**
  * 业务操作类型
- * 
+ *
  * @author junchenmo
  */
-public enum BusinessType
-{
+public enum BusinessType {
     /**
      * 其它
      */

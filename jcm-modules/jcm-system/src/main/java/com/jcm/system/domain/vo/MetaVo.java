@@ -5,13 +5,12 @@ import lombok.Data;
 
 /**
  * 路由显示信息
- * 
+ *
  * @author junchenmo
  */
 @Data
 @AllArgsConstructor
-public class MetaVo
-{
+public class MetaVo {
     /**
      * 设置该路由在侧边栏和面包屑中展示的名字
      */

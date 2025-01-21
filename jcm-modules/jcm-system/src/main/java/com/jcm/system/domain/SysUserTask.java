@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 
 /**
  * task对象 sys_user_task
- * 
+ *
  * @author lvshihao
  * @date 2025-01-13
  */
@@ -27,48 +27,65 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ExcelIgnoreUnannotated
 @TableName("sys_user_task")
-public class SysUserTask extends BaseEntity
-{
+public class SysUserTask extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
-    /** 任务ID，主键 */
+    /**
+     * 任务ID，主键
+     */
     @TableId(type = IdType.AUTO)
     @ExcelProperty(value = "${comment}")
     private Long taskId;
 
-    /** 任务标题 */
+    /**
+     * 任务标题
+     */
     @ExcelProperty(value = "任务标题")
     private String title;
 
-    /** 任务描述 */
+    /**
+     * 任务描述
+     */
     @ExcelProperty(value = "任务描述")
     private String description;
 
-    /** 任务开始日期 */
+    /**
+     * 任务开始日期
+     */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ExcelProperty(value = "任务开始日期")
     private LocalDateTime startDate;
 
-    /** 任务结束日期 */
+    /**
+     * 任务结束日期
+     */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ExcelProperty(value = "任务结束日期")
     private LocalDateTime endDate;
 
-    /** 任务优先级（0:一般、1:中等、2:加急） */
+    /**
+     * 任务优先级（0:一般、1:中等、2:加急）
+     */
     @ExcelProperty(value = "任务优先级（0:一般、1:中等、2:加急）")
     private Long priority;
 
-    /** 任务状态（0:未开始、1:进行中、2:已完成） */
+    /**
+     * 任务状态（0:未开始、1:进行中、2:已完成）
+     */
     @ExcelProperty(value = "任务状态（0:未开始、1:进行中、2:已完成）")
     private Long status;
 
-    /** 任务类型（0:修复bug，1：新增功能） */
+    /**
+     * 任务类型（0:修复bug，1：新增功能）
+     */
     @ExcelProperty(value = "任务类型（0:修复bug，1：新增功能）")
     private Long type;
 
-    /** 执行任务的用户ID */
+    /**
+     * 执行任务的用户ID
+     */
     @ExcelProperty(value = "执行任务的用户ID")
     private Long userId;
 

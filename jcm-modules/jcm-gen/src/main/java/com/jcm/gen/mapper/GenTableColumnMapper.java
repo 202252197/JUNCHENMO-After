@@ -1,7 +1,7 @@
 package com.jcm.gen.mapper;
 
-import com.jcm.gen.domain.GenTableColumn;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.jcm.gen.domain.GenTableColumn;
 
 import java.util.List;
 

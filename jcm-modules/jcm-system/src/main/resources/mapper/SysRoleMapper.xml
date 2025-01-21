@@ -3,26 +3,30 @@
 <mapper namespace="com.jcm.system.mapper.SysRoleMapper">
 
     <resultMap type="com.jcm.system.domain.SysRole" id="SysRoleResult">
-        <id     property="roleId"             column="role_id"               />
-        <result property="name"           column="name"             />
-        <result property="code"            column="code"              />
-        <result property="sort"           column="sort"             />
-        <result property="status"             column="status"                />
-        <result property="remark"            column="remark"              />
-        <result property="creator"           column="creator"             />
-        <result property="createTime"         column="create_time"           />
-        <result property="updater"           column="updater"             />
-        <result property="updateTime"         column="update_time"           />
-        <result property="deleted"             column="deleted"                />
+        <id property="roleId" column="role_id"/>
+        <result property="name" column="name"/>
+        <result property="code" column="code"/>
+        <result property="sort" column="sort"/>
+        <result property="status" column="status"/>
+        <result property="remark" column="remark"/>
+        <result property="creator" column="creator"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updater" column="updater"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="deleted" column="deleted"/>
     </resultMap>
 
     <sql id="selectRoleVo">
-        select distinct r.role_id, r.name, r.code, r.sort, r.status, r.remark,
+        select distinct r.role_id,
+                        r.name,
+                        r.code,
+                        r.sort,
+                        r.status,
+                        r.remark,
                         r.create_time
-        FROM
-            sys_role r
-                LEFT JOIN sys_user_role ur ON r.role_id= ur.role_id
-                LEFT JOIN sys_user u on ur.user_id = u.user_id
+        FROM sys_role r
+                 LEFT JOIN sys_user_role ur ON r.role_id = ur.role_id
+                 LEFT JOIN sys_user u on ur.user_id = u.user_id
     </sql>
 
 

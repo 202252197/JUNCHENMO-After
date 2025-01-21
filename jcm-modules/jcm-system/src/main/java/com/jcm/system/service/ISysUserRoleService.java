@@ -17,6 +17,7 @@ public interface ISysUserRoleService extends IService<SysUserRole> {
     /**
      * 查询已分配用户角色列表
      * 根据用户ID获取角色ID列表
+     *
      * @param userId 用户ID
      * @return
      */

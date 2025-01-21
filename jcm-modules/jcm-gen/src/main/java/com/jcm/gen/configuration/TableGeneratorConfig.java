@@ -27,10 +27,6 @@ import java.util.concurrent.atomic.AtomicReference;
 @AllArgsConstructor
 public class TableGeneratorConfig {
 
-    private final TableGeneratorProperties properties;
-
-    private final RedisService redisService;
-
     /**
      * 系统生成表的消息内容配置
      */
@@ -45,14 +41,14 @@ public class TableGeneratorConfig {
             "    comment: string\n" +
             "}你是一个专业的mysql数据库管理员，你可以生成所有描述场景的表结构而且非常详细，结构是Json数组类型，name是列的名称，" +
             "type是列的类型(类型名称小写),length是列数据的长度,point是列的小数点位数,notNull代表这个字段不能为空,primaryKey代表这是主键,comment是列的注释。最后要求只需要给我json数组的数据，要求是纯文本json字符串,除此以外不要返回任何数据。";
-
     /**
      * 系统生成Sql的消息内容配置
      */
     private static final String SYSTEM_TABLE_SQL_MESSAGE_CONTENT = "" +
             "你是一个专业的mysql数据库管理员，按照我给你数据表的JSON数组数据生成创建表的Sql语句，每一个json都是一行列的信息，name是列的名称，" +
             "type是列的类型(类型名称小写),length是列数据的长度,point是列的小数点位数,notNull代表这个字段不能为空,primaryKey代表这是主键,comment是列的注释。最后要求只需要给我创建表的sql语句，要求是纯文本sql字符串,除此以外不要返回任何数据。";
-
+    private final TableGeneratorProperties properties;
+    private final RedisService redisService;
 
     /**
      * 根据给定的表名称生成相应的MySQL表结构的JSON数组数据
@@ -60,15 +56,15 @@ public class TableGeneratorConfig {
      * @param prompts 要生成表结构的prompts
      * @return 生成的表结构对应的JSON数组数据，如果出现异常则返回null
      */
-    public HashMap<String,String> generateTableStructure(String prompts) throws ApiException{
+    public HashMap<String, String> generateTableStructure(String prompts) throws ApiException {
         try {
-            HashMap<String,String> data = new HashMap<>();
+            HashMap<String, String> data = new HashMap<>();
             String[] split = prompts.split("\\|jcm\\|");
             //第二次请求
-            if(split.length==2 && redisService.hasKey("aiTable:"+split[0])){
+            if (split.length == 2 && redisService.hasKey("aiTable:" + split[0])) {
                 String requestId = split[0];
                 return handleQuestionPrompts(requestId, prompts, data, true);
-            }else{
+            } else {
                 return handleQuestionPrompts(null, prompts, data, false);
             }
 
@@ -79,11 +75,11 @@ public class TableGeneratorConfig {
         }
     }
 
-    private HashMap<String,String> handleQuestionPrompts(String requestId, String prompts, HashMap<String,String> data, boolean isAfterward) throws NoApiKeyException, InputRequiredException {
+    private HashMap<String, String> handleQuestionPrompts(String requestId, String prompts, HashMap<String, String> data, boolean isAfterward) throws NoApiKeyException, InputRequiredException {
         List<JSONObject> messageList = new ArrayList<>();
         if (isAfterward) {
             // 获取上一次的消息集合
-            messageList = redisService.getCacheList("aiTable:"+requestId);
+            messageList = redisService.getCacheList("aiTable:" + requestId);
         } else {
             // 添加系统消息
             JSONObject system = new JSONObject();
@@ -135,7 +131,7 @@ public class TableGeneratorConfig {
         messageList.add(assistant);
 
         // 保存消息列表到Redis
-        redisService.setCacheList("aiTable:"+requestId, messageList);
+        redisService.setCacheList("aiTable:" + requestId, messageList);
         data.put("context", tests.get(tests.size() - 1));
         data.put("requestId", requestId);
         return data;
@@ -165,7 +161,7 @@ public class TableGeneratorConfig {
                 String text = msg.getOutput().getText();
                 tests.add(text);
             });
-            System.out.println("返回数据:\n"+tests.get(tests.size()-1));
+            System.out.println("返回数据:\n" + tests.get(tests.size() - 1));
             return tests.get(tests.size() - 1);
         } catch (ApiException | NoApiKeyException | InputRequiredException e) {
             System.err.println("错误信息：" + e.getMessage());

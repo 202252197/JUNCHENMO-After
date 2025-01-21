@@ -6,14 +6,13 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * 验证码配置
- * 
+ *
  * @author 君尘陌
  */
 @Configuration
 @RefreshScope
 @ConfigurationProperties(prefix = "security.captcha")
-public class CaptchaProperties
-{
+public class CaptchaProperties {
     /**
      * 验证码开关
      */
@@ -24,23 +23,19 @@ public class CaptchaProperties
      */
     private String type;
 
-    public Boolean getEnabled()
-    {
+    public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Boolean enabled)
-    {
+    public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public String getType()
-    {
+    public String getType() {
         return type;
     }
 
-    public void setType(String type)
-    {
+    public void setType(String type) {
         this.type = type;
     }
 }

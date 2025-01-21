@@ -20,13 +20,20 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 
-@Api(tags="认证服务")
+/**
+ * 令牌控制器
+ *
+ * @author junchenmo
+ * @date 2025/01/19 09:57
+ */
+@Api(tags = "认证服务")
 @RestController
 @AllArgsConstructor
 public class TokenController {
     private final TokenService tokenService;
 
     private final SysLoginService sysLoginService;
+
     @ApiOperation(value = "用户登录", notes = "登录用户并创建JWT TOKEN返回")
     @PostMapping("/login")
     public R<?> login(@RequestBody LoginBody form) {
@@ -35,6 +42,7 @@ public class TokenController {
         // 获取登录token
         return R.ok(tokenService.createToken(userInfo));
     }
+
     @ApiOperation(value = "用户登出", notes = "退出登录，删除TOKEN")
     @DeleteMapping("/logout")
     public R<?> logout(HttpServletRequest request) {

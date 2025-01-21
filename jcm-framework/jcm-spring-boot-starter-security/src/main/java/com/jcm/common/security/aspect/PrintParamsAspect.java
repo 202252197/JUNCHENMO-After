@@ -2,6 +2,7 @@ package com.jcm.common.security.aspect;
 
 
 import com.alibaba.fastjson2.JSONObject;
+import com.jcm.common.security.annotation.PrintParams;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -9,7 +10,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
-import com.jcm.common.security.annotation.PrintParams;
+
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
@@ -35,14 +36,14 @@ public class PrintParamsAspect {
         String methodName = method.getName();
         Object[] args = joinPoint.getArgs();
         String declaringTypeName = signature.getDeclaringTypeName();
-        String methodFullPath = declaringTypeName+"."+method.getName();
+        String methodFullPath = declaringTypeName + "." + method.getName();
         String[] paramNames = signature.getParameterNames();
         PrintParams printParams = method.getAnnotation(PrintParams.class);
         try {
-            if(printParams.requestParam()){
+            if (printParams.requestParam()) {
                 logger.info("调用接口{}，请求入参：参数名{}，参数值{}", methodFullPath, Arrays.toString(paramNames), Arrays.toString(args));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("打印请求参数失败");
         }
         // 在调用方法之前记录开始时间
@@ -52,12 +53,12 @@ public class PrintParamsAspect {
         long endTime = System.currentTimeMillis();
         // 计算已过去的时间（单位：毫秒）
         long duration = endTime - startTime;
-        logger.info("调用接口{}，耗时：{} 毫秒", methodFullPath,duration);
+        logger.info("调用接口{}，耗时：{} 毫秒", methodFullPath, duration);
         try {
-            if(printParams.responseParam()){
+            if (printParams.responseParam()) {
                 logger.info("调用接口{}，返回结果：{}", methodFullPath, JSONObject.toJSONString(result));
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("打印返回结果参数失败");
         }
         return result;

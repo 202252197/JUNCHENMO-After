@@ -20,7 +20,6 @@ import java.lang.annotation.*;
 @Import({
         FeignAutoConfiguration.class, ApplicationConfig.class
 })
-public @interface EnableCustomConfig
-{
+public @interface EnableCustomConfig {
 
 }

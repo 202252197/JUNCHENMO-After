@@ -6,9 +6,8 @@ import java.lang.annotation.*;
  * 自定义操作日志模块标记注解
  *
  * @author junchenmo
- *
  */
-@Target({ ElementType.TYPE })
+@Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface BusinessName {

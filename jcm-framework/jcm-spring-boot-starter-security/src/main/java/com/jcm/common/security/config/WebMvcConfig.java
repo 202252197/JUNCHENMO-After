@@ -11,14 +11,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author junchenmo
  */
 @Component
-public class WebMvcConfig implements WebMvcConfigurer
-{
-    /** 不需要拦截地址 */
-    public static final String[] excludeUrls = { "/login", "/logout", "/refresh" };
+public class WebMvcConfig implements WebMvcConfigurer {
+    /**
+     * 不需要拦截地址
+     */
+    public static final String[] excludeUrls = {"/login", "/logout", "/refresh"};
 
     @Override
-    public void addInterceptors(InterceptorRegistry registry)
-    {
+    public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(getHeaderInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns(excludeUrls)
@@ -28,8 +28,7 @@ public class WebMvcConfig implements WebMvcConfigurer
     /**
      * 自定义请求头拦截器
      */
-    public HeaderInterceptor getHeaderInterceptor()
-    {
+    public HeaderInterceptor getHeaderInterceptor() {
         return new HeaderInterceptor();
     }
 

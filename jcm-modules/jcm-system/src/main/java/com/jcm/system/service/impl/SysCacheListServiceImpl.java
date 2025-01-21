@@ -25,7 +25,7 @@ public class SysCacheListServiceImpl implements SysCacheListService {
     @Override
     public Object getRedisKeysByCacheName(String cacheName) {
         Set keys = redisService.redisTemplate.keys(cacheName + "*");
-        if(keys.size() == 0){
+        if (keys.size() == 0) {
             return null;
         }
         return keys.parallelStream().map(key -> {
@@ -38,8 +38,8 @@ public class SysCacheListServiceImpl implements SysCacheListService {
     @Override
     public int deleteCacheName(String cacheName) {
         Set keys = redisService.redisTemplate.keys(cacheName + "*");
-        OperLogCover.deleteLogMsg(BusinessNameConstant.CACHE_LIST,keys.size());
-        if(keys.size() > 0){
+        OperLogCover.deleteLogMsg(BusinessNameConstant.CACHE_LIST, keys.size());
+        if (keys.size() > 0) {
             redisService.redisTemplate.delete(keys);
         }
         return keys.size();
@@ -47,29 +47,29 @@ public class SysCacheListServiceImpl implements SysCacheListService {
 
     @Override
     public int deleteCacheKey(String keyName) {
-        if(!redisService.hasKey(keyName)){
+        if (!redisService.hasKey(keyName)) {
             return 0;
-        }else{
+        } else {
             redisService.deleteObject(keyName);
-            OperLogCover.deleteLogMsg(BusinessNameConstant.CACHE_LIST,1);
+            OperLogCover.deleteLogMsg(BusinessNameConstant.CACHE_LIST, 1);
             return 1;
         }
     }
 
     @Override
     public Object getRedisKeyDataByKeyName(String keyName) {
-        if(!redisService.hasKey(keyName)){
+        if (!redisService.hasKey(keyName)) {
             return null;
         }
         DataType type = redisService.redisTemplate.type(keyName);
         String typeName = type.name();
-        if(typeName.equals("STRING")){
+        if (typeName.equals("STRING")) {
             Object cacheObject = redisService.getCacheObject(keyName);
             return cacheObject;
-        }else if(typeName.equals("LIST")){
+        } else if (typeName.equals("LIST")) {
             List<Object> cacheList = redisService.getCacheList(keyName);
             return cacheList;
-        }else{
+        } else {
             return null;
         }
     }

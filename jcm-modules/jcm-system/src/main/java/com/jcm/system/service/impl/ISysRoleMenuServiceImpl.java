@@ -18,6 +18,7 @@ public class ISysRoleMenuServiceImpl implements ISysRoleMenuService {
 
     /**
      * 根据角色id查询所拥有的菜单id集合
+     *
      * @param roleId
      * @return
      */

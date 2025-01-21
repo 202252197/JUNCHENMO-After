@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author lvshihao
  */
-@Api(tags="服务监控")
-@ApiSupport(author = "202252197@qq.com",order = 9)
+@Api(tags = "服务监控")
+@ApiSupport(author = "202252197@qq.com", order = 9)
 @RestController
 @AllArgsConstructor
 @RequestMapping("/systemMonitor")
@@ -28,8 +28,7 @@ public class SysSystemMonitorController {
     @RequiresPermissions("system:dictType:list")
     @GetMapping("/getSystemBaseInfo")
     @PrintParams
-    public AjaxResult getSystemBaseInfo()
-    {
+    public AjaxResult getSystemBaseInfo() {
         return AjaxResult.success(sysSystemMonitorService.getSystemBaseInfo());
     }
 }

@@ -2,10 +2,8 @@ package com.jcm.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jcm.system.domain.SysDictType;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * <p>

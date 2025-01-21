@@ -15,38 +15,27 @@ import java.util.Arrays;
  *
  * @author junchenmo
  */
-public class ImageUtils
-{
+public class ImageUtils {
     private static final Logger log = LoggerFactory.getLogger(ImageUtils.class);
 
-    public static byte[] getImage(String imagePath)
-    {
+    public static byte[] getImage(String imagePath) {
         InputStream is = getFile(imagePath);
-        try
-        {
+        try {
             return IOUtils.toByteArray(is);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             log.error("图片加载异常 {}", e);
             return null;
-        }
-        finally
-        {
+        } finally {
             IOUtils.closeQuietly(is);
         }
     }
 
-    public static InputStream getFile(String imagePath)
-    {
-        try
-        {
+    public static InputStream getFile(String imagePath) {
+        try {
             byte[] result = readFile(imagePath);
             result = Arrays.copyOf(result, result.length);
             return new ByteArrayInputStream(result);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             log.error("获取图片异常 {}", e);
         }
         return null;
@@ -54,15 +43,13 @@ public class ImageUtils
 
     /**
      * 读取文件为字节数据
-     * 
+     *
      * @param url 地址
      * @return 字节数据
      */
-    public static byte[] readFile(String url)
-    {
+    public static byte[] readFile(String url) {
         InputStream in = null;
-        try
-        {
+        try {
             // 网络地址
             URL urlObj = new URL(url);
             URLConnection urlConnection = urlObj.openConnection();
@@ -71,14 +58,10 @@ public class ImageUtils
             urlConnection.setDoInput(true);
             in = urlConnection.getInputStream();
             return IOUtils.toByteArray(in);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             log.error("访问文件异常 {}", e);
             return null;
-        }
-        finally
-        {
+        } finally {
             IOUtils.closeQuietly(in);
         }
     }

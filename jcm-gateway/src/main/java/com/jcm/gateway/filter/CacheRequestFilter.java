@@ -41,6 +41,21 @@ public class CacheRequestFilter implements GlobalFilter, Ordered {
      */
     private static final Integer OFFSET = 3;
 
+    /**
+     * 去掉空格,换行和制表符
+     *
+     * @param str
+     * @return
+     */
+    private static String formatStr(String str) {
+        if (str != null && str.length() > 0) {
+            Pattern p = Pattern.compile("\\s*|\t|\r|\n");
+            Matcher m = p.matcher(str);
+            return m.replaceAll("");
+        }
+        return str;
+    }
+
     @SneakyThrows
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -83,20 +98,6 @@ public class CacheRequestFilter implements GlobalFilter, Ordered {
 
         // 放行请求
         return chain.filter(exchange);
-    }
-
-    /**
-     * 去掉空格,换行和制表符
-     * @param str
-     * @return
-     */
-    private static String formatStr(String str) {
-        if (str != null && str.length() > 0) {
-            Pattern p = Pattern.compile("\\s*|\t|\r|\n");
-            Matcher m = p.matcher(str);
-            return m.replaceAll("");
-        }
-        return str;
     }
 
     @Override

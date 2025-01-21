@@ -12,35 +12,31 @@ import java.util.List;
 
 /**
  * web层通用数据处理
- * 
+ *
  * @author junchenmo
  */
-public class PageBaseController extends BaseController
-{
+public class PageBaseController extends BaseController {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**
      * 设置请求分页数据
      */
-    protected void startPage()
-    {
+    protected void startPage() {
         PageUtils.startPage();
     }
 
     /**
      * 清理分页的线程变量
      */
-    protected void clearPage()
-    {
+    protected void clearPage() {
         PageUtils.clearPage();
     }
 
     /**
      * 响应请求分页数据
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    protected TableDataInfo getDataTable(List<?> list)
-    {
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    protected TableDataInfo getDataTable(List<?> list) {
         TableDataInfo rspData = new TableDataInfo();
         rspData.setCode(HttpStatus.SUCCESS);
         rspData.setRows(list);

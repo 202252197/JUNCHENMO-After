@@ -29,8 +29,7 @@ public class SysUserTaskServiceImpl extends ServiceImpl<SysUserTaskMapper, SysUs
      * @return 用户任务
      */
     @Override
-    public SysUserTask selectSysUserTaskByTaskId(Long taskId)
-    {
+    public SysUserTask selectSysUserTaskByTaskId(Long taskId) {
         return sysUserTaskMapper.selectById(taskId);
     }
 
@@ -41,8 +40,7 @@ public class SysUserTaskServiceImpl extends ServiceImpl<SysUserTaskMapper, SysUs
      * @return 用户任务
      */
     @Override
-    public List<SysUserTask> selectSysUserTaskList(SysUserTask sysUserTask)
-    {
+    public List<SysUserTask> selectSysUserTaskList(SysUserTask sysUserTask) {
         return sysUserTaskMapper.selectList(sysUserTask);
     }
 
@@ -53,8 +51,7 @@ public class SysUserTaskServiceImpl extends ServiceImpl<SysUserTaskMapper, SysUs
      * @return 结果
      */
     @Override
-    public int insertSysUserTask(SysUserTask sysUserTask)
-    {
+    public int insertSysUserTask(SysUserTask sysUserTask) {
         return sysUserTaskMapper.insert(sysUserTask);
     }
 
@@ -65,8 +62,7 @@ public class SysUserTaskServiceImpl extends ServiceImpl<SysUserTaskMapper, SysUs
      * @return 结果
      */
     @Override
-    public int updateSysUserTask(SysUserTask sysUserTask)
-    {
+    public int updateSysUserTask(SysUserTask sysUserTask) {
         return sysUserTaskMapper.updateById(sysUserTask);
     }
 
@@ -77,8 +73,7 @@ public class SysUserTaskServiceImpl extends ServiceImpl<SysUserTaskMapper, SysUs
      * @return 结果
      */
     @Override
-    public int deleteSysUserTaskByTaskIds(Long[] taskIds)
-    {
+    public int deleteSysUserTaskByTaskIds(Long[] taskIds) {
         return sysUserTaskMapper.deleteBatchIds(Arrays.asList(taskIds));
     }
 
@@ -89,8 +84,7 @@ public class SysUserTaskServiceImpl extends ServiceImpl<SysUserTaskMapper, SysUs
      * @return 结果
      */
     @Override
-    public int deleteSysUserTaskByTaskId(Long taskId)
-    {
+    public int deleteSysUserTaskByTaskId(Long taskId) {
         return sysUserTaskMapper.deleteById(taskId);
     }
 }

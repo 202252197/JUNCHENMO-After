@@ -44,8 +44,7 @@ public class GenController extends PageBaseController {
      */
     @RequiresPermissions("tool:gen:list")
     @GetMapping("/list")
-    public TableDataInfo genList(GenTable genTable)
-    {
+    public TableDataInfo genList(GenTable genTable) {
         startPage();
         List<GenTable> list = genTableService.selectGenTableList(genTable);
         return getDataTable(list);
@@ -56,8 +55,7 @@ public class GenController extends PageBaseController {
      */
     @RequiresPermissions("tool:gen:preview")
     @GetMapping("/preview/{tableId}")
-    public AjaxResult preview(@PathVariable("tableId") Long tableId) throws IOException
-    {
+    public AjaxResult preview(@PathVariable("tableId") Long tableId) throws IOException {
         Map<String, String> dataMap = genTableService.previewCode(tableId);
         return success(dataMap);
     }
@@ -68,8 +66,7 @@ public class GenController extends PageBaseController {
     @RequiresPermissions("tool:gen:remove")
     @Log(functionName = "删除导入的表", businessType = BusinessType.DELETE)
     @DeleteMapping("/")
-    public AjaxResult remove(@RequestBody Long[] tableIds)
-    {
+    public AjaxResult remove(@RequestBody Long[] tableIds) {
         genTableService.deleteGenTableByIds(tableIds);
         return success();
     }
@@ -79,8 +76,7 @@ public class GenController extends PageBaseController {
      */
     @RequiresPermissions("tool:gen:list")
     @GetMapping("/db/list")
-    public TableDataInfo dataList(GenTable genTable)
-    {
+    public TableDataInfo dataList(GenTable genTable) {
         System.out.println(genTable);
         startPage();
         List<GenTable> list = genTableService.selectDbTableList(genTable);
@@ -93,8 +89,7 @@ public class GenController extends PageBaseController {
     @RequiresPermissions("tool:gen:import")
     @Log(functionName = "导入表结构", businessType = BusinessType.IMPORT)
     @PostMapping("/importTable")
-    public AjaxResult importTableSave(String tables)
-    {
+    public AjaxResult importTableSave(String tables) {
         String[] tableNames = Convert.toStrArray(tables);
         // 查询表信息
         List<GenTable> tableList = genTableService.selectDbTableListByNames(tableNames);
@@ -107,8 +102,7 @@ public class GenController extends PageBaseController {
      */
     @RequiresPermissions("tool:gen:query")
     @GetMapping(value = "/{tableId}")
-    public AjaxResult getInfo(@PathVariable Long tableId)
-    {
+    public AjaxResult getInfo(@PathVariable Long tableId) {
         GenTable table = genTableService.selectGenTableById(tableId);
         List<GenTableColumn> list = genTableColumnService.selectGenTableColumnListByTableId(tableId);
         Map<String, Object> map = new HashMap<String, Object>();
@@ -123,8 +117,7 @@ public class GenController extends PageBaseController {
     @RequiresPermissions("tool:gen:edit")
     @Log(functionName = "修改业务信息", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult editSave(@Validated @RequestBody GenTable genTable)
-    {
+    public AjaxResult editSave(@Validated @RequestBody GenTable genTable) {
         genTableService.validateEdit(genTable);
         genTableService.updateGenTable(genTable);
         return success();
@@ -136,8 +129,7 @@ public class GenController extends PageBaseController {
     @RequiresPermissions("tool:gen:edit")
     @Log(functionName = "同步数据库", businessType = BusinessType.UPDATE)
     @GetMapping("/synchDb/{tableName}")
-    public AjaxResult synchDb(@PathVariable("tableName") String tableName)
-    {
+    public AjaxResult synchDb(@PathVariable("tableName") String tableName) {
         genTableService.synchDb(tableName);
         return success();
     }
@@ -149,8 +141,7 @@ public class GenController extends PageBaseController {
     @RequiresPermissions("tool:gen:code")
     @Log(functionName = "生成代码", businessType = BusinessType.GENCODE)
     @GetMapping("/genCode/{tableName}")
-    public AjaxResult genCode(@PathVariable("tableName") String tableName)
-    {
+    public AjaxResult genCode(@PathVariable("tableName") String tableName) {
         genTableService.generatorCode(tableName);
         return success();
     }
@@ -161,8 +152,7 @@ public class GenController extends PageBaseController {
     @RequiresPermissions("tool:gen:code")
     @Log(functionName = "生成代码", businessType = BusinessType.GENCODE)
     @GetMapping("/batchGenCode")
-    public void batchGenCode(HttpServletResponse response, String tables) throws IOException
-    {
+    public void batchGenCode(HttpServletResponse response, String tables) throws IOException {
         String[] tableNames = Convert.toStrArray(tables);
         byte[] data = genTableService.downloadCode(tableNames);
         genCode(response, data);
@@ -172,8 +162,7 @@ public class GenController extends PageBaseController {
     /**
      * 生成zip文件
      */
-    private void genCode(HttpServletResponse response, byte[] data) throws IOException
-    {
+    private void genCode(HttpServletResponse response, byte[] data) throws IOException {
         response.reset();
         response.setHeader("Content-Disposition", "attachment; filename=\"jcm.zip\"");
         response.addHeader("Content-Length", "" + data.length);

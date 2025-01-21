@@ -10,7 +10,10 @@ import com.jcm.system.service.ISysDictDataService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -53,7 +56,7 @@ public class SysDictDataServiceImpl extends ServiceImpl<SysDictDataMapper, SysDi
 
     private void loadDataToCache() {
         Set keys = redisService.redisTemplate.keys(CacheConstants.SYS_DICT_KEY + "*");
-        if(keys.size()>0){
+        if (keys.size() > 0) {
             redisService.deleteObject(keys);
         }
         //获取全部的字典数据,加载并处理成JSONObject
@@ -67,8 +70,8 @@ public class SysDictDataServiceImpl extends ServiceImpl<SysDictDataMapper, SysDi
         }).collect(Collectors.groupingBy(json -> {
             // 根据dictData.getName()获取名称作为分组的键，这里假设dictData是一个对象实例，有对应的getName()方法
             return json.getString("name");
-        })).forEach((name, jsonList)->{
-            redisService.setCacheList(CacheConstants.SYS_DICT_KEY+name,jsonList);
+        })).forEach((name, jsonList) -> {
+            redisService.setCacheList(CacheConstants.SYS_DICT_KEY + name, jsonList);
         });
 
 
@@ -95,7 +98,7 @@ public class SysDictDataServiceImpl extends ServiceImpl<SysDictDataMapper, SysDi
 
     @Override
     public void refreshDictDataCache() {
-        if(!redisService.hasKey(CacheConstants.SYS_DICT_KEY)){
+        if (!redisService.hasKey(CacheConstants.SYS_DICT_KEY)) {
             redisService.deleteObject(CacheConstants.SYS_DICT_KEY);
         }
         loadDataToCache();

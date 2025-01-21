@@ -5,8 +5,8 @@ import com.jcm.common.core.context.SecurityContextHolder;
 import com.jcm.common.core.utils.ServletUtils;
 import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.core.utils.ip.IpUtils;
-import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.annotation.BusinessName;
+import com.jcm.common.log.annotation.Log;
 import com.jcm.common.log.enums.BusinessStatus;
 import com.jcm.common.log.filter.PropertyPreExcludeFilter;
 import com.jcm.common.log.service.AsyncLogService;
@@ -36,33 +36,35 @@ import java.util.Map;
 
 /**
  * 操作日志记录处理
- * 
+ *
  * @author junchenmo
  */
 @Aspect
 @Component
-public class LogAspect
-{
-    /** 记录日志 */
-    private static final Logger log = LoggerFactory.getLogger(LogAspect.class);
-
-    /** 排除敏感属性字段 */
-    public static final String[] EXCLUDE_PROPERTIES = { "password", "oldPassword", "newPassword", "confirmPassword" };
-
-    /** 计算操作消耗时间 */
-    private static final ThreadLocal<Long> TIME_THREADLOCAL = new NamedThreadLocal<Long>("Cost Time");
-
+public class LogAspect {
+    /**
+     * 排除敏感属性字段
+     */
+    public static final String[] EXCLUDE_PROPERTIES = {"password", "oldPassword", "newPassword", "confirmPassword"};
     /**
      * 保存业务处理的自定义信息HTML
      */
     public static final ThreadLocal<String> LOG_DESCRIPTION_HTML_LOCAL = new ThreadLocal<>();
-
     /**
      * 保存业务处理的自定义信息
      */
     public static final ThreadLocal<String> LOG_DESCRIPTION_LOCAL = new ThreadLocal<>();
-
-    /** 调用操作日志Log服务 */
+    /**
+     * 记录日志
+     */
+    private static final Logger log = LoggerFactory.getLogger(LogAspect.class);
+    /**
+     * 计算操作消耗时间
+     */
+    private static final ThreadLocal<Long> TIME_THREADLOCAL = new NamedThreadLocal<Long>("Cost Time");
+    /**
+     * 调用操作日志Log服务
+     */
     private final AsyncLogService asyncLogService;
 
     public LogAspect(AsyncLogService asyncLogService) {
@@ -73,8 +75,7 @@ public class LogAspect
      * 处理请求前执行 保存请求时间戳
      */
     @Before(value = "@annotation(controllerLog)")
-    public void boBefore(JoinPoint joinPoint, Log controllerLog)
-    {
+    public void boBefore(JoinPoint joinPoint, Log controllerLog) {
         TIME_THREADLOCAL.set(System.currentTimeMillis());
     }
 
@@ -84,27 +85,23 @@ public class LogAspect
      * @param joinPoint 切点
      */
     @AfterReturning(pointcut = "@annotation(controllerLog)", returning = "jsonResult")
-    public void doAfterReturning(JoinPoint joinPoint, Log controllerLog, Object jsonResult)
-    {
+    public void doAfterReturning(JoinPoint joinPoint, Log controllerLog, Object jsonResult) {
         handleLog(joinPoint, controllerLog, null, jsonResult);
     }
 
     /**
      * 拦截异常操作
-     * 
+     *
      * @param joinPoint 切点
-     * @param e 异常
+     * @param e         异常
      */
     @AfterThrowing(value = "@annotation(controllerLog)", throwing = "e")
-    public void doAfterThrowing(JoinPoint joinPoint, Log controllerLog, Exception e)
-    {
+    public void doAfterThrowing(JoinPoint joinPoint, Log controllerLog, Exception e) {
         handleLog(joinPoint, controllerLog, e, null);
     }
 
-    protected void handleLog(final JoinPoint joinPoint, Log controllerLog, final Exception e, Object jsonResult)
-    {
-        try
-        {
+    protected void handleLog(final JoinPoint joinPoint, Log controllerLog, final Exception e, Object jsonResult) {
+        try {
             // *========数据库日志=========*//
             SysOperLog operLog = new SysOperLog();
             operLog.setStatus(BusinessStatus.SUCCESS.ordinal());
@@ -112,13 +109,13 @@ public class LogAspect
             operLog.setOperIp(IpUtils.getIpAddr());
             // 请求的IP地区
             String cityInfo = IpUtils.getCityInfo("49.93.248.176");
-            if(StringUtils.isNotEmpty(cityInfo)&&cityInfo.split("\\|").length==5){
+            if (StringUtils.isNotEmpty(cityInfo) && cityInfo.split("\\|").length == 5) {
                 String[] cityInfoArr = cityInfo.split("\\|");
-                StringBuffer stringBuffer=new StringBuffer();
+                StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append(cityInfoArr[0] + "-")
                         .append(cityInfoArr[2] + "-")
                         .append(cityInfoArr[3] + "-")
-                        .append("("+cityInfoArr[4]+")");
+                        .append("(" + cityInfoArr[4] + ")");
                 operLog.setOperLocation(stringBuffer.toString());
             }
             // 设置请求发起的时间
@@ -131,14 +128,12 @@ public class LogAspect
             // 请求的URL
             operLog.setOperUrl(StringUtils.substring(ServletUtils.getRequest().getRequestURI(), 0, 255));
             String username = SecurityContextHolder.getUserName();
-            if (StringUtils.isNotBlank(username))
-            {
+            if (StringUtils.isNotBlank(username)) {
                 // 操作人员名称
                 operLog.setOperName(username);
             }
 
-            if (e != null)
-            {
+            if (e != null) {
                 // 操作状态
                 operLog.setStatus(BusinessStatus.FAIL.ordinal());
                 // 错误信息
@@ -159,41 +154,34 @@ public class LogAspect
             operLog.setCostTime(System.currentTimeMillis() - TIME_THREADLOCAL.get());
             // 保存数据库
             asyncLogService.saveSysLog(operLog);
-        }
-        catch (Exception exp)
-        {
+        } catch (Exception exp) {
             // 记录本地异常日志
             log.error("异常信息:{}", exp.getMessage());
             exp.printStackTrace();
-        }
-        finally
-        {
+        } finally {
             TIME_THREADLOCAL.remove();
         }
     }
 
     /**
      * 获取注解中对方法的描述信息
-     * 
-     * @param log 日志
+     *
+     * @param log     日志
      * @param operLog 操作日志
      * @throws Exception
      */
-    public void getControllerMethodDescription(JoinPoint joinPoint, Log log, SysOperLog operLog, Object jsonResult) throws Exception
-    {
+    public void getControllerMethodDescription(JoinPoint joinPoint, Log log, SysOperLog operLog, Object jsonResult) throws Exception {
         // 设置action动作
         operLog.setBusinessType(log.businessType().ordinal());
         // 设置业务名称
         operLog.setBusinessName(log.functionName());
         // 是否需要保存request，参数和值
-        if (log.isSaveRequestData())
-        {
+        if (log.isSaveRequestData()) {
             // 获取参数的信息，传入到数据库中。
             setRequestValue(joinPoint, operLog, log.excludeParamNames());
         }
         // 是否需要保存response，参数和值
-        if (log.isSaveResponseData() && StringUtils.isNotNull(jsonResult))
-        {
+        if (log.isSaveResponseData() && StringUtils.isNotNull(jsonResult)) {
             operLog.setJsonResult(StringUtils.substring(JSON.toJSONString(jsonResult), 0, 2000));
         }
     }
@@ -201,12 +189,11 @@ public class LogAspect
     /**
      * 获取模块的标题
      *
-     * @param log 日志
+     * @param log     日志
      * @param operLog 操作日志
      * @throws Exception
      */
-    public void getControllerClassDescription(JoinPoint joinPoint, Log log, SysOperLog operLog, Object jsonResult) throws Exception
-    {
+    public void getControllerClassDescription(JoinPoint joinPoint, Log log, SysOperLog operLog, Object jsonResult) throws Exception {
         // 获取目标方法所在的类
         Class<?> targetClass = joinPoint.getTarget().getClass();
         // 获取类上的指定注解
@@ -218,23 +205,19 @@ public class LogAspect
 
     /**
      * 获取请求的参数，放到log中
-     * 
+     *
      * @param operLog 操作日志
      * @throws Exception 异常
      */
-    private void setRequestValue(JoinPoint joinPoint, SysOperLog operLog, String[] excludeParamNames) throws Exception
-    {
+    private void setRequestValue(JoinPoint joinPoint, SysOperLog operLog, String[] excludeParamNames) throws Exception {
 
         String requestMethod = operLog.getRequestMethod();
         Map<?, ?> paramsMap = ServletUtils.getParamMap(ServletUtils.getRequest());
         if (StringUtils.isEmpty(paramsMap)
-                && (HttpMethod.PUT.name().equals(requestMethod) || HttpMethod.POST.name().equals(requestMethod)))
-        {
+                && (HttpMethod.PUT.name().equals(requestMethod) || HttpMethod.POST.name().equals(requestMethod))) {
             String params = argsArrayToString(joinPoint.getArgs(), excludeParamNames);
             operLog.setOperParam(StringUtils.substring(params, 0, 2000));
-        }
-        else
-        {
+        } else {
             operLog.setOperParam(StringUtils.substring(JSON.toJSONString(paramsMap, excludePropertyPreFilter(excludeParamNames)), 0, 2000));
         }
     }
@@ -242,22 +225,15 @@ public class LogAspect
     /**
      * 参数拼装
      */
-    private String argsArrayToString(Object[] paramsArray, String[] excludeParamNames)
-    {
+    private String argsArrayToString(Object[] paramsArray, String[] excludeParamNames) {
         String params = "";
-        if (paramsArray != null && paramsArray.length > 0)
-        {
-            for (Object o : paramsArray)
-            {
-                if (StringUtils.isNotNull(o) && !isFilterObject(o))
-                {
-                    try
-                    {
+        if (paramsArray != null && paramsArray.length > 0) {
+            for (Object o : paramsArray) {
+                if (StringUtils.isNotNull(o) && !isFilterObject(o)) {
+                    try {
                         String jsonObj = JSON.toJSONString(o, excludePropertyPreFilter(excludeParamNames));
                         params += jsonObj.toString() + " ";
-                    }
-                    catch (Exception e)
-                    {
+                    } catch (Exception e) {
                     }
                 }
             }
@@ -268,38 +244,29 @@ public class LogAspect
     /**
      * 忽略敏感属性
      */
-    public PropertyPreExcludeFilter excludePropertyPreFilter(String[] excludeParamNames)
-    {
+    public PropertyPreExcludeFilter excludePropertyPreFilter(String[] excludeParamNames) {
         return new PropertyPreExcludeFilter().addExcludes(ArrayUtils.addAll(EXCLUDE_PROPERTIES, excludeParamNames));
     }
 
     /**
      * 判断是否需要过滤的对象。
-     * 
+     *
      * @param o 对象信息。
      * @return 如果是需要过滤的对象，则返回true；否则返回false。
      */
     @SuppressWarnings("rawtypes")
-    public boolean isFilterObject(final Object o)
-    {
+    public boolean isFilterObject(final Object o) {
         Class<?> clazz = o.getClass();
-        if (clazz.isArray())
-        {
+        if (clazz.isArray()) {
             return clazz.getComponentType().isAssignableFrom(MultipartFile.class);
-        }
-        else if (Collection.class.isAssignableFrom(clazz))
-        {
+        } else if (Collection.class.isAssignableFrom(clazz)) {
             Collection collection = (Collection) o;
-            for (Object value : collection)
-            {
+            for (Object value : collection) {
                 return value instanceof MultipartFile;
             }
-        }
-        else if (Map.class.isAssignableFrom(clazz))
-        {
+        } else if (Map.class.isAssignableFrom(clazz)) {
             Map map = (Map) o;
-            for (Object value : map.entrySet())
-            {
+            for (Object value : map.entrySet()) {
                 Map.Entry entry = (Map.Entry) value;
                 return entry.getValue() instanceof MultipartFile;
             }

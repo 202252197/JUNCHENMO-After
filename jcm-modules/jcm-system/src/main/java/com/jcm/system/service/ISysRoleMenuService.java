@@ -15,6 +15,7 @@ public interface ISysRoleMenuService {
     /**
      * 查询已分配角色菜单列表
      * 根据角色ID获取菜单ID列表
+     *
      * @param roleId 用户ID
      * @return
      */
