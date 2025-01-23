@@ -16,6 +16,7 @@
     <properties>
         <!--		统一管理内部模块版本-->
         <jcm.version>0.0.1-SNAPSHOT</jcm.version>
+        <jcm.kit.version>0.0.1-SNAPSHOT</jcm.kit.version>
         <jcm.framework.version>0.0.1-SNAPSHOT</jcm.framework.version>
         <!--		mybatis-plus版本-->
         <mybatis.plus.version>3.5.5</mybatis.plus.version>
@@ -83,6 +84,15 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- jcm工具包 依赖配置 -->
+            <dependency>
+                <groupId>com.jcm.kit</groupId>
+                <artifactId>jcm-kit</artifactId>
+                <version>${jcm.kit.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -240,6 +250,8 @@
                 <artifactId>jcm-spring-boot-starter-websocket</artifactId>
                 <version>${jcm.framework.version}</version>
             </dependency>
+
+
         </dependencies>
     </dependencyManagement>
 

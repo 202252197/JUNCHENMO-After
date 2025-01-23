@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <groupId>com.jcm.kit</groupId>
+    <artifactId>jcm-kit</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>jcm-third-party</module>
+    </modules>
+
+    <properties>
+        <!--		统一管理内部模块版本-->
+        <jcm.kit.version>0.0.1-SNAPSHOT</jcm.kit.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <hutool-version>5.8.35</hutool-version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.jcm.kit</groupId>
+                <artifactId>jcm-third-party</artifactId>
+                <version>${jcm.kit.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
