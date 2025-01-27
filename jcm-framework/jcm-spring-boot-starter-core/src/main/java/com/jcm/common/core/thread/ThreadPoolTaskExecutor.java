@@ -1,8 +1,5 @@
 package com.jcm.common.core.thread;
 
-import com.jcm.common.core.utils.ThreadUtils;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 
@@ -13,7 +10,7 @@ import java.util.concurrent.Future;
  * @version 1.0.0
  * @since 2023/7/10 15:16
  */
-public class JcmThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
+public class ThreadPoolTaskExecutor extends org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor {
 
     @Override
     public void execute(Runnable task) {

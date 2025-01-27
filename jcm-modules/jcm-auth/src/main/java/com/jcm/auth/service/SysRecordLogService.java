@@ -4,7 +4,7 @@ package com.jcm.auth.service;
 import com.jcm.common.core.constant.Constants;
 import com.jcm.common.core.constant.SecurityConstants;
 import com.jcm.common.core.utils.ServletUtils;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.common.core.utils.ip.IpUtils;
 import com.jcm.system.api.RemoteLogService;
 import com.jcm.system.api.domain.SysLogininfor;
@@ -39,7 +39,7 @@ public class SysRecordLogService {
         logininfor.setUserName(username);
         logininfor.setIpaddr(IpUtils.getIpAddr());
         String cityInfo = IpUtils.getCityInfo(IpUtils.getIpAddr());
-        if (StringUtils.isNotEmpty(cityInfo) && cityInfo.split("\\|").length == 5) {
+        if (StrUtil.isNotEmpty(cityInfo) && cityInfo.split("\\|").length == 5) {
             String[] cityInfoArr = cityInfo.split("\\|");
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append(cityInfoArr[0] + "-")
@@ -63,7 +63,7 @@ public class SysRecordLogService {
         logininfor.setOs(operatingSystem);
 
         // 日志状态
-        if (StringUtils.equalsAny(status, Constants.LOGIN_SUCCESS, Constants.LOGOUT, Constants.REGISTER)) {
+        if (StrUtil.equalsAny(status, Constants.LOGIN_SUCCESS, Constants.LOGOUT, Constants.REGISTER)) {
             logininfor.setStatus(Constants.LOGIN_SUCCESS_STATUS);
         } else if (Constants.LOGIN_FAIL.equals(status)) {
             logininfor.setStatus(Constants.LOGIN_FAIL_STATUS);

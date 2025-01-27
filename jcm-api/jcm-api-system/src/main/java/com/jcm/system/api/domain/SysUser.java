@@ -94,8 +94,6 @@ public class SysUser extends BaseEntity {
      * 最后登录时间
      */
     @ApiModelProperty(value = "最后登录时间", example = "2024-12-28 00:00:00")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime loginDate;
 
     public static boolean isAdmin(Long userId) {

@@ -1,6 +1,5 @@
 package com.jcm.common.security.annotation;
 
-import com.jcm.common.security.config.ApplicationConfig;
 import com.jcm.common.security.feign.FeignAutoConfiguration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
@@ -18,7 +17,7 @@ import java.lang.annotation.*;
 @EnableAsync
 // 自动加载类
 @Import({
-        FeignAutoConfiguration.class, ApplicationConfig.class
+        FeignAutoConfiguration.class
 })
 public @interface EnableCustomConfig {
 

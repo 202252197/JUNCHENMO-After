@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.jcm.common.core.domain.BaseEntity;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -88,7 +88,7 @@ public class GenTableColumn extends BaseEntity {
      * @return 如果字段名与预定义的超级列名之一匹配（不区分大小写），则返回true，否则返回false
      */
     public static boolean isSuperColumn(String javaField) {
-        return StringUtils.equalsAnyIgnoreCase(javaField,
+        return StrUtil.equalsAnyIgnoreCase(javaField,
                 // BaseEntity
                 "create", "creator", "createTime", "update", "updater", "updateTime", "remark",
                 // TreeEntity
@@ -103,11 +103,11 @@ public class GenTableColumn extends BaseEntity {
      */
     public static boolean isUsableColumn(String javaField) {
         // isSuperColumn()中的名单用于避免生成多余Domain属性，若某些属性在生成页面时需要用到不能忽略，则放在此处白名单
-        return StringUtils.equalsAnyIgnoreCase(javaField, "parentId", "sort", "remark");
+        return StrUtil.equalsAnyIgnoreCase(javaField, "parentId", "sort", "remark");
     }
 
     public String getCapJavaField() {
-        return StringUtils.capitalize(javaField);
+        return StrUtil.capitalize(javaField);
     }
 
     public boolean isPk() {
@@ -121,7 +121,7 @@ public class GenTableColumn extends BaseEntity {
      * @return 如果isPk为"1"且不为空，则返回true，否则返回false
      */
     public boolean isPk(String isPk) {
-        return isPk != null && StringUtils.equals("1", isPk);
+        return isPk != null && StrUtil.equals("1", isPk);
     }
 
     public boolean isIncrement() {
@@ -135,7 +135,7 @@ public class GenTableColumn extends BaseEntity {
      * @return 如果isIncrement为"1"且不为空，则返回true，否则返回false
      */
     public boolean isIncrement(String isIncrement) {
-        return isIncrement != null && StringUtils.equals("1", isIncrement);
+        return isIncrement != null && StrUtil.equals("1", isIncrement);
     }
 
     public boolean isRequired() {
@@ -149,7 +149,7 @@ public class GenTableColumn extends BaseEntity {
      * @return 如果isRequired为"1"且不为空，则返回true，否则返回false
      */
     public boolean isRequired(String isRequired) {
-        return isRequired != null && StringUtils.equals("1", isRequired);
+        return isRequired != null && StrUtil.equals("1", isRequired);
     }
 
     public boolean isInsert() {
@@ -163,7 +163,7 @@ public class GenTableColumn extends BaseEntity {
      * @return 如果isInsert为"1"且不为空，则返回true，否则返回false
      */
     public boolean isInsert(String isInsert) {
-        return isInsert != null && StringUtils.equals("1", isInsert);
+        return isInsert != null && StrUtil.equals("1", isInsert);
     }
 
     public boolean isEdit() {
@@ -177,7 +177,7 @@ public class GenTableColumn extends BaseEntity {
      * @return 如果isEdit为"1"且不为空，则返回true，否则返回false
      */
     public boolean isEdit(String isEdit) {
-        return isEdit != null && StringUtils.equals("1", isEdit);
+        return isEdit != null && StrUtil.equals("1", isEdit);
     }
 
     public boolean isList() {
@@ -191,7 +191,7 @@ public class GenTableColumn extends BaseEntity {
      * @return 如果isList为"1"且不为空，则返回true，否则返回false
      */
     public boolean isList(String isList) {
-        return isList != null && StringUtils.equals("1", isList);
+        return isList != null && StrUtil.equals("1", isList);
     }
 
     public boolean isQuery() {
@@ -205,7 +205,7 @@ public class GenTableColumn extends BaseEntity {
      * @return 如果isQuery为"1"且不为空，则返回true，否则返回false
      */
     public boolean isQuery(String isQuery) {
-        return isQuery != null && StringUtils.equals("1", isQuery);
+        return isQuery != null && StrUtil.equals("1", isQuery);
     }
 
     public boolean isSuperColumn() {
@@ -223,12 +223,12 @@ public class GenTableColumn extends BaseEntity {
      */
     public String readConverterExp() {
         // 提取列注释中的备注信息
-        String remarks = StringUtils.substringBetween(this.columnComment, "（", "）");
+        String remarks = StrUtil.substringBetween(this.columnComment, "（", "）");
         StringBuffer sb = new StringBuffer();
-        if (StringUtils.isNotEmpty(remarks)) {
+        if (StrUtil.isNotEmpty(remarks)) {
             // 处理备注信息，生成特定格式的字符串
             for (String value : remarks.split(" ")) {
-                if (StringUtils.isNotEmpty(value)) {
+                if (StrUtil.isNotEmpty(value)) {
                     Object startStr = value.subSequence(0, 1);
                     String endStr = value.substring(1);
                     sb.append("").append(startStr).append("=").append(endStr).append(",");

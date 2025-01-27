@@ -1,8 +1,8 @@
 package com.jcm.system.controller;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.constant.OperationNameConstants;
-import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.log.annotation.BusinessName;
 import com.jcm.common.mybatis.controller.PageBaseController;
@@ -62,7 +62,7 @@ public class SysCacheListController extends PageBaseController {
     @PrintParams
     public AjaxResult getRedisKeyData(@RequestParam String keyName) {
         Object redisKeyData = sysCacheListService.getRedisKeyDataByKeyName(keyName);
-        if (StringUtils.isNotNull(redisKeyData)) {
+        if (ObjectUtil.isNotNull(redisKeyData)) {
             return AjaxResult.success(redisKeyData);
         } else {
             return AjaxResult.error("站不支持此类型");

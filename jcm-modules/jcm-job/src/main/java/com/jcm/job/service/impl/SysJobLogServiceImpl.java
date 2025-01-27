@@ -2,7 +2,7 @@ package com.jcm.job.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.job.domain.SysJobLog;
 import com.jcm.job.mapper.SysJobLogMapper;
 import com.jcm.job.service.ISysJobLogService;
@@ -46,12 +46,12 @@ public class SysJobLogServiceImpl extends ServiceImpl<SysJobLogMapper, SysJobLog
     public List<SysJobLog> selectSysJobLogList(SysJobLog sysJobLog) {
         LambdaQueryWrapper<SysJobLog> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.select(SysJobLog::getJobLogId, SysJobLog::getJobName, SysJobLog::getJobGroup, SysJobLog::getInvokeTarget, SysJobLog::getExecuteTime, SysJobLog::getJobMessage, SysJobLog::getStatus, SysJobLog::getExceptionInfo, SysJobLog::getRemark, SysJobLog::getCreator, SysJobLog::getCreateTime, SysJobLog::getUpdater, SysJobLog::getUpdateTime, SysJobLog::getDeleted);
-        queryWrapper.like(StringUtils.isNotEmpty(sysJobLog.getJobName()), SysJobLog::getJobName, sysJobLog.getJobName());
-        queryWrapper.eq(StringUtils.isNotEmpty(sysJobLog.getJobGroup()), SysJobLog::getJobGroup, sysJobLog.getJobGroup());
-        queryWrapper.eq(StringUtils.isNotEmpty(sysJobLog.getStatus()), SysJobLog::getStatus, sysJobLog.getStatus());
+        queryWrapper.like(StrUtil.isNotEmpty(sysJobLog.getJobName()), SysJobLog::getJobName, sysJobLog.getJobName());
+        queryWrapper.eq(StrUtil.isNotEmpty(sysJobLog.getJobGroup()), SysJobLog::getJobGroup, sysJobLog.getJobGroup());
+        queryWrapper.eq(StrUtil.isNotEmpty(sysJobLog.getStatus()), SysJobLog::getStatus, sysJobLog.getStatus());
         if (Objects.nonNull(sysJobLog.getParams())) {
-            queryWrapper.ge(StringUtils.isNotNull(sysJobLog.getParams().get("beginExecuteTime")), SysJobLog::getExecuteTime, sysJobLog.getParams().get("beginExecuteTime"))
-                    .le(Objects.nonNull(sysJobLog.getParams()) && StringUtils.isNotNull(sysJobLog.getParams().get("endExecuteTime")), SysJobLog::getExecuteTime, sysJobLog.getParams().get("endExecuteTime"));
+            queryWrapper.ge(StrUtil.isNotNull(sysJobLog.getParams().get("beginExecuteTime")), SysJobLog::getExecuteTime, sysJobLog.getParams().get("beginExecuteTime"))
+                    .le(Objects.nonNull(sysJobLog.getParams()) && StrUtil.isNotNull(sysJobLog.getParams().get("endExecuteTime")), SysJobLog::getExecuteTime, sysJobLog.getParams().get("endExecuteTime"));
         }
         queryWrapper.orderByDesc(SysJobLog::getExecuteTime);
         return sysJobLogMapper.selectList(queryWrapper);

@@ -98,8 +98,6 @@ public class SysOperLog extends BaseEntity {
      * 同时使用了 @JsonFormat 和 @DateTimeFormat 注解来规范时间格式的序列化与反序列化，在Excel中期望的格式为 "yyyy-MM-dd HH:mm:ss"
      */
     @Schema(description = "请求时间")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @ExcelProperty(value = "请求时间", index = 7)
     private LocalDateTime requestTime;
 

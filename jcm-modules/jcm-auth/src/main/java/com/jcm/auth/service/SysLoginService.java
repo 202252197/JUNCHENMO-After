@@ -8,7 +8,7 @@ import com.jcm.common.core.domain.R;
 import com.jcm.common.core.enums.UserStatus;
 import com.jcm.common.core.exception.ServiceException;
 import com.jcm.common.core.text.Convert;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.common.core.utils.ip.IpUtils;
 import com.jcm.common.redis.service.RedisService;
 import com.jcm.common.security.utils.SecurityUtils;
@@ -39,7 +39,7 @@ public class SysLoginService {
      */
     public LoginUser login(String username, String password) {
         // 用户名或密码为空 错误
-        if (StringUtils.isAnyBlank(username, password)) {
+        if (StrUtil.isAnyBlank(username, password)) {
             recordLogService.recordLogininfor(username, Constants.LOGIN_FAIL, "用户/密码必须填写");
             throw new ServiceException("用户/密码必须填写");
         }
@@ -64,7 +64,7 @@ public class SysLoginService {
         // 查询用户信息
         R<LoginUser> userResult = remoteUserService.getUserInfo(username, SecurityConstants.INNER);
 
-        if (StringUtils.isNull(userResult) || StringUtils.isNull(userResult.getData())) {
+        if (StrUtil.isNull(userResult) || StrUtil.isNull(userResult.getData())) {
             recordLogService.recordLogininfor(username, Constants.LOGIN_FAIL, "登录用户不存在");
             throw new ServiceException("登录用户：" + username + " 不存在");
         }
@@ -98,7 +98,7 @@ public class SysLoginService {
      */
     public void register(String username, String password) {
         // 用户名或密码为空 错误
-        if (StringUtils.isAnyBlank(username, password)) {
+        if (StrUtil.isAnyBlank(username, password)) {
             throw new ServiceException("用户/密码必须填写");
         }
         if (username.length() < UserConstants.USERNAME_MIN_LENGTH

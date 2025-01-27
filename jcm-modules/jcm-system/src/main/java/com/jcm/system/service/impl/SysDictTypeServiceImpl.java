@@ -1,11 +1,11 @@
 package com.jcm.system.service.impl;
 
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson2.JSONArray;
 import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.jcm.common.core.utils.StringUtils;
 import com.jcm.system.domain.SysDictData;
 import com.jcm.system.domain.SysDictType;
 import com.jcm.system.mapper.SysDictDataMapper;
@@ -37,8 +37,8 @@ public class SysDictTypeServiceImpl extends ServiceImpl<SysDictTypeMapper, SysDi
     @Override
     public List<SysDictType> selectDictTypeList(SysDictType dictType) {
         return this.lambdaQuery()
-                .like(StringUtils.isNotEmpty(dictType.getName()), SysDictType::getName, dictType.getName())
-                .like(StringUtils.isNotEmpty(dictType.getDescription()), SysDictType::getDescription, dictType.getDescription())
+                .like(StrUtil.isNotEmpty(dictType.getName()), SysDictType::getName, dictType.getName())
+                .like(StrUtil.isNotEmpty(dictType.getDescription()), SysDictType::getDescription, dictType.getDescription())
                 .eq(Objects.nonNull(dictType.getStatus()), SysDictType::getStatus, dictType.getStatus()).list();
     }
 

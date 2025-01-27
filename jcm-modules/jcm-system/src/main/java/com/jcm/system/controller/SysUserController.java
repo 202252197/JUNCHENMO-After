@@ -1,11 +1,12 @@
 package com.jcm.system.controller;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.constant.UserConstants;
 import com.jcm.common.core.domain.R;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.log.annotation.BusinessName;
@@ -56,7 +57,7 @@ public class SysUserController extends PageBaseController {
     @GetMapping("/info/{username}")
     public R<LoginUser> info(@PathVariable("username") String username) {
         SysUser sysUser = sysUserService.selectUserByUserName(username);
-        if (StringUtils.isNull(sysUser)) {
+        if (ObjectUtil.isNull(sysUser)) {
             return R.fail("用户名或密码错误");
         }
         // 角色集合
@@ -87,9 +88,9 @@ public class SysUserController extends PageBaseController {
         OperLogCover.insertLogMsg(BusinessNameConstant.USER, user.getUsername());
         if (!sysUserService.checkUserNameUnique(user)) {
             return error("新增用户'" + user.getUsername() + "'失败，登录账号已存在");
-        } else if (StringUtils.isNotEmpty(user.getMobile()) && !sysUserService.checkPhoneUnique(user)) {
+        } else if (StrUtil.isNotEmpty(user.getMobile()) && !sysUserService.checkPhoneUnique(user)) {
             return error("新增用户'" + user.getUsername() + "'失败，手机号码已存在");
-        } else if (StringUtils.isNotEmpty(user.getEmail()) && !sysUserService.checkEmailUnique(user)) {
+        } else if (StrUtil.isNotEmpty(user.getEmail()) && !sysUserService.checkEmailUnique(user)) {
             return error("新增用户'" + user.getUsername() + "'失败，邮箱账号已存在");
         }
         user.setStatus(Integer.valueOf(UserConstants.USER_NORMAL));
@@ -120,12 +121,12 @@ public class SysUserController extends PageBaseController {
         OperLogCover.updateLogMsg(BusinessNameConstant.USER, user.getUserId());
         sysUserService.checkUserAllowed(user.getUserId());
         SysUser sysUser = sysUserService.selectUserById(user.getUserId());
-        if (StringUtils.isNotEmpty(user.getMobile()) && !sysUserService.checkPhoneUnique(user)) {
+        if (StrUtil.isNotEmpty(user.getMobile()) && !sysUserService.checkPhoneUnique(user)) {
             if (!sysUser.getMobile().equals(user.getMobile())) {
                 return error("修改用户'" + user.getMobile() + "'失败，手机号码已存在");
             }
         }
-        if (StringUtils.isNotEmpty(user.getEmail()) && !sysUserService.checkEmailUnique(user)) {
+        if (StrUtil.isNotEmpty(user.getEmail()) && !sysUserService.checkEmailUnique(user)) {
             if (!sysUser.getEmail().equals(user.getEmail())) {
                 return error("修改用户'" + user.getEmail() + "'失败，邮箱账号已存在");
             }

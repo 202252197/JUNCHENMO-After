@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.constant.ScheduleConstants;
 import com.jcm.common.core.exception.job.TaskException;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.job.domain.SysJob;
 import com.jcm.job.mapper.SysJobMapper;
 import com.jcm.job.service.ISysJobService;
@@ -66,13 +66,13 @@ public class SysJobServiceImpl extends ServiceImpl<SysJobMapper, SysJob> impleme
     public List<SysJob> selectSysJobList(SysJob sysJob) {
         LambdaQueryWrapper<SysJob> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.select(SysJob::getJobId, SysJob::getJobName, SysJob::getJobGroup, SysJob::getInvokeTarget, SysJob::getCronExpression, SysJob::getMisfirePolicy, SysJob::getConcurrent, SysJob::getStatus, SysJob::getRemark, SysJob::getCreator, SysJob::getCreateTime, SysJob::getUpdater, SysJob::getUpdateTime, SysJob::getDeleted);
-        queryWrapper.like(StringUtils.isNotEmpty(sysJob.getJobName()), SysJob::getJobName, sysJob.getJobName());
-        queryWrapper.eq(StringUtils.isNotEmpty(sysJob.getJobGroup()), SysJob::getJobGroup, sysJob.getJobGroup());
-        queryWrapper.eq(StringUtils.isNotEmpty(sysJob.getInvokeTarget()), SysJob::getInvokeTarget, sysJob.getInvokeTarget());
-        queryWrapper.eq(StringUtils.isNotEmpty(sysJob.getCronExpression()), SysJob::getCronExpression, sysJob.getCronExpression());
-        queryWrapper.eq(StringUtils.isNotEmpty(sysJob.getMisfirePolicy()), SysJob::getMisfirePolicy, sysJob.getMisfirePolicy());
-        queryWrapper.eq(StringUtils.isNotEmpty(sysJob.getConcurrent()), SysJob::getConcurrent, sysJob.getConcurrent());
-        queryWrapper.eq(StringUtils.isNotEmpty(sysJob.getStatus()), SysJob::getStatus, sysJob.getStatus());
+        queryWrapper.like(StrUtil.isNotEmpty(sysJob.getJobName()), SysJob::getJobName, sysJob.getJobName());
+        queryWrapper.eq(StrUtil.isNotEmpty(sysJob.getJobGroup()), SysJob::getJobGroup, sysJob.getJobGroup());
+        queryWrapper.eq(StrUtil.isNotEmpty(sysJob.getInvokeTarget()), SysJob::getInvokeTarget, sysJob.getInvokeTarget());
+        queryWrapper.eq(StrUtil.isNotEmpty(sysJob.getCronExpression()), SysJob::getCronExpression, sysJob.getCronExpression());
+        queryWrapper.eq(StrUtil.isNotEmpty(sysJob.getMisfirePolicy()), SysJob::getMisfirePolicy, sysJob.getMisfirePolicy());
+        queryWrapper.eq(StrUtil.isNotEmpty(sysJob.getConcurrent()), SysJob::getConcurrent, sysJob.getConcurrent());
+        queryWrapper.eq(StrUtil.isNotEmpty(sysJob.getStatus()), SysJob::getStatus, sysJob.getStatus());
         return sysJobMapper.selectList(queryWrapper);
     }
 

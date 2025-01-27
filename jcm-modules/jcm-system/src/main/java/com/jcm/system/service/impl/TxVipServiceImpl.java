@@ -1,8 +1,9 @@
 package com.jcm.system.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.system.domain.TxVip;
 import com.jcm.system.mapper.TxVipMapper;
 import com.jcm.system.service.ITxVipService;
@@ -45,12 +46,12 @@ public class TxVipServiceImpl extends ServiceImpl<TxVipMapper, TxVip> implements
     public List<TxVip> selectTxVipList(TxVip txVip) {
         LambdaQueryWrapper<TxVip> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.select(TxVip::getVipId, TxVip::getXyName, TxVip::getStartingTime, TxVip::getStopingTime, TxVip::getPurchaseDays, TxVip::getUnitType, TxVip::getStatus, TxVip::getLoginMethod, TxVip::getLoginAccount, TxVip::getCreator, TxVip::getCreateTime, TxVip::getUpdater, TxVip::getUpdateTime, TxVip::getRemark, TxVip::getDeleted);
-        queryWrapper.like(StringUtils.isNotEmpty(txVip.getXyName()), TxVip::getXyName, txVip.getXyName());
-        queryWrapper.ge(StringUtils.isNotNull(txVip.getStartingTime()), TxVip::getStartingTime, txVip.getStartingTime());
-        queryWrapper.le(StringUtils.isNotNull(txVip.getStopingTime()), TxVip::getStopingTime, txVip.getStopingTime());
-        queryWrapper.eq(StringUtils.isNotEmpty(txVip.getPurchaseDays()), TxVip::getPurchaseDays, txVip.getPurchaseDays());
-        queryWrapper.eq(StringUtils.isNotEmpty(txVip.getUnitType()), TxVip::getUnitType, txVip.getUnitType());
-        queryWrapper.eq(StringUtils.isNotEmpty(txVip.getLoginMethod()), TxVip::getLoginMethod, txVip.getLoginMethod());
+        queryWrapper.like(StrUtil.isNotEmpty(txVip.getXyName()), TxVip::getXyName, txVip.getXyName());
+        queryWrapper.ge(ObjectUtil.isNotNull(txVip.getStartingTime()), TxVip::getStartingTime, txVip.getStartingTime());
+        queryWrapper.le(ObjectUtil.isNotNull(txVip.getStopingTime()), TxVip::getStopingTime, txVip.getStopingTime());
+        queryWrapper.eq(StrUtil.isNotEmpty(txVip.getPurchaseDays()), TxVip::getPurchaseDays, txVip.getPurchaseDays());
+        queryWrapper.eq(StrUtil.isNotEmpty(txVip.getUnitType()), TxVip::getUnitType, txVip.getUnitType());
+        queryWrapper.eq(StrUtil.isNotEmpty(txVip.getLoginMethod()), TxVip::getLoginMethod, txVip.getLoginMethod());
         return txVipMapper.selectList(queryWrapper);
     }
 

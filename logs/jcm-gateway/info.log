@@ -1,45 +1,284 @@
-09:00:50.539 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:00:50.587 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-09:00:50.917 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:00:50.917 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:00:55.594 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-09:01:07.172 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:01:07.172 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:04:19.350 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
-09:04:19.385 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
-09:04:19.633 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:04:19.633 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:04:22.518 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
-09:04:32.961 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
-09:04:32.961 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
-09:04:33.114 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
-09:04:33.279 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
-09:04:33.304 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 15.766 seconds (JVM running for 17.157)
-09:04:33.315 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
-09:04:33.329 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
-09:04:33.330 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
-09:06:19.160 [reactor-http-nio-8] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/auth/login
-11:04:37.482 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
-11:04:37.495 [lettuce-eventExecutorLoop-3-6] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
-11:04:37.565 [lettuce-nioEventLoop-5-3] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
-11:04:37.573 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
-11:07:11.630 [reactor-http-nio-16] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:07:31.648 [reactor-http-nio-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:07:31.648 [reactor-http-nio-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:07:41.696 [reactor-http-nio-10] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:07:41.696 [reactor-http-nio-2] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:07:41.696 [reactor-http-nio-8] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:07:41.697 [reactor-http-nio-6] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:07:41.697 [reactor-http-nio-7] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:08:06.831 [reactor-http-nio-9] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:08:56.984 [reactor-http-nio-15] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:09:17.024 [reactor-http-nio-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
-11:10:28.294 [lettuce-nioEventLoop-5-2] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
-11:10:28.373 [lettuce-eventExecutorLoop-3-7] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
-11:10:28.385 [lettuce-nioEventLoop-5-4] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
-11:10:28.389 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
-11:10:47.235 [reactor-http-nio-14] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:10:47.237 [reactor-http-nio-13] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:10:47.237 [reactor-http-nio-11] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:10:47.248 [reactor-http-nio-12] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
-11:10:47.248 [reactor-http-nio-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 4 channel(s) to the new Selector.
+09:24:50.782 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+09:24:50.868 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+09:24:51.380 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+09:24:51.380 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+09:24:55.842 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+09:25:08.529 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+09:25:08.529 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+09:25:08.676 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
+09:25:08.933 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
+09:25:08.979 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 20.649 seconds (JVM running for 22.345)
+09:25:08.992 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
+09:25:08.998 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
+09:25:09.000 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
+11:25:27.466 [reactor-http-nio-2] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+11:25:27.468 [reactor-http-nio-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+11:25:32.569 [lettuce-nioEventLoop-5-1] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+11:25:32.649 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+11:25:32.696 [lettuce-eventExecutorLoop-3-3] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+11:25:32.744 [lettuce-nioEventLoop-5-3] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+11:25:32.752 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+11:36:13.767 [lettuce-nioEventLoop-5-2] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+11:36:13.773 [lettuce-nioEventLoop-5-2] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+11:36:13.793 [lettuce-eventExecutorLoop-3-4] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+11:36:13.802 [lettuce-nioEventLoop-5-4] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+11:36:13.807 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+13:25:51.345 [reactor-http-nio-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+13:25:51.343 [reactor-http-nio-2] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+13:25:56.326 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+13:25:56.366 [lettuce-nioEventLoop-5-3] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+13:25:56.394 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+13:25:56.490 [lettuce-eventExecutorLoop-3-5] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+13:25:56.547 [lettuce-nioEventLoop-5-5] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+13:25:56.554 [lettuce-nioEventLoop-5-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+13:36:37.600 [lettuce-nioEventLoop-5-4] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+13:36:37.603 [lettuce-nioEventLoop-5-2] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+13:36:37.607 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+13:36:37.687 [lettuce-eventExecutorLoop-3-6] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+13:36:37.698 [lettuce-nioEventLoop-5-6] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+13:36:37.703 [lettuce-nioEventLoop-5-6] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+15:26:10.451 [reactor-http-nio-2] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:26:10.452 [reactor-http-nio-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:26:15.454 [lettuce-nioEventLoop-5-1] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:26:15.455 [lettuce-nioEventLoop-5-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:26:20.446 [lettuce-nioEventLoop-5-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+15:26:20.497 [lettuce-nioEventLoop-5-5] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+15:26:20.592 [lettuce-eventExecutorLoop-3-7] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+15:26:20.666 [lettuce-nioEventLoop-5-7] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+15:26:20.674 [lettuce-nioEventLoop-5-7] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+15:36:56.651 [lettuce-nioEventLoop-5-2] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:36:56.663 [lettuce-nioEventLoop-5-6] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+15:36:56.665 [lettuce-nioEventLoop-5-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:36:56.669 [lettuce-nioEventLoop-5-6] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:36:56.691 [lettuce-eventExecutorLoop-3-8] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+15:36:56.700 [lettuce-nioEventLoop-5-8] INFO  i.l.c.p.ReconnectionHandler - [lambda$null$3,174] - Reconnected to localhost:6379
+15:36:56.705 [lettuce-nioEventLoop-5-8] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 2 channel(s) to the new Selector.
+15:43:51.826 [reactor-http-nio-3] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:43:52.239 [reactor-http-nio-4] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 1 channel(s) to the new Selector.
+15:43:52.361 [reactor-http-nio-5] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:43:52.361 [reactor-http-nio-7] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:43:52.361 [reactor-http-nio-10] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:43:52.361 [reactor-http-nio-9] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:43:52.362 [reactor-http-nio-6] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:43:52.365 [reactor-http-nio-8] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:43:52.366 [reactor-http-nio-11] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:43:52.369 [reactor-http-nio-12] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:43:52.369 [reactor-http-nio-16] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:43:52.369 [reactor-http-nio-13] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:43:52.369 [reactor-http-nio-14] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+15:43:52.369 [reactor-http-nio-15] INFO  i.n.c.n.NioEventLoop - [rebuildSelector0,499] - Migrated 0 channel(s) to the new Selector.
+16:18:07.774 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+16:18:07.821 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+16:18:34.016 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+16:18:34.106 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+16:18:34.832 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+16:18:34.833 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+16:18:42.468 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+16:19:02.258 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+16:19:02.259 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+16:19:02.520 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
+16:19:02.931 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
+16:19:03.003 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 32.075 seconds (JVM running for 34.336)
+16:19:03.024 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
+16:19:03.057 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
+16:19:03.059 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
+16:58:53.410 [reactor-http-nio-3] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/auth/login
+17:36:52.149 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+17:36:52.285 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+17:37:16.499 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+17:37:16.577 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+17:37:17.185 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+17:37:17.185 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+17:37:22.752 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+17:44:51.277 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+17:44:51.311 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+17:44:51.546 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+17:44:51.547 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+17:44:54.617 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+17:51:36.175 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+17:51:36.207 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+17:51:36.459 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+17:51:36.460 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+17:51:39.487 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+17:53:06.076 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+17:53:06.117 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+17:53:06.402 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+17:53:06.402 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+17:53:09.523 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+17:53:19.853 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+17:53:19.853 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+17:53:20.010 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
+17:53:20.153 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
+17:53:20.178 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 15.966 seconds (JVM running for 17.706)
+17:53:20.186 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
+17:53:20.199 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
+17:53:20.200 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
+17:54:44.178 [reactor-http-nio-11] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:55:06.015 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:55:10.606 [reactor-http-nio-4] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:56:11.826 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+17:56:11.834 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+17:56:56.268 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+17:56:56.347 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+17:56:56.932 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+17:56:56.934 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+17:57:02.027 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+17:57:18.405 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+17:57:18.405 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+17:57:18.559 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
+17:57:18.848 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
+17:57:18.902 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 25.228 seconds (JVM running for 27.767)
+17:57:18.921 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
+17:57:18.929 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
+17:57:18.931 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
+17:58:02.364 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+17:58:57.693 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+17:58:57.699 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+17:59:47.352 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+17:59:47.410 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+17:59:47.811 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+17:59:47.813 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+17:59:51.783 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+18:00:03.643 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+18:00:03.643 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+18:00:03.767 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
+18:00:03.908 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
+18:00:03.934 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 19.159 seconds (JVM running for 21.397)
+18:00:03.941 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
+18:00:03.944 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
+18:00:03.946 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
+18:00:27.603 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:00:52.709 [reactor-http-nio-12] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:03:13.000 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:03:40.197 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:11:37.023 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,95] - De-registering from Nacos Server now...
+18:11:37.028 [SpringApplicationShutdownHook] INFO  c.a.c.n.r.NacosServiceRegistry - [deregister,115] - De-registration finished.
+18:11:59.697 [main] INFO  c.a.n.c.e.SearchableProperties - [sortPropertySourceDefaultOrder,197] - properties search order:PROPERTIES->JVM->ENV->DEFAULT_SETTING
+18:11:59.782 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+18:12:00.302 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+18:12:00.303 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+18:12:05.140 [main] INFO  c.j.g.JcmGatewayApplication - [logStartupProfileInfo,638] - The following 1 profile is active: "dev"
+18:12:18.448 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+18:12:18.448 [main] INFO  c.a.n.p.a.s.c.ClientAuthPluginManager - [init,56] - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+18:12:18.592 [main] INFO  c.a.c.n.r.NacosServiceRegistry - [register,76] - nacos registry, DEFAULT_GROUP jcm-gateway 192.168.74.1:8080 register finished
+18:12:18.786 [main] INFO  c.a.c.n.d.GatewayLocatorHeartBeatPublisher - [start,64] - Start nacos gateway locator heartBeat task scheduler.
+18:12:18.819 [main] INFO  c.j.g.JcmGatewayApplication - [logStarted,61] - Started JcmGatewayApplication in 21.902 seconds (JVM running for 24.274)
+18:12:18.830 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway.yml, group=DEFAULT_GROUP
+18:12:18.846 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway-dev.yml, group=DEFAULT_GROUP
+18:12:18.848 [main] INFO  c.a.c.n.r.NacosContextRefresher - [registerNacosListener,129] - [Nacos Config] Listening config: dataId=jcm-gateway, group=DEFAULT_GROUP
+18:14:14.155 [reactor-http-nio-7] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
+18:14:40.881 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/system/vip/

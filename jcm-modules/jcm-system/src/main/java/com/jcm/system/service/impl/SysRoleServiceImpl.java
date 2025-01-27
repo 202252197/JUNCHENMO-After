@@ -1,10 +1,11 @@
 package com.jcm.system.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.exception.ServiceException;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.system.api.domain.SysUser;
 import com.jcm.system.domain.SysRole;
 import com.jcm.system.domain.SysRoleMenu;
@@ -48,7 +49,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     @Override
     public boolean checkRoleNameUnique(SysRole role) {
-        List<SysRole> list = this.lambdaQuery().eq(StringUtils.isNotEmpty(role.getName()), SysRole::getName, role.getName()).list();
+        List<SysRole> list = this.lambdaQuery().eq(StrUtil.isNotEmpty(role.getName()), SysRole::getName, role.getName()).list();
         return list.size() == 0;
     }
 
@@ -60,7 +61,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     @Override
     public boolean checkRoleKeyUnique(SysRole role) {
-        List<SysRole> list = this.lambdaQuery().eq(StringUtils.isNotEmpty(role.getCode()), SysRole::getCode, role.getCode()).list();
+        List<SysRole> list = this.lambdaQuery().eq(StrUtil.isNotEmpty(role.getCode()), SysRole::getCode, role.getCode()).list();
         return list.size() == 0;
     }
 
@@ -73,9 +74,9 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     @Override
     public List<SysRole> selectRoleList(SysRole role) {
         return this.lambdaQuery()
-                .like(StringUtils.isNotEmpty(role.getName()), SysRole::getName, role.getName())
-                .like(StringUtils.isNotEmpty(role.getCode()), SysRole::getCode, role.getCode())
-                .eq(StringUtils.isNotNull(role.getStatus()), SysRole::getStatus, role.getStatus())
+                .like(StrUtil.isNotEmpty(role.getName()), SysRole::getName, role.getName())
+                .like(StrUtil.isNotEmpty(role.getCode()), SysRole::getCode, role.getCode())
+                .eq(ObjectUtil.isNotNull(role.getStatus()), SysRole::getStatus, role.getStatus())
                 .list();
     }
 
@@ -109,7 +110,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
      */
     @Override
     public void checkRoleAllowed(SysRole role) {
-        if (StringUtils.isNotNull(role.getRoleId()) && role.isAdmin()) {
+        if (ObjectUtil.isNotNull(role.getRoleId()) && role.isAdmin()) {
             throw new ServiceException("不允许操作超级管理员角色");
         }
     }
@@ -172,7 +173,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
     @Transactional(rollbackFor = Exception.class)
     @Override
     public int insertRoleAuth(Long roleId, Long[] menusId) {
-        if (StringUtils.isEmpty(menusId)) {
+        if (ObjectUtil.isEmpty(menusId)) {
             return 0;
         }
 
@@ -217,7 +218,7 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> impl
             roles.add("admin");
         } else {
             this.selectRolePermissionByUserId(user.getUserId()).stream()
-                    .map(SysRole::getCode).filter(StringUtils::isNotNull)
+                    .map(SysRole::getCode).filter(ObjectUtil::isNotNull)
                     .map(String::trim).forEach(roles::add);
         }
         return roles;

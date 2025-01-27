@@ -1,11 +1,12 @@
 package com.jcm.system.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.constant.MenuConstant;
 import com.jcm.common.core.constant.UserConstants;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.system.api.domain.SysUser;
 import com.jcm.system.domain.SysMenu;
@@ -55,7 +56,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      */
     public Set<String> selectMenuPermsByUserId(Long userId) {
         return sysMenuMapper.selectMenuPermsByUserId(userId).stream()
-                .filter(StringUtils::isNotEmpty).map(String::trim).collect(Collectors.toSet());
+                .filter(StrUtil::isNotEmpty).map(String::trim).collect(Collectors.toSet());
     }
 
     /**
@@ -111,11 +112,11 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
             }
 
             //如果还有子菜单，递归
-            if (StringUtils.isNotEmpty(cMenus)) {
+            if (ObjectUtil.isNotEmpty(cMenus)) {
                 router.setChildren(buildMenus(cMenus, menu.getComponent()));
             }
             //如果组件是空的
-            if (StringUtils.isEmpty(menu.getComponent())) {
+            if (StrUtil.isEmpty(menu.getComponent())) {
                 router.setComponent(UserConstants.LAYOUT);
             }
             routers.add(router);
@@ -224,7 +225,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     @Override
     public List<SysMenu> selectMenuAllTree(SysMenu sysMenu) {
         List<SysMenu> allMenus = this.lambdaQuery()
-                .like(StringUtils.isNotEmpty(sysMenu.getName()), SysMenu::getName, sysMenu.getName())
+                .like(StrUtil.isNotEmpty(sysMenu.getName()), SysMenu::getName, sysMenu.getName())
                 .eq(Objects.nonNull(sysMenu.getStatus()), SysMenu::getStatus, sysMenu.getStatus())
                 .orderByAsc(SysMenu::getSort)
                 .list();
@@ -250,7 +251,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      */
     @Override
     public int insertMenu(SysMenu sysMenu) {
-        if (StringUtils.isNotEmpty(sysMenu.getComponent())) {
+        if (StrUtil.isNotEmpty(sysMenu.getComponent())) {
             sysMenu.setIsFrame(false);
         } else {
             sysMenu.setIsFrame(true);

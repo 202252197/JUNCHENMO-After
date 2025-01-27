@@ -1,8 +1,9 @@
 package com.jcm.system.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.system.api.domain.SysLogininfor;
 import com.jcm.system.mapper.SysLogininforMapper;
 import com.jcm.system.service.ISysLogininforService;
@@ -35,13 +36,13 @@ public class SysLogininforServiceImpl extends ServiceImpl<SysLogininforMapper, S
     public List<SysLogininfor> selectSysLogininforList(SysLogininfor sysLogininfor) {
         LambdaQueryWrapper<SysLogininfor> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.select(SysLogininfor::getInfoId, SysLogininfor::getUserName, SysLogininfor::getIpaddr, SysLogininfor::getLoginLocation, SysLogininfor::getBrowser, SysLogininfor::getOs, SysLogininfor::getStatus, SysLogininfor::getMsg, SysLogininfor::getLoginTime, SysLogininfor::getRemark, SysLogininfor::getCreator, SysLogininfor::getCreateTime, SysLogininfor::getUpdater, SysLogininfor::getUpdateTime, SysLogininfor::getDeleted);
-        queryWrapper.like(StringUtils.isNotEmpty(sysLogininfor.getUserName()), SysLogininfor::getUserName, sysLogininfor.getUserName());
-        queryWrapper.eq(StringUtils.isNotEmpty(sysLogininfor.getIpaddr()), SysLogininfor::getIpaddr, sysLogininfor.getIpaddr());
-        queryWrapper.eq(StringUtils.isNotEmpty(sysLogininfor.getStatus()), SysLogininfor::getStatus, sysLogininfor.getStatus());
-        queryWrapper.eq(StringUtils.isNotEmpty(sysLogininfor.getOs()), SysLogininfor::getOs, sysLogininfor.getOs());
+        queryWrapper.like(StrUtil.isNotEmpty(sysLogininfor.getUserName()), SysLogininfor::getUserName, sysLogininfor.getUserName());
+        queryWrapper.eq(StrUtil.isNotEmpty(sysLogininfor.getIpaddr()), SysLogininfor::getIpaddr, sysLogininfor.getIpaddr());
+        queryWrapper.eq(StrUtil.isNotEmpty(sysLogininfor.getStatus()), SysLogininfor::getStatus, sysLogininfor.getStatus());
+        queryWrapper.eq(StrUtil.isNotEmpty(sysLogininfor.getOs()), SysLogininfor::getOs, sysLogininfor.getOs());
         if (Objects.nonNull(sysLogininfor.getParams())) {
-            queryWrapper.ge(StringUtils.isNotNull(sysLogininfor.getParams().get("beginLoginTime")), SysLogininfor::getLoginTime, sysLogininfor.getParams().get("beginLoginTime"))
-                    .le(Objects.nonNull(sysLogininfor.getParams()) && StringUtils.isNotNull(sysLogininfor.getParams().get("endLoginTime")), SysLogininfor::getLoginTime, sysLogininfor.getParams().get("endLoginTime"));
+            queryWrapper.ge(ObjectUtil.isNotNull(sysLogininfor.getParams().get("beginLoginTime")), SysLogininfor::getLoginTime, sysLogininfor.getParams().get("beginLoginTime"))
+                    .le(Objects.nonNull(sysLogininfor.getParams()) && ObjectUtil.isNotNull(sysLogininfor.getParams().get("endLoginTime")), SysLogininfor::getLoginTime, sysLogininfor.getParams().get("endLoginTime"));
         }
         return sysLogininforMapper.selectList(queryWrapper);
     }

@@ -3,7 +3,7 @@ package com.jcm.job.util;
 import com.jcm.common.core.constant.ScheduleConstants;
 import com.jcm.common.core.utils.ExceptionUtil;
 import com.jcm.common.core.utils.SpringUtils;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.common.core.utils.bean.BeanUtils;
 import com.jcm.job.domain.SysJob;
 import com.jcm.job.domain.SysJobLog;
@@ -79,7 +79,7 @@ public abstract class AbstractQuartzJob implements Job {
         sysJobLog.setJobMessage(sysJobLog.getJobName() + " 总共耗时：" + runMs + "毫秒");
         if (e != null) {
             sysJobLog.setStatus("1");
-            String errorMsg = StringUtils.substring(ExceptionUtil.getExceptionMessage(e), 0, 2000);
+            String errorMsg = StrUtil.substring(ExceptionUtil.getExceptionMessage(e), 0, 2000);
             sysJobLog.setExceptionInfo(errorMsg);
         } else {
             sysJobLog.setStatus("0");

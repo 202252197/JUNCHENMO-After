@@ -1,6 +1,5 @@
 package com.jcm.system.service;
 
-import com.jcm.common.core.thread.JcmThreadPoolTaskExecutor;
 import com.jcm.system.JcmSystemApplication;
 import lombok.Getter;
 import org.junit.jupiter.api.AfterEach;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -26,8 +24,8 @@ class ISysUserServiceTest {
     static CountDownLatch countDownLatch = new CountDownLatch(50);
     @Autowired
     private ISysUserService sysUserService;
-    @Autowired
-    private JcmThreadPoolTaskExecutor jcmThreadPoolTaskExecutor;
+//    @Autowired
+//    private ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
     static void test() throws InterruptedException {
         Thread.sleep(1000);
@@ -66,7 +64,7 @@ class ISysUserServiceTest {
 //            System.out.println("启动1");
 //            for(int i=0;i<50;i++){
 ////                System.out.println(i+"Thread...");
-//                jcmThreadPoolTaskExecutor.execute(new MyThread(i));
+//                threadPoolTaskExecutor.execute(new MyThread(i));
 //            }
 //            countDownLatch.await();
 //        }catch (Exception e){
@@ -76,34 +74,34 @@ class ISysUserServiceTest {
 //
 //        System.out.println("完成"+(endTime-startTime));
 
-        long startTime = System.currentTimeMillis();
-        CompletableFuture<Void> voidCompletableFuture2 = CompletableFuture.runAsync(() -> {
-            try {
-                test();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }, jcmThreadPoolTaskExecutor);
-
-        CompletableFuture<Void> voidCompletableFuture1 = CompletableFuture.runAsync(() -> {
-            try {
-                test2();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }, jcmThreadPoolTaskExecutor);
-
-        CompletableFuture<Void> voidCompletableFuture = CompletableFuture.runAsync(() -> {
-            try {
-                test3();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }, jcmThreadPoolTaskExecutor);
-        CompletableFuture.allOf(voidCompletableFuture, voidCompletableFuture1, voidCompletableFuture2).join();
-
-        long endTime = System.currentTimeMillis();
-        System.out.println("完成" + (endTime - startTime));
+//        long startTime = System.currentTimeMillis();
+//        CompletableFuture<Void> voidCompletableFuture2 = CompletableFuture.runAsync(() -> {
+//            try {
+//                test();
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }, threadPoolTaskExecutor);
+//
+//        CompletableFuture<Void> voidCompletableFuture1 = CompletableFuture.runAsync(() -> {
+//            try {
+//                test2();
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }, threadPoolTaskExecutor);
+//
+//        CompletableFuture<Void> voidCompletableFuture = CompletableFuture.runAsync(() -> {
+//            try {
+//                test3();
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }, threadPoolTaskExecutor);
+//        CompletableFuture.allOf(voidCompletableFuture, voidCompletableFuture1, voidCompletableFuture2).join();
+//
+//        long endTime = System.currentTimeMillis();
+//        System.out.println("完成" + (endTime - startTime));
     }
 
     static class MyThread implements Runnable {

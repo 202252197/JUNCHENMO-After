@@ -1,17 +1,20 @@
 package com.jcm.common.core.configuration;
 
 import com.jcm.common.core.configuration.config.AsyncExecutorConfig;
-import com.jcm.common.core.thread.JcmThreadPoolTaskExecutor;
+import com.jcm.common.core.configuration.config.DateFormatConfig;
+import com.jcm.common.core.thread.ThreadPoolTaskExecutor;
 import com.jcm.common.core.utils.SpringUtils;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.task.TaskExecutor;
 
 import java.util.concurrent.ThreadPoolExecutor;
 
 @AutoConfiguration
+@Import(DateFormatConfig.class)
 @EnableConfigurationProperties(AsyncExecutorConfig.class)
 public class JcmCommonAutoConfiguration {
 
@@ -23,6 +26,8 @@ public class JcmCommonAutoConfiguration {
         return new SpringUtils();
     }
 
+
+
     /**
      * 异步线程池
      * <p>
@@ -33,7 +38,7 @@ public class JcmCommonAutoConfiguration {
     @Primary
     @Bean(name = "asyncExecutor")
     public TaskExecutor asyncExecutor(AsyncExecutorConfig config) {
-        JcmThreadPoolTaskExecutor executor = new JcmThreadPoolTaskExecutor();
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(config.getCorePoolSize());
         executor.setMaxPoolSize(config.getMaxPoolSize());
         executor.setQueueCapacity(config.getQueueCapacity());

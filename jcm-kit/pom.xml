@@ -12,15 +12,16 @@
 
     <modules>
         <module>jcm-third-party</module>
+        <module>jcm-json</module>
     </modules>
 
     <properties>
+        <maven.compiler.release>11</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--		统一管理内部模块版本-->
         <jcm.kit.version>0.0.1-SNAPSHOT</jcm.kit.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <hutool-version>5.8.35</hutool-version>
+        <hutool.version>5.8.35</hutool.version>
+        <jackson.version>2.13.5</jackson.version>
     </properties>
 
     <dependencyManagement>

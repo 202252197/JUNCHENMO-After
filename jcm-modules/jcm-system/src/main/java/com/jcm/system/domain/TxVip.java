@@ -5,14 +5,12 @@ import com.alibaba.excel.annotation.ExcelProperty;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jcm.common.core.domain.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * vip对象 tx_vip
@@ -45,18 +43,14 @@ public class TxVip extends BaseEntity {
     /**
      * 起始时间
      */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @ExcelProperty(value = "起始时间")
-    private Date startingTime;
+    private LocalDateTime startingTime;
 
     /**
      * 结束时间
      */
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @ExcelProperty(value = "结束时间")
-    private Date stopingTime;
+    private LocalDateTime stopingTime;
 
     /**
      * 开通天数

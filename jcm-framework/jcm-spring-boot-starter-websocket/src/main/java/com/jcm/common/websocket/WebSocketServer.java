@@ -6,6 +6,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.extra.ssh.ChannelType;
 import cn.hutool.extra.ssh.JschUtil;
 import com.jcm.common.websocket.model.SshModel;
+import com.jcm.common.websocket.model.terminalClientOperator;
 import com.jcraft.jsch.ChannelShell;
 import com.jcraft.jsch.JSchException;
 import org.slf4j.Logger;
@@ -19,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -44,7 +46,7 @@ public class WebSocketServer {
     }
 
     // 日志记录器
-    private static Logger log = LoggerFactory.getLogger(SshHandler.class);
+    private static Logger log = LoggerFactory.getLogger(WebSocketServer.class);
 
     // 在线用户计数器
     private static final AtomicInteger OnlineCount = new AtomicInteger(0);
@@ -71,6 +73,7 @@ public class WebSocketServer {
         log.info("有连接加入，当前连接数为：{}, sessionId={}", cnt, session.getId()); // 记录日志
         HandlerItem handlerItem = new HandlerItem(session, sshItem); // 创建HandlerItem对象
         handlerItem.startRead(); // 启动读取线程
+        session.getBasicRemote().sendText("1");
         HANDLER_ITEM_CONCURRENT_HASH_MAP.put(session.getId(), handlerItem); // 将HandlerItem存入Map
     }
 
@@ -98,8 +101,30 @@ public class WebSocketServer {
     @OnMessage
     public void onMessage(String message, javax.websocket.Session session) throws Exception {
         log.info("来自客户端的消息：{}", message); // 记录日志
-        HandlerItem handlerItem = HANDLER_ITEM_CONCURRENT_HASH_MAP.get(session.getId()); // 获取HandlerItem
-        this.sendCommand(handlerItem, message); // 发送命令
+        //根据sessionId获取绑定的处理器项
+        HandlerItem handlerItem = HANDLER_ITEM_CONCURRENT_HASH_MAP.get(session.getId());
+
+        String[] data = message.split("\\|");
+        String status = data[0];
+        if(Objects.nonNull(status)){
+            if(terminalClientOperator.CONNECT.getValue().equals(status)){
+                String cols = data[1];
+                String rows = data[2];
+                String loginToken = data[3];
+                log.info("连接websocket的loginToken: %s ", loginToken);
+                this.resize(handlerItem, cols,rows);
+            }
+            if(terminalClientOperator.KEY.getValue().equals(status)){
+                String key = data[1];
+                this.sendCommand(handlerItem, key);
+            }
+            if(terminalClientOperator.RESIZE.getValue().equals(status)){
+                String cols = data[1];
+                String rows = data[2];
+                this.resize(handlerItem, cols,rows);
+            }
+
+        }
     }
 
     /**
@@ -122,7 +147,8 @@ public class WebSocketServer {
      * @param data 命令内容
      * @throws Exception 如果发送命令失败
      */
-    private void sendCommand(WebSocketServer.HandlerItem handlerItem, String data) throws Exception {
+    private void sendCommand(HandlerItem handlerItem, String data) throws Exception {
+        log.info("发送命令：{}", data);
         if (handlerItem.checkInput(data)) { // 检查输入是否有效
             handlerItem.outputStream.write(data.getBytes()); // 发送命令
         } else {
@@ -131,6 +157,11 @@ public class WebSocketServer {
             handlerItem.outputStream.write(new byte[]{3}); // 发送终止字符
         }
         handlerItem.outputStream.flush(); // 刷新输出流
+    }
+
+    //设置cols和rows
+    private void resize(HandlerItem handlerItem, String cols, String rows) throws Exception {
+        handlerItem.channel.setPtySize(Integer.parseInt(cols),Integer.parseInt(rows),0,0);
     }
 
     /**
@@ -221,7 +252,8 @@ public class WebSocketServer {
                 byte[] buffer = new byte[1024]; // 缓冲区
                 int i;
                 while ((i = inputStream.read(buffer)) != -1) { // 读取SSH输出
-                    sendBinary(session, new String(Arrays.copyOfRange(buffer, 0, i), sshItem.getCharsetT())); // 发送输出到客户端
+                    log.info("读取SSH输出：{}", new String(Arrays.copyOfRange(buffer, 0, i), sshItem.getCharsetT()));
+                    sendBinary(session, "0|"+new String(Arrays.copyOfRange(buffer, 0, i), sshItem.getCharsetT())); // 发送输出到客户端
                 }
             } catch (Exception e) {
                 if (!this.openSession.isConnected()) { // 检查SSH会话是否已断开

@@ -1,8 +1,9 @@
 package com.jcm.system.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.jcm.common.core.utils.StringUtils;
 import com.jcm.system.api.domain.SysOperLog;
 import com.jcm.system.mapper.SysOperLogMapper;
 import com.jcm.system.service.ISysOperLogService;
@@ -35,14 +36,14 @@ public class SysOperLogServiceImpl extends ServiceImpl<SysOperLogMapper, SysOper
     @Override
     public List<SysOperLog> selectOperLogList(SysOperLog sysOperLog) {
         LambdaQueryChainWrapper<SysOperLog> queryChainWrapper = this.lambdaQuery()
-                .eq(StringUtils.isNotEmpty(sysOperLog.getOperName()), SysOperLog::getOperName, sysOperLog.getOperName())
-                .eq(StringUtils.isNotEmpty(sysOperLog.getTitle()), SysOperLog::getTitle, sysOperLog.getTitle())
-                .eq(StringUtils.isNotEmpty(sysOperLog.getBusinessName()), SysOperLog::getBusinessName, sysOperLog.getBusinessName())
-                .eq(StringUtils.isNotNull(sysOperLog.getStatus()), SysOperLog::getStatus, sysOperLog.getStatus())
+                .eq(StrUtil.isNotEmpty(sysOperLog.getOperName()), SysOperLog::getOperName, sysOperLog.getOperName())
+                .eq(StrUtil.isNotEmpty(sysOperLog.getTitle()), SysOperLog::getTitle, sysOperLog.getTitle())
+                .eq(StrUtil.isNotEmpty(sysOperLog.getBusinessName()), SysOperLog::getBusinessName, sysOperLog.getBusinessName())
+                .eq(ObjectUtil.isNotNull(sysOperLog.getStatus()), SysOperLog::getStatus, sysOperLog.getStatus())
                 .orderByDesc(SysOperLog::getRequestTime);
         if (Objects.nonNull(sysOperLog.getParams())) {
-            queryChainWrapper.ge(StringUtils.isNotNull(sysOperLog.getParams().get("beginRequestTime")), SysOperLog::getRequestTime, sysOperLog.getParams().get("beginRequestTime"))
-                    .le(Objects.nonNull(sysOperLog.getParams()) && StringUtils.isNotNull(sysOperLog.getParams().get("endRequestTime")), SysOperLog::getRequestTime, sysOperLog.getParams().get("endRequestTime"));
+            queryChainWrapper.ge(ObjectUtil.isNotNull(sysOperLog.getParams().get("beginRequestTime")), SysOperLog::getRequestTime, sysOperLog.getParams().get("beginRequestTime"))
+                    .le(Objects.nonNull(sysOperLog.getParams()) && ObjectUtil.isNotNull(sysOperLog.getParams().get("endRequestTime")), SysOperLog::getRequestTime, sysOperLog.getParams().get("endRequestTime"));
         }
 
         return queryChainWrapper.list();

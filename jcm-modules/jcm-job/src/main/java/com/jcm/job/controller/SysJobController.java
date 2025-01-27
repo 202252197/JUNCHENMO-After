@@ -4,7 +4,7 @@ import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.jcm.common.core.constant.Constants;
 import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.exception.job.TaskException;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.common.core.utils.poi.ExcelUtil;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.core.web.page.TableDataInfo;
@@ -85,13 +85,13 @@ public class SysJobController extends PageBaseController {
         OperLogCover.insertLogMsg(BusinessNameConstant.JOB_TASK, sysJob.getJobName());
         if (!CronUtils.isValid(sysJob.getCronExpression())) {
             return error("新增任务'" + sysJob.getJobName() + "'失败，Cron表达式不正确");
-        } else if (StringUtils.containsIgnoreCase(sysJob.getInvokeTarget(), Constants.LOOKUP_RMI)) {
+        } else if (StrUtil.containsIgnoreCase(sysJob.getInvokeTarget(), Constants.LOOKUP_RMI)) {
             return error("新增任务'" + sysJob.getJobName() + "'失败，目标字符串不允许'rmi'调用");
-        } else if (StringUtils.containsAnyIgnoreCase(sysJob.getInvokeTarget(), new String[]{Constants.LOOKUP_LDAP, Constants.LOOKUP_LDAPS})) {
+        } else if (StrUtil.containsAnyIgnoreCase(sysJob.getInvokeTarget(), new String[]{Constants.LOOKUP_LDAP, Constants.LOOKUP_LDAPS})) {
             return error("新增任务'" + sysJob.getJobName() + "'失败，目标字符串不允许'ldap(s)'调用");
-        } else if (StringUtils.containsAnyIgnoreCase(sysJob.getInvokeTarget(), new String[]{Constants.HTTP, Constants.HTTPS})) {
+        } else if (StrUtil.containsAnyIgnoreCase(sysJob.getInvokeTarget(), new String[]{Constants.HTTP, Constants.HTTPS})) {
             return error("新增任务'" + sysJob.getJobName() + "'失败，目标字符串不允许'http(s)'调用");
-        } else if (StringUtils.containsAnyIgnoreCase(sysJob.getInvokeTarget(), Constants.JOB_ERROR_STR)) {
+        } else if (StrUtil.containsAnyIgnoreCase(sysJob.getInvokeTarget(), Constants.JOB_ERROR_STR)) {
             return error("新增任务'" + sysJob.getJobName() + "'失败，目标字符串存在违规");
         } else if (!ScheduleUtils.whiteList(sysJob.getInvokeTarget())) {
             return error("新增任务'" + sysJob.getJobName() + "'失败，目标字符串不在白名单内");
@@ -109,13 +109,13 @@ public class SysJobController extends PageBaseController {
         OperLogCover.updateLogMsg(BusinessNameConstant.JOB_TASK, sysJob.getJobId());
         if (!CronUtils.isValid(sysJob.getCronExpression())) {
             return error("修改任务'" + sysJob.getJobName() + "'失败，Cron表达式不正确");
-        } else if (StringUtils.containsIgnoreCase(sysJob.getInvokeTarget(), Constants.LOOKUP_RMI)) {
+        } else if (StrUtil.containsIgnoreCase(sysJob.getInvokeTarget(), Constants.LOOKUP_RMI)) {
             return error("修改任务'" + sysJob.getJobName() + "'失败，目标字符串不允许'rmi'调用");
-        } else if (StringUtils.containsAnyIgnoreCase(sysJob.getInvokeTarget(), new String[]{Constants.LOOKUP_LDAP, Constants.LOOKUP_LDAPS})) {
+        } else if (StrUtil.containsAnyIgnoreCase(sysJob.getInvokeTarget(), new String[]{Constants.LOOKUP_LDAP, Constants.LOOKUP_LDAPS})) {
             return error("修改任务'" + sysJob.getJobName() + "'失败，目标字符串不允许'ldap(s)'调用");
-        } else if (StringUtils.containsAnyIgnoreCase(sysJob.getInvokeTarget(), new String[]{Constants.HTTP, Constants.HTTPS})) {
+        } else if (StrUtil.containsAnyIgnoreCase(sysJob.getInvokeTarget(), new String[]{Constants.HTTP, Constants.HTTPS})) {
             return error("修改任务'" + sysJob.getJobName() + "'失败，目标字符串不允许'http(s)'调用");
-        } else if (StringUtils.containsAnyIgnoreCase(sysJob.getInvokeTarget(), Constants.JOB_ERROR_STR)) {
+        } else if (StrUtil.containsAnyIgnoreCase(sysJob.getInvokeTarget(), Constants.JOB_ERROR_STR)) {
             return error("修改任务'" + sysJob.getJobName() + "'失败，目标字符串存在违规");
         } else if (!ScheduleUtils.whiteList(sysJob.getInvokeTarget())) {
             return error("修改任务'" + sysJob.getJobName() + "'失败，目标字符串不在白名单内");

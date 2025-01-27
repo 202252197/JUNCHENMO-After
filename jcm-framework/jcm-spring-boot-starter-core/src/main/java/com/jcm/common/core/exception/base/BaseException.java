@@ -8,7 +8,7 @@ package com.jcm.common.core.exception.base;
 public class BaseException extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
-    /**
+  /**
      * 所属模块
      */
     private String module;

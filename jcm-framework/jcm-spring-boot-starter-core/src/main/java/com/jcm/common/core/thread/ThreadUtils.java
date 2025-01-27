@@ -1,4 +1,4 @@
-package com.jcm.common.core.utils;
+package com.jcm.common.core.thread;
 
 import java.util.concurrent.Callable;
 

@@ -1,8 +1,8 @@
 package com.jcm.system.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.jcm.common.core.utils.StringUtils;
 import com.jcm.system.domain.SysUserSetting;
 import com.jcm.system.mapper.SysUserSettingMapper;
 import com.jcm.system.service.ISysUserSettingService;
@@ -35,7 +35,7 @@ public class SysUserSettingServiceImpl extends ServiceImpl<SysUserSettingMapper,
     @Override
     public SysUserSetting selectUserSettingByUserId(Long userId) {
         LambdaQueryWrapper<SysUserSetting> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(StringUtils.isNotNull(userId), SysUserSetting::getUserId, userId);
+        lambdaQueryWrapper.eq(ObjectUtil.isNotNull(userId), SysUserSetting::getUserId, userId);
         return this.baseMapper.selectOne(lambdaQueryWrapper);
     }
 
@@ -48,7 +48,7 @@ public class SysUserSettingServiceImpl extends ServiceImpl<SysUserSettingMapper,
     @Override
     public int updateUserSetting(SysUserSetting userSetting) {
         LambdaQueryWrapper<SysUserSetting> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(StringUtils.isNotNull(userSetting.getUserId()), SysUserSetting::getUserId, userSetting.getUserId());
+        lambdaQueryWrapper.eq(ObjectUtil.isNotNull(userSetting.getUserId()), SysUserSetting::getUserId, userSetting.getUserId());
         return this.baseMapper.update(userSetting, lambdaQueryWrapper);
     }
 }

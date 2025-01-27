@@ -1,7 +1,7 @@
 package com.jcm.job.util;
 
 import com.jcm.common.core.utils.SpringUtils;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.job.domain.SysJob;
 
 import java.lang.reflect.InvocationTargetException;
@@ -45,7 +45,7 @@ public class JobInvokeUtil {
     private static void invokeMethod(Object bean, String methodName, List<Object[]> methodParams)
             throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException,
             InvocationTargetException {
-        if (StringUtils.isNotNull(methodParams) && methodParams.size() > 0) {
+        if (StrUtil.isNotNull(methodParams) && methodParams.size() > 0) {
             Method method = bean.getClass().getMethod(methodName, getMethodParamsType(methodParams));
             method.invoke(bean, getMethodParamsValue(methodParams));
         } else {
@@ -61,7 +61,7 @@ public class JobInvokeUtil {
      * @return true是 false否
      */
     public static boolean isValidClassName(String invokeTarget) {
-        return StringUtils.countMatches(invokeTarget, ".") > 1;
+        return StrUtil.countMatches(invokeTarget, ".") > 1;
     }
 
     /**
@@ -71,8 +71,8 @@ public class JobInvokeUtil {
      * @return bean名称
      */
     public static String getBeanName(String invokeTarget) {
-        String beanName = StringUtils.substringBefore(invokeTarget, "(");
-        return StringUtils.substringBeforeLast(beanName, ".");
+        String beanName = StrUtil.substringBefore(invokeTarget, "(");
+        return StrUtil.substringBeforeLast(beanName, ".");
     }
 
     /**
@@ -82,8 +82,8 @@ public class JobInvokeUtil {
      * @return method方法
      */
     public static String getMethodName(String invokeTarget) {
-        String methodName = StringUtils.substringBefore(invokeTarget, "(");
-        return StringUtils.substringAfterLast(methodName, ".");
+        String methodName = StrUtil.substringBefore(invokeTarget, "(");
+        return StrUtil.substringAfterLast(methodName, ".");
     }
 
     /**
@@ -93,29 +93,29 @@ public class JobInvokeUtil {
      * @return method方法相关参数列表
      */
     public static List<Object[]> getMethodParams(String invokeTarget) {
-        String methodStr = StringUtils.substringBetween(invokeTarget, "(", ")");
-        if (StringUtils.isEmpty(methodStr)) {
+        String methodStr = StrUtil.substringBetween(invokeTarget, "(", ")");
+        if (StrUtil.isEmpty(methodStr)) {
             return null;
         }
         String[] methodParams = methodStr.split(",(?=([^\"']*[\"'][^\"']*[\"'])*[^\"']*$)");
         List<Object[]> classs = new LinkedList<>();
         for (int i = 0; i < methodParams.length; i++) {
-            String str = StringUtils.trimToEmpty(methodParams[i]);
+            String str = StrUtil.trimToEmpty(methodParams[i]);
             // String字符串类型，以'或"开头
-            if (StringUtils.startsWithAny(str, "'", "\"")) {
-                classs.add(new Object[]{StringUtils.substring(str, 1, str.length() - 1), String.class});
+            if (StrUtil.startsWithAny(str, "'", "\"")) {
+                classs.add(new Object[]{StrUtil.substring(str, 1, str.length() - 1), String.class});
             }
             // boolean布尔类型，等于true或者false
             else if ("true".equalsIgnoreCase(str) || "false".equalsIgnoreCase(str)) {
                 classs.add(new Object[]{Boolean.valueOf(str), Boolean.class});
             }
             // long长整形，以L结尾
-            else if (StringUtils.endsWith(str, "L")) {
-                classs.add(new Object[]{Long.valueOf(StringUtils.substring(str, 0, str.length() - 1)), Long.class});
+            else if (StrUtil.endsWith(str, "L")) {
+                classs.add(new Object[]{Long.valueOf(StrUtil.substring(str, 0, str.length() - 1)), Long.class});
             }
             // double浮点类型，以D结尾
-            else if (StringUtils.endsWith(str, "D")) {
-                classs.add(new Object[]{Double.valueOf(StringUtils.substring(str, 0, str.length() - 1)), Double.class});
+            else if (StrUtil.endsWith(str, "D")) {
+                classs.add(new Object[]{Double.valueOf(StrUtil.substring(str, 0, str.length() - 1)), Double.class});
             }
             // 其他类型归类为整形
             else {

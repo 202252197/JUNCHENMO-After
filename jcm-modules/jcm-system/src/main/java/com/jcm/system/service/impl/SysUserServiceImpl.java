@@ -1,11 +1,12 @@
 package com.jcm.system.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.constant.UserConstants;
 import com.jcm.common.core.exception.ServiceException;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.system.api.domain.SysUser;
 import com.jcm.system.domain.SysUserRole;
 import com.jcm.system.domain.SysUserSetting;
@@ -65,11 +66,11 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Override
     public List<SysUser> selectUserList(SysUser user) {
         return this.lambdaQuery().select(SysUser.class, (e) -> !"password".equals(e.getColumn()))
-                .like(StringUtils.isNotEmpty(user.getUsername()), SysUser::getUsername, user.getUsername())
-                .like(StringUtils.isNotEmpty(user.getNickname()), SysUser::getNickname, user.getNickname())
-                .eq(StringUtils.isNotNull(user.getStatus()), SysUser::getStatus, user.getStatus())
-                .like(StringUtils.isNotEmpty(user.getMobile()), SysUser::getMobile, user.getMobile())
-                .like(StringUtils.isNotEmpty(user.getEmail()), SysUser::getEmail, user.getEmail()).list();
+                .like(StrUtil.isNotEmpty(user.getUsername()), SysUser::getUsername, user.getUsername())
+                .like(StrUtil.isNotEmpty(user.getNickname()), SysUser::getNickname, user.getNickname())
+                .eq(ObjectUtil.isNotNull(user.getStatus()), SysUser::getStatus, user.getStatus())
+                .like(StrUtil.isNotEmpty(user.getMobile()), SysUser::getMobile, user.getMobile())
+                .like(StrUtil.isNotEmpty(user.getEmail()), SysUser::getEmail, user.getEmail()).list();
     }
 
     /**
@@ -80,7 +81,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      */
     @Override
     public boolean checkUserNameUnique(SysUser user) {
-        List<SysUser> list = this.lambdaQuery().eq(StringUtils.isNotEmpty(user.getUsername()), SysUser::getUsername, user.getUsername()).list();
+        List<SysUser> list = this.lambdaQuery().eq(StrUtil.isNotEmpty(user.getUsername()), SysUser::getUsername, user.getUsername()).list();
         return list.size() == 0;
     }
 
@@ -93,7 +94,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
     @Override
     public boolean checkPhoneUnique(SysUser user) {
         List<SysUser> list = this.lambdaQuery()
-                .eq(StringUtils.isNotEmpty(user.getMobile()), SysUser::getMobile, user.getMobile())
+                .eq(StrUtil.isNotEmpty(user.getMobile()), SysUser::getMobile, user.getMobile())
                 .eq(SysUser::getDeleted, 0)
                 .list();
         return list.size() == 0;
@@ -107,7 +108,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      */
     @Override
     public boolean checkEmailUnique(SysUser user) {
-        List<SysUser> list = this.lambdaQuery().eq(StringUtils.isNotEmpty(user.getEmail()), SysUser::getEmail, user.getEmail()).list();
+        List<SysUser> list = this.lambdaQuery().eq(StrUtil.isNotEmpty(user.getEmail()), SysUser::getEmail, user.getEmail()).list();
         return list.size() == 0;
     }
 
@@ -172,7 +173,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      */
     @Override
     public void checkUserAllowed(Long userId) {
-        if (StringUtils.isNotNull(userId) && 1L == userId) {
+        if (ObjectUtil.isNotNull(userId) && 1L == userId) {
             throw new ServiceException("不允许操作超级管理员用户");
         }
     }
@@ -239,7 +240,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      * @param roleIds 角色组
      */
     public int insertUserRole(Long userId, Long[] roleIds) {
-        if (StringUtils.isEmpty(roleIds)) {
+        if (ObjectUtil.isEmpty(roleIds)) {
             return 0;
         }
         // 新增用户与角色管理
