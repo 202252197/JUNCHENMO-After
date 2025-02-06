@@ -17,7 +17,7 @@ public interface ITxVipService {
      * @param vipId vip主键
      * @return vip
      */
-    public TxVip selectTxVipByVipId(Long vipId);
+    TxVip selectTxVipByVipId(Long vipId);
 
     /**
      * 查询vip列表
@@ -25,7 +25,7 @@ public interface ITxVipService {
      * @param txVip vip
      * @return vip集合
      */
-    public List<TxVip> selectTxVipList(TxVip txVip);
+    List<TxVip> selectTxVipList(TxVip txVip);
 
     /**
      * 新增vip
@@ -33,7 +33,7 @@ public interface ITxVipService {
      * @param txVip vip
      * @return 结果
      */
-    public int insertTxVip(TxVip txVip);
+    int insertTxVip(TxVip txVip);
 
     /**
      * 修改vip
@@ -41,7 +41,7 @@ public interface ITxVipService {
      * @param txVip vip
      * @return 结果
      */
-    public int updateTxVip(TxVip txVip);
+    int updateTxVip(TxVip txVip);
 
     /**
      * 批量删除vip
@@ -49,7 +49,7 @@ public interface ITxVipService {
      * @param vipIds 需要删除的vip主键集合
      * @return 结果
      */
-    public int deleteTxVipByVipIds(Long[] vipIds);
+    int deleteTxVipByVipIds(Long[] vipIds);
 
     /**
      * 删除vip信息
@@ -57,5 +57,5 @@ public interface ITxVipService {
      * @param vipId vip主键
      * @return 结果
      */
-    public int deleteTxVipByVipId(Long vipId);
+    int deleteTxVipByVipId(Long vipId);
 }

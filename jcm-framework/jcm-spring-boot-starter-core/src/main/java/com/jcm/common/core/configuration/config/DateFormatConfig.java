@@ -2,12 +2,16 @@ package com.jcm.common.core.configuration.config;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.deser.std.StdScalarDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import java.io.IOException;
@@ -24,7 +28,7 @@ import java.util.TimeZone;
  * 自定义Jackson配置
  */
 @Configuration
-public class DateFormatConfig implements Jackson2ObjectMapperBuilderCustomizer {
+public class DateFormatConfig implements Jackson2ObjectMapperBuilderCustomizer , Ordered {
 
     @Value("yyyy-MM-dd HH:mm:ss")
     private String dateTimePattern;
@@ -61,6 +65,11 @@ public class DateFormatConfig implements Jackson2ObjectMapperBuilderCustomizer {
         javaTimeModule.addSerializer(LocalDate.class, new LocalDateSerializer());
         javaTimeModule.addDeserializer(LocalDate.class, new LocalDateDeserializer());
         builder.modules(javaTimeModule).timeZone(TimeZone.getDefault());
+    }
+
+    @Override
+    public int getOrder() {
+        return 1;
     }
 
 

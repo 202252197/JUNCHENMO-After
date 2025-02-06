@@ -96,18 +96,6 @@
             <artifactId>jaxb-api</artifactId>
         </dependency>
 
-<!--        &lt;!&ndash; Apache Lang3 &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.commons</groupId>-->
-<!--            <artifactId>commons-lang3</artifactId>-->
-<!--        </dependency>-->
-
-<!--        &lt;!&ndash; Commons Io &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>commons-io</groupId>-->
-<!--            <artifactId>commons-io</artifactId>-->
-<!--        </dependency>-->
-
         <!-- Java Servlet -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -141,6 +129,12 @@
             <artifactId>easyexcel</artifactId>
         </dependency>
 
+        <!-- jsch -->
+        <dependency>
+            <groupId>com.github.mwiede</groupId>
+            <artifactId>jsch</artifactId>
+            <version>${jsch.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

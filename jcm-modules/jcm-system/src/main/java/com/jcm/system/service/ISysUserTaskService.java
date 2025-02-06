@@ -17,7 +17,7 @@ public interface ISysUserTaskService {
      * @param taskId 用户任务主键
      * @return 用户任务
      */
-    public SysUserTask selectSysUserTaskByTaskId(Long taskId);
+    SysUserTask selectSysUserTaskByTaskId(Long taskId);
 
     /**
      * 查询用户任务列表
@@ -25,7 +25,7 @@ public interface ISysUserTaskService {
      * @param sysUserTask 用户任务
      * @return 用户任务集合
      */
-    public List<SysUserTask> selectSysUserTaskList(SysUserTask sysUserTask);
+    List<SysUserTask> selectSysUserTaskList(SysUserTask sysUserTask);
 
     /**
      * 新增用户任务
@@ -33,7 +33,7 @@ public interface ISysUserTaskService {
      * @param sysUserTask 用户任务
      * @return 结果
      */
-    public int insertSysUserTask(SysUserTask sysUserTask);
+    int insertSysUserTask(SysUserTask sysUserTask);
 
     /**
      * 修改用户任务
@@ -41,7 +41,7 @@ public interface ISysUserTaskService {
      * @param sysUserTask 用户任务
      * @return 结果
      */
-    public int updateSysUserTask(SysUserTask sysUserTask);
+    int updateSysUserTask(SysUserTask sysUserTask);
 
     /**
      * 批量删除用户任务
@@ -49,7 +49,7 @@ public interface ISysUserTaskService {
      * @param taskIds 需要删除的用户任务主键集合
      * @return 结果
      */
-    public int deleteSysUserTaskByTaskIds(Long[] taskIds);
+    int deleteSysUserTaskByTaskIds(Long[] taskIds);
 
     /**
      * 删除用户任务信息
@@ -57,5 +57,5 @@ public interface ISysUserTaskService {
      * @param taskId 用户任务主键
      * @return 结果
      */
-    public int deleteSysUserTaskByTaskId(Long taskId);
+    int deleteSysUserTaskByTaskId(Long taskId);
 }

@@ -1,12 +1,12 @@
 package com.jcm.gateway.service.impl;
 
+import cn.hutool.core.codec.Base64;
+import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.StrUtil;
 import com.google.code.kaptcha.Producer;
 import com.jcm.common.core.constant.CacheConstants;
 import com.jcm.common.core.constant.Constants;
 import com.jcm.common.core.exception.CaptchaException;
-import com.jcm.common.core.utils.StringUtils;
-import com.jcm.common.core.utils.sign.Base64;
-import com.jcm.common.core.utils.uuid.IdUtils;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.redis.service.RedisService;
 import com.jcm.gateway.config.properties.CaptchaProperties;
@@ -53,7 +53,7 @@ public class ValidateCodeServiceImpl implements ValidateCodeService {
         }
 
         // 保存验证码信息
-        String uuid = IdUtils.simpleUUID();
+        String uuid = IdUtil.simpleUUID();
         String verifyKey = CacheConstants.CAPTCHA_CODE_KEY + uuid;
 
         String capStr = null, code = null;
@@ -90,10 +90,10 @@ public class ValidateCodeServiceImpl implements ValidateCodeService {
      */
     @Override
     public void checkCaptcha(String code, String uuid) throws CaptchaException {
-        if (StringUtils.isEmpty(code)) {
+        if (StrUtil.isEmpty(code)) {
             throw new CaptchaException("验证码不能为空");
         }
-        if (StringUtils.isEmpty(uuid)) {
+        if (StrUtil.isEmpty(uuid)) {
             throw new CaptchaException("验证码已失效");
         }
         String verifyKey = CacheConstants.CAPTCHA_CODE_KEY + uuid;

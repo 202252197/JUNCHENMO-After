@@ -1,14 +1,14 @@
 package com.jcm.gen.service.impl;
 
+import cn.hutool.core.util.CharsetUtil;
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jcm.common.core.constant.Constants;
 import com.jcm.common.core.constant.GenConstants;
 import com.jcm.common.core.exception.ServiceException;
-import com.jcm.common.core.text.CharsetKit;
-import cn.hutool.core.util.StrUtil;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.gen.domain.GenTable;
 import com.jcm.gen.domain.GenTableColumn;
@@ -214,7 +214,7 @@ public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> i
      */
     public void setTableFromOptions(GenTable genTable) {
         JSONObject paramsObj = JSON.parseObject(genTable.getOptions());
-        if (StrUtil.isNotNull(paramsObj)) {
+        if (ObjectUtil.isNotNull(paramsObj)) {
             String treeCode = paramsObj.getString(GenConstants.TREE_CODE);
             String treeParentCode = paramsObj.getString(GenConstants.TREE_PARENT_CODE);
             String treeName = paramsObj.getString(GenConstants.TREE_NAME);
@@ -281,7 +281,7 @@ public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> i
         Map<String, GenTableColumn> tableColumnMap = tableColumns.stream().collect(Collectors.toMap(GenTableColumn::getColumnName, Function.identity()));
 
         List<GenTableColumn> dbTableColumns = genTableColumnMapper.selectDbTableColumnsByName(tableName);
-        if (StrUtil.isEmpty(dbTableColumns)) {
+        if (ObjectUtil.isEmpty(dbTableColumns)) {
             throw new ServiceException("同步数据失败，原表结构不存在");
         }
         List<String> dbTableColumnNames = dbTableColumns.stream().map(GenTableColumn::getColumnName).collect(Collectors.toList());
@@ -310,7 +310,7 @@ public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> i
         });
 
         List<Long> delColumns = tableColumns.stream().filter(column -> !dbTableColumnNames.contains(column.getColumnName())).map(GenTableColumn::getColumnId).collect(Collectors.toList());
-        if (StrUtil.isNotEmpty(delColumns)) {
+        if (ObjectUtil.isNotEmpty(delColumns)) {
             genTableColumnMapper.deleteBatchIds(delColumns);
         }
     }
@@ -340,7 +340,7 @@ public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> i
             tpl.merge(context, sw);
             try {
                 String path = getGenPath(table, template);
-                FileUtils.writeStringToFile(new File(path), sw.toString(), CharsetKit.UTF_8);
+                FileUtils.writeStringToFile(new File(path), sw.toString(), CharsetUtil.CHARSET_UTF_8);
             } catch (IOException e) {
                 throw new ServiceException("渲染模板失败，表名：" + table.getTableName());
             }

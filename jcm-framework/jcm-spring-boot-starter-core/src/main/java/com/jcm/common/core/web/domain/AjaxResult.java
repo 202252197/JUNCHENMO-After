@@ -1,7 +1,7 @@
 package com.jcm.common.core.web.domain;
 
+import cn.hutool.core.util.ObjUtil;
 import com.jcm.common.core.constant.HttpStatus;
-import com.jcm.common.core.utils.StringUtils;
 
 import java.util.HashMap;
 import java.util.Objects;
@@ -53,7 +53,7 @@ public class AjaxResult extends HashMap<String, Object> {
     public AjaxResult(int code, String msg, Object data) {
         super.put(CODE_TAG, code);
         super.put(MSG_TAG, msg);
-        if (StringUtils.isNotNull(data)) {
+        if (ObjUtil.isNotNull(data)) {
             super.put(DATA_TAG, data);
         }
     }

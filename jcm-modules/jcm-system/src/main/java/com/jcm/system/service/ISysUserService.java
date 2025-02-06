@@ -19,7 +19,7 @@ public interface ISysUserService extends IService<SysUser> {
      * @param username 用户名
      * @return 用户对象信息
      */
-    public SysUser selectUserByUserName(String username);
+    SysUser selectUserByUserName(String username);
 
     /**
      * 通过用户ID查询用户
@@ -27,7 +27,7 @@ public interface ISysUserService extends IService<SysUser> {
      * @param userId 用户ID
      * @return 用户对象信息
      */
-    public SysUser selectUserById(Long userId);
+    SysUser selectUserById(Long userId);
 
     /**
      * 根据条件分页查询用户列表

@@ -7,12 +7,6 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.hutool.core.util.StrUtil;
 import lombok.AllArgsConstructor;
-    #foreach ($column in $columns)
-        #if($column.javaField == 'createTime' || $column.javaField == 'updateTime')
-        import com.jcm.common.core.utils.DateUtils;
-            #break
-        #end
-    #end
 import org.springframework.stereotype.Service;
 import ${packageName}.mapper.${ClassName}Mapper;
 import ${packageName}.domain.${ClassName};

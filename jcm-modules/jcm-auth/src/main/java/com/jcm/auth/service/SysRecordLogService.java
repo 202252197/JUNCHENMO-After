@@ -41,12 +41,11 @@ public class SysRecordLogService {
         String cityInfo = IpUtils.getCityInfo(IpUtils.getIpAddr());
         if (StrUtil.isNotEmpty(cityInfo) && cityInfo.split("\\|").length == 5) {
             String[] cityInfoArr = cityInfo.split("\\|");
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(cityInfoArr[0] + "-")
-                    .append(cityInfoArr[2] + "-")
-                    .append(cityInfoArr[3] + "-")
-                    .append("(" + cityInfoArr[4] + ")");
-            logininfor.setLoginLocation(stringBuffer.toString());
+            String stringBuffer = cityInfoArr[0] + "-" +
+                    cityInfoArr[2] + "-" +
+                    cityInfoArr[3] + "-" +
+                    "(" + cityInfoArr[4] + ")";
+            logininfor.setLoginLocation(stringBuffer);
         }
         logininfor.setMsg(message);
         // 获取当前时间作为请求时间

@@ -15,5 +15,5 @@ public @interface BusinessName {
     /**
      * 业务标题
      */
-    public String title() default "";
+    String title() default "";
 }

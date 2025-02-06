@@ -1,11 +1,12 @@
 package com.jcm.job.util;
 
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.extra.spring.SpringUtil;
 import com.jcm.common.core.constant.Constants;
 import com.jcm.common.core.constant.ScheduleConstants;
 import com.jcm.common.core.exception.job.TaskException;
 import com.jcm.common.core.exception.job.TaskException.Code;
-import com.jcm.common.core.utils.SpringUtils;
-import cn.hutool.core.util.StrUtil;
 import com.jcm.job.domain.SysJob;
 import org.quartz.*;
 
@@ -68,7 +69,7 @@ public class ScheduleUtils {
         }
 
         // 判断任务是否过期
-        if (StrUtil.isNotNull(CronUtils.getNextExecution(job.getCronExpression()))) {
+        if (ObjectUtil.isNotNull(CronUtils.getNextExecution(job.getCronExpression()))) {
             // 执行调度任务
             scheduler.scheduleJob(jobDetail, trigger);
         }
@@ -106,12 +107,12 @@ public class ScheduleUtils {
      * @return 结果
      */
     public static boolean whiteList(String invokeTarget) {
-        String packageName = StrUtil.substringBefore(invokeTarget, "(");
-        int count = StrUtil.countMatches(packageName, ".");
+        String packageName = StrUtil.subBefore(invokeTarget, "(",false);
+        int count = StrUtil.count(packageName, ".");
         if (count > 1) {
             return StrUtil.containsAnyIgnoreCase(invokeTarget, Constants.JOB_WHITELIST_STR);
         }
-        Object obj = SpringUtils.getBean(StrUtil.split(invokeTarget, ".")[0]);
+        Object obj = SpringUtil.getBean(StrUtil.split(invokeTarget,'.').get(0));
         String beanPackageName = obj.getClass().getPackage().getName();
         return StrUtil.containsAnyIgnoreCase(beanPackageName, Constants.JOB_WHITELIST_STR)
                 && !StrUtil.containsAnyIgnoreCase(beanPackageName, Constants.JOB_ERROR_STR);

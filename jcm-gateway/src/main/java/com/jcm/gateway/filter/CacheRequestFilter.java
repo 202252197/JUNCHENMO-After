@@ -82,7 +82,7 @@ public class CacheRequestFilter implements GlobalFilter, Ordered {
                         Flux<DataBuffer> cachedFlux = Flux
                                 .defer(() -> Flux.just(dataBuffer.slice(0, dataBuffer.readableByteCount())));
 
-                        log.info("请求拦截器; url={}", uri.toString());
+                        log.info("请求拦截器; url={}", uri);
 
                         // 封装 request，传给下一级
                         ServerHttpRequest mutatedRequest = new ServerHttpRequestDecorator(

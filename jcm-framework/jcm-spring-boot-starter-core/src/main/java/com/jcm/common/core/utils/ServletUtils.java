@@ -1,5 +1,6 @@
 package com.jcm.common.core.utils;
 
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson2.JSON;
 import com.jcm.common.core.constant.Constants;
 import com.jcm.common.core.domain.R;
@@ -23,6 +24,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -96,7 +98,7 @@ public class ServletUtils {
     public static Map<String, String> getParamMap(ServletRequest request) {
         Map<String, String> params = new HashMap<>();
         for (Map.Entry<String, String[]> entry : getParams(request).entrySet()) {
-            params.put(entry.getKey(), StringUtils.join(entry.getValue(), ","));
+            params.put(entry.getKey(), StrUtil.join( ",",entry.getValue()));
         }
         return params;
     }
@@ -141,8 +143,8 @@ public class ServletUtils {
 
     public static String getHeader(HttpServletRequest request, String name) {
         String value = request.getHeader(name);
-        if (StringUtils.isEmpty(value)) {
-            return StringUtils.EMPTY;
+        if (StrUtil.isEmpty(value)) {
+            return StrUtil.EMPTY;
         }
         return urlDecode(value);
     }
@@ -194,12 +196,12 @@ public class ServletUtils {
         }
 
         String uri = request.getRequestURI();
-        if (StringUtils.inStringIgnoreCase(uri, ".json", ".xml")) {
+        if (StrUtil.containsAnyIgnoreCase(uri, ".json", ".xml")) {
             return true;
         }
 
         String ajax = request.getParameter("__ajax");
-        return StringUtils.inStringIgnoreCase(ajax, "json", "xml");
+        return StrUtil.containsAnyIgnoreCase(ajax, "json", "xml");
     }
 
     /**
@@ -209,11 +211,7 @@ public class ServletUtils {
      * @return 编码后的内容
      */
     public static String urlEncode(String str) {
-        try {
-            return URLEncoder.encode(str, Constants.UTF8);
-        } catch (UnsupportedEncodingException e) {
-            return StringUtils.EMPTY;
-        }
+        return URLEncoder.encode(str, StandardCharsets.UTF_8);
     }
 
     /**
@@ -223,11 +221,7 @@ public class ServletUtils {
      * @return 解码后的内容
      */
     public static String urlDecode(String str) {
-        try {
-            return URLDecoder.decode(str, Constants.UTF8);
-        } catch (UnsupportedEncodingException e) {
-            return StringUtils.EMPTY;
-        }
+        return URLDecoder.decode(str, StandardCharsets.UTF_8);
     }
 
     /**

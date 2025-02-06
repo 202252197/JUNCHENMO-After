@@ -23,7 +23,7 @@ public class WebSocketSystem
     /**
      * 系统集
      */
-    private static Map<String, Session> USERS = new ConcurrentHashMap<String, Session>();
+    private static final Map<String, Session> USERS = new ConcurrentHashMap<String, Session>();
 
     /**
      * 存储用户

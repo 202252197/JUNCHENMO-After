@@ -1,9 +1,9 @@
 package com.jcm.job.util;
 
-import com.jcm.common.core.constant.ScheduleConstants;
-import com.jcm.common.core.utils.ExceptionUtil;
-import com.jcm.common.core.utils.SpringUtils;
+import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.extra.spring.SpringUtil;
+import com.jcm.common.core.constant.ScheduleConstants;
 import com.jcm.common.core.utils.bean.BeanUtils;
 import com.jcm.job.domain.SysJob;
 import com.jcm.job.domain.SysJobLog;
@@ -30,7 +30,7 @@ public abstract class AbstractQuartzJob implements Job {
     /**
      * 线程本地变量
      */
-    private static ThreadLocal<Date> threadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<Date> threadLocal = new ThreadLocal<>();
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
@@ -79,14 +79,14 @@ public abstract class AbstractQuartzJob implements Job {
         sysJobLog.setJobMessage(sysJobLog.getJobName() + " 总共耗时：" + runMs + "毫秒");
         if (e != null) {
             sysJobLog.setStatus("1");
-            String errorMsg = StrUtil.substring(ExceptionUtil.getExceptionMessage(e), 0, 2000);
+            String errorMsg = StrUtil.sub(ExceptionUtil.getMessage(e), 0, 2000);
             sysJobLog.setExceptionInfo(errorMsg);
         } else {
             sysJobLog.setStatus("0");
         }
 
         // 写入数据库当中
-        SpringUtils.getBean(ISysJobLogService.class).insertSysJobLog(sysJobLog);
+        SpringUtil.getBean(ISysJobLogService.class).insertSysJobLog(sysJobLog);
     }
 
     /**

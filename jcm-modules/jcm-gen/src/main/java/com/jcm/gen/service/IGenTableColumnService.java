@@ -21,5 +21,5 @@ public interface IGenTableColumnService extends IService<GenTableColumn> {
      * @param tableId 业务字段编号
      * @return 业务字段集合
      */
-    public List<GenTableColumn> selectGenTableColumnListByTableId(Long tableId);
+    List<GenTableColumn> selectGenTableColumnListByTableId(Long tableId);
 }

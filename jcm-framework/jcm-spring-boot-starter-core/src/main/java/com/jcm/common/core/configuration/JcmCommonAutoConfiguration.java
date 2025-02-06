@@ -1,9 +1,9 @@
 package com.jcm.common.core.configuration;
 
+import cn.hutool.extra.spring.SpringUtil;
 import com.jcm.common.core.configuration.config.AsyncExecutorConfig;
 import com.jcm.common.core.configuration.config.DateFormatConfig;
 import com.jcm.common.core.thread.ThreadPoolTaskExecutor;
-import com.jcm.common.core.utils.SpringUtils;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -17,16 +17,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Import(DateFormatConfig.class)
 @EnableConfigurationProperties(AsyncExecutorConfig.class)
 public class JcmCommonAutoConfiguration {
-
-    /**
-     * @return spring 容器工具类
-     */
-    @Bean
-    public SpringUtils springUtils() {
-        return new SpringUtils();
-    }
-
-
 
     /**
      * 异步线程池

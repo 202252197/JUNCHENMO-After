@@ -18,7 +18,7 @@ public interface ISysLogininforService {
      * @param sysLogininfor 系统访问记录
      * @return 系统访问记录集合
      */
-    public List<SysLogininfor> selectSysLogininforList(SysLogininfor sysLogininfor);
+    List<SysLogininfor> selectSysLogininforList(SysLogininfor sysLogininfor);
 
     /**
      * 新增系统访问记录
@@ -26,7 +26,7 @@ public interface ISysLogininforService {
      * @param sysLogininfor 系统访问记录
      * @return 结果
      */
-    public int insertSysLogininfor(SysLogininfor sysLogininfor);
+    int insertSysLogininfor(SysLogininfor sysLogininfor);
 
 
     /**
@@ -35,7 +35,7 @@ public interface ISysLogininforService {
      * @param infoIds 需要删除的系统访问记录主键集合
      * @return 结果
      */
-    public int deleteSysLogininforByInfoIds(Long[] infoIds);
+    int deleteSysLogininforByInfoIds(Long[] infoIds);
 
     /**
      * 删除系统访问记录信息
@@ -43,7 +43,7 @@ public interface ISysLogininforService {
      * @param infoId 系统访问记录主键
      * @return 结果
      */
-    public int deleteSysLogininforByInfoId(Long infoId);
+    int deleteSysLogininforByInfoId(Long infoId);
 
     int clearLogininfor();
 }

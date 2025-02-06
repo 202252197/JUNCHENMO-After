@@ -107,7 +107,7 @@ public class GenTableColumn extends BaseEntity {
     }
 
     public String getCapJavaField() {
-        return StrUtil.capitalize(javaField);
+        return StrUtil.upperFirst(javaField);
     }
 
     public boolean isPk() {
@@ -223,7 +223,7 @@ public class GenTableColumn extends BaseEntity {
      */
     public String readConverterExp() {
         // 提取列注释中的备注信息
-        String remarks = StrUtil.substringBetween(this.columnComment, "（", "）");
+        String remarks = StrUtil.subBetween(this.columnComment, "（", "）");
         StringBuffer sb = new StringBuffer();
         if (StrUtil.isNotEmpty(remarks)) {
             // 处理备注信息，生成特定格式的字符串
@@ -231,7 +231,7 @@ public class GenTableColumn extends BaseEntity {
                 if (StrUtil.isNotEmpty(value)) {
                     Object startStr = value.subSequence(0, 1);
                     String endStr = value.substring(1);
-                    sb.append("").append(startStr).append("=").append(endStr).append(",");
+                    sb.append(startStr).append("=").append(endStr).append(",");
                 }
             }
             // 移除最后的逗号

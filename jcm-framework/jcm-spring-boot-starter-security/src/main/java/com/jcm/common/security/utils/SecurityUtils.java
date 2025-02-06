@@ -4,7 +4,7 @@ import com.jcm.common.core.constant.SecurityConstants;
 import com.jcm.common.core.constant.TokenConstants;
 import com.jcm.common.core.context.SecurityContextHolder;
 import com.jcm.common.core.utils.ServletUtils;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.system.api.model.LoginUser;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -65,7 +65,7 @@ public class SecurityUtils {
      */
     public static String replaceTokenPrefix(String token) {
         // 如果前端设置了令牌前缀，则裁剪掉前缀
-        if (StringUtils.isNotEmpty(token) && token.startsWith(TokenConstants.PREFIX)) {
+        if (StrUtil.isNotEmpty(token) && token.startsWith(TokenConstants.PREFIX)) {
             token = token.replaceFirst(TokenConstants.PREFIX, "");
         }
         return token;

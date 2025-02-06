@@ -1,11 +1,11 @@
 package com.jcm.gen.util;
 
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.jcm.common.core.constant.GenConstants;
-import com.jcm.common.core.utils.DateUtils;
-import cn.hutool.core.util.StrUtil;
 import com.jcm.gen.domain.GenTable;
 import com.jcm.gen.domain.GenTableColumn;
 import org.apache.velocity.VelocityContext;
@@ -75,13 +75,13 @@ public class VelocityUtils {
         velocityContext.put("ClassName", genTable.getClassName());
 
         // 设置类名（首字母小写）
-        velocityContext.put("className", StrUtil.uncapitalize(genTable.getClassName()));
+        velocityContext.put("className", StrUtil.lowerFirst(genTable.getClassName()));
 
         // 设置模块名
         velocityContext.put("moduleName", genTable.getModuleName());
 
         // 设置业务名（首字母大写）
-        velocityContext.put("BusinessName", StrUtil.capitalize(genTable.getBusinessName()));
+        velocityContext.put("BusinessName", StrUtil.upperFirst(genTable.getBusinessName()));
 
         // 设置业务名（原样）
         velocityContext.put("businessName", genTable.getBusinessName());
@@ -96,7 +96,7 @@ public class VelocityUtils {
         velocityContext.put("author", genTable.getFunctionAuthor());
 
         // 设置生成代码的时间
-        velocityContext.put("datetime", DateUtils.getDate());
+        velocityContext.put("datetime", DateUtil.today());
 
         // 设置主键列信息
         velocityContext.put("pkColumn", genTable.getPkColumn());
@@ -238,7 +238,7 @@ public class VelocityUtils {
      */
     public static String getPackagePrefix(String packageName) {
         int lastIndex = packageName.lastIndexOf(".");
-        return StrUtil.substring(packageName, 0, lastIndex);
+        return StrUtil.sub(packageName, 0, lastIndex);
     }
 
     /**
@@ -271,7 +271,7 @@ public class VelocityUtils {
         List<GenTableColumn> columns = genTable.getColumns();
         Set<String> dicts = new HashSet<String>();
         addDicts(dicts, columns);
-        return StrUtil.join(dicts, ", ");
+        return StrUtil.join(", ",dicts);
     }
 
     /**
@@ -308,7 +308,7 @@ public class VelocityUtils {
      * @return 上级菜单ID字段
      */
     public static String getParentMenuId(JSONObject paramsObj) {
-        if (StrUtil.isNotEmpty(paramsObj) && paramsObj.containsKey(GenConstants.PARENT_MENU_ID)
+        if (ObjectUtil.isNotEmpty(paramsObj) && paramsObj.containsKey(GenConstants.PARENT_MENU_ID)
                 && StrUtil.isNotEmpty(paramsObj.getString(GenConstants.PARENT_MENU_ID))) {
             return paramsObj.getString(GenConstants.PARENT_MENU_ID);
         }

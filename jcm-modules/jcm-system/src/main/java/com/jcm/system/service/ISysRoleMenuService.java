@@ -19,6 +19,6 @@ public interface ISysRoleMenuService {
      * @param roleId 用户ID
      * @return
      */
-    public List<Integer> queryMenuIdsByRoleId(Integer roleId);
+    List<Integer> queryMenuIdsByRoleId(Integer roleId);
 
 }

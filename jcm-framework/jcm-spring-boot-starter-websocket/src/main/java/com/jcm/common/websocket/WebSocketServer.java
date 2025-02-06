@@ -46,13 +46,13 @@ public class WebSocketServer {
     }
 
     // 日志记录器
-    private static Logger log = LoggerFactory.getLogger(WebSocketServer.class);
+    private static final Logger log = LoggerFactory.getLogger(WebSocketServer.class);
 
     // 在线用户计数器
     private static final AtomicInteger OnlineCount = new AtomicInteger(0);
 
     // 线程安全的集合，存储所有活动的Session对象
-    private static CopyOnWriteArraySet<Session> SessionSet = new CopyOnWriteArraySet<>();
+    private static final CopyOnWriteArraySet<Session> SessionSet = new CopyOnWriteArraySet<>();
 
     /**
      * 当WebSocket连接建立时调用的方法。

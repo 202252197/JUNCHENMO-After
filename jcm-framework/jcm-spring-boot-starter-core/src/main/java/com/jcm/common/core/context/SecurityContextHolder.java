@@ -3,7 +3,7 @@ package com.jcm.common.core.context;
 import com.alibaba.ttl.TransmittableThreadLocal;
 import com.jcm.common.core.constant.SecurityConstants;
 import com.jcm.common.core.text.Convert;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -19,17 +19,17 @@ public class SecurityContextHolder {
 
     public static void set(String key, Object value) {
         Map<String, Object> map = getLocalMap();
-        map.put(key, value == null ? StringUtils.EMPTY : value);
+        map.put(key, value == null ? StrUtil.EMPTY : value);
     }
 
     public static String get(String key) {
         Map<String, Object> map = getLocalMap();
-        return Convert.toStr(map.getOrDefault(key, StringUtils.EMPTY));
+        return Convert.toStr(map.getOrDefault(key, StrUtil.EMPTY));
     }
 
     public static <T> T get(String key, Class<T> clazz) {
         Map<String, Object> map = getLocalMap();
-        return StringUtils.cast(map.getOrDefault(key, null));
+        return (T) map.getOrDefault(key, null);
     }
 
     public static Map<String, Object> getLocalMap() {

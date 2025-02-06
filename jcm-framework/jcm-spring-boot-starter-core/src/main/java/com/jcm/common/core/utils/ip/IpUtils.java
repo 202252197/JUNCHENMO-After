@@ -1,7 +1,8 @@
 package com.jcm.common.core.utils.ip;
 
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.common.core.utils.ServletUtils;
-import com.jcm.common.core.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.lionsoul.ip2region.xdb.Searcher;
 
@@ -84,7 +85,7 @@ public class IpUtils {
      * @return 结果
      */
     private static boolean internalIp(byte[] addr) {
-        if (StringUtils.isNull(addr) || addr.length < 2) {
+        if (ObjectUtil.isNull(addr) || addr.length < 2) {
             return true;
         }
         final byte b0 = addr[0];
@@ -106,9 +107,8 @@ public class IpUtils {
                     return true;
                 }
             case SECTION_5:
-                switch (b1) {
-                    case SECTION_6:
-                        return true;
+                if (b1 == SECTION_6) {
+                    return true;
                 }
             default:
                 return false;
@@ -226,13 +226,13 @@ public class IpUtils {
         if (ip != null && ip.indexOf(",") > 0) {
             final String[] ips = ip.trim().split(",");
             for (String subIp : ips) {
-                if (false == isUnknown(subIp)) {
+                if (!isUnknown(subIp)) {
                     ip = subIp;
                     break;
                 }
             }
         }
-        return StringUtils.substring(ip, 0, 255);
+        return StrUtil.sub(ip, 0, 255);
     }
 
     /**
@@ -242,21 +242,21 @@ public class IpUtils {
      * @return 是否未知
      */
     public static boolean isUnknown(String checkString) {
-        return StringUtils.isBlank(checkString) || "unknown".equalsIgnoreCase(checkString);
+        return StrUtil.isBlank(checkString) || "unknown".equalsIgnoreCase(checkString);
     }
 
     /**
      * 是否为IP
      */
     public static boolean isIP(String ip) {
-        return StringUtils.isNotBlank(ip) && ip.matches(REGX_IP);
+        return StrUtil.isNotBlank(ip) && ip.matches(REGX_IP);
     }
 
     /**
      * 是否为IP，或 *为间隔的通配符地址
      */
     public static boolean isIpWildCard(String ip) {
-        return StringUtils.isNotBlank(ip) && ip.matches(REGX_IP_WILDCARD);
+        return StrUtil.isNotBlank(ip) && ip.matches(REGX_IP_WILDCARD);
     }
 
     /**
@@ -279,7 +279,7 @@ public class IpUtils {
      * 是否为特定格式如:“10.10.10.1-10.10.10.99”的ip段字符串
      */
     public static boolean isIPSegment(String ipSeg) {
-        return StringUtils.isNotBlank(ipSeg) && ipSeg.matches(REGX_IP_SEG);
+        return StrUtil.isNotBlank(ipSeg) && ipSeg.matches(REGX_IP_SEG);
     }
 
     /**
@@ -312,7 +312,7 @@ public class IpUtils {
      * @return boolean 结果
      */
     public static boolean isMatchedIp(String filter, String ip) {
-        if (StringUtils.isEmpty(filter) || StringUtils.isEmpty(ip)) {
+        if (StrUtil.isEmpty(filter) || StrUtil.isEmpty(ip)) {
             return false;
         }
         String[] ips = filter.split(";");

@@ -1,8 +1,9 @@
 package com.jcm.common.security.feign;
 
+import cn.hutool.core.util.ObjUtil;
 import com.jcm.common.core.constant.SecurityConstants;
 import com.jcm.common.core.utils.ServletUtils;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.common.core.utils.ip.IpUtils;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
@@ -21,23 +22,23 @@ public class FeignRequestInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate requestTemplate) {
         HttpServletRequest httpServletRequest = ServletUtils.getRequest();
-        if (StringUtils.isNotNull(httpServletRequest)) {
+        if (ObjUtil.isNotNull(httpServletRequest)) {
             Map<String, String> headers = ServletUtils.getHeaders(httpServletRequest);
             // 传递用户信息请求头，防止丢失
             String userId = headers.get(SecurityConstants.DETAILS_USER_ID);
-            if (StringUtils.isNotEmpty(userId)) {
+            if (StrUtil.isNotEmpty(userId)) {
                 requestTemplate.header(SecurityConstants.DETAILS_USER_ID, userId);
             }
             String userKey = headers.get(SecurityConstants.USER_KEY);
-            if (StringUtils.isNotEmpty(userKey)) {
+            if (StrUtil.isNotEmpty(userKey)) {
                 requestTemplate.header(SecurityConstants.USER_KEY, userKey);
             }
             String userName = headers.get(SecurityConstants.DETAILS_USERNAME);
-            if (StringUtils.isNotEmpty(userName)) {
+            if (StrUtil.isNotEmpty(userName)) {
                 requestTemplate.header(SecurityConstants.DETAILS_USERNAME, userName);
             }
             String authentication = headers.get(SecurityConstants.AUTHORIZATION_HEADER);
-            if (StringUtils.isNotEmpty(authentication)) {
+            if (StrUtil.isNotEmpty(authentication)) {
                 requestTemplate.header(SecurityConstants.AUTHORIZATION_HEADER, authentication);
             }
 

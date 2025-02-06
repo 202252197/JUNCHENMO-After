@@ -21,6 +21,6 @@ public interface ISysUserRoleService extends IService<SysUserRole> {
      * @param userId 用户ID
      * @return
      */
-    public List<Integer> selectAllocatedList(Long userId);
+    List<Integer> selectAllocatedList(Long userId);
 
 }

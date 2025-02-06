@@ -1,6 +1,7 @@
 package com.jcm.common.core.exception.auth;
 
-import org.apache.commons.lang3.StringUtils;
+
+import cn.hutool.core.util.StrUtil;
 
 /**
  * 未能通过的权限认证异常
@@ -15,6 +16,6 @@ public class NotPermissionException extends RuntimeException {
     }
 
     public NotPermissionException(String[] permissions) {
-        super(StringUtils.join(permissions, ","));
+        super(StrUtil.join(",",permissions));
     }
 }

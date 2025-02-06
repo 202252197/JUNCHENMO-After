@@ -1,11 +1,11 @@
 package com.jcm.common.security.auth;
 
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.extra.spring.SpringUtil;
 import com.jcm.common.core.context.SecurityContextHolder;
 import com.jcm.common.core.exception.auth.NotLoginException;
 import com.jcm.common.core.exception.auth.NotPermissionException;
 import com.jcm.common.core.exception.auth.NotRoleException;
-import com.jcm.common.core.utils.SpringUtils;
-import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.security.annotation.Logical;
 import com.jcm.common.security.annotation.RequiresLogin;
 import com.jcm.common.security.annotation.RequiresPermissions;
@@ -35,7 +35,7 @@ public class AuthLogic {
      */
     private static final String SUPER_ADMIN = "admin";
 
-    public TokenService tokenService = SpringUtils.getBean(TokenService.class);
+    public TokenService tokenService = SpringUtil.getBean(TokenService.class);
 
     /**
      * 会话注销
@@ -126,7 +126,7 @@ public class AuthLogic {
      * @param requiresPermissions 注解对象
      */
     public void checkPermi(RequiresPermissions requiresPermissions) {
-        SecurityContextHolder.setPermission(StringUtils.join(requiresPermissions.value(), ","));
+        SecurityContextHolder.setPermission(StrUtil.join(",",requiresPermissions.value()));
         if (requiresPermissions.logical() == Logical.AND) {
             checkPermiAnd(requiresPermissions.value());
         } else {
@@ -305,7 +305,7 @@ public class AuthLogic {
      * @return 用户是否具备某权限
      */
     public boolean hasPermi(Collection<String> authorities, String permission) {
-        return authorities.stream().filter(StringUtils::hasText)
+        return authorities.stream()
                 .anyMatch(x -> ALL_PERMISSION.equals(x) || PatternMatchUtils.simpleMatch(x, permission));
     }
 
@@ -317,7 +317,7 @@ public class AuthLogic {
      * @return 用户是否具备某角色权限
      */
     public boolean hasRole(Collection<String> roles, String role) {
-        return roles.stream().filter(StringUtils::hasText)
+        return roles.stream()
                 .anyMatch(x -> SUPER_ADMIN.equals(x) || PatternMatchUtils.simpleMatch(x, role));
     }
 }

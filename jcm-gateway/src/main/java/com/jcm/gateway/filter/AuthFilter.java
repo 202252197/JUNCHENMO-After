@@ -1,12 +1,12 @@
 package com.jcm.gateway.filter;
 
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.http.HttpStatus;
 import com.jcm.common.core.constant.CacheConstants;
-import com.jcm.common.core.constant.HttpStatus;
 import com.jcm.common.core.constant.SecurityConstants;
 import com.jcm.common.core.constant.TokenConstants;
 import com.jcm.common.core.utils.JwtUtils;
 import com.jcm.common.core.utils.ServletUtils;
-import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.redis.service.RedisService;
 import com.jcm.gateway.config.properties.IgnoreWhiteProperties;
 import io.jsonwebtoken.Claims;
@@ -45,11 +45,11 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
         String url = request.getURI().getPath();
         // 跳过不需要验证的路径
-        if (StringUtils.matches(url, ignoreWhite.getWhites())) {
+        if (ignoreWhite.getWhites().contains(url)) {
             return chain.filter(exchange);
         }
         String token = getToken(request);
-        if (StringUtils.isEmpty(token)) {
+        if (StrUtil.isEmpty(token)) {
             return unauthorizedResponse(exchange, "令牌不能为空");
         }
         Claims claims = JwtUtils.parseToken(token);
@@ -63,7 +63,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
         }
         String userid = JwtUtils.getUserId(claims);
         String username = JwtUtils.getUserName(claims);
-        if (StringUtils.isEmpty(userid) || StringUtils.isEmpty(username)) {
+        if (StrUtil.isEmpty(userid) || StrUtil.isEmpty(username)) {
             return unauthorizedResponse(exchange, "令牌验证失败");
         }
 
@@ -91,7 +91,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
 
     private Mono<Void> unauthorizedResponse(ServerWebExchange exchange, String msg) {
         log.error("[鉴权异常处理]请求路径:{}", exchange.getRequest().getPath());
-        return ServletUtils.webFluxResponseWriter(exchange.getResponse(), msg, HttpStatus.UNAUTHORIZED);
+        return ServletUtils.webFluxResponseWriter(exchange.getResponse(), msg, HttpStatus.HTTP_UNAUTHORIZED);
     }
 
     /**
@@ -107,8 +107,8 @@ public class AuthFilter implements GlobalFilter, Ordered {
     private String getToken(ServerHttpRequest request) {
         String token = request.getHeaders().getFirst(TokenConstants.AUTHENTICATION);
         // 如果前端设置了令牌前缀，则裁剪掉前缀
-        if (StringUtils.isNotEmpty(token) && token.startsWith(TokenConstants.PREFIX)) {
-            token = token.replaceFirst(TokenConstants.PREFIX, StringUtils.EMPTY);
+        if (StrUtil.isNotEmpty(token) && token.startsWith(TokenConstants.PREFIX)) {
+            token = token.replaceFirst(TokenConstants.PREFIX, StrUtil.EMPTY);
         }
         return token;
     }

@@ -1,12 +1,13 @@
 package com.jcm.common.security.service;
 
+import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.ObjUtil;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.common.core.constant.CacheConstants;
 import com.jcm.common.core.constant.SecurityConstants;
 import com.jcm.common.core.utils.JwtUtils;
 import com.jcm.common.core.utils.ServletUtils;
-import com.jcm.common.core.utils.StringUtils;
 import com.jcm.common.core.utils.ip.IpUtils;
-import com.jcm.common.core.utils.uuid.IdUtils;
 import com.jcm.common.redis.service.RedisService;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.system.api.model.LoginUser;
@@ -41,7 +42,7 @@ public class TokenService {
      * 创建令牌
      */
     public Map<String, Object> createToken(LoginUser loginUser) {
-        String token = IdUtils.fastUUID();
+        String token = IdUtil.fastUUID();
         Long userId = loginUser.getSysUser().getUserId();
         String userName = loginUser.getSysUser().getUsername();
         loginUser.setToken(token);
@@ -76,7 +77,7 @@ public class TokenService {
      * 设置用户身份信息
      */
     public void setLoginUser(LoginUser loginUser) {
-        if (StringUtils.isNotNull(loginUser) && StringUtils.isNotEmpty(loginUser.getToken())) {
+        if (ObjUtil.isNotNull(loginUser) && StrUtil.isNotEmpty(loginUser.getToken())) {
             refreshToken(loginUser);
         }
     }
@@ -100,7 +101,7 @@ public class TokenService {
     public LoginUser getLoginUser(String token) {
         LoginUser user = null;
         try {
-            if (StringUtils.isNotEmpty(token)) {
+            if (StrUtil.isNotEmpty(token)) {
                 String userkey = JwtUtils.getUserKey(token);
                 user = redisService.getCacheObject(getTokenKey(userkey));
                 return user;
@@ -115,7 +116,7 @@ public class TokenService {
      * 删除用户缓存信息
      */
     public void delLoginUser(String token) {
-        if (StringUtils.isNotEmpty(token)) {
+        if (StrUtil.isNotEmpty(token)) {
             String userkey = JwtUtils.getUserKey(token);
             redisService.deleteObject(getTokenKey(userkey));
         }

@@ -25,7 +25,7 @@ public class WebSocketUsers
     /**
      * 用户集
      */
-    private static Map<String, Session> USERS = new ConcurrentHashMap<String, Session>();
+    private static final Map<String, Session> USERS = new ConcurrentHashMap<String, Session>();
 
     /**
      * 存储用户

@@ -24,7 +24,7 @@ public interface RemoteUserService {
      * @return 结果
      */
     @GetMapping("/user/info/{username}")
-    public R<LoginUser> getUserInfo(@PathVariable("username") String username, @RequestHeader(SecurityConstants.FROM_SOURCE) String source);
+    R<LoginUser> getUserInfo(@PathVariable("username") String username, @RequestHeader(SecurityConstants.FROM_SOURCE) String source);
 
     /**
      * 注册用户信息
@@ -34,7 +34,7 @@ public interface RemoteUserService {
      * @return 结果
      */
     @PostMapping("/user/register")
-    public R<Boolean> registerUserInfo(@RequestBody SysUser sysUser, @RequestHeader(SecurityConstants.FROM_SOURCE) String source);
+    R<Boolean> registerUserInfo(@RequestBody SysUser sysUser, @RequestHeader(SecurityConstants.FROM_SOURCE) String source);
 
     /**
      * 修改用户最后登录时间和登录IP
@@ -44,5 +44,5 @@ public interface RemoteUserService {
      * @return 结果
      */
     @PutMapping("/user/changeLoginInfo")
-    public R<Integer> changeLoginInfo(@RequestBody SysUser sysUser, @RequestHeader(SecurityConstants.FROM_SOURCE) String source);
+    R<Integer> changeLoginInfo(@RequestBody SysUser sysUser, @RequestHeader(SecurityConstants.FROM_SOURCE) String source);
 }

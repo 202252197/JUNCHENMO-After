@@ -526,7 +526,7 @@
         pkColumn.javaField
       }
     )
-      ;
+
     }).then(() => {
       getList();
       proxy.

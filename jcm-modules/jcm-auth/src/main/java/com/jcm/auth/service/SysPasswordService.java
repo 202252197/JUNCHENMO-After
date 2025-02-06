@@ -17,8 +17,8 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class SysPasswordService {
     private final RedisService redisService;
-    private int maxRetryCount = CacheConstants.PASSWORD_MAX_RETRY_COUNT;
-    private Long lockTime = CacheConstants.PASSWORD_LOCK_TIME;
+    private final int maxRetryCount = CacheConstants.PASSWORD_MAX_RETRY_COUNT;
+    private final Long lockTime = CacheConstants.PASSWORD_LOCK_TIME;
 
     public SysPasswordService(RedisService redisService) {
         this.redisService = redisService;

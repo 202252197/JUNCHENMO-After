@@ -1,7 +1,7 @@
 package com.jcm.common.mybatis.controller;
 
+import cn.hutool.http.HttpStatus;
 import com.github.pagehelper.PageInfo;
-import com.jcm.common.core.constant.HttpStatus;
 import com.jcm.common.core.web.controller.BaseController;
 import com.jcm.common.core.web.page.TableDataInfo;
 import com.jcm.common.mybatis.utils.PageUtils;
@@ -38,7 +38,7 @@ public class PageBaseController extends BaseController {
     @SuppressWarnings({"rawtypes", "unchecked"})
     protected TableDataInfo getDataTable(List<?> list) {
         TableDataInfo rspData = new TableDataInfo();
-        rspData.setCode(HttpStatus.SUCCESS);
+        rspData.setCode(HttpStatus.HTTP_OK);
         rspData.setRows(list);
         rspData.setMsg("查询成功");
         rspData.setTotal(new PageInfo(list).getTotal());

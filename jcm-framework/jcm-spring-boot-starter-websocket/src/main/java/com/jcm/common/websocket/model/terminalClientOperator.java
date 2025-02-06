@@ -23,5 +23,5 @@ public enum terminalClientOperator {
     public String getValue() {
         return value;
     }
-    private String value;
+    private final String value;
 }

@@ -171,7 +171,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
     public List<SysMenu> getChildPerms(List<SysMenu> list, int parentId) {
         List<SysMenu> returnList = new ArrayList<SysMenu>();
         for (Iterator<SysMenu> iterator = list.iterator(); iterator.hasNext(); ) {
-            SysMenu t = (SysMenu) iterator.next();
+            SysMenu t = iterator.next();
             // 一、根据传入的某个父节点ID,遍历该父节点的所有子节点
             if (t.getParentId() == parentId) {
                 recursionFn(list, t);
@@ -213,7 +213,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         List<SysMenu> tlist = new ArrayList<SysMenu>();
         Iterator<SysMenu> it = list.iterator();
         while (it.hasNext()) {
-            SysMenu n = (SysMenu) it.next();
+            SysMenu n = it.next();
             if (n.getParentId().longValue() == t.getMenuId().longValue()) {
                 tlist.add(n);
             }
@@ -251,11 +251,7 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
      */
     @Override
     public int insertMenu(SysMenu sysMenu) {
-        if (StrUtil.isNotEmpty(sysMenu.getComponent())) {
-            sysMenu.setIsFrame(false);
-        } else {
-            sysMenu.setIsFrame(true);
-        }
+        sysMenu.setIsFrame(!StrUtil.isNotEmpty(sysMenu.getComponent()));
         return sysMenuMapper.insert(sysMenu);
     }
 

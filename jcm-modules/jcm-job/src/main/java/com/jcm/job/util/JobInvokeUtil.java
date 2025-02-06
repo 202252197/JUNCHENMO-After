@@ -1,7 +1,8 @@
 package com.jcm.job.util;
 
-import com.jcm.common.core.utils.SpringUtils;
+import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.extra.spring.SpringUtil;
 import com.jcm.job.domain.SysJob;
 
 import java.lang.reflect.InvocationTargetException;
@@ -27,7 +28,7 @@ public class JobInvokeUtil {
         List<Object[]> methodParams = getMethodParams(invokeTarget);
 
         if (!isValidClassName(beanName)) {
-            Object bean = SpringUtils.getBean(beanName);
+            Object bean = SpringUtil.getBean(beanName);
             invokeMethod(bean, methodName, methodParams);
         } else {
             Object bean = Class.forName(beanName).getDeclaredConstructor().newInstance();
@@ -45,7 +46,7 @@ public class JobInvokeUtil {
     private static void invokeMethod(Object bean, String methodName, List<Object[]> methodParams)
             throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException,
             InvocationTargetException {
-        if (StrUtil.isNotNull(methodParams) && methodParams.size() > 0) {
+        if (ObjectUtil.isNotNull(methodParams) && methodParams.size() > 0) {
             Method method = bean.getClass().getMethod(methodName, getMethodParamsType(methodParams));
             method.invoke(bean, getMethodParamsValue(methodParams));
         } else {
@@ -61,7 +62,7 @@ public class JobInvokeUtil {
      * @return true是 false否
      */
     public static boolean isValidClassName(String invokeTarget) {
-        return StrUtil.countMatches(invokeTarget, ".") > 1;
+        return StrUtil.count(invokeTarget, ".") > 1;
     }
 
     /**
@@ -71,8 +72,8 @@ public class JobInvokeUtil {
      * @return bean名称
      */
     public static String getBeanName(String invokeTarget) {
-        String beanName = StrUtil.substringBefore(invokeTarget, "(");
-        return StrUtil.substringBeforeLast(beanName, ".");
+        String beanName = StrUtil.subBefore(invokeTarget, "(",false);
+        return StrUtil.subBefore(beanName, ".",true);
     }
 
     /**
@@ -82,8 +83,8 @@ public class JobInvokeUtil {
      * @return method方法
      */
     public static String getMethodName(String invokeTarget) {
-        String methodName = StrUtil.substringBefore(invokeTarget, "(");
-        return StrUtil.substringAfterLast(methodName, ".");
+        String methodName = StrUtil.subBefore(invokeTarget, "(",false);
+        return StrUtil.subBefore(methodName, ".",true);
     }
 
     /**
@@ -93,7 +94,7 @@ public class JobInvokeUtil {
      * @return method方法相关参数列表
      */
     public static List<Object[]> getMethodParams(String invokeTarget) {
-        String methodStr = StrUtil.substringBetween(invokeTarget, "(", ")");
+        String methodStr = StrUtil.subBetween(invokeTarget, "(", ")");
         if (StrUtil.isEmpty(methodStr)) {
             return null;
         }
@@ -102,20 +103,20 @@ public class JobInvokeUtil {
         for (int i = 0; i < methodParams.length; i++) {
             String str = StrUtil.trimToEmpty(methodParams[i]);
             // String字符串类型，以'或"开头
-            if (StrUtil.startsWithAny(str, "'", "\"")) {
-                classs.add(new Object[]{StrUtil.substring(str, 1, str.length() - 1), String.class});
+            if (StrUtil.startWithAny(str, "'", "\"")) {
+                classs.add(new Object[]{StrUtil.sub(str, 1, str.length() - 1), String.class});
             }
             // boolean布尔类型，等于true或者false
             else if ("true".equalsIgnoreCase(str) || "false".equalsIgnoreCase(str)) {
                 classs.add(new Object[]{Boolean.valueOf(str), Boolean.class});
             }
             // long长整形，以L结尾
-            else if (StrUtil.endsWith(str, "L")) {
-                classs.add(new Object[]{Long.valueOf(StrUtil.substring(str, 0, str.length() - 1)), Long.class});
+            else if (StrUtil.endWith(str, "L")) {
+                classs.add(new Object[]{Long.valueOf(StrUtil.sub(str, 0, str.length() - 1)), Long.class});
             }
             // double浮点类型，以D结尾
-            else if (StrUtil.endsWith(str, "D")) {
-                classs.add(new Object[]{Double.valueOf(StrUtil.substring(str, 0, str.length() - 1)), Double.class});
+            else if (StrUtil.endWith(str, "D")) {
+                classs.add(new Object[]{Double.valueOf(StrUtil.sub(str, 0, str.length() - 1)), Double.class});
             }
             // 其他类型归类为整形
             else {
@@ -151,7 +152,7 @@ public class JobInvokeUtil {
         Object[] classs = new Object[methodParams.size()];
         int index = 0;
         for (Object[] os : methodParams) {
-            classs[index] = (Object) os[0];
+            classs[index] = os[0];
             index++;
         }
         return classs;

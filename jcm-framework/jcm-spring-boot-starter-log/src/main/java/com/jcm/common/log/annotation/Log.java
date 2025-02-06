@@ -17,25 +17,25 @@ public @interface Log {
     /**
      * 方法名称
      */
-    public String functionName() default "";
+    String functionName() default "";
 
     /**
      * 功能
      */
-    public BusinessType businessType() default BusinessType.OTHER;
+    BusinessType businessType() default BusinessType.OTHER;
 
     /**
      * 是否保存请求的参数
      */
-    public boolean isSaveRequestData() default true;
+    boolean isSaveRequestData() default true;
 
     /**
      * 是否保存响应的参数
      */
-    public boolean isSaveResponseData() default true;
+    boolean isSaveResponseData() default true;
 
     /**
      * 排除指定的请求参数
      */
-    public String[] excludeParamNames() default {};
+    String[] excludeParamNames() default {};
 }

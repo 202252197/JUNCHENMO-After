@@ -1,9 +1,10 @@
 package com.jcm.common.security.interceptor;
 
+import cn.hutool.core.util.ObjUtil;
 import com.jcm.common.core.constant.SecurityConstants;
 import com.jcm.common.core.context.SecurityContextHolder;
 import com.jcm.common.core.utils.ServletUtils;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.common.security.auth.AuthUtil;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.system.api.model.LoginUser;
@@ -31,9 +32,9 @@ public class HeaderInterceptor implements AsyncHandlerInterceptor {
         SecurityContextHolder.setUserKey(ServletUtils.getHeader(request, SecurityConstants.USER_KEY));
 
         String token = SecurityUtils.getToken();
-        if (StringUtils.isNotEmpty(token)) {
+        if (StrUtil.isNotEmpty(token)) {
             LoginUser loginUser = AuthUtil.getLoginUser(token);
-            if (StringUtils.isNotNull(loginUser)) {
+            if (ObjUtil.isNotNull(loginUser)) {
                 AuthUtil.verifyLoginUserExpire(loginUser);
                 SecurityContextHolder.set(SecurityConstants.LOGIN_USER, loginUser);
             }

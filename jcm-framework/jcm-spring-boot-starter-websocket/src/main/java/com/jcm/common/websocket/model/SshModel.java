@@ -4,6 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson2.JSONArray;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 // 假设这些工具类存在
@@ -33,7 +34,7 @@ class FileUtil {
 }
 
 class CharsetUtil {
-    public static final Charset CHARSET_UTF_8 = Charset.forName("UTF-8");
+    public static final Charset CHARSET_UTF_8 = StandardCharsets.UTF_8;
 }
 
 /**

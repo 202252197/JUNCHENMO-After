@@ -1,5 +1,6 @@
 package com.jcm.job.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.hutool.core.util.StrUtil;
@@ -50,8 +51,8 @@ public class SysJobLogServiceImpl extends ServiceImpl<SysJobLogMapper, SysJobLog
         queryWrapper.eq(StrUtil.isNotEmpty(sysJobLog.getJobGroup()), SysJobLog::getJobGroup, sysJobLog.getJobGroup());
         queryWrapper.eq(StrUtil.isNotEmpty(sysJobLog.getStatus()), SysJobLog::getStatus, sysJobLog.getStatus());
         if (Objects.nonNull(sysJobLog.getParams())) {
-            queryWrapper.ge(StrUtil.isNotNull(sysJobLog.getParams().get("beginExecuteTime")), SysJobLog::getExecuteTime, sysJobLog.getParams().get("beginExecuteTime"))
-                    .le(Objects.nonNull(sysJobLog.getParams()) && StrUtil.isNotNull(sysJobLog.getParams().get("endExecuteTime")), SysJobLog::getExecuteTime, sysJobLog.getParams().get("endExecuteTime"));
+            queryWrapper.ge(ObjectUtil.isNotNull(sysJobLog.getParams().get("beginExecuteTime")), SysJobLog::getExecuteTime, sysJobLog.getParams().get("beginExecuteTime"))
+                    .le(Objects.nonNull(sysJobLog.getParams()) && ObjectUtil.isNotNull(sysJobLog.getParams().get("endExecuteTime")), SysJobLog::getExecuteTime, sysJobLog.getParams().get("endExecuteTime"));
         }
         queryWrapper.orderByDesc(SysJobLog::getExecuteTime);
         return sysJobLogMapper.selectList(queryWrapper);

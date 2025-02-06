@@ -107,7 +107,7 @@ class ISysUserServiceTest {
     static class MyThread implements Runnable {
 
         @Getter
-        private Integer name;
+        private final Integer name;
 
         public MyThread(Integer name) {
             this.name = name;

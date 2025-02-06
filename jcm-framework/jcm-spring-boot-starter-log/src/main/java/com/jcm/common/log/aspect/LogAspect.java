@@ -1,9 +1,10 @@
 package com.jcm.common.log.aspect;
 
+import cn.hutool.core.util.ObjUtil;
 import com.alibaba.fastjson2.JSON;
 import com.jcm.common.core.context.SecurityContextHolder;
 import com.jcm.common.core.utils.ServletUtils;
-import com.jcm.common.core.utils.StringUtils;
+import cn.hutool.core.util.StrUtil;
 import com.jcm.common.core.utils.ip.IpUtils;
 import com.jcm.common.log.annotation.BusinessName;
 import com.jcm.common.log.annotation.Log;
@@ -109,14 +110,13 @@ public class LogAspect {
             operLog.setOperIp(IpUtils.getIpAddr());
             // 请求的IP地区
             String cityInfo = IpUtils.getCityInfo("49.93.248.176");
-            if (StringUtils.isNotEmpty(cityInfo) && cityInfo.split("\\|").length == 5) {
+            if (StrUtil.isNotEmpty(cityInfo) && cityInfo.split("\\|").length == 5) {
                 String[] cityInfoArr = cityInfo.split("\\|");
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(cityInfoArr[0] + "-")
-                        .append(cityInfoArr[2] + "-")
-                        .append(cityInfoArr[3] + "-")
-                        .append("(" + cityInfoArr[4] + ")");
-                operLog.setOperLocation(stringBuffer.toString());
+                String stringBuffer = cityInfoArr[0] + "-" +
+                        cityInfoArr[2] + "-" +
+                        cityInfoArr[3] + "-" +
+                        "(" + cityInfoArr[4] + ")";
+                operLog.setOperLocation(stringBuffer);
             }
             // 设置请求发起的时间
             // 将long类型的时间戳转换为Instant对象,使用系统默认时区将Instant对象转换为LocalDateTime对象
@@ -126,9 +126,9 @@ public class LogAspect {
             operLog.setDescription(LOG_DESCRIPTION_LOCAL.get());
             operLog.setDescriptionHtml(LOG_DESCRIPTION_HTML_LOCAL.get());
             // 请求的URL
-            operLog.setOperUrl(StringUtils.substring(ServletUtils.getRequest().getRequestURI(), 0, 255));
+            operLog.setOperUrl(StrUtil.sub(ServletUtils.getRequest().getRequestURI(), 0, 255));
             String username = SecurityContextHolder.getUserName();
-            if (StringUtils.isNotBlank(username)) {
+            if (StrUtil.isNotBlank(username)) {
                 // 操作人员名称
                 operLog.setOperName(username);
             }
@@ -137,8 +137,8 @@ public class LogAspect {
                 // 操作状态
                 operLog.setStatus(BusinessStatus.FAIL.ordinal());
                 // 错误信息
-                operLog.setErrorMsg(StringUtils.substring(e.getMessage(), 0, 2000));
-                operLog.setErrorMsgHtml(StyleCover.getStyleErrorSpan(StringUtils.substring(e.getMessage(), 0, 2000)));
+                operLog.setErrorMsg(StrUtil.sub(e.getMessage(), 0, 2000));
+                operLog.setErrorMsgHtml(StyleCover.getStyleErrorSpan(StrUtil.sub(e.getMessage(), 0, 2000)));
             }
             // 设置类名和方法名称
             String className = joinPoint.getTarget().getClass().getName();
@@ -181,8 +181,8 @@ public class LogAspect {
             setRequestValue(joinPoint, operLog, log.excludeParamNames());
         }
         // 是否需要保存response，参数和值
-        if (log.isSaveResponseData() && StringUtils.isNotNull(jsonResult)) {
-            operLog.setJsonResult(StringUtils.substring(JSON.toJSONString(jsonResult), 0, 2000));
+        if (log.isSaveResponseData() && ObjUtil.isNotNull(jsonResult)) {
+            operLog.setJsonResult(StrUtil.sub(JSON.toJSONString(jsonResult), 0, 2000));
         }
     }
 
@@ -213,12 +213,12 @@ public class LogAspect {
 
         String requestMethod = operLog.getRequestMethod();
         Map<?, ?> paramsMap = ServletUtils.getParamMap(ServletUtils.getRequest());
-        if (StringUtils.isEmpty(paramsMap)
+        if (ObjUtil.isEmpty(paramsMap)
                 && (HttpMethod.PUT.name().equals(requestMethod) || HttpMethod.POST.name().equals(requestMethod))) {
             String params = argsArrayToString(joinPoint.getArgs(), excludeParamNames);
-            operLog.setOperParam(StringUtils.substring(params, 0, 2000));
+            operLog.setOperParam(StrUtil.sub(params, 0, 2000));
         } else {
-            operLog.setOperParam(StringUtils.substring(JSON.toJSONString(paramsMap, excludePropertyPreFilter(excludeParamNames)), 0, 2000));
+            operLog.setOperParam(StrUtil.sub(JSON.toJSONString(paramsMap, excludePropertyPreFilter(excludeParamNames)), 0, 2000));
         }
     }
 
@@ -227,12 +227,12 @@ public class LogAspect {
      */
     private String argsArrayToString(Object[] paramsArray, String[] excludeParamNames) {
         String params = "";
-        if (paramsArray != null && paramsArray.length > 0) {
+        if (paramsArray != null) {
             for (Object o : paramsArray) {
-                if (StringUtils.isNotNull(o) && !isFilterObject(o)) {
+                if (ObjUtil.isNotNull(o) && !isFilterObject(o)) {
                     try {
                         String jsonObj = JSON.toJSONString(o, excludePropertyPreFilter(excludeParamNames));
-                        params += jsonObj.toString() + " ";
+                        params += jsonObj + " ";
                     } catch (Exception e) {
                     }
                 }
