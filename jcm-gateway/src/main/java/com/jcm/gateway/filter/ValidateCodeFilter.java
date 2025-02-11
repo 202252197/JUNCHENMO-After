@@ -1,9 +1,9 @@
 package com.jcm.gateway.filter;
 
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import com.jcm.common.core.utils.ServletUtils;
-import cn.hutool.core.util.StrUtil;
 import com.jcm.gateway.config.properties.CaptchaProperties;
 import com.jcm.gateway.service.ValidateCodeService;
 import org.springframework.beans.factory.annotation.Autowired;

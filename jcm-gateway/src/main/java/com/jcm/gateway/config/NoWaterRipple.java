@@ -5,7 +5,6 @@ import com.google.code.kaptcha.util.Configurable;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 
 /**
  * 没有水波纹

@@ -4,7 +4,7 @@ import com.alibaba.dashscope.exception.ApiException;
 import com.jcm.common.core.constant.OperationNameConstants;
 import com.jcm.common.core.web.domain.AjaxResult;
 import com.jcm.common.log.annotation.BusinessName;
-import com.jcm.gen.configuration.TableGeneratorConfig;
+import com.jcm.gen.config.TableGeneratorConfig;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

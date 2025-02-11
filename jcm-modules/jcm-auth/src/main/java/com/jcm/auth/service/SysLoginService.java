@@ -89,11 +89,6 @@ public class SysLoginService {
         return userInfo;
     }
 
-//    public void logout(String loginName)
-//    {
-//        recordLogService.recordLogininfor(loginName, Constants.LOGOUT, "退出成功");
-//    }
-
     /**
      * 注册
      */
@@ -121,11 +116,11 @@ public class SysLoginService {
         if (R.FAIL == registerResult.getCode()) {
             throw new ServiceException(registerResult.getMsg());
         }
-//        recordLogService.recordLogininfor(username, Constants.REGISTER, "注册成功");
+        recordLogService.recordLogininfor(username, Constants.REGISTER, "注册成功");
     }
 
     public void logout(String loginName) {
-//        recordLogService.recordLogininfor(loginName, Constants.LOGOUT, "退出成功");
+        recordLogService.recordLogininfor(loginName, Constants.LOGOUT, "退出成功");
     }
 
 }

@@ -1,10 +1,9 @@
 package com.jcm.auth.controller;
 
+import cn.hutool.core.util.StrUtil;
 import com.jcm.auth.form.LoginBody;
 import com.jcm.auth.service.SysLoginService;
 import com.jcm.common.core.domain.R;
-import com.jcm.common.core.utils.JwtUtils;
-import cn.hutool.core.util.StrUtil;
 import com.jcm.common.security.auth.AuthUtil;
 import com.jcm.common.security.service.TokenService;
 import com.jcm.common.security.utils.SecurityUtils;
@@ -48,7 +47,6 @@ public class TokenController {
     public R<?> logout(HttpServletRequest request) {
         String token = SecurityUtils.getToken(request);
         if (StrUtil.isNotEmpty(token)) {
-            String username = JwtUtils.getUserName(token);
             // 删除用户缓存记录
             AuthUtil.logoutByToken(token);
         }

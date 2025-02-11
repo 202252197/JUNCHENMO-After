@@ -53,10 +53,8 @@
             <groupId>com.junchenmo</groupId>
             <artifactId>jcm-spring-boot-starter-security</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.junchenmo</groupId>
-            <artifactId>jcm-spring-boot-starter-mybatis</artifactId>
-        </dependency>
+
+
     </dependencies>
 
     <build>

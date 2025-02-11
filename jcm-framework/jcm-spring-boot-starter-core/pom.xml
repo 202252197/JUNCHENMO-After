@@ -42,11 +42,6 @@
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
 
-<!--        &lt;!&ndash; Spring Context Support &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework</groupId>-->
-<!--            <artifactId>spring-context-support</artifactId>-->
-<!--        </dependency>-->
 
         <!-- Spring Web -->
         <dependency>

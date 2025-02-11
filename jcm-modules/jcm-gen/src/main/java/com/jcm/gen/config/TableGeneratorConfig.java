@@ -1,8 +1,10 @@
-package com.jcm.gen.configuration;
+package com.jcm.gen.config;
 
-import com.alibaba.dashscope.aigc.conversation.Conversation;
+import cn.hutool.core.lang.UUID;
 import com.alibaba.dashscope.aigc.conversation.ConversationParam;
-import com.alibaba.dashscope.aigc.conversation.ConversationResult;
+import com.alibaba.dashscope.aigc.generation.Generation;
+import com.alibaba.dashscope.aigc.generation.GenerationParam;
+import com.alibaba.dashscope.aigc.generation.GenerationResult;
 import com.alibaba.dashscope.common.Message;
 import com.alibaba.dashscope.common.Role;
 import com.alibaba.dashscope.exception.ApiException;
@@ -10,21 +12,21 @@ import com.alibaba.dashscope.exception.InputRequiredException;
 import com.alibaba.dashscope.exception.NoApiKeyException;
 import com.alibaba.fastjson2.JSONObject;
 import com.jcm.common.redis.service.RedisService;
-import io.reactivex.Flowable;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author lvshihao
  */
 @Component
 @AllArgsConstructor
+@Slf4j
 public class TableGeneratorConfig {
 
     /**
@@ -96,7 +98,7 @@ public class TableGeneratorConfig {
 
         // 将jsonObj转换成Message
         List<Message> messages = new ArrayList<>();
-        messageList.stream().forEach(jsonObject -> {
+        messageList.forEach(jsonObject -> {
             Message message = new Message();
             message.setRole(String.valueOf(jsonObject.get("role")));
             message.setContent(String.valueOf(jsonObject.get("content")));
@@ -107,33 +109,24 @@ public class TableGeneratorConfig {
                 .apiKey(properties.getApiKey())
                 .model(properties.getModel())
                 .messages(messages)
+                .resultFormat(GenerationParam.ResultFormat.MESSAGE)
                 .build();
-        Conversation gen = new Conversation();
-        Flowable<ConversationResult> result = gen.streamCall(param);
+        Generation gen = new Generation();
+        GenerationResult result = gen.call(param);
 
-        List<String> tests = new ArrayList<>();
-        AtomicReference<String> requestIdRef = new AtomicReference<>(requestId);
-        result.blockingForEach(msg -> {
-            if (!isAfterward) {
-                requestIdRef.set(msg.getRequestId());
-            }
-            String text = msg.getOutput().getText();
-            tests.add(text);
-        });
-
-        // 获取更新后的requestId
-        requestId = requestIdRef.get();
+        String uuid = UUID.fastUUID().toString();
+        String content = result.getOutput().getChoices().get(0).getMessage().getContent();
 
         // 添加助手消息
         JSONObject assistant = new JSONObject();
         assistant.put("role", Role.ASSISTANT.getValue());
-        assistant.put("content", tests.get(tests.size() - 1));
+        assistant.put("content", content);
         messageList.add(assistant);
 
         // 保存消息列表到Redis
-        redisService.setCacheList("aiTable:" + requestId, messageList);
-        data.put("context", tests.get(tests.size() - 1));
-        data.put("requestId", requestId);
+        redisService.setCacheList("aiTable:" + uuid, messageList);
+        data.put("context",content);
+        data.put("requestId", uuid);
         return data;
     }
 
@@ -153,16 +146,13 @@ public class TableGeneratorConfig {
                     .model(properties.getModel())
                     .messages(Arrays.asList(system, user))
                     .build();
-            Conversation gen = new Conversation();
-            Flowable<ConversationResult> result = gen.streamCall(param);
+            Generation gen = new Generation();
+            GenerationResult result = gen.call(param);
 
-            List<String> tests = new ArrayList<>();
-            result.blockingForEach(msg -> {
-                String text = msg.getOutput().getText();
-                tests.add(text);
-            });
-            System.out.println("返回数据:\n" + tests.get(tests.size() - 1));
-            return tests.get(tests.size() - 1);
+            String content = result.getOutput().getChoices().get(0).getMessage().getContent();
+
+            System.out.println("返回数据:\n" + content);
+            return content;
         } catch (ApiException | NoApiKeyException | InputRequiredException e) {
             System.err.println("错误信息：" + e.getMessage());
             System.out.println("请参考文档：https://help.aliyun.com/zh/model-studio/developer-reference/error-code");

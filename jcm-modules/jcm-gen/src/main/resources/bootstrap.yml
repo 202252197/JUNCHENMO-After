@@ -13,7 +13,7 @@ management:
 jcm:
   ai:
     api-key: sk-a63b307c5b154bdf9293b4ae73b7f276
-    model: qwen-plus
+    model: deepseek-r1-distill-qwen-14b
   swagger:
     title: jcm-gen
     description: 系统模块
