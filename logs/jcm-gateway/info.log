@@ -36,3 +36,49 @@
 19:08:52.561 [reactor-http-nio-9] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/gen/tableGen/genSql
 19:10:30.702 [reactor-http-nio-2] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/system/dict-data/getInfoByNames
 19:11:39.807 [reactor-http-nio-5] INFO  c.j.g.f.CacheRequestFilter - [lambda$filter$1,85] - 请求拦截器; url=http://localhost:8080/gen/tableGen/genSql
+19:21:11.019 [lettuce-nioEventLoop-5-1] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+19:21:11.019 [lettuce-nioEventLoop-5-2] INFO  i.l.c.p.CommandHandler - [log,217] - null Unexpected exception during request: java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at java.base/sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.read(SocketDispatcher.java:43)
+	at java.base/sun.nio.ch.IOUtil.readIntoNativeBuffer(IOUtil.java:276)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:233)
+	at java.base/sun.nio.ch.IOUtil.read(IOUtil.java:223)
+	at java.base/sun.nio.ch.SocketChannelImpl.read(SocketChannelImpl.java:358)
+	at io.netty.buffer.PooledByteBuf.setBytes(PooledByteBuf.java:254)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:1132)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:357)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:151)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+19:21:11.078 [lettuce-eventExecutorLoop-3-12] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+19:21:11.078 [lettuce-eventExecutorLoop-3-11] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost/127.0.0.1:6379
+19:21:20.072 [lettuce-eventExecutorLoop-3-12] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost:6379
+19:21:20.072 [lettuce-eventExecutorLoop-3-11] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost:6379
+19:21:28.276 [lettuce-eventExecutorLoop-3-1] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost:6379
+19:21:28.276 [lettuce-eventExecutorLoop-3-2] INFO  i.l.c.p.ConnectionWatchdog - [log,171] - Reconnecting, last destination was localhost:6379
