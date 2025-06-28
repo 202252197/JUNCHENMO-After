@@ -149,7 +149,7 @@ public class TableGeneratorConfig {
             Generation gen = new Generation();
             GenerationResult result = gen.call(param);
 
-            String content = result.getOutput().getChoices().get(0).getMessage().getContent();
+            String content = result.getOutput().getText();
 
             System.out.println("返回数据:\n" + content);
             return content;

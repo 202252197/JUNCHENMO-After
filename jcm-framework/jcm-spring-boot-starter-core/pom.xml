@@ -25,9 +25,17 @@
 
     <dependencies>
 
+        <!-- Jackson 应用于DateFormatConfig  配置时间的序列化和反序列化-->
         <dependency>
-            <groupId>com.jcm.kit</groupId>
-            <artifactId>jcm-third-party</artifactId>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
 
         <!-- SpringCloud Openfeign -->

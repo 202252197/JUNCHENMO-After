@@ -27,6 +27,13 @@ spring:
   profiles:
     # 环境配置
     active: dev
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DATABASE:junchenmo}?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=GMT%2B8
+      username: ${MYSQL_USERNAME:root}
+      password: ${MYSQL_PASSWORD:lvshihao}
+      driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     nacos:
       discovery:

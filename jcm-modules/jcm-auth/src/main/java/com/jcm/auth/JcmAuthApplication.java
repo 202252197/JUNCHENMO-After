@@ -7,8 +7,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * @author lvshihao
  */
-@EnableFeignClients("com.jcm.system.api")
 @SpringBootApplication
+@EnableFeignClients("com.jcm.system.api")
 public class JcmAuthApplication {
     public static void main(String[] args) {
         SpringApplication.run(JcmAuthApplication.class, args);

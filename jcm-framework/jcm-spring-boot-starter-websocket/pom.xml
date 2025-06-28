@@ -29,10 +29,6 @@
             <artifactId>jcm-spring-boot-starter-core</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.jcm.kit</groupId>
-            <artifactId>jcm-third-party</artifactId>
-        </dependency>
     </dependencies>
 
 </project>

@@ -8,11 +8,13 @@ import cn.hutool.core.util.StrUtil;
 import com.jcm.common.security.auth.AuthUtil;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.system.api.model.LoginUser;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.AsyncHandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Set;
 
 /**
  * 自定义请求头拦截器，将Header数据封装到线程变量中方便获取
@@ -20,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author junchenmo
  */
+@Slf4j
 public class HeaderInterceptor implements AsyncHandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -36,6 +39,9 @@ public class HeaderInterceptor implements AsyncHandlerInterceptor {
             LoginUser loginUser = AuthUtil.getLoginUser(token);
             if (ObjUtil.isNotNull(loginUser)) {
                 AuthUtil.verifyLoginUserExpire(loginUser);
+                log.info("用户访问接口通过token设置的用户信息");
+                Set<String> permissions = loginUser.getPermissions();
+                permissions.forEach(permission -> log.info(permission));
                 SecurityContextHolder.set(SecurityConstants.LOGIN_USER, loginUser);
             }
         }

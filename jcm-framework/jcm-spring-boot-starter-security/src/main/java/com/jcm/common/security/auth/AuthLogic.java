@@ -13,6 +13,7 @@ import com.jcm.common.security.annotation.RequiresRoles;
 import com.jcm.common.security.service.TokenService;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.system.api.model.LoginUser;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.PatternMatchUtils;
 
 import java.util.Collection;
@@ -24,6 +25,7 @@ import java.util.Set;
  *
  * @author junchenmo
  */
+@Slf4j
 public class AuthLogic {
     /**
      * 所有权限标识
@@ -291,6 +293,9 @@ public class AuthLogic {
     public Set<String> getPermiList() {
         try {
             LoginUser loginUser = getLoginUser();
+            log.info("用户权限:");
+            Set<String> permissions = loginUser.getPermissions();
+            permissions.stream().forEach( permission -> log.info("{}", permission));
             return loginUser.getPermissions();
         } catch (Exception e) {
             return new HashSet<>();

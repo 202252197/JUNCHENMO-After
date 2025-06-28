@@ -41,7 +41,7 @@
         <ip2region.version>2.7.0</ip2region.version>
         <knife4j.version>3.0.3</knife4j.version>
         <!--集成阿里大模型-->
-        <dashscope.version>2.17.0</dashscope.version>
+        <dashscope.version>2.20.6</dashscope.version>
         <!--系统信息收集-->
         <oshi.version>6.4.2</oshi.version>
         <!--excel导入导出-->
@@ -84,15 +84,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <!-- jcm工具包 依赖配置 -->
-            <dependency>
-                <groupId>com.jcm.kit</groupId>
-                <artifactId>jcm-kit</artifactId>
-                <version>${jcm.kit.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

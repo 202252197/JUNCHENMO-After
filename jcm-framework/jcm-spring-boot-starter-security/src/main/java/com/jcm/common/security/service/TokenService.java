@@ -11,9 +11,9 @@ import com.jcm.common.core.utils.ip.IpUtils;
 import com.jcm.common.redis.service.RedisService;
 import com.jcm.common.security.utils.SecurityUtils;
 import com.jcm.system.api.model.LoginUser;
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +27,7 @@ import java.util.concurrent.TimeUnit;
  * @author junchenmo
  */
 @Component
+@AllArgsConstructor
 public class TokenService {
     protected static final long MILLIS_SECOND = 1000;
     protected static final long MILLIS_MINUTE = 60 * MILLIS_SECOND;
@@ -35,9 +36,7 @@ public class TokenService {
     private final static long expireTime = CacheConstants.EXPIRATION;
 
     private final static String ACCESS_TOKEN = CacheConstants.LOGIN_TOKEN_KEY;
-    @Autowired
-    private RedisService redisService;
-
+    private final RedisService redisService;
     /**
      * 创建令牌
      */
@@ -49,6 +48,8 @@ public class TokenService {
         loginUser.setUserid(userId);
         loginUser.setUsername(userName);
         loginUser.setIpaddr(IpUtils.getIpAddr());
+
+
         refreshToken(loginUser);
 
         // Jwt存储信息
